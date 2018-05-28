@@ -11,6 +11,9 @@
 " Syntax are located in *.vim files, e.g. : "java.vim", try "locate java.vim" 
 :syntax on
 
+" Highlight result of searches
+:set hlsearch
+
 " Use pathogen as plugin manager
 " Uses folders "autoload" and "bundle"
 " Future plugins should be added in bundle folder using command submodule, e.g.:
