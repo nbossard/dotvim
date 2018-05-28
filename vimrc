@@ -13,4 +13,6 @@
 
 " Use pathogen as plugin manager
 " Uses folders "autoload" and "bundle"
+" Future plugins should be added in bundle folder using command submodule, e.g.:
+" git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
 execute pathogen#infect()
