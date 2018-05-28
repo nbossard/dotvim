@@ -10,3 +10,7 @@
 " Allow syntax coloring
 " Syntax are located in *.vim files, e.g. : "java.vim", try "locate java.vim" 
 :syntax on
+
+" Use pathogen as plugin manager
+" Uses folders "autoload" and "bundle"
+execute pathogen#infect()
