@@ -13,6 +13,9 @@
 
 " Highlight result of searches
 :set hlsearch
+" Search is by default ignorecase
+:set ignorecase
+
 
 " Use pathogen as plugin manager
 " Uses folders "autoload" and "bundle"
