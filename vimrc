@@ -16,6 +16,10 @@
 " Search is by default ignorecase
 :set ignorecase
 
+" NERDTree related
+" Make NERDTree show hidden files by default
+let NERDTreeShowHidden=1
+
 
 " Use pathogen as plugin manager
 " Uses folders "autoload" and "bundle"
