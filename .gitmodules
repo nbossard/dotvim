@@ -1,6 +1,6 @@
-[submodule "bundle/vim-gitgutter"]
-	path = bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+[submodule "pack/thirdparty/start/nerdtree"]
+	path = pack/thirdparty/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/thirdparty/start/vim-gitgutter"]
+	path = pack/thirdparty/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
