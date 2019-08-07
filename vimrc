@@ -22,8 +22,11 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'posva/vim-vue'
 Plugin 'scrooloose/nerdtree'
+" To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
-		
+" To improve status line
+Plugin 'vim-airline/vim-airline'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
