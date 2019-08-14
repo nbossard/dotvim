@@ -26,6 +26,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 " To improve status line
 Plugin 'vim-airline/vim-airline'
+" To open an URL in a browser
+Plugin 'tyru/open-browser.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,6 +45,15 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 "-----------------------END OF VUNDLE CONFIG---------------------
+
+"---------------- open-browser config -----------------
+" My setting.
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+"---------------- ENDOF open-browser config -----------------
+
+
 
 " Display line number in left gutter
 :set number
