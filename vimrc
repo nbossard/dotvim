@@ -28,6 +28,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 " To open an URL in a browser
 Plugin 'tyru/open-browser.vim'
+" To support PlantUml File syntax
+Plugin 'aklt/plantuml-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
