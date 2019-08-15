@@ -30,6 +30,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tyru/open-browser.vim'
 " To support PlantUml File syntax
 Plugin 'aklt/plantuml-syntax'
+" To support various lint
+Plugin 'dense-analysis/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
