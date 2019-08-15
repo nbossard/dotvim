@@ -77,3 +77,7 @@ let NERDTreeShowHidden=1
 
 " To Fix backspace not working in insert mode (on Mac ?)
 set bs=2
+
+" To use find command esasily in VIM (requires path to be set)
+set path=$PWD/**
+
