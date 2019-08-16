@@ -85,3 +85,8 @@ set bs=2
 " To use find command esasily in VIM (requires path to be set)
 set path=$PWD/**
 
+" To display spaces and change colors
+" SpecialKey is the name of group including spaces, 
+" ctermfg => color terminal  foreground
+set list listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
+highlight SpecialKey ctermfg=DarkGray
