@@ -90,3 +90,7 @@ set path=$PWD/**
 " ctermfg => color terminal  foreground
 set list listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 highlight SpecialKey ctermfg=DarkGray
+
+" Set the hidden option so any buffer can be hidden (keeping its changes) without first writing the buffer to a file.
+" This affects all commands and all buffers.
+:set hidden
