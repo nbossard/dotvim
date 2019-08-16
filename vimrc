@@ -36,6 +36,8 @@ Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-fugitive'
 " to allow fuzzy search of files
 Plugin 'ctrlpvim/ctrlp.vim'
+" to allow usage of templates on new files
+Plugin 'aperezdc/vim-template'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
