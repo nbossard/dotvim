@@ -32,6 +32,8 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'aklt/plantuml-syntax'
 " To support various lint
 Plugin 'dense-analysis/ale'
+" Git plugin to embed git command in vim
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
