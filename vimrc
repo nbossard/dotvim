@@ -21,7 +21,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'posva/vim-vue'
+"To have a browser for files on left panel
 Plugin 'scrooloose/nerdtree'
+" To open file using System from Nerdtree
+Plugin 'ivalkeen/nerdtree-execute'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
 " To improve status line
