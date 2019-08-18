@@ -102,3 +102,6 @@ highlight SpecialKey ctermfg=DarkGray
 " Set the hidden option so any buffer can be hidden (keeping its changes) without first writing the buffer to a file.
 " This affects all commands and all buffers.
 :set hidden
+
+"Quick file search mapped on F4, opens quickwin window
+map <F4> :execute "vimgrep /" . expand("<cWORD>") . "/j **" <Bar> cw<CR>
