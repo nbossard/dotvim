@@ -52,6 +52,11 @@ Plugin 'moll/vim-bbye'
 " See : https://github.com/kshenoy/vim-signature
 Plugin 'kshenoy/vim-signature'
 
+"Adding a light theme similar to GitHub
+"Usage : :colorscheme github
+"See color schemes list : :colorscheme <ctrl+d>
+Bundle 'acarapetis/vim-colors-github'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
