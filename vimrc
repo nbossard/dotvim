@@ -32,6 +32,8 @@ Plugin 'airblade/vim-gitgutter'
 " To improve status line
 Plugin 'vim-airline/vim-airline'
 " To open an URL in a browser
+" See doc at : https://www.vim.org/scripts/script.php?script_id=3133
+" Command : gx
 Plugin 'tyru/open-browser.vim'
 " To support PlantUml File syntax
 Plugin 'aklt/plantuml-syntax'
