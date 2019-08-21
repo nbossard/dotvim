@@ -117,3 +117,9 @@ highlight SpecialKey ctermfg=DarkGray
 
 "Quick file search mapped on F4, opens quickwin window
 map <F4> :execute "vimgrep /" . expand("<cWORD>") . "/j **" <Bar> cw<CR>
+
+" Allowing per project configuration
+" For example to have a custom spellfile
+" See https://andrew.stwrt.ca/posts/project-specific-vimrc/
+set exrc
+set secure
