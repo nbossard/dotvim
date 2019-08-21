@@ -25,6 +25,8 @@ Plugin 'posva/vim-vue'
 Plugin 'scrooloose/nerdtree'
 " To open file using System from Nerdtree
 Plugin 'ivalkeen/nerdtree-execute'
+" To show git changed files in Nerdtree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
 " To improve status line
