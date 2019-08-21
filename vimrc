@@ -48,6 +48,9 @@ Plugin 'aperezdc/vim-template'
 " To close buffer without closing window
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
+" To displays marks in gutter
+" See : https://github.com/kshenoy/vim-signature
+Plugin 'kshenoy/vim-signature'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
