@@ -1,14 +1,14 @@
-" Nicolas Bossard, 28th may 2018, personal syntax for VIM editor
-" Saved in git for history and for sharing accross computers.
+" Nicolas Bossard, 28Th may 2018, personal syntax for VIM editor
+" Saved in git for history and for sharing across computers.
 " As described here : 
 " See README.md for configuration.
 
 "---------------------- VUNDLE CONFIG -----------------------
 
-set nocompatible              " be iMproved, required
+set nocompatible              " be improved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" set the run time path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -79,7 +79,7 @@ filetype plugin indent on    " required
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-"---------------- ENDOF open-browser config -----------------
+"---------------- END OF open-browser config -----------------
 
 
 
