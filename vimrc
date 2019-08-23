@@ -23,6 +23,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 "syntax highlighting for Vue components.
 Plugin 'posva/vim-vue'
+"Syntax highlighting for js files
+Plugin 'vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+
 "To have a browser for files on left panel
 Plugin 'scrooloose/nerdtree'
 " To open file using System from Nerdtree
