@@ -57,6 +57,10 @@ Plugin 'moll/vim-bbye'
 " To displays marks in gutter
 " See : https://github.com/kshenoy/vim-signature
 Plugin 'kshenoy/vim-signature'
+" Plugin to take notes
+Plugin 'xolox/vim-notes'
+" Required by plugin vim-notes
+Plugin 'xolox/vim-misc'
 
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
