@@ -133,3 +133,8 @@ map <F4> :execute "vimgrep /" . expand("<cWORD>") . "/j **" <Bar> cw<CR>
 " See https://andrew.stwrt.ca/posts/project-specific-vimrc/
 set exrc
 set secure
+
+" Excluding node_modules folder
+" cause it slowdowns ctr-P
+" Should  be in local .vimrc but does not work
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
