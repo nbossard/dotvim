@@ -29,9 +29,9 @@ let g:javascript_plugin_jsdoc = 1
 
 "To have a browser for files on left panel
 Plugin 'scrooloose/nerdtree'
-" To open file using System from Nerdtree
+" To open file using System from NERDTree
 Plugin 'ivalkeen/nerdtree-execute'
-" To show git changed files in Nerdtree
+" To show git changed files in NERDTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
@@ -41,7 +41,7 @@ Plugin 'vim-airline/vim-airline'
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
 " Command : gx
 Plugin 'tyru/open-browser.vim'
-" To support PlantUml File syntax
+" To support PlantUML File syntax
 Plugin 'aklt/plantuml-syntax'
 " To support various lint
 Plugin 'dense-analysis/ale'
