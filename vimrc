@@ -64,6 +64,50 @@ Plugin 'yaasita/edit-slack.vim'
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
 
+" Adding you complete me for super completion
+"Compiled using : -~/.vim/bundle/YouCompleteMe
+" ./install.py --go-completer --ts-completer --java-completer
+Plugin 'ycm-core/YouCompleteMe'
+let mapleader=","
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+" Disabling lint cause ALE already does it
+let g:ycm_show_diagnostics_ui = 0
+" Make you complet me support vue files
+" DOES NOT WORK autocmd BufEnter,BufRead *.vue set filetype=vue.javascript
+"https://github.com/ycm-core/lsp-examples
+Plugin 'ycm-core/lsp-examples'
+let g:ycm_keep_logfiles = 1
+let g:ycm_log_level = 'debug'
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'yaml',
+  \     'cmdline': [ 'node', expand( '$HOME/.vim/bundle/lsp-examples/yaml/node_modules/.bin/yaml-language-server' ), '--stdio' ],
+  \     'filetypes': [ 'yaml' ],
+  \   },
+  \   {
+  \     'name': 'json',
+  \     'cmdline': [ 'node', expand( '$HOME/.vim/bundle/lsp-examples/json/node_modules/.bin/vscode-json-languageserver' ), '--stdio' ],
+  \     'filetypes': [ 'json' ],
+  \   },
+  \   { 'name': 'kotlin',
+  \     'filetypes': [ 'kotlin' ], 
+  \     'cmdline': [ expand( '$HOME/.vim/bundle/lsp-examples/kotlin/server/build/install/server/bin/server' ) ],
+  \   },
+  \   { 'name': 'docker',
+  \     'filetypes': [ 'dockerfile' ], 
+  \     'cmdline': [ expand( '$HOME/.vim/bundle/lsp-examples/docker/node_modules/.bin/docker-langserver' ), '--stdio' ]
+  \   },
+  \   { 'name': 'vim',
+  \     'filetypes': [ 'vim' ],
+  \     'cmdline': [ expand( '$HOME/.vim/bundle/lsp-examples/viml/node_modules/.bin/vim-language-server' ), '--stdio' ]
+  \   },
+  \   { 'name': 'vue',
+  \     'filetypes': [ 'vue' ], 
+  \     'cmdline': [ 'vls', '--stdio' ]
+  \   },
+\ ]
+
+
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
