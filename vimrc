@@ -140,3 +140,6 @@ set secure
 " cause it slowdowns ctr-P
 " Should  be in local .vimrc but does not work
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" Allow search of currently selected text using //
+vnoremap // y/<C-R>"<CR>
