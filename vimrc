@@ -145,3 +145,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Allow search of currently selected text using //
 vnoremap // y/<C-R>"<CR>
+
+" on entering / leaving insert mode, insert a cursor line
+autocmd InsertEnter,InsertLeave * set cul!
