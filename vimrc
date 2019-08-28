@@ -58,7 +58,9 @@ Plugin 'moll/vim-bbye'
 " See : https://github.com/kshenoy/vim-signature
 Plugin 'kshenoy/vim-signature'
 " Plugin to take notes
+" See https://github.com/xolox/vim-notes
 Plugin 'xolox/vim-notes'
+let g:notes_directories = ['~/Documents/NotesVim']
 " To edit slack
 Plugin 'yaasita/edit-slack.vim'
 " Required by plugin vim-notes
