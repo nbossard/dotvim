@@ -89,8 +89,10 @@ autocmd FileType vue setlocal keywordprg=:MdnQuery
 Plugin 'ycm-core/YouCompleteMe'
 let mapleader=","
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-" Disabling lint cause ALE already does it
+" Disabling diagnostic/lint cause ALE already does it
 let g:ycm_show_diagnostics_ui = 0
+" Disable auto trigger, slowing too much ?
+let g:ycm_auto_trigger = 0
 " Make you complet me support vue files
 " DOES NOT WORK autocmd BufEnter,BufRead *.vue set filetype=vue.javascript
 "https://github.com/ycm-core/lsp-examples
