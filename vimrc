@@ -74,6 +74,15 @@ Plugin 'yaasita/edit-slack.vim'
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
 
+" To open javascript MDN directly from vim
+" See : https://github.com/jungomi/vim-mdnquery
+" installation : requires gem install mdn_query
+" Usage : overwrites K key for some filtypes (Javascript)
+"         or :MdnQuery keyword
+Plugin 'jungomi/vim-mdnquery'
+autocmd FileType vue setlocal keywordprg=:MdnQuery
+
+
 " Adding you complete me for super completion
 "Compiled using : -~/.vim/bundle/YouCompleteMe
 " ./install.py --go-completer --ts-completer --java-completer
