@@ -44,7 +44,15 @@ Plugin 'tyru/open-browser.vim'
 " To support PlantUML File syntax
 Plugin 'aklt/plantuml-syntax'
 " To support various lint
+" ALE = Asynchronous Lint Engine
+" See : https://github.com/dense-analysis/ale
+" acts as a Vim Language Server Protocol client
 Plugin 'dense-analysis/ale'
+" changing lint delay from 200ms to ... in order to run less often
+let g:ale_lint_delay=3000
+" NBO : do not try to enable tsserver on vue files, it does not work
+"let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+"let g:ale_linters = {'vue': ['eslint', 'vls', 'tsserver']}
 " Git plugin to embed git command in vim
 Plugin 'tpope/vim-fugitive'
 " to allow fuzzy search of files
