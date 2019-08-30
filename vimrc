@@ -218,3 +218,16 @@ vnoremap // y/<C-R>"<CR>
 
 " on entering / leaving insert mode, insert a cursor line
 autocmd InsertEnter,InsertLeave * set cul!
+
+" Adding live view of substiture command on neovim only
+if exists('&inccommand')
+  set inccommand=split
+endif
+
+" Adding relative numbers in insert mode only
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
