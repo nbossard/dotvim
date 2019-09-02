@@ -88,6 +88,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'jungomi/vim-mdnquery'
 autocmd FileType vue setlocal keywordprg=:MdnQuery
 
+" Adding surround me to use 's' in commands
+Plugin 'tpope/vim-surround'
 
 " Adding you complete me for super completion
 "Compiled using : -~/.vim/bundle/YouCompleteMe
