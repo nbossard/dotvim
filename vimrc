@@ -136,6 +136,9 @@ let g:ycm_language_server = [
   \   },
 \ ]
 
+"Plugin to format on save
+Plugin 'prettier/vim-prettier'
+
 " Plugin to simulate ctrl shift S
 " https://github.com/dyng/ctrlsf.vim
 Plugin 'dyng/ctrlsf.vim'
