@@ -151,6 +151,12 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules']
+let g:ctrlsf_position = 'right'
+let g:ctrlsf_winsize = '33%'
+let g:ctrlsf_auto_focus = {
+    \ "at": "done",
+    \ "duration_less_than": 1000
+    \ }
 
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
