@@ -45,6 +45,9 @@ Plugin 'airblade/vim-gitgutter'
 " To improve status line bar
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+Plugin 'enricobacis/vim-airline-clock'
+
 " To open an URL in a browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
 " Command : gx
