@@ -163,6 +163,9 @@ let g:ctrlsf_auto_focus = {
     \ "duration_less_than": 1000
     \ }
 
+" Adding plugin to highlight trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
