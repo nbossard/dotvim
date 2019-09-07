@@ -1,6 +1,6 @@
 " Nicolas Bossard, 28Th may 2018, personal syntax for VIM editor
 " Saved in git for history and for sharing across computers.
-" As described here : 
+" As described here :
 " See README.md for configuration.
 
 "---------------------- VUNDLE CONFIG -----------------------
@@ -41,7 +41,9 @@ Plugin 'ivalkeen/nerdtree-execute'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
-" To improve status line
+
+" To improve status line bar
+" https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
 " To open an URL in a browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
@@ -193,7 +195,7 @@ vmap gx <Plug>(openbrowser-smart-search)
 :set number
 
 " Allow syntax coloring
-" Syntax are located in *.vim files, e.g. : "java.vim", try "locate java.vim" 
+" Syntax are located in *.vim files, e.g. : "java.vim", try "locate java.vim"
 :syntax on
 
 " Highlight result of searches
@@ -208,11 +210,11 @@ let NERDTreeShowHidden=1
 " To Fix backspace not working in insert mode (on Mac ?)
 set bs=2
 
-" To use find command esasily in VIM (requires path to be set)
+" To use find command easily in VIM (requires path to be set)
 set path=$PWD/**
 
 " To display spaces and change colors
-" SpecialKey is the name of group including spaces, 
+" SpecialKey is the name of group including spaces,
 " ctermfg => color terminal  foreground
 set list listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 highlight SpecialKey ctermfg=DarkGray
@@ -242,7 +244,7 @@ vnoremap // y/<C-R>"<CR>
 " on entering / leaving insert mode, insert a cursor line
 autocmd InsertEnter,InsertLeave * set cul!
 
-" Adding live view of substiture command on neovim only
+" Adding live view of substitute command on neovim only
 if exists('&inccommand')
   set inccommand=split
 endif
