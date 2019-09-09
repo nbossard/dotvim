@@ -262,3 +262,7 @@ endif
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
+
+" Add support for comments in jsonc files
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
