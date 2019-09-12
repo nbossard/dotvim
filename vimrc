@@ -4,6 +4,8 @@
 " See README.md for configuration.
 
 "---------------------- VUNDLE CONFIG -----------------------
+" Vundle install : 
+"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 set nocompatible              " be improved, required
 filetype off                  " required
