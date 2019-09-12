@@ -23,6 +23,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 
+" To change start screen
+" https://github.com/mhinz/vim-startifyn
+Plugin 'mhinz/vim-startify'
+
 "syntax highlighting for Vue components.
 Plugin 'posva/vim-vue'
 "Syntax highlighting for js files
