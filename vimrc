@@ -271,3 +271,5 @@ endif
 " Add support for comments in jsonc files
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+" Allow folding in markdown files
+let g:markdown_folding = 2
