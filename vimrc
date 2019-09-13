@@ -169,6 +169,7 @@ let g:ctrlsf_auto_focus = {
 
 " Adding plugin to highlight trailing whitespace
 Plugin 'ntpeters/vim-better-whitespace'
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
