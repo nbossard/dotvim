@@ -2,7 +2,9 @@
 " Saved in git for history and for sharing across computers.
 " As described here :
 " See README.md for configuration.
-
+"
+"Other configs : remapping caps lock key to escape using Karabiner
+"
 "---------------------- VUNDLE CONFIG -----------------------
 " Vundle install : 
 "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -38,6 +40,7 @@ Plugin 'scrooloose/nerdtree'
 " To open file using System from NERDTree
 Plugin 'ivalkeen/nerdtree-execute'
 " To show git changed files in NERDTree
+" https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
@@ -142,6 +145,7 @@ let g:ycm_language_server = [
 \ ]
 
 "Plugin to format on save
+" See configuration in .prettierrc.js
 Plugin 'prettier/vim-prettier'
 
 " Plugin to simulate ctrl shift S
