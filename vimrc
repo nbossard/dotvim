@@ -238,6 +238,9 @@ let g:ctrlsf_auto_focus = {
 Plugin 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
+" Adding Golang plugin
+Plugin 'fatih/vim-go'
+
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
@@ -294,6 +297,7 @@ set path=$PWD/**
 " To display spaces and change colors
 " SpecialKey is the name of group including spaces,
 " ctermfg => color terminal  foreground
+" to disable : 'set nolist'
 set list listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 "highlight SpecialKey ctermfg=DarkGray
 
