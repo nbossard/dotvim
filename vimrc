@@ -48,8 +48,13 @@ Plugin 'airblade/vim-gitgutter'
 " To improve status line bar
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
+"an extra statusline on the top of the Vim window and can display loaded buffers and tabs in the current Vim session
 let g:airline#extensions#tabline#enabled = 1
+" display clock in airline
 Plugin 'enricobacis/vim-airline-clock'
+" without this line, airline-clock defaults to updatetime and consumes a lot
+" of CPU
+let g:airline#extensions#clock#updatetime = 60000
 
 " To open an URL in a browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
