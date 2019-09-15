@@ -246,6 +246,9 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf',
 " Adding Golang plugin
 Plugin 'fatih/vim-go'
 
+"Plugin to auto close brackets
+Plugin 'Raimondi/delimitMate'
+
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
