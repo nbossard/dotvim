@@ -6,7 +6,7 @@
 "Other configs : remapping caps lock key to escape using Karabiner
 "
 "---------------------- VUNDLE CONFIG -----------------------
-" Vundle install : 
+" Vundle install :
 "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 set nocompatible              " be improved, required
@@ -102,6 +102,7 @@ Plugin 'jungomi/vim-mdnquery'
 autocmd FileType vue setlocal keywordprg=:MdnQuery
 
 " Adding surround me to use 's' in commands
+" https://github.com/tpope/vim-surround
 Plugin 'tpope/vim-surround'
 
 let mapleader=","
@@ -240,6 +241,9 @@ let g:ctrlsf_auto_focus = {
     \ }
 
 " Adding plugin to highlight trailing whitespace
+" https://github.com/ntpeters/vim-better-whitespace
+" To launch manual stripping of whitespaces :
+" :StripWhitespace
 Plugin 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
