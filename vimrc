@@ -26,7 +26,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 
 " To change start screen
-" https://github.com/mhinz/vim-startifyn
+" https://github.com/mhinz/vim-startify
 Plugin 'mhinz/vim-startify'
 
 "syntax highlighting for Vue components.
@@ -73,23 +73,30 @@ let g:ale_lint_delay=3000
 "let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 "let g:ale_linters = {'vue': ['eslint', 'vls', 'tsserver']}
 " Git plugin to embed git command in vim
+
 Plugin 'tpope/vim-fugitive'
 " to allow fuzzy search of files
 Plugin 'ctrlpvim/ctrlp.vim'
+
 " to allow usage of templates on new files
 Plugin 'aperezdc/vim-template'
+
 " To close buffer without closing window
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
+
 " To displays marks in gutter
 " See : https://github.com/kshenoy/vim-signature
 Plugin 'kshenoy/vim-signature'
+
 " Plugin to take notes
 " See https://github.com/xolox/vim-notes
 Plugin 'xolox/vim-notes'
 let g:notes_directories = ['~/Documents/NotesVim']
+
 " To edit slack
 Plugin 'yaasita/edit-slack.vim'
+
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
 
@@ -112,8 +119,9 @@ let mapleader=","
 
 "https://github.com/neoclide/coc.nvim
 " INSTALL : then switch to branch release
-" INSTALL : then run : :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css
+" INSTALL : then run :
 " :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-vetur
+" :CocInstall coc-dictionary
 " coc-html
 Plugin 'neoclide/coc.nvim', {'pinned': 1}
 nmap <silent> <leader>dd <Plug>(coc-definition)
@@ -252,6 +260,7 @@ Plugin 'fatih/vim-go'
 
 "Plugin to auto close brackets
 Plugin 'Raimondi/delimitMate'
+
 
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
