@@ -123,6 +123,9 @@ autocmd FileType vue setlocal keywordprg=:MdnQuery
 " https://github.com/tpope/vim-surround
 Plugin 'tpope/vim-surround'
 
+" For editing csv tsv formatted files
+Plugin 'mechatroner/rainbow_csv'
+
 let mapleader=","
 
 " Tested and removed 'deoplin' for completion
