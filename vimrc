@@ -75,6 +75,17 @@ let g:ale_lint_delay=3000
 " Git plugin to embed git command in vim
 
 Plugin 'tpope/vim-fugitive'
+"Afugitive addition plugin To display a gitk like in vim
+" https://github.com/junegunn/gv.vim
+" commands
+" :GV
+" :GV!
+Plugin 'junegunn/gv.vim'
+autocmd FileType GV setlocal nolist
+autocmd FileType GV setlocal nonumber
+autocmd FileType GV setlocal norelativenumber
+
+
 " to allow fuzzy search of files
 Plugin 'ctrlpvim/ctrlp.vim'
 
