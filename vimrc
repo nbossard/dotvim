@@ -277,6 +277,12 @@ Plugin 'fatih/vim-go'
 "Plugin to auto close brackets
 Plugin 'Raimondi/delimitMate'
 
+" Displaying a tag bar on right side
+" Tried exuberant ctags , but did not work
+" Replaced by https://ctags.io/
+" see also : npm install -g git+https://github.com/ramitos/jsctags.git
+Plugin 'majutsushi/tagbar'
+set tags=tags
 
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
