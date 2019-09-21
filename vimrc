@@ -237,7 +237,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
+"**************** end of Coc suggested configuration *****************
+"Fixing unexpected mapping of ctrl + i
+nunmap <C-I>
 
 "Plugin to format on save
 " See configuration in .prettierrc.js
