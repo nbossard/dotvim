@@ -111,6 +111,12 @@ Plugin 'yaasita/edit-slack.vim'
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
 
+" Disabling arrows, oh my god...
+" Enable it by
+" :call HardMode()
+Plugin 'wikitopian/hardmode'
+let g:HardMode_level="wannabe"
+
 " To open javascript MDN directly from vim
 " See : https://github.com/jungomi/vim-mdnquery
 " installation : requires gem install mdn_query
