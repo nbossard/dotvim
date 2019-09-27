@@ -20,13 +20,11 @@ endif
 
 "NBO changed colors 223
 
-hi Normal       guifg=#000000 ctermfg=16   guibg=#F8F8FF ctermbg=223  gui=NONE cterm=NONE
 hi DiffAdd      guifg=#003300 ctermfg=22   guibg=#DDFFDD ctermbg=194  gui=NONE cterm=NONE
 hi DiffChange   guibg=#ECECEC ctermbg=255  gui=NONE cterm=NONE
 hi DiffText     guifg=#000033 ctermfg=17   guibg=#DDDDFF ctermbg=189  gui=NONE cterm=NONE
 hi DiffDelete   guifg=#DDCCCC ctermfg=252  guibg=#FFDDDD ctermbg=224  gui=NONE cterm=NONE
 hi Folded       guifg=#808080 ctermfg=244  guibg=#ECECEC ctermbg=255  gui=NONE cterm=NONE
-hi LineNr       guifg=#BBBBBB ctermfg=250  guibg=#ECECEC ctermbg=255  gui=NONE cterm=NONE
 hi NonText      guifg=#808080 ctermfg=244  guibg=#ECECEC ctermbg=255  gui=NONE cterm=NONE
 hi VertSplit    guifg=#BBBBBB ctermfg=250  guibg=#BBBBBB ctermbg=250  gui=NONE cterm=NONE
 hi StatusLine   guifg=#404040 ctermfg=238  guibg=#BBBBBB ctermbg=250  gui=BOLD cterm=BOLD
@@ -76,6 +74,9 @@ hi Cursor       guifg=#F8F8FF ctermfg=231  guibg=#444454 ctermbg=238  gui=NONE c
 hi CursorLine   guibg=#D8D8DD ctermbg=253  gui=NONE cterm=NONE
 hi CursorColumn guibg=#D8D8DD ctermbg=253  gui=NONE cterm=NONE
 
+" NBO modifications
+hi Normal       guifg=#000000 ctermfg=16   guibg=#F8F8FF ctermbg=223  gui=NONE cterm=NONE
+hi LineNr       guifg=#BBBBBB ctermfg=250  guibg=#ECECEC ctermbg=225  gui=NONE cterm=NONE
 " NBO addition
 hi whitespace   ctermfg=214 ctermbg=223
 
