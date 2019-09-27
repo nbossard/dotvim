@@ -373,6 +373,11 @@ map <F5> :execute "vimgrep /" . expand("<cWORD>") . "/j **" <Bar> cw<CR>
 set exrc
 set secure
 
+"spell : to enable :
+" :set spell spelllang=fr
+" zg => add word
+" z= => suggest word
+
 " Excluding node_modules folder
 " cause it slowdowns ctr-P
 " Should  be in local .vimrc but does not work
