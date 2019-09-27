@@ -292,6 +292,13 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
 set tags=tags
 
+" To generate remark slides
+" See https://github.com/mauromorales/vim-remark
+" Commands :
+" :RemarkBuild
+" :RemarkPrview
+Plugin 'mauromorales/vim-remark'
+
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
