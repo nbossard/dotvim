@@ -356,6 +356,7 @@ vmap gx <Plug>(openbrowser-smart-search)
 " NERDTree related
 " Make NERDTree show hidden files by default
 let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=0
 
 " To Fix backspace not working in insert mode (on Mac ?)
 set bs=2
