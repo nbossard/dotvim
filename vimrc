@@ -281,6 +281,12 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf',
 
 " Adding Golang plugin
 Plugin 'fatih/vim-go'
+" Installing go-pls : syntax server for GO
+" go get golang.org/x/tools/gopls@latest
+" Making go-pls included server work for COC
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+autocmd FileType go setlocal foldmethod=syntax
 
 "Plugin to auto close brackets
 Plugin 'Raimondi/delimitMate'

@@ -13,6 +13,14 @@
   "diagnostic.hintSign": "⚠",
   "diagnostic.errorSign": "⚠",
   "diagnostic.warningSign": "⚠",
-  "diagnostic.refreshAfterSave": true
+  "diagnostic.refreshAfterSave": true,
+
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    }
+  }
 }
 
