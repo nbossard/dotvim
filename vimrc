@@ -304,6 +304,11 @@ set tags=tags
 " :RemarkBuild
 " :RemarkPrview
 Plugin 'mauromorales/vim-remark'
+" To ease table creation in remark
+" https://github.com/dhruvasagar/vim-table-mode
+" invoke vim-table-mode’s table mode with <leader>tm
+Plugin 'dhruvasagar/vim-table-mode'
+let g:table_mode_corner="|"
 
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
