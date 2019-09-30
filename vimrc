@@ -277,7 +277,7 @@ let g:ctrlsf_auto_focus = {
 " To launch manual stripping of whitespaces :
 " :StripWhitespace
 Plugin 'ntpeters/vim-better-whitespace'
-let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'mail']
 
 " Adding Golang plugin
 Plugin 'fatih/vim-go'
