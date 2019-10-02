@@ -23,14 +23,15 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 
-" To change start screen
+" {{{ Startify plugin : To change start screen
 " https://github.com/mhinz/vim-startify
 Plugin 'mhinz/vim-startify'
+" }}}
 
 "syntax highlighting for Vue components.
 Plugin 'posva/vim-vue'
+
 "Syntax highlighting for js files
 Plugin 'vim-javascript'
 let g:javascript_plugin_jsdoc = 1
@@ -46,9 +47,16 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pseewald/nerdtree-tagbar-combined'
+" NERDTree related
+" Make NERDTree show hidden files by default
+let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=0
+let NERDTreeAutoCenter=1
+let NERDTreeAutoCenterTreshold=8
 " }}}
 
-" {{{ To improve status line bar
+" {{{ Status line bar
+" Use airline plugin as status line bar
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
 "an extra statusline on the top of the Vim window and can display loaded buffers and tabs in the current Vim session
@@ -78,8 +86,9 @@ let g:ale_lint_delay=3000
 "let g:ale_linters = {'vue': ['eslint', 'vls', 'tsserver']}
 " Git plugin to embed git command in vim
 
+" {{{ Fugitive plugin : to display git log in vim
 Plugin 'tpope/vim-fugitive'
-"Afugitive addition plugin To display a gitk like in vim
+"Afugitive addition plugin To display a gitk (git log (history))like in vim
 " https://github.com/junegunn/gv.vim
 " commands
 " :GV
@@ -88,7 +97,7 @@ Plugin 'junegunn/gv.vim'
 autocmd FileType GV setlocal nolist
 autocmd FileType GV setlocal nonumber
 autocmd FileType GV setlocal norelativenumber
-
+" }}}
 
 " to allow fuzzy search of files
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -257,7 +266,7 @@ nunmap <C-I>
 " See configuration in .prettierrc.js
 Plugin 'prettier/vim-prettier'
 
-" Plugin to simulate ctrl shift S
+" {{{ Plugin to simulate ctrl shift S
 " https://github.com/dyng/ctrlsf.vim
 Plugin 'dyng/ctrlsf.vim'
 nmap     <C-F>f <Plug>CtrlSFPrompt
@@ -275,6 +284,7 @@ let g:ctrlsf_auto_focus = {
     \ "at": "done",
     \ "duration_less_than": 1000
     \ }
+" }}}
 
 " Adding plugin to highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
@@ -357,10 +367,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 " Search is by default ignorecase
 :set ignorecase
 
-" NERDTree related
-" Make NERDTree show hidden files by default
-let NERDTreeShowHidden=1
-let NERDTreeShowLineNumbers=0
 
 " To Fix backspace not working in insert mode (on Mac ?)
 set bs=2
@@ -424,8 +430,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " Allow folding in markdown files
 let g:markdown_folding = 2
 
-""""""""""""""""""""""""""""
-" Ranger style marks command
+" {{{ Ranger style marks command
 "
 """"""""""""""""""""""""""""
 function! Marks()
