@@ -35,7 +35,8 @@ Plugin 'posva/vim-vue'
 Plugin 'vim-javascript'
 let g:javascript_plugin_jsdoc = 1
 
-"To have a browser for files on left panel
+" {{{ NERDTree configs
+" To have a browser for files on left panel
 Plugin 'scrooloose/nerdtree'
 " To open file using System from NERDTree
 Plugin 'ivalkeen/nerdtree-execute'
@@ -44,8 +45,10 @@ Plugin 'ivalkeen/nerdtree-execute'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " To display a git info close to line number
 Plugin 'airblade/vim-gitgutter'
+Plugin 'pseewald/nerdtree-tagbar-combined'
+" }}}
 
-" To improve status line bar
+" {{{ To improve status line bar
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
 "an extra statusline on the top of the Vim window and can display loaded buffers and tabs in the current Vim session
@@ -55,6 +58,7 @@ Plugin 'enricobacis/vim-airline-clock'
 " without this line, airline-clock defaults to updatetime and consumes a lot
 " of CPU
 let g:airline#extensions#clock#updatetime = 60000
+" }}}
 
 " To open an URL in a browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
