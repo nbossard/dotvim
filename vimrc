@@ -449,5 +449,10 @@ function! Marks()
     " mark - then eval it.
     execute "normal! '" . s:mark
 endfunction
+" }}}
 
 nnoremap ' :call Marks()<CR>
+
+" Making vim files be foldable based on markers {{{ and }}}
+autocmd FileType vim setlocal foldmethod=marker
+
