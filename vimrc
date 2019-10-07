@@ -55,7 +55,7 @@ let NERDTreeAutoCenter=1
 let NERDTreeAutoCenterTreshold=8
 " }}}
 
-" {{{ Status line bar
+" {{{ Airline plugin : Improved status line bar
 " Use airline plugin as status line bar
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
@@ -74,7 +74,8 @@ let g:airline#extensions#clock#updatetime = 60000
 Plugin 'tyru/open-browser.vim'
 " To support PlantUML File syntax
 Plugin 'aklt/plantuml-syntax'
-" To support various lint
+
+"  {{{ ALE plugin : To support various linters
 " ALE = Asynchronous Lint Engine
 " See : https://github.com/dense-analysis/ale
 " acts as a Vim Language Server Protocol client
@@ -85,6 +86,7 @@ let g:ale_lint_delay=3000
 "let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 "let g:ale_linters = {'vue': ['eslint', 'vls', 'tsserver']}
 " Git plugin to embed git command in vim
+" }}}
 
 " {{{ Fugitive plugin : to display git log in vim
 Plugin 'tpope/vim-fugitive'
