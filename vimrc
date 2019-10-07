@@ -326,6 +326,20 @@ Plugin 'mauromorales/vim-remark'
 Plugin 'dhruvasagar/vim-table-mode'
 let g:table_mode_corner="|"
 
+" {{{ Plugin to use gtd in vim
+Plugin 'phb1/gtd.vim'
+let g:gtd#default_action = 'inbox'
+let g:gtd#default_context = 'work'
+let g:gtd#dir = '~/gtd'
+let g:gtd#map_browse_older = '<Left>'
+let g:gtd#map_browse_newer = '<Right>'
+let g:gtd#review = [
+  \ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
+  \ '!todo @work',
+  \ '!waiting @work',
+  \ ]
+"}}}
+
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
