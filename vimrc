@@ -72,6 +72,7 @@ let g:airline#extensions#clock#updatetime = 60000
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
 " Command : gx
 Plugin 'tyru/open-browser.vim'
+
 " To support PlantUML File syntax
 Plugin 'aklt/plantuml-syntax'
 
@@ -111,7 +112,7 @@ Plugin 'aperezdc/vim-template'
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
 
-" To displays marks in gutter
+" To displays Vim marks in gutter
 " See : https://github.com/kshenoy/vim-signature
 Plugin 'kshenoy/vim-signature'
 
@@ -119,23 +120,24 @@ Plugin 'kshenoy/vim-signature'
 " See https://github.com/xolox/vim-notes
 Plugin 'xolox/vim-notes'
 let g:notes_directories = ['~/Documents/NotesVim']
-
-" To edit slack
-Plugin 'yaasita/edit-slack.vim'
-
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
+
+" To edit slack in Vim
+Plugin 'yaasita/edit-slack.vim'
 
 " Disabling arrows, oh my god...
 " Enable it by
 " :call HardMode()
 Plugin 'wikitopian/hardmode'
 let g:HardMode_level="wannabe"
+" Always launch hardmode, sic
+":call HardMode()
 
 " To open javascript MDN directly from vim
 " See : https://github.com/jungomi/vim-mdnquery
 " installation : requires gem install mdn_query
-" Usage : overwrites K key for some filtypes (Javascript)
+" Usage : overwrites K key for some filetypes (Javascript)
 "         or :MdnQuery keyword
 Plugin 'jungomi/vim-mdnquery'
 autocmd FileType vue setlocal keywordprg=:MdnQuery
@@ -150,9 +152,10 @@ Plugin 'mechatroner/rainbow_csv'
 let mapleader=","
 
 " Tested and removed 'deoplin' for completion
-" Tested and removed YCM : "you complete" me for super completion
+" Tested and removed YCM : 'you complete' me for super completion
 
-"https://github.com/neoclide/coc.nvim
+" {{{ Plugin for completion : COC
+" https://github.com/neoclide/coc.nvim
 " INSTALL : then switch to branch release
 " INSTALL : then run :
 " :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-vetur
@@ -263,6 +266,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "**************** end of Coc suggested configuration *****************
 "Fixing unexpected mapping of ctrl + i
 nunmap <C-I>
+" }}}
 
 "Plugin to format on save
 " See configuration in .prettierrc.js
@@ -338,8 +342,9 @@ let g:gtd#review = [
   \ '!todo @work',
   \ '!waiting @work',
   \ ]
-"}}}
+" }}}
 
+" {{{ Various colorscheme s
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
@@ -396,6 +401,7 @@ set path=$PWD/**
 " to disable : 'set nolist'
 set list listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 "highlight SpecialKey ctermfg=DarkGray
+
 
 " Set the hidden option so any buffer can be hidden (keeping its changes) without first writing the buffer to a file.
 " This affects all commands and all buffers.
