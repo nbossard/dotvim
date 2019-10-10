@@ -343,6 +343,20 @@ Plugin 'mauromorales/vim-remark'
 " invoke vim-table-mode’s table mode with <leader>tm
 Plugin 'dhruvasagar/vim-table-mode'
 let g:table_mode_corner="|"
+" }}}
+
+" {{{ Plugin to generate JSDoc
+" https://github.com/heavenshell/vim-jsdoc
+" Usage :
+" :JsDoc
+Plugin 'heavenshell/vim-jsdoc'
+"To fix neovim issue : unknown command
+command! -register JsDoc call jsdoc#insert()
+" To allow prompt for filling fields
+let g:jsdoc_allow_input_prompt=1
+" to enable @access tag
+let g:jsdoc_access_descriptions=1
+" }}}
 
 " {{{ Plugin to use gtd in vim
 Plugin 'phb1/gtd.vim'
