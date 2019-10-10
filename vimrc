@@ -428,7 +428,8 @@ set path=$PWD/**
 " SpecialKey is the name of group including spaces,
 " ctermfg => color terminal  foreground
 " to disable : 'set nolist'
-set list listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
+set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
+autocmd FileType vim setlocal list
 "highlight SpecialKey ctermfg=DarkGray
 
 
