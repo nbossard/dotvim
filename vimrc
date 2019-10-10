@@ -369,6 +369,7 @@ let g:gtd#review = [
   \ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
   \ '!todo @work',
   \ '!waiting @work',
+  \ '!archived @work',
   \ ]
 " }}}
 
