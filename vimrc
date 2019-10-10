@@ -312,6 +312,9 @@ Plugin 'fatih/vim-go'
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 autocmd FileType go setlocal foldmethod=syntax
+autocmd Filetype go setlocal tabstop=4
+autocmd Filetype go setlocal listchars=tab:\|\ 
+autocmd Filetype go set list
 
 "Plugin to auto close brackets
 Plugin 'Raimondi/delimitMate'
