@@ -292,6 +292,11 @@ let g:ctrlsf_auto_focus = {
     \ }
 " }}}
 
+" To display colored parenthesis
+" See : https://github.com/luochen1990/rainbow
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1
+
 " Adding plugin to highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
 " To launch manual stripping of whitespaces :
