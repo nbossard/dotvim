@@ -326,7 +326,13 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
 set tags=tags
 
-" To generate remark slides
+" Quick comment uncomment
+"see https://github.com/tomtom/tcomment_vim
+" Usage : gc<motion>
+" gcc for currnt line
+Plugin 'tomtom/tcomment_vim'
+
+" {{{ Plugin to generate remark slides
 " See https://github.com/mauromorales/vim-remark
 " Commands :
 " :RemarkBuild
