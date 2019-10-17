@@ -381,6 +381,8 @@ let g:gtd#review = [
 " }}}
 
 " {{{ Various colorscheme s
+"Enables 24-bit RGB color
+set termguicolors
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
