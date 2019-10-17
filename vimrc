@@ -336,7 +336,7 @@ Plugin 'plasticboy/vim-markdown'
 " Quick comment uncomment
 "see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
-" gcc for currnt line
+" gcc for current line
 Plugin 'tomtom/tcomment_vim'
 
 " {{{ Plugin to generate remark slides
