@@ -326,6 +326,13 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
 set tags=tags
 
+" Markdown plugin
+" See https://github.com/plasticboy/vim-markdowns
+" Usage :
+" set conceallevel=2
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 " Quick comment uncomment
 "see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
