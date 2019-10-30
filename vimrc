@@ -343,6 +343,10 @@ set tags=tags
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+" Adding calendar tool in Vim
+Plugin 'itchyny/calendar.vim'
+let g:calendar_google_calendar = 1
+
 " Quick comment uncomment
 "see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
