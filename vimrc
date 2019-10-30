@@ -392,6 +392,8 @@ let g:gtd#review = [
   \ '!waiting @work',
   \ '!archived @work',
   \ ]
+let g:gtd#map_refresh = "re"
+autocmd BufWinEnter gtd-results :GtdRefresh
 " }}}
 
 " {{{ Various colorscheme s
