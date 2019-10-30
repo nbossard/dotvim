@@ -162,7 +162,11 @@ let mapleader=","
 " :CocInstall coc-dictionary
 " Emmet is already included in coc-vetur, but not in HTML so adding it
 " :CocInstall coc-emmet
-" coc-html
+" :CocInstall coc-html
+"
+" Additional config for coc-tsserver is done in file opened by
+" : CocConfig
+"
 Plugin 'neoclide/coc.nvim', {'pinned': 1}
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
