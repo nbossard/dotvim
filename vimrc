@@ -297,12 +297,18 @@ let g:ctrlsf_auto_focus = {
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
-" Adding plugin to highlight trailing whitespace
+" {{{ Adding plugin to highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
 " To launch manual stripping of whitespaces :
 " :StripWhitespace
 Plugin 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'mail']
+"To highlight space characters that appear before or in-between tabs
+let g:show_spaces_that_precede_tabs=1
+"Enabling stripping on save (with confirmation)
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+" }}}
 
 " Adding Golang plugin
 Plugin 'fatih/vim-go'
