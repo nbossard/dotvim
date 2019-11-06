@@ -4,8 +4,11 @@
   "suggest.enablePreview": true,
   "suggest.floatEnable": true,
 
-  "vetur.experimental.templateInterpolationService": true,
-  "vetur.validation.script": true,
+  "vetur.useWorkspaceDependencies" : true,
+  "vetur.experimental.templateInterpolationService": false,
+  "vetur.validation.template":false,
+  "vetur.validation.script": false,
+  "vetur.dev.logLevel": "DEBUG",
 
   "coc.preferences.enableFloatHighlight": true,
   "diagnostic.virtualText": true,
@@ -16,6 +19,8 @@
   "diagnostic.errorSign": "⚠",
   "diagnostic.warningSign": "⚠",
   "diagnostic.refreshAfterSave": true,
+
+  "typescript.suggestionActions.enabled": false,
 
   "languageserver": {
     "golang": {
