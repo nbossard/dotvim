@@ -117,11 +117,16 @@ let g:ale_lint_delay=3000
 " }}}
 
 " {{{ Fugitive plugin : to display git log in vim
+" see https://github.com/tpope/vim-fugitive
 Plugin 'tpope/vim-fugitive'
 "Afugitive addition plugin To display a gitk (git log (history))like in vim
 " https://github.com/junegunn/gv.vim
-" commands
+" Most used commands :
+" View log :
 " :GV
+" View log will all branches (use git log options) :
+" :GV --all
+" Only for current file :
 " :GV!
 Plugin 'junegunn/gv.vim'
 autocmd FileType GV setlocal nolist
@@ -204,6 +209,7 @@ set nowritebackup
 " Better display for messages
 set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
+" Also influences gitgutter (they suggest 100ms).
 set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -350,13 +356,14 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 autocmd FileType go setlocal foldmethod=syntax
 autocmd Filetype go setlocal tabstop=4
-autocmd Filetype go setlocal listchars=tab:\|\ 
+autocmd Filetype go setlocal listchars=tab:\|\
 autocmd Filetype go set list
 
 "Plugin to auto close brackets
 Plugin 'Raimondi/delimitMate'
 
 " Displaying a tag bar on right side
+" see https://github.com/majutsushi/tagbar
 " Tried exuberant ctags , but did not work
 " Replaced by https://ctags.io/
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
@@ -407,6 +414,7 @@ let g:jsdoc_access_descriptions=1
 " }}}
 
 " {{{ Plugin to use gtd in vim
+" See : https://github.com/phb1/gtd.vim
 Plugin 'phb1/gtd.vim'
 let g:gtd#default_action = 'inbox'
 let g:gtd#default_context = 'work'
