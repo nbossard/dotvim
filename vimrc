@@ -312,6 +312,11 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 nunmap <C-I>
 " }}}
 
+" Plugin to colorize color texts in (s)css files
+" Tried following, but does not work on scss variables
+" Plugin 'gko/vim-coloresque'
+Plugin 'shmargum/vim-sass-colors'
+
 "Plugin to format on save
 " See configuration in .prettierrc.js
 Plugin 'prettier/vim-prettier'
