@@ -134,6 +134,13 @@ autocmd FileType GV setlocal nonumber
 autocmd FileType GV setlocal norelativenumber
 " }}}
 
+" Allow Vim to open binary image files (PNG, JPG,...)
+" See : https://github.com/ashisha/image.vim
+" wich happens often to me
+" Requires python2 and :
+" pip install Pillow
+Plugin 'ashisha/image.vim'
+
 " to allow fuzzy search of files
 Plugin 'ctrlpvim/ctrlp.vim'
 
