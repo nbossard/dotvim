@@ -53,8 +53,6 @@ Plugin 'ivalkeen/nerdtree-execute'
 " To show git changed files in NERDTree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-" To display a git info close to line number
-Plugin 'airblade/vim-gitgutter'
 Plugin 'pseewald/nerdtree-tagbar-combined'
 " NERDTree related
 " Make NERDTree show hidden files by default
@@ -62,6 +60,26 @@ let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=0
 let NERDTreeAutoCenter=1
 let NERDTreeAutoCenterTreshold=8
+" }}}
+
+" {{{ GitGutter config
+" To display a git line change info close to line number
+" see: https://github.com/airblade/vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+" changing default mapping ]c cause conflicts with coc
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap ,gn <Plug>(GitGutterNextHunk)
+nmap ,gp <Plug>(GitGutterPrevHunk)
+nmap ghn <Plug>(GitGutterNextHunk)
+nmap ghp <Plug>(GitGutterPrevHunk)
+" main commandes :
+" ]h or [h --> next hunk
+" ,gn or ,gp --> next hunk
+" ,hp --> preview hunk
+" ,hs --> stage hunk
+" ,hs --> undo hunk
+" :GitGutterFold --> sic
 " }}}
 
 " {{{ Airline plugin : Improved status line bar
