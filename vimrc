@@ -132,6 +132,9 @@ Plugin 'junegunn/gv.vim'
 autocmd FileType GV setlocal nolist
 autocmd FileType GV setlocal nonumber
 autocmd FileType GV setlocal norelativenumber
+" Additional plugin for opening gitlab website throught command Gbrowse
+Plugin 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
 " }}}
 
 " Allow Vim to open binary image files (PNG, JPG,...)
