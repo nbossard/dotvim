@@ -3,7 +3,16 @@
 " As described here :
 " See README.md for configuration.
 "
-"Other configs : remapping caps lock key to escape using Karabiner
+" OTher installs :
+" brew install python@2
+" brew install python3
+" pip2 install neovim --upgrade
+" pip3 install neovim --upgrade
+" then test with :
+" :checkhealth
+let g:python_host_prog='/usr/local/bin/python'
+let g:python3_host_prog='/usr/local/bin/python3'
+
 "
 "---------------------- VUNDLE CONFIG -----------------------
 " Vundle install :
