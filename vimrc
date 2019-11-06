@@ -441,10 +441,26 @@ autocmd BufWinEnter gtd-results :GtdRefresh
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
 set termguicolors
+" change default colorscheme
+:colorscheme darkblue
+"Enable quick switch schemecolor
+" Use F8 and shift+F8 to quick switch
+Plugin 'xolox/vim-colorscheme-switcher'
+:let g:colorscheme_switcher_exclude = ['default', 'blue', 'shine', 'elflord']
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
 Bundle 'acarapetis/vim-colors-github'
+Bundle "nanotech/jellybeans.vim"
+"Pencil color theme
+Bundle 'reedes/vim-colors-pencil'
+" gruvbox : https://github.com/morhetz/gruvbox
+Bundle 'morhetz/gruvbox'
+" Go dedicated colorscheme
+" Bundle 'bitfield/vim-gitgo'
+" visual studio code like dark theme
+Plugin 'tomasiser/vim-code-dark'
+"}}}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
