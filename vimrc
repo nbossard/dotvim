@@ -387,8 +387,8 @@ set tags=tags
 
 " Markdown plugin
 " See https://github.com/plasticboy/vim-markdowns
-" Usage :
-" set conceallevel=2
+" Improve display, replace formatting by result for bold and italic
+autocmd Filetype markdown setlocal conceallevel=2
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
