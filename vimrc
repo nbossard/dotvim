@@ -610,6 +610,9 @@ endfunction
 
 nnoremap ' :call Marks()<CR>
 
+" For supporting mouse click in all modes
+:set mouse=a
+
 " Making vim files be foldable based on markers {{{ and }}}
 autocmd FileType vim setlocal foldmethod=marker
 
