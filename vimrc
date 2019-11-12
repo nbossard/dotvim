@@ -108,6 +108,7 @@ Plugin 'aklt/plantuml-syntax'
 " See : https://github.com/dense-analysis/ale
 " acts as a Vim Language Server Protocol client
 Plugin 'dense-analysis/ale'
+" By default, all available tools for all supported languages will be run
 " changing lint delay from 200ms to ... in order to run less often
 let g:ale_lint_delay=3000
 " NBO : do not try to enable tsserver on vue files, it does not work
@@ -145,6 +146,7 @@ let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
 Plugin 'ashisha/image.vim'
 
 " to allow fuzzy search of files
+" See : https://github.com/kien/ctrlp.vim
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " to allow usage of templates on new files
@@ -442,6 +444,7 @@ let g:gtd#review = [
   \ '!waiting @work',
   \ '!archived @work',
   \ ]
+" to refresh task list : ,re
 let g:gtd#map_refresh = "re"
 autocmd BufWinEnter gtd-results :GtdRefresh
 " }}}
