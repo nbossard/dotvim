@@ -561,7 +561,12 @@ set secure
 vnoremap // y/<C-R>"<CR>
 
 " on entering / leaving insert mode, insert a cursor line
-autocmd InsertEnter,InsertLeave * set cul!
+" Make cursor more visible in insert mode :
+" set cursorline
+autocmd InsertEnter * set cursorcolumn
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorcolumn
+autocmd InsertLeave * set nocursorline
 
 " Adding live view of substitute command on neovim only
 if exists('&inccommand')
