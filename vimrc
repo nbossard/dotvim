@@ -462,8 +462,6 @@ autocmd BufWinEnter gtd-results :GtdRefresh
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
 set termguicolors
-" change default colorscheme
-:colorscheme darkblue
 "Enable quick switch schemecolor
 " Use F8 and shift+F8 to quick switch
 Plugin 'xolox/vim-colorscheme-switcher'
@@ -476,7 +474,7 @@ Bundle "nanotech/jellybeans.vim"
 "Pencil color theme
 Bundle 'reedes/vim-colors-pencil'
 " gruvbox : https://github.com/morhetz/gruvbox
-Bundle 'morhetz/gruvbox'
+Plugin 'morhetz/gruvbox'
 " Go dedicated colorscheme
 " Bundle 'bitfield/vim-gitgo'
 " visual studio code like dark theme
@@ -499,6 +497,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 "-----------------------END OF VUNDLE CONFIG---------------------
+" change default colorscheme
+colorscheme gruvbox
 
 "---------------- open-browser config -----------------
 " My setting.
