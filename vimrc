@@ -148,6 +148,10 @@ Plugin 'ashisha/image.vim'
 " to allow fuzzy search of files
 " See : https://github.com/kien/ctrlp.vim
 Plugin 'ctrlpvim/ctrlp.vim'
+" Excluding node_modules folder
+" cause it slowdowns ctr-P
+" Should  be in local .vimrc but does not work
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " to allow usage of templates on new files
 Plugin 'aperezdc/vim-template'
@@ -546,10 +550,6 @@ set secure
 " zg => add word
 " z= => suggest word
 
-" Excluding node_modules folder
-" cause it slowdowns ctr-P
-" Should  be in local .vimrc but does not work
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Allow search of currently selected text using //
 vnoremap // y/<C-R>"<CR>
