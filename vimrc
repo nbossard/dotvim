@@ -156,6 +156,12 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " to allow usage of templates on new files
 Plugin 'aperezdc/vim-template'
 
+" To add icons : in ctrlP, Airline, NERDTree, Startify
+" See https://github.com/ryanoasis/vim-devicons
+" Requires Nerd font
+" https://github.com/ryanoasis/nerd-fonts
+Plugin 'ryanoasis/vim-devicons'
+
 " To close buffer without closing window
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
