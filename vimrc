@@ -151,7 +151,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Excluding node_modules folder
 " cause it slowdowns ctr-P
 " Should  be in local .vimrc but does not work
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\node_modules$\|\.DS_STORE$',
+    \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
+    \ }
 
 " to allow usage of templates on new files
 Plugin 'aperezdc/vim-template'
