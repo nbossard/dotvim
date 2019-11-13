@@ -166,6 +166,7 @@ Plugin 'aperezdc/vim-template'
 Plugin 'ryanoasis/vim-devicons'
 
 " To close buffer without closing window
+" See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
 
