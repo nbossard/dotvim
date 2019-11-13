@@ -221,6 +221,8 @@ let mapleader=","
 " Emmet is already included in coc-vetur, but not in HTML so adding it
 " :CocInstall coc-emmet
 " :CocInstall coc-html
+" :CocInstall coc-markdownlint
+" :CocInstall coc-vimlsp
 "
 " Additional config for coc-tsserver is done in file opened by
 " : CocConfig
