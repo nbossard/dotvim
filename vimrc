@@ -152,7 +152,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " cause it slowdowns ctr-P
 " Should  be in local .vimrc but does not work
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\node_modules$\|\.DS_STORE$',
+    \ 'dir':  '\.git$\|node_modules$\|\.DS_STORE$',
     \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
     \ }
 
