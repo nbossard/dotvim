@@ -198,6 +198,10 @@ Plugin 'kshenoy/vim-signature'
 
 " Plugin to take notes
 " See https://github.com/xolox/vim-notes
+" usage :
+" Nouvelle note : :Note
+" Retrouver une note :
+" :RecentNotes
 Plugin 'xolox/vim-notes'
 let g:notes_directories = ['~/Documents/NotesVim']
 " Required by plugin vim-notes
