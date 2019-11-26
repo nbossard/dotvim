@@ -71,8 +71,12 @@ Plugin 'pseewald/nerdtree-tagbar-combined'
 " Make NERDTree show hidden files by default
 let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=0
+autocmd FileType nerdtree setlocal nonumber
+autocmd FileType nerdtree setlocal norelativenumber
 let NERDTreeAutoCenter=1
 let NERDTreeAutoCenterTreshold=8
+" Add mapping for nerdtree find : gnf
+map gnf :NERDTreeFind<CR>
 " }}}
 
 " {{{ GitGutter config
