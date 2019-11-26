@@ -36,6 +36,19 @@ Plugin 'VundleVim/Vundle.vim'
 " {{{ Startify plugin : To change start screen
 " https://github.com/mhinz/vim-startify
 Plugin 'mhinz/vim-startify'
+let g:startify_files_number = 5
+let g:startify_commands = [
+    \ ['Vim Reference', 'h ref'],
+    \ ['GTD Review', 'GtdReview'],
+    \ ['Hard Core mode', ':call HardMode()'],
+    \ ]
+let g:startify_lists = [
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ ]
 " }}}
 
 "syntax highlighting for Vue components.
