@@ -22,6 +22,11 @@
 
   "typescript.suggestionActions.enabled": false,
 
+  "markdownlint.config": {
+   "line-length": {"line_length": 120},
+   "no-trailing-punctuation": false
+  },
+
   "languageserver": {
     "golang": {
       "command": "gopls",
