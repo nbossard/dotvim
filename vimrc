@@ -162,6 +162,11 @@ let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
 " pip install Pillow
 Plugin 'ashisha/image.vim'
 
+" Allow generating of lorem ipsum
+" See : https://www.vim.org/scripts/script.php?script_id=2289
+" usage : :Loremipsum
+Plugin 'vim-scripts/loremipsum'
+
 " to allow fuzzy search of files
 " See : https://github.com/kien/ctrlp.vim
 Plugin 'ctrlpvim/ctrlp.vim'
