@@ -371,15 +371,19 @@ Plugin 'prettier/vim-prettier'
 " {{{ Plugin to simulate ctrl shift S
 " https://github.com/dyng/ctrlsf.vim
 Plugin 'dyng/ctrlsf.vim'
+"should not work but it does with neovim +iterm
+nmap     <C-S-F> <Plug>CtrlSFPrompt
 nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-S-F> <Plug>CtrlSFVwordPath
 vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-S-F> <Plug>CtrlSFVwordExec
 vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules']
+let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'dist']
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '33%'
 let g:ctrlsf_auto_focus = {
