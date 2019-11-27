@@ -649,6 +649,13 @@ nnoremap ' :call Marks()<CR>
 " For supporting mouse click in all modes
 :set mouse=a
 
+" Replace bullshit vim help navigation commands
+" Done in after/ftplugin/help.vim
+" Press Enter to jump to the subject (topic) under the cursor.
+" Press Backspace to return from the last jump.
+" Press s to find the next subject, or S to find the previous subject.
+" Press o to find the next option, or O to find the previous option.
+
 " Making vim files be foldable based on markers {{{ and }}}
 autocmd FileType vim setlocal foldmethod=marker
 
