@@ -93,7 +93,7 @@ nmap ghp <Plug>(GitGutterPrevHunk)
 " main commandes :
 " ]h or [h --> next hunk
 " ,gn or ,gp --> next hunk
-" ,hp --> preview hunk
+" ,hp --> display hunk change
 " ,hs --> stage hunk
 " ,hs --> undo hunk
 " :GitGutterFold --> sic
@@ -294,7 +294,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Remap keys for gotos
+" Remad keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
