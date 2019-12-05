@@ -153,6 +153,8 @@ let g:ale_lint_delay=3000
 "let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 "let g:ale_linters = {'vue': ['eslint', 'vls', 'tsserver']}
 " Git plugin to embed git command in vim
+nmap gan :ALENext<CR>
+nmap gap :ALEPrevious<CR>
 " }}}
 
 " {{{ Fugitive plugin : to display git log in vim
