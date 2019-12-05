@@ -59,6 +59,16 @@ let g:startify_lists = [
 "syntax highlighting for Vue components.
 Plugin 'posva/vim-vue'
 
+" Plugin for launching tests inside vim
+Plugin 'janko/vim-test'
+"let g:test#runner_commands = ['Mocha']
+let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
+let test#javascript#jest#options = {
+  \ 'nearest': '',
+  \ 'file':    '',
+  \ 'suite':   '',
+\}
+
 "Syntax highlighting for js files
 Plugin 'vim-javascript'
 let g:javascript_plugin_jsdoc = 1
