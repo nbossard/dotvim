@@ -128,7 +128,7 @@ Plugin 'enricobacis/vim-airline-clock'
 let g:airline#extensions#clock#updatetime = 60000
 " }}}
 
-" To open an URL in a browser
+" Plugin to open URL under cursor in an external browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
 " Command : gx
 Plugin 'tyru/open-browser.vim'
