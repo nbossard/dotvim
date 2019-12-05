@@ -15,6 +15,8 @@
 let g:python_host_prog='/usr/local/bin/python'
 let g:python3_host_prog='/usr/local/bin/python3'
 
+let mapleader=","
+
 "
 "---------------------- VUNDLE CONFIG -----------------------
 " Vundle install :
@@ -32,68 +34,45 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" For writing arduino sketches
+" {{{ Languages syntax support plugins ======
+"
+" {{{ Arduino : For writing arduino sketches
 Plugin 'stevearc/vim-arduino'
+"}}}
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-
-" {{{ Startify plugin : To change start screen
-" https://github.com/mhinz/vim-startify
-Plugin 'mhinz/vim-startify'
-let g:startify_files_number = 5
-let g:startify_commands = [
-    \ ['Vim Reference', 'h ref'],
-    \ ['GTD Review', 'GtdReview'],
-    \ ['Hard Core mode', ':call HardMode()'],
-    \ ]
-let g:startify_lists = [
-      \ { 'type': 'commands',  'header': ['   Commands']       },
-      \ { 'type': 'files',     'header': ['   MRU']            },
-      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-      \ ]
+" {{{ Vue : syntax highlighting for Vue components.
+Plugin 'posva/vim-vue'
 " }}}
 
-"syntax highlighting for Vue components.
-Plugin 'posva/vim-vue'
-
-" Plugin for launching tests inside vim
-Plugin 'janko/vim-test'
-"let g:test#runner_commands = ['Mocha']
-let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
-let test#javascript#jest#options = {
-  \ 'nearest': '',
-  \ 'file':    '',
-  \ 'suite':   '',
-\}
-
-"Syntax highlighting for js files
+" {{{ Syntax highlighting for js files
 Plugin 'vim-javascript'
 let g:javascript_plugin_jsdoc = 1
-
-" {{{ NERDTree configs
-" To have a browser for files on left panel
-Plugin 'scrooloose/nerdtree'
-" Nerdtree plugin has plugins (sic)
-" Plugin-plugin to open file using System from NERDTree
-Plugin 'ivalkeen/nerdtree-execute'
-" Plugin-plugin To show git changed files in NERDTree
-" https://github.com/Xuyuanp/nerdtree-git-plugin
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'pseewald/nerdtree-tagbar-combined'
-" NERDTree related config
-" Make NERDTree show hidden files by default
-let NERDTreeShowHidden=1
-let NERDTreeShowLineNumbers=0
-autocmd FileType nerdtree setlocal nonumber
-autocmd FileType nerdtree setlocal norelativenumber
-let NERDTreeAutoCenter=1
-let NERDTreeAutoCenterTreshold=8
-" Add mapping for 'nerdtree find' : gnf
-map gnf :NERDTreeFind<CR>
 " }}}
+
+" {{{ To support PlantUML File syntax
+Plugin 'aklt/plantuml-syntax'
+" }}}
+
+" {{{ Adding support for '.feature' files
+Plugin 'tpope/vim-cucumber'
+" }}}
+
+" {{{ Adding Golang plugin
+Plugin 'fatih/vim-go'
+" Installing go-pls : syntax server for GO
+" go get golang.org/x/tools/gopls@latest
+" Making go-pls included server work for COC
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+autocmd FileType go setlocal foldmethod=syntax
+autocmd Filetype go setlocal tabstop=4
+autocmd Filetype go setlocal listchars=tab:\|\
+autocmd Filetype go set list
+" }}}
+
+"}}} ==== end of language syntax plugins =====
+
+" {{{ ==== Git related Plugins ===
 
 " {{{ GitGutter config
 " Plugin to display a git line change marker close to line number
@@ -115,6 +94,71 @@ nmap ghp <Plug>(GitGutterPrevHunk)
 " :GitGutterFold --> sic
 " }}}
 
+" {{{ trying jreybert/vimagit for cross files commit
+Plugin 'jreybert/vimagit'
+cabbrev magit Magit
+" }}}
+"
+" }}} === End of Git related plugins ====
+
+" {{{ Startify plugin : To change start screen
+" https://github.com/mhinz/vim-startify
+Plugin 'mhinz/vim-startify'
+let g:startify_files_number = 5
+let g:startify_commands = [
+    \ ['Vim Reference', 'h ref'],
+    \ ['GTD Review', 'GtdReview'],
+    \ ['Hard Core mode', ':call HardMode()'],
+    \ ]
+let g:startify_lists = [
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ ]
+" }}}
+
+" {{{ Vim-test : plugin for launching tests inside vim
+Plugin 'janko/vim-test'
+"let g:test#runner_commands = ['Mocha']
+let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
+let test#javascript#jest#options = {
+  \ 'nearest': '',
+  \ 'file':    '',
+  \ 'suite':   '',
+\}
+"}}}
+
+" {{{ ===== NERDTree related configs =====
+" Nerdtree is a must have plugin, to have a browser for files on left panel
+Plugin 'scrooloose/nerdtree'
+" Nerdtree plugin has plugins (sic)
+" Plugin-plugin to open file using System from NERDTree
+Plugin 'ivalkeen/nerdtree-execute'
+" Plugin-plugin To show git changed files in NERDTree
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'pseewald/nerdtree-tagbar-combined'
+" NERDTree related config
+" Make NERDTree show hidden files by default
+let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=0
+autocmd FileType nerdtree setlocal nonumber
+autocmd FileType nerdtree setlocal norelativenumber
+let NERDTreeAutoCenter=1
+let NERDTreeAutoCenterTreshold=8
+" Add mapping for 'nerdtree find' : gnf
+map gnf :NERDTreeFind<CR>
+
+" {{{ Plugin to add icons : in ctrlP, Airline, NERDTree, Startify
+" See https://github.com/ryanoasis/vim-devicons
+" Requires Nerd font
+" https://github.com/ryanoasis/nerd-fonts
+Plugin 'ryanoasis/vim-devicons'
+" }}}
+"}}} ===== end of nerdtree related config ======
+
 " {{{ Airline plugin : Improved status line bar
 " Use airline plugin as status line bar
 " https://github.com/vim-airline/vim-airline
@@ -128,18 +172,21 @@ Plugin 'enricobacis/vim-airline-clock'
 let g:airline#extensions#clock#updatetime = 60000
 " }}}
 
-" Plugin to open URL under cursor in an external browser
+" {{{ open-browser : Plugin to open URL under cursor in an external browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
 " Command : gx
 Plugin 'tyru/open-browser.vim'
+" My setting.
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+" }}}
 
-" Plugin to display the list of registers
+" {{{ Plugin to display the list of registers
 " on a right bar on " or @ keypress
 " See : https://github.com/junegunn/vim-peekaboo
 Plugin 'junegunn/vim-peekaboo'
-
-" To support PlantUML File syntax
-Plugin 'aklt/plantuml-syntax'
+" }}}
 
 "  {{{ ALE plugin : To support various linters
 " ALE = Asynchronous Lint Engine
@@ -176,15 +223,22 @@ autocmd FileType GV setlocal norelativenumber
 " Additional plugin for opening gitlab website throught command Gbrowse
 Plugin 'shumphrey/fugitive-gitlab.vim'
 let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
+" Additional plugin to deal better with branches
+" See : https://github.com/idanarye/vim-merginal
+" Usage :
+" :Merginal
+Plugin 'idanarye/vim-merginal'
+cabbrev Gsdiff Gdiffsplit
+command! -nargs=1 Gsdiff Gdiffsplit <args>
 " }}}
 
-" Allow Vim to open binary image files (PNG, JPG,...)
+" {{{ Allow Vim to open binary image files (PNG, JPG,...) as ASCII ART
 " See : https://github.com/ashisha/image.vim
 " wich happens often to me
 " Requires python2 and :
 " pip install Pillow
 Plugin 'ashisha/image.vim'
-
+" }}}
 
 " {{{ Vim indent guides : Plugin to display indent lines
 " Also tried Plugin 'Yggdroot/indentLine' but has issues with conceal usage
@@ -204,7 +258,7 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'startify']
 Plugin 'vim-scripts/loremipsum'
 " }}}
 
-" Plugin to allow fuzzy search of files
+" {{{ ctrl+P : Plugin to allow fuzzy search of files
 " See : https://github.com/kien/ctrlp.vim
 Plugin 'ctrlpvim/ctrlp.vim'
 " Excluding node_modules folder
@@ -214,6 +268,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|node_modules$\|\.DS_STORE$',
     \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
     \ }
+" }}}
 
 " {{{ Using snippets in Vim
 " in combination with Coc
@@ -247,26 +302,26 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
  endif
 " }}}
 
-" to allow usage of templates on new files
+" {{{ vim-template : To allow usage of templates on new files
+" Usage : create a new file with accurate extension (.vue)
+" open it and type :Template
 Plugin 'aperezdc/vim-template'
+" }}}
 
-" To add icons : in ctrlP, Airline, NERDTree, Startify
-" See https://github.com/ryanoasis/vim-devicons
-" Requires Nerd font
-" https://github.com/ryanoasis/nerd-fonts
-Plugin 'ryanoasis/vim-devicons'
-
-" To close buffer without closing window
+" {{{ vim-bbye : To close buffer without closing window
 " See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
+" Override standard bd command
 abbreviate bd Bdelete
+" }}}
 
-" To displays Vim marks in gutter
+" {{{ vim-signature : To displays Vim marks in gutter
 " See : https://github.com/kshenoy/vim-signature
 Plugin 'kshenoy/vim-signature'
+" }}}
 
-" Plugin to take notes
+" {{{ vim-notes : Plugin to take notes
 " See https://github.com/xolox/vim-notes
 " usage :
 " Nouvelle note : :Note
@@ -276,46 +331,42 @@ Plugin 'xolox/vim-notes'
 let g:notes_directories = ['~/Documents/NotesVim']
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
+" }}}
 
-" To edit slack in Vim
-Plugin 'yaasita/edit-slack.vim'
-
-" Disabling arrows, oh my god...
+" {{{ hardmode : Plugin for Disabling arrows, oh my god...
 " Enable it by
 " :call HardMode()
 Plugin 'wikitopian/hardmode'
 let g:HardMode_level="wannabe"
 " Always launch hardmode, sic
 ":call HardMode()
+" }}}
 
-" Try to use fuzzy finder in Vim
-" https://github.com/junegunn/fzf#as-vim-plugin
-" Installed using Homebrew, configuring it :
-set rtp+=/usr/local/opt/fzf
-
-
-" To open javascript MDN directly from vim
+" {{{ vim-mdnquery : Plugin to open javascript MDN directly from vim
 " See : https://github.com/jungomi/vim-mdnquery
 " installation : requires gem install mdn_query
 " Usage : overwrites K key for some filetypes (Javascript)
 "         or :MdnQuery keyword
 Plugin 'jungomi/vim-mdnquery'
 autocmd FileType vue setlocal keywordprg=:MdnQuery
+" }}}
 
-" Adding surround me to use 's' in commands
+" {{{ you surround me : Adding surround me to use 's' in commands
 " https://github.com/tpope/vim-surround
 Plugin 'tpope/vim-surround'
+" }}}
 
-" For editing csv tsv formatted files
+" {{{ rainbow_csv : plugin for editing csv tsv formatted files
 Plugin 'mechatroner/rainbow_csv'
+"}}}
 
-" A plugin for cross editors configuration file
-" form compatibility with other developers on other platforms
+" {{{ editor-config: A plugin for cross editors configuration file
+" for compatibility with other developers on other platforms
+" See configuration in .editorconfig file
 Plugin 'editorconfig/editorconfig-vim'
+" }}}
 
-let mapleader=","
-
-" Completion in Vim :
+" {{{ ====== Completion in Vim : ====
 " Tested and removed 'deoplin' for completion
 " Tested and removed YCM : 'you complete' me for super completion
 
@@ -439,16 +490,19 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "Fixing unexpected mapping of ctrl + i
 nunmap <C-I>
 " }}}
+" }}}
 
-" Plugin to colorize color texts in (s)css files
+" {{{ vim-sass-colors : Plugin to colorize color texts in (s)css files
 " Also tried following, but does not work on scss variables :
 " Plugin 'gko/vim-coloresque'
 Plugin 'shmargum/vim-sass-colors'
+" }}}
 
-"Plugin to format on save
+" {{{ vim-prettier Plugin to call Prettier, to format sources (on save)
 " See project local configuration in .prettierrc.js
 Plugin 'prettier/vim-prettier'
-
+" }}}
+"
 " {{{ Plugin to simulate ctrl-shift-s
 " https://github.com/dyng/ctrlsf.vim
 Plugin 'dyng/ctrlsf.vim'
@@ -473,10 +527,11 @@ let g:ctrlsf_auto_focus = {
     \ }
 " }}}
 
-" To display colored parenthesis
+" {{{ Rainbow : To display colored parenthesis
 " See : https://github.com/luochen1990/rainbow
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
+" }}}
 
 " {{{ Adding plugin to highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
@@ -491,22 +546,12 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 " }}}
 
-" Adding Golang plugin
-Plugin 'fatih/vim-go'
-" Installing go-pls : syntax server for GO
-" go get golang.org/x/tools/gopls@latest
-" Making go-pls included server work for COC
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-autocmd FileType go setlocal foldmethod=syntax
-autocmd Filetype go setlocal tabstop=4
-autocmd Filetype go setlocal listchars=tab:\|\
-autocmd Filetype go set list
-
-"Plugin to auto close brackets
+" {{{ delimitMate : Plugin to auto close brackets, parenthesis
+" while typing in insert mode
 Plugin 'Raimondi/delimitMate'
+" }}}
 
-" Displaying a tag bar on right side
+" {{{ tagbar : Displaying a tag bar on right side
 " see https://github.com/majutsushi/tagbar
 " Tried exuberant ctags , but did not work
 " Replaced by Universal ctags :
@@ -516,23 +561,27 @@ Plugin 'Raimondi/delimitMate'
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
 Plugin 'majutsushi/tagbar'
 set tags=tags
+" }}}
 
-" Markdown plugin
+" {{{ Markdown plugin
 " See https://github.com/plasticboy/vim-markdowns
 " Improve display, replace formatting by result for bold and italic
 autocmd Filetype markdown setlocal conceallevel=2
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+" }}}
 
-" Adding calendar tool in Vim
+" {{{ calendar : Adding calendar tool in Vim
 Plugin 'itchyny/calendar.vim'
 let g:calendar_google_calendar = 1
+" }}}
 
-" Quick comment uncomment
+" {{{ tcomment_vim : Quick comment uncomment
 " see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
 " gcc for current line
 Plugin 'tomtom/tcomment_vim'
+"}}}
 
 " {{{ Plugin to generate remark slides
 " See https://github.com/mauromorales/vim-remark
@@ -631,14 +680,13 @@ filetype plugin indent on    " required
 " change default colorscheme
 colorscheme gruvbox
 
-"---------------- open-browser config -----------------
-" My setting.
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-"---------------- END OF open-browser config -----------------
 
 
+" {{{ fzf : Try to use fuzzy finder in Vim
+" https://github.com/junegunn/fzf#as-vim-plugin
+" Installed using Homebrew, configuring it :
+set rtp+=/usr/local/opt/fzf
+" }}}
 
 " Display line number in left gutter
 :set number
@@ -649,6 +697,7 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " Highlight result of searches
 :set hlsearch
+
 " Setting search case sensitivity
 " tried by default ignorecase
 " :set ignorecase
@@ -675,7 +724,6 @@ set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 autocmd FileType vim setlocal list
 "highlight SpecialKey ctermfg=DarkGray
 
-
 " Set the hidden option so any buffer can be hidden (keeping its changes) without first writing the buffer to a file.
 " This affects all commands and all buffers.
 :set hidden
@@ -695,13 +743,11 @@ set secure
 " zg => add word
 " z= => suggest word
 
-
 " Allow search of currently selected text using //
 vnoremap // y/<C-R>"<CR>
 
-" on entering / leaving insert mode, insert a cursor line
+" on entering / leaving insert mode, insert a cursor line and column
 " Make cursor more visible in insert mode :
-" set cursorline
 autocmd InsertEnter * set cursorcolumn
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorcolumn
