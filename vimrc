@@ -649,9 +649,17 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " Highlight result of searches
 :set hlsearch
-" Search is by default ignorecase
-:set ignorecase
-
+" Setting search case sensitivity
+" tried by default ignorecase
+" :set ignorecase
+" But smartcase seems better : some uppercase => case sensitive,
+" lowercase ==> case insensitive
+" but this disturbs command completion so turning it off in command line
+augroup dynamic_smartcase
+    autocmd!
+    autocmd CmdLineEnter : set ignorecase
+    autocmd CmdLineLeave : set smartcase
+augroup END
 
 " To Fix backspace not working in insert mode (on Mac ?)
 set bs=2
