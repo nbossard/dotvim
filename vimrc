@@ -260,6 +260,7 @@ Plugin 'ryanoasis/vim-devicons'
 " See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
 Plugin 'moll/vim-bbye'
+abbreviate bd Bdelete
 
 " To displays Vim marks in gutter
 " See : https://github.com/kshenoy/vim-signature
