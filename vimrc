@@ -133,6 +133,11 @@ let g:airline#extensions#clock#updatetime = 60000
 " Command : gx
 Plugin 'tyru/open-browser.vim'
 
+" Plugin to display the list of registers
+" on a right bar on " or @ keypress
+" See : https://github.com/junegunn/vim-peekaboo
+Plugin 'junegunn/vim-peekaboo'
+
 " To support PlantUML File syntax
 Plugin 'aklt/plantuml-syntax'
 
