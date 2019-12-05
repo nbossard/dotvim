@@ -573,12 +573,21 @@ let g:gtd#map_browse_newer = '<Right>'
 let g:gtd#review = [
   \ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
   \ '!todo @work',
+  \ '!todo @work #10min',
+  \ '!todo @work #30min',
   \ '!waiting @work',
   \ '!archived @work',
   \ ]
 " to refresh task list : ,re
 let g:gtd#map_refresh = "re"
 autocmd BufWinEnter gtd-results :GtdRefresh
+" Keys to create a nex task : ,gn
+nmap <Leader>gn <Plug>GtdNew
+vmap <Leader>gn <Plug>GtdNew
+abbreviate gtdnew GtdNew
+abbreviate gtdn GtdNew
+"Keys to review tasks
+nmap <leader>gr :GtdReview
 " }}}
 
 " {{{ Various colorscheme s
