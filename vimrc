@@ -558,6 +558,8 @@ command! -register JsDoc call jsdoc#insert()
 let g:jsdoc_allow_input_prompt=1
 " to enable @access tag
 let g:jsdoc_access_descriptions=1
+let g:jsdoc_return_type=1
+let g:jsdoc_param_description_separator=' - '
 " }}}
 
 " {{{ Plugin to use gtd in vim
