@@ -757,3 +757,9 @@ nnoremap ' :call Marks()<CR>
 " Making vim files be foldable based on markers {{{ and }}}
 autocmd FileType vim setlocal foldmethod=marker
 
+" Making Vim know to display in italic
+" set t_ZH=^[[3m
+" set t_ZR=^[[23m
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+highlight Comment gui=italic
