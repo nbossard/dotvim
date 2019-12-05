@@ -3,13 +3,15 @@
 " As described here :
 " See README.md for configuration.
 "
-" OTher installs :
+" Other installs :
 " brew install python@2
 " brew install python3
 " pip2 install neovim --upgrade
 " pip3 install neovim --upgrade
-" then test with :
+"
+" then test config with (neovim only):
 " :checkhealth
+"
 let g:python_host_prog='/usr/local/bin/python'
 let g:python3_host_prog='/usr/local/bin/python3'
 
@@ -61,13 +63,14 @@ let g:javascript_plugin_jsdoc = 1
 " {{{ NERDTree configs
 " To have a browser for files on left panel
 Plugin 'scrooloose/nerdtree'
-" To open file using System from NERDTree
+" Nerdtree plugin has plugins (sic)
+" Plugin-plugin to open file using System from NERDTree
 Plugin 'ivalkeen/nerdtree-execute'
-" To show git changed files in NERDTree
+" Plugin-plugin To show git changed files in NERDTree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'pseewald/nerdtree-tagbar-combined'
-" NERDTree related
+" NERDTree related config
 " Make NERDTree show hidden files by default
 let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=0
@@ -75,12 +78,12 @@ autocmd FileType nerdtree setlocal nonumber
 autocmd FileType nerdtree setlocal norelativenumber
 let NERDTreeAutoCenter=1
 let NERDTreeAutoCenterTreshold=8
-" Add mapping for nerdtree find : gnf
+" Add mapping for 'nerdtree find' : gnf
 map gnf :NERDTreeFind<CR>
 " }}}
 
 " {{{ GitGutter config
-" To display a git line change info close to line number
+" Plugin to display a git line change marker close to line number
 " see: https://github.com/airblade/vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
 " changing default mapping ]c cause conflicts with coc
@@ -175,12 +178,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'startify']
 " }}}
 
-" Allow generating of lorem ipsum
+" {{{ Allow generating of lorem ipsum
 " See : https://www.vim.org/scripts/script.php?script_id=2289
 " usage : :Loremipsum
 Plugin 'vim-scripts/loremipsum'
+" }}}
 
-" to allow fuzzy search of files
+" Plugin to allow fuzzy search of files
 " See : https://github.com/kien/ctrlp.vim
 Plugin 'ctrlpvim/ctrlp.vim'
 " Excluding node_modules folder
@@ -263,6 +267,12 @@ let g:HardMode_level="wannabe"
 " Always launch hardmode, sic
 ":call HardMode()
 
+" Try to use fuzzy finder in Vim
+" https://github.com/junegunn/fzf#as-vim-plugin
+" Installed using Homebrew, configuring it :
+set rtp+=/usr/local/opt/fzf
+
+
 " To open javascript MDN directly from vim
 " See : https://github.com/jungomi/vim-mdnquery
 " installation : requires gem install mdn_query
@@ -278,8 +288,13 @@ Plugin 'tpope/vim-surround'
 " For editing csv tsv formatted files
 Plugin 'mechatroner/rainbow_csv'
 
+" A plugin for cross editors configuration file
+" form compatibility with other developers on other platforms
+Plugin 'editorconfig/editorconfig-vim'
+
 let mapleader=","
 
+" Completion in Vim :
 " Tested and removed 'deoplin' for completion
 " Tested and removed YCM : 'you complete' me for super completion
 
@@ -405,15 +420,15 @@ nunmap <C-I>
 " }}}
 
 " Plugin to colorize color texts in (s)css files
-" Tried following, but does not work on scss variables
+" Also tried following, but does not work on scss variables :
 " Plugin 'gko/vim-coloresque'
 Plugin 'shmargum/vim-sass-colors'
 
 "Plugin to format on save
-" See configuration in .prettierrc.js
+" See project local configuration in .prettierrc.js
 Plugin 'prettier/vim-prettier'
 
-" {{{ Plugin to simulate ctrl shift S
+" {{{ Plugin to simulate ctrl-shift-s
 " https://github.com/dyng/ctrlsf.vim
 Plugin 'dyng/ctrlsf.vim'
 "should not work but it does with neovim +iterm
@@ -473,7 +488,10 @@ Plugin 'Raimondi/delimitMate'
 " Displaying a tag bar on right side
 " see https://github.com/majutsushi/tagbar
 " Tried exuberant ctags , but did not work
-" Replaced by https://ctags.io/
+" Replaced by Universal ctags :
+" https://ctags.io/
+" https://github.com/universal-ctags/ctags
+" install with : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
 Plugin 'majutsushi/tagbar'
 set tags=tags
