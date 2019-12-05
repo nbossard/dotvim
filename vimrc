@@ -529,7 +529,7 @@ Plugin 'itchyny/calendar.vim'
 let g:calendar_google_calendar = 1
 
 " Quick comment uncomment
-"see https://github.com/tomtom/tcomment_vim
+" see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
 " gcc for current line
 Plugin 'tomtom/tcomment_vim'
