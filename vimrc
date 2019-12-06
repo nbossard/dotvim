@@ -741,7 +741,8 @@ set secure
 
 "spell : to enable :
 " :set spell spelllang=fr
-" zg => add word
+" zg => add word to dico
+" zw => remove word from dico
 " z= => suggest word
 
 " Allow search of currently selected text using //
