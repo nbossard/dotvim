@@ -544,6 +544,7 @@ let g:show_spaces_that_precede_tabs=1
 "Enabling stripping on save (with confirmation)
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:startify_change_to_dir=0
 " }}}
 
 " {{{ delimitMate : Plugin to auto close brackets, parenthesis
