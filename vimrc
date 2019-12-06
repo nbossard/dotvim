@@ -811,3 +811,9 @@ autocmd FileType vim setlocal foldmethod=marker
 " let &t_ZH="\e[3m"
 " let &t_ZR="\e[23m"
 highlight Comment gui=italic
+
+" syntax debugging tool : helps understand why colored
+" See : https://yanpritzker.com/how-to-change-vim-syntax-colors-that-are-annoying-you-13ce55948760
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
