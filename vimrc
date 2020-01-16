@@ -759,10 +759,17 @@ set exrc
 set secure
 
 "spell : to enable :
+" (enabled in project config file usually)
 " :set spell spelllang=fr
+" Usual commands :
 " zg => add word to dico
 " zw => remove word from dico
 " z= => suggest word
+" defining custom alias
+map gsn ]s
+map gsp [s
+" grammar check : see vim-grammarous plugin above
+
 
 " Allow search of currently selected text using //
 vnoremap // y/<C-R>"<CR>
