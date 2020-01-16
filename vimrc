@@ -393,6 +393,13 @@ Plugin 'editorconfig/editorconfig-vim'
 " :CocInstall coc-markdownlint
 " :CocInstall coc-vimlsp
 "
+" Also tried coc marketplace :
+" https://github.com/fannheyward/coc-marketplace
+" Usage :
+" :CocList marketplace list all available extensions
+" :CocList marketplace python to search extension that name contains python
+" CocInstall coc-marketplace
+"
 " Additional config for coc-tsserver is done in file opened by
 " : CocConfig
 "
