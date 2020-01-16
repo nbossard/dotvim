@@ -68,6 +68,8 @@ autocmd FileType go setlocal foldmethod=syntax
 autocmd Filetype go setlocal tabstop=4
 autocmd Filetype go setlocal listchars=tab:\|\
 autocmd Filetype go set list
+"  Display doc in a floating window
+let g:go_doc_popup_window = 1
 " }}}
 
 "}}} ==== end of language syntax plugins =====
