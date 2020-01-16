@@ -632,6 +632,7 @@ let g:jsdoc_param_description_separator=' - '
 
 " {{{ Plugin to use gtd in vim
 " See : https://github.com/phb1/gtd.vim
+" rem : to delete a task : GtdDelete
 Plugin 'phb1/gtd.vim'
 let g:gtd#default_action = 'inbox'
 let g:gtd#default_context = 'work'
