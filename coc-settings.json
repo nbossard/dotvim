@@ -4,9 +4,9 @@
   "suggest.enablePreview": true,
   "suggest.floatEnable": true,
 
-  "vetur.useWorkspaceDependencies" : true,
+  "vetur.useWorkspaceDependencies": true,
   "vetur.experimental.templateInterpolationService": false,
-  "vetur.validation.template":false,
+  "vetur.validation.template": false,
   "vetur.validation.script": false,
   "vetur.dev.logLevel": "DEBUG",
 
