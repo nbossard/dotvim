@@ -242,7 +242,9 @@ command! -nargs=1 Gsdiff Gdiffsplit <args>
 " wich happens often to me
 " Requires python2 and :
 " pip install Pillow
-Plugin 'ashisha/image.vim'
+if has('nvim')
+  Plugin 'ashisha/image.vim'
+endif
 " }}}
 
 " {{{ Vim indent guides : Plugin to display indent lines
