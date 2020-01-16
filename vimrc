@@ -339,6 +339,9 @@ Plugin 'xolox/vim-notes'
 let g:notes_directories = ['~/Documents/NotesVim']
 " Required by plugin vim-notes
 Plugin 'xolox/vim-misc'
+" Renaming RecentNotes for easier finding
+" Rem : navigate using gf
+command! NotesRecent RecentNotes
 " }}}
 
 " {{{ hardmode : Plugin for Disabling arrows, oh my god...
