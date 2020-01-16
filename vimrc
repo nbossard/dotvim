@@ -197,7 +197,8 @@ Plugin 'junegunn/vim-peekaboo'
 " See : https://github.com/dense-analysis/ale
 " acts as a Vim Language Server Protocol client
 Plugin 'dense-analysis/ale'
-" By default, all available tools for all supported languages will be run
+" By default, all available tools for all supported languages will be run.
+"
 " changing lint delay from 200ms to ... in order to run less often
 let g:ale_lint_delay=3000
 " NBO : do not try to enable tsserver on vue files, it does not work
