@@ -150,6 +150,8 @@ autocmd FileType nerdtree setlocal nonumber
 autocmd FileType nerdtree setlocal norelativenumber
 let NERDTreeAutoCenter=1
 let NERDTreeAutoCenterTreshold=8
+" Hide some files
+let NERDTreeIgnore=['\.swp']
 " Add mapping for 'nerdtree find' : gnf
 map gnf :NERDTreeFind<CR>
 
