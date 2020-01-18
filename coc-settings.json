@@ -23,8 +23,11 @@
   "typescript.suggestionActions.enabled": false,
 
   "markdownlint.config": {
-   "line-length": {"line_length": 120},
-   "no-trailing-punctuation": false
+    "line-length": {"line_length": 120},
+    "no-trailing-punctuation": false,
+    "MD003": {
+      "style": "atx"
+    }
   },
 
   "languageserver": {
@@ -35,4 +38,3 @@
     }
   }
 }
-
