@@ -308,6 +308,8 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
  if has('conceal')
    set conceallevel=2 concealcursor=nv
  endif
+ " NBO : adding my own snippets directory
+ let g:neosnippet#snippets_directory='~/.vim/nbo_snippets'
 " }}}
 
 " {{{ vim-template : To allow usage of templates on new files
