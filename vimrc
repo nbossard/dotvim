@@ -663,6 +663,12 @@ abbreviate gtdn GtdNew
 nmap <leader>gr :GtdReview
 " }}}
 
+" Plugin for grammar check
+" see : https://github.com/rhysd/vim-grammarous
+" NOTE : REQUIRES JAVA 8
+"Plugin 'rhysd/vim-grammarous'
+command! GrammarousCheckFR :GrammarousCheck --lang=fr
+
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
 set termguicolors
