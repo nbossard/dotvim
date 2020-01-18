@@ -507,8 +507,10 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "**************** end of Coc suggested configuration *****************
-"Fixing unexpected mapping of ctrl + i
-nunmap <C-I>
+"Fixing unexpected mapping of ctrl + i (used to come-back front)
+if has('nvim')
+  nunmap <C-I>
+endif
 " }}}
 " }}}
 
