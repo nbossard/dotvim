@@ -160,7 +160,12 @@ let NERDTreeAutoCenterTreshold=8
 " Hide some files
 let NERDTreeIgnore=['\.swp']
 " Add mapping for 'nerdtree find' : gnf
-map gnf :NERDTreeFind<CR>
+function NERDTreeShowMeFile()
+  :NERDTreeFind
+  :normal zz
+  :normal o
+endfunction
+map gnf :call NERDTreeShowMeFile()<CR>
 
 " {{{ Plugin to add icons : in ctrlP, Airline, NERDTree, Startify
 " See https://github.com/ryanoasis/vim-devicons
