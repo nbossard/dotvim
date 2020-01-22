@@ -458,7 +458,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Remad keys for gotos
+" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -675,11 +675,12 @@ abbreviate gtdn GtdNew
 nmap <leader>gr :GtdReview
 " }}}
 
-" Plugin for grammar check
+" {{{ Plugin for grammar check
 " see : https://github.com/rhysd/vim-grammarous
 " NOTE : REQUIRES JAVA 8
 "Plugin 'rhysd/vim-grammarous'
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
+" }}}
 
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
