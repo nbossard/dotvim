@@ -66,8 +66,14 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 autocmd FileType go setlocal foldmethod=syntax
 autocmd Filetype go setlocal tabstop=4
-autocmd Filetype go setlocal listchars=tab:\|\
-autocmd Filetype go set list
+autocmd Filetype go setlocal shiftwidth=4
+autocmd Filetype go setlocal softtabstop=4
+
+" COMPATIBILITY bug on neovim, setting list makes words disappear when
+" switching to NERDTree
+"autocmd Filetype go setlocal listchars=tab:\|\
+"autocmd Filetype go setlocal list
+"
 "  Display doc in a floating window
 let g:go_doc_popup_window = 1
 " }}}
