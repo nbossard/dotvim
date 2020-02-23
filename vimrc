@@ -683,6 +683,17 @@ nmap <leader>gr :GtdReview
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
 " }}}
 
+" {{{ Plugin for making REST request using Curl
+" https://github.com/diepm/vim-rest-console
+" usage :
+" :set ft=rest
+" http://localhost:9200
+" GET /_cat/nodes?v|
+" <C-J>
+Plugin 'diepm/vim-rest-console'
+let vrc_horizontal_split=1
+" }}}
+
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
 set termguicolors
