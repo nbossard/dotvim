@@ -694,6 +694,12 @@ Plugin 'diepm/vim-rest-console'
 let vrc_horizontal_split=1
 " }}}
 
+" {{{ Plugin for displaying undo tree
+" https://github.com/simnalamburt/vim-mundo
+" Usage : https://simnalamburt.github.io/vim-mundo/
+Plugin 'simnalamburt/vim-mundo'
+" }}}
+
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
 set termguicolors
