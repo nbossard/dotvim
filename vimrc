@@ -611,6 +611,8 @@ Plugin 'Raimondi/delimitMate'
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
 Plugin 'majutsushi/tagbar'
 set tags=tags
+" do not sort alphabetically
+let g:tagbar_sort = 0
 " }}}
 
 " {{{ Markdown plugin
