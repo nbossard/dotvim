@@ -156,6 +156,9 @@ Plugin 'ivalkeen/nerdtree-execute'
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'pseewald/nerdtree-tagbar-combined'
+" Plugin to add coloring on devicons (see below)
+" https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " NERDTree related config
 " Make NERDTree show hidden files by default
 let NERDTreeShowHidden=1
@@ -181,7 +184,7 @@ map gnF :NERDTreeFind<CR>
 " https://github.com/ryanoasis/nerd-fonts
 Plugin 'ryanoasis/vim-devicons'
 " }}}
-"}}} ===== end of nerdtree related config ======
+" }}} ===== end of nerdtree related config ======
 
 " {{{ Airline plugin : Improved status line bar
 " Use airline plugin as status line bar
