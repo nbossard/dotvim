@@ -77,6 +77,12 @@ autocmd Filetype go setlocal softtabstop=4
 "
 "  Display doc in a floating window
 let g:go_doc_popup_window = 1
+
+" VET is one of the three default linters of Go
+" This is to make VET ignore the checks for key value in bson.D
+" error is : 'primitive.E composite literal uses unkeyed fields'
+" Note : the list of checks done by vet can be obtained by running 'go tool vet help' in a terminal
+let g:ale_go_govet_options = '--composites=false'
 " }}}
 
 "}}} ==== end of language syntax plugins =====
