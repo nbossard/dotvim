@@ -692,11 +692,25 @@ abbreviate gtdn GtdNew
 nmap <leader>gr :GtdReview
 " }}}
 
+" Plugin to run mongodb js files directly from Vim
+" https://github.com/tpope/vim-dadbod
+" ysiw" ==> you surround inner word with quotes
+" cs'" ==> change surrounding ' for "
+Plugin 'tpope/vim-dadbod'
+
 " {{{ Plugin for grammar check
 " see : https://github.com/rhysd/vim-grammarous
 " NOTE : REQUIRES JAVA 8
-"Plugin 'rhysd/vim-grammarous'
+" Plugin 'rhysd/vim-grammarous'
+let g:grammarous#default_comments_only_filetypes = {
+            \ '*' : 1, 'help' : 0, 'markdown' : 0,
+            \ }
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
+" }}}
+
+" {{{ yaml-vim : Plugin so support yaml file format
+" https://github.com/mrk21/yaml-vim
+Plugin 'mrk21/yaml-vim'
 " }}}
 
 " {{{ Plugin for making REST request using Curl
@@ -801,6 +815,7 @@ set path=$PWD/**
 set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
 " list of filetypes for wich we want spaces to be displayed
 autocmd FileType vim setlocal list
+autocmd FileType yaml setlocal list
 "highlight SpecialKey ctermfg=DarkGray
 
 " Set the hidden option so any buffer can be hidden (keeping its changes) without first writing the buffer to a file.
