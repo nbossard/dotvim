@@ -752,6 +752,10 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tomasiser/vim-code-dark'
 "}}}
 
+" Jsonc type file support
+Plugin 'neoclide/jsonc.vim'
+autocmd BufNewFile,BufRead *.jsonc setlocal filetype=jsonc
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
