@@ -122,8 +122,8 @@ cabbrev magit Magit
 Plugin 'mhinz/vim-startify'
 let g:startify_files_number = 5
 let g:startify_commands = [
+    \ ['NERDTree', ':NERDTree'],
     \ ['Vim Reference', 'h ref'],
-    \ ['GTD Review', 'GtdReview'],
     \ ['Hard Core mode', ':call HardMode()'],
     \ ]
 let g:startify_lists = [
