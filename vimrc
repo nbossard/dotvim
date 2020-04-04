@@ -50,6 +50,7 @@ let g:javascript_plugin_jsdoc = 1
 " }}}
 
 " {{{ To support PlantUML File syntax
+" See: https://github.com/aklt/plantuml-syntax
 Plugin 'aklt/plantuml-syntax'
 " }}}
 
@@ -110,7 +111,7 @@ cabbrev magit Magit
 "
 " }}} === End of Git related plugins ====
 
-" {{{ Startify plugin : To change start screen
+" {{{ Startify plugin : To change start screen (welcome page)
 " https://github.com/mhinz/vim-startify
 Plugin 'mhinz/vim-startify'
 let g:startify_files_number = 5
@@ -250,7 +251,7 @@ cabbrev Gsdiff Gdiffsplit
 command! -nargs=1 Gsdiff Gdiffsplit <args>
 " }}}
 
-" {{{ Allow Vim to open binary image files (PNG, JPG,...) as ASCII ART
+" {{{ image : allow Vim to open binary image files (PNG, JPG,...) as ASCII ART
 " See : https://github.com/ashisha/image.vim
 " wich happens often to me
 " Requires python2 and :
@@ -270,9 +271,11 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'startify']
+" special config for some filetypes
+autocmd FileType yaml let g:indent_guides_start_level = 1
 " }}}
 
-" {{{ Allow generating of lorem ipsum
+" {{{ loremipsum : allow generating of lorem ipsum
 " See : https://www.vim.org/scripts/script.php?script_id=2289
 " usage : :Loremipsum
 Plugin 'vim-scripts/loremipsum'
@@ -284,6 +287,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Excluding node_modules folder
 " cause it slowdowns ctr-P
 " Should  be in local .vimrc but does not work
+" Tips for usage : <c-r> to switch to regex mode’s
+" <c-f> and <c-b> to cycle between modes
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|node_modules$\|\.DS_STORE$',
     \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
@@ -533,7 +538,7 @@ endif
 Plugin 'shmargum/vim-sass-colors'
 " }}}
 
-" {{{ vim-prettier Plugin to call Prettier, to format sources (on save)
+" {{{ vim-prettier : plugin to call Prettier, to format sources (on save)
 " See project local configuration in .prettierrc.js
 Plugin 'prettier/vim-prettier'
 " }}}
@@ -778,10 +783,12 @@ set bs=2
 set path=$PWD/**
 
 " To display spaces and change colors
+"
 " SpecialKey is the name of group including spaces,
 " ctermfg => color terminal  foreground
 " to disable : 'set nolist'
 set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
+" list of filetypes for wich we want spaces to be displayed
 autocmd FileType vim setlocal list
 "highlight SpecialKey ctermfg=DarkGray
 
