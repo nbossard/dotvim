@@ -899,7 +899,7 @@ if exists('&inccommand')
 endif
 
 " Adding relative numbers
-:set number relativenumber
+":set number relativenumber
 
 " Add support for comments in jsonc files
 autocmd FileType json syntax match Comment +\/\/.\+$+
