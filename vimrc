@@ -199,6 +199,10 @@ Plugin 'enricobacis/vim-airline-clock'
 " without this line, airline-clock defaults to updatetime and consumes a lot
 " of CPU
 let g:airline#extensions#clock#updatetime = 60000
+" use > separators between sections
+let g:airline_powerline_fonts = 1
+" various airline bar themes
+Plugin 'vim-airline/vim-airline-themes'
 " }}}
 
 " {{{ open-browser : Plugin to open URL under cursor in an external browser
