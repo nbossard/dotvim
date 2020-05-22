@@ -751,7 +751,7 @@ Plugin 'diepm/vim-rest-console'
 let vrc_horizontal_split=1
 " }}}
 
-" {{{ Plugin for displaying undo tree
+" {{{ mundo : Plugin for displaying undo tree
 " https://github.com/simnalamburt/vim-mundo
 " Usage : https://simnalamburt.github.io/vim-mundo/
 Plugin 'simnalamburt/vim-mundo'
@@ -779,7 +779,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tomasiser/vim-code-dark'
 "}}}
 
-" Jsonc type file support
+" Jsonc : jsonc type file support
 Plugin 'neoclide/jsonc.vim'
 autocmd BufNewFile,BufRead *.jsonc setlocal filetype=jsonc
 
