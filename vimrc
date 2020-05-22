@@ -101,6 +101,8 @@ nmap ,gp <Plug>(GitGutterPrevHunk)
 nmap ghn <Plug>(GitGutterNextHunk)
 nmap ghp <Plug>(GitGutterPrevHunk)
 nmap ,gh <Plug>(GitGutterPreviewHunk)
+" Adding line number highlight by default
+let g:gitgutter_highlight_linenrs = 1
 " main commandes :
 " ]h or [h --> next hunk
 " ,gn or ,gp --> next hunk
