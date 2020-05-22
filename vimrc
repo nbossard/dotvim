@@ -150,7 +150,7 @@ let test#javascript#jest#options = {
 
 " {{{ ===== NERDTree related configs =====
 " Nerdtree is a must have plugin, to have a browser for files on left panel
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 " Nerdtree plugin has plugins (sic)
 " Plugin-plugin to open file using System from NERDTree
 Plugin 'ivalkeen/nerdtree-execute'
