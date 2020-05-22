@@ -1,0 +1,21 @@
+# nbo own snippets for Vue coding
+# neosnippet syntax
+# https://github.com/Shougo/neosnippet.vim/blob/master/doc/neosnippet.txt
+include javascript.snip
+
+snippet computed
+        computed: {
+          $1: function() {
+            $2
+          }
+        },
+
+snippet translate
+abbr i18n mustaches
+alias i18n
+        {{ $t("$1") }}
+
+snippet translatejs
+abbr i18n javascript
+alias i18njs
+        this.$i18n.tc("$1");

@@ -1,0 +1,34 @@
+# nbo own snippets for Javascript coding
+# neosnippet syntax
+# https://github.com/Shougo/neosnippet.vim/blob/master/doc/neosnippet.txt
+
+snippet cy.screenshot
+abbr cy.screenshot viewport
+options head
+        cy.screenshot({capture:'viewport'})
+
+snippet describe
+        describe("${1:description du test}", () => {
+          it("", () => {
+          });
+        });n
+
+snippet eslint-disable-line
+        // eslint-disable-line $1
+
+snippet eslint-disable-block
+        /* eslint-disable ${1:rule to disable} */
+        /* eslint-enable ${2:same name} */
+
+snippet function
+        $1: function() {
+          $2
+        }
+
+snippet google-analytics-event
+abbr send GA event
+alias event
+      this.$ga.event({
+        eventCategory: Const.GA_CAT_ABOUT,
+        eventAction: Const.GA_CAT_ABOUT_ACT_WHATSAPP,
+      });
