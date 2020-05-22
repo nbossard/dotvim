@@ -399,6 +399,9 @@ autocmd FileType vue setlocal keywordprg=:MdnQuery
 
 " {{{ you surround me : Adding surround me to use 's' in commands
 " https://github.com/tpope/vim-surround
+" ysiw" ==> you surround inner word with quotes
+" yss* ==> you surround entire line with star
+" cs'" ==> change surrounding ' for "
 Plugin 'tpope/vim-surround'
 " }}}
 
@@ -700,8 +703,6 @@ nmap <leader>gr :GtdReview
 
 " Plugin to run mongodb js files directly from Vim
 " https://github.com/tpope/vim-dadbod
-" ysiw" ==> you surround inner word with quotes
-" cs'" ==> change surrounding ' for "
 Plugin 'tpope/vim-dadbod'
 
 " {{{ Plugin for grammar check
