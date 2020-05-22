@@ -770,6 +770,7 @@ set termguicolors
 " Use F8 and shift+F8 to quick switch
 Plugin 'xolox/vim-colorscheme-switcher'
 :let g:colorscheme_switcher_exclude = ['default', 'blue', 'shine', 'elflord']
+:let g:colorscheme_switcher_exclude_builtins = 1
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
