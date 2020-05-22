@@ -757,6 +757,12 @@ let vrc_horizontal_split=1
 Plugin 'simnalamburt/vim-mundo'
 " }}}
 
+" {{{ bufexplore : Plugin for buffers list display and management
+" Usage : <leader>be    ,be
+" Aimed to improve buffer list display (:ls ou :buffers ou via ctrl-P plugin)
+ Plugin 'jlanzarotta/bufexplorer'
+" }}}
+
 " {{{ Various colorscheme s
 "Enables 24-bit RGB color
 set termguicolors
