@@ -637,6 +637,11 @@ Plugin 'majutsushi/tagbar'
 set tags=tags
 " do not sort alphabetically
 let g:tagbar_sort = 0
+" Position the (global) quickfix window at the very bottom of the window
+" (useful for making sure that it appears underneath tagbar splits)
+" NOTE: Using a check here to make sure that window-specific location-lists
+" aren't effected, as they use the same `FileType` as quickfix-lists.
+autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
 " }}}
 
 " {{{ Markdown plugin
