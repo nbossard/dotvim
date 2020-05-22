@@ -589,6 +589,21 @@ let g:ctrlsf_auto_focus = {
 " See : https://github.com/luochen1990/rainbow
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
+let g:rainbow_conf = {
+\  'separately': {
+\    '*': {},
+\    'markdown': {
+\      'parentheses_options': 'containedin=markdownCode contained',
+\    },
+\    'haskell': {
+\      'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'],
+\    },
+\    'vim': {
+\      'parentheses_options': 'containedin=vimFuncBody',
+\    },
+\    'nerdtree': 0,
+\  }
+\}
 " }}}
 
 " {{{ Adding plugin to highlight trailing whitespace
