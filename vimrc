@@ -54,8 +54,16 @@ let g:javascript_plugin_jsdoc = 1
 Plugin 'aklt/plantuml-syntax'
 " }}}
 
-" {{{ Adding support for '.feature' files
+" {{{ Adding support for '.feature' files,
+" these are test files
+" See : https://github.com/tpope/vim-cucumber
 Plugin 'tpope/vim-cucumber'
+autocmd Filetype cucumber setlocal list
+autocmd Filetype cucumber setlocal foldmethod=indent
+autocmd Filetype cucumber setlocal tabstop=2
+autocmd Filetype cucumber setlocal shiftwidth=2
+autocmd Filetype cucumber setlocal softtabstop=2
+autocmd Filetype cucumber setlocal expandtab
 " }}}
 
 " {{{ Adding Golang plugin
