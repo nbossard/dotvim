@@ -771,6 +771,33 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'simnalamburt/vim-mundo'
 " }}}
 
+" {{{ cheatsheet
+" Code documentation written as code!
+Plugin 'adambard/learnxinyminutes-docs'
+let g:bundle_dir = "/Users/nbossard/.vim/bundle/"
+
+function! HelpLearnXInMinutes(topic) abort
+    let l:file = &filetype
+    if a:topic != ''
+        let l:file = a:topic
+    endif
+
+    let l:file = g:bundle_dir . '/learnxinyminutes-docs/fr-fr/'
+                \ . l:file . '-fr.html.markdown'
+
+    if !filereadable(l:file)
+        let l:file = fnamemodify(l:file, ":h")
+        execute "Explore" file
+    endif
+
+    execute "edit" file
+endfunction
+
+command! -nargs=+ HelpLearnXInMinutes call HelpLearnXInMinutes(<f-args>)
+command! -nargs=+ Cheatsheet call HelpLearnXInMinutes(<f-args>)
+nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
+" }}}
+
 " {{{ bufexplore : Plugin for buffers list display and management
 " Usage : <leader>be    ,be
 " Aimed to improve buffer list display (:ls ou :buffers ou via ctrl-P plugin)
