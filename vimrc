@@ -635,6 +635,7 @@ Plugin 'Raimondi/delimitMate'
 
 " {{{ tagbar : Displaying a tag bar on right side
 " see https://github.com/majutsushi/tagbar
+" Relies on external tag generator :
 " Tried exuberant ctags , but did not work
 " Replaced by Universal ctags :
 " https://ctags.io/
@@ -681,6 +682,7 @@ Plugin 'mauromorales/vim-remark'
 " To ease table creation in remark
 " https://github.com/dhruvasagar/vim-table-mode
 " invoke vim-table-mode’s table mode with <leader>tm
+" enter | twice to write a properly formatted horizontal line
 Plugin 'dhruvasagar/vim-table-mode'
 let g:table_mode_corner="|"
 " }}}
