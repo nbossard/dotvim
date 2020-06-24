@@ -761,6 +761,10 @@ Plugin 'diepm/vim-rest-console'
 let vrc_horizontal_split=1
 " }}}
 
+" {{{ Plugin for dockerfiles
+Plugin 'ekalinin/Dockerfile.vim'
+" }}}
+
 " {{{ mundo : Plugin for displaying undo tree
 " https://github.com/simnalamburt/vim-mundo
 " Usage : https://simnalamburt.github.io/vim-mundo/
