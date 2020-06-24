@@ -983,3 +983,9 @@ augroup AutoSaveFolds
   autocmd BufWinEnter ?* silent! loadview
 augroup END
 " }}}
+
+"Adding useful shortcuts
+nmap <c-s> :write<CR>
+
+" Keep at least 5 lines visible at top and bottom of screen
+:set scrolloff=5
