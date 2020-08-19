@@ -627,8 +627,11 @@ let g:rainbow_conf = {
 \      'parentheses_options': 'containedin=vimFuncBody',
 \    },
 \    'nerdtree': 0,
+\    'go': 0,
 \  }
 \}
+" nerdtree => disabled => makes [] visible
+" go ==> disabled ==> useless for this language, trying to improve performance
 " }}}
 
 " {{{ Adding plugin to highlight trailing whitespace
