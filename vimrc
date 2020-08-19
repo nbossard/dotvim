@@ -109,6 +109,8 @@ nmap ,gp <Plug>(GitGutterPrevHunk)
 nmap ghn <Plug>(GitGutterNextHunk)
 nmap ghp <Plug>(GitGutterPrevHunk)
 nmap ,gh <Plug>(GitGutterPreviewHunk)
+nmap ,gdd :let g:gitgutter_diff_base = 'develop'<CR>
+nmap ,gdh :let g:gitgutter_diff_base = 'head'<CR>
 " Adding line number highlight by default
 let g:gitgutter_highlight_linenrs = 1
 " main commandes :
@@ -118,6 +120,10 @@ let g:gitgutter_highlight_linenrs = 1
 " ,hs --> stage hunk
 " ,hs --> undo hunk
 " :GitGutterFold --> sic
+"
+" To compare with another branch :
+" :let g:gitgutter_diff_base = 'develop'
+" :let g:gitgutter_diff_base = 'head'
 " }}}
 
 " {{{ trying jreybert/vimagit for cross files commit
