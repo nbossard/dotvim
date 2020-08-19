@@ -521,6 +521,10 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
+" changing coc highlight color cause light grey is invisible
+" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
+" change
+autocmd ColorScheme * highlight CocHighlightText     ctermfg=LightMagenta    guifg=LightMagenta
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
