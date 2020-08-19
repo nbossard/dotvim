@@ -229,6 +229,12 @@ vmap gx <Plug>(openbrowser-smart-search)
 Plugin 'junegunn/vim-peekaboo'
 " }}}
 
+" {{{ unicode : to show unicode (and digraph) tables and search
+" Usage :UnicodeTable
+" See : https://github.com/chrisbra/unicode.vim
+Plugin 'chrisbra/unicode.vim'
+"}}}
+
 "  {{{ ALE plugin : To support various linters
 " ALE = Asynchronous Lint Engine
 " See : https://github.com/dense-analysis/ale
