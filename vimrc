@@ -847,14 +847,14 @@ Plugin 'xolox/vim-colorscheme-switcher'
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
-Bundle 'acarapetis/vim-colors-github'
-Bundle "nanotech/jellybeans.vim"
+Plugin 'acarapetis/vim-colors-github'
+Plugin 'nanotech/jellybeans.vim'
 "Pencil color theme
-Bundle 'reedes/vim-colors-pencil'
+Plugin 'reedes/vim-colors-pencil'
 " gruvbox : https://github.com/morhetz/gruvbox
 Plugin 'morhetz/gruvbox'
 " Go dedicated colorscheme
-" Bundle 'bitfield/vim-gitgo'
+" Plugin'bitfield/vim-gitgo'
 " visual studio code like dark theme
 Plugin 'tomasiser/vim-code-dark'
 "}}}
