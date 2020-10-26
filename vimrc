@@ -373,9 +373,13 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " }}}
 
 " {{{ vim-template : To allow usage of templates on new files
+" see : https://github.com/aperezdc/vim-template
 " Usage : create a new file with accurate extension (.vue)
 " open it and type :Template
-Plugin 'aperezdc/vim-template'
+" NBO pinned on 08 june 2020 cause incompatibility issues with COC on latest
+" revision
+Plugin 'aperezdc/vim-template', {'pinned': 1}
+
 " }}}
 
 " {{{ vim-bbye : To close buffer without closing window
