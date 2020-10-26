@@ -598,7 +598,8 @@ Plugin 'prettier/vim-prettier'
 "
 " {{{ Plugin to simulate ctrl-shift-s
 " https://github.com/dyng/ctrlsf.vim
-" to use regular expression type : :CtrlSF -R foo.*
+" tip : to use regular expression type : :CtrlSF -R foo.*
+" tip : to switch to quickfix presentation : M
 Plugin 'dyng/ctrlsf.vim'
 "should not work but it does with neovim +iterm
 nmap     <C-S-F> <Plug>CtrlSFPrompt
