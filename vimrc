@@ -259,6 +259,12 @@ nmap gan :ALENext<CR>
 nmap gap :ALEPrevious<CR>
 " }}}
 
+"{{{ BufOnly : Closes all buffers but this one
+" see : https://github.com/vim-scripts/BufOnly.vim
+" usage : :BufOnly 
+Plugin 'vim-scripts/BufOnly.vim'
+"}}}
+
 " {{{ Fugitive plugin : to display git log in vim
 " see https://github.com/tpope/vim-fugitive
 Plugin 'tpope/vim-fugitive'
