@@ -109,8 +109,9 @@ nmap ,gp <Plug>(GitGutterPrevHunk)
 nmap ghn <Plug>(GitGutterNextHunk)
 nmap ghp <Plug>(GitGutterPrevHunk)
 nmap ,gh <Plug>(GitGutterPreviewHunk)
-nmap ,gdd :let g:gitgutter_diff_base = 'develop'<CR>
-nmap ,gdh :let g:gitgutter_diff_base = 'head'<CR>
+nmap ,gdd :let g:gitgutter_diff_base = 'develop'<CR><bar>:GitGutter<CR>
+nmap ,gdh :let g:gitgutter_diff_base = 'head'<CR><bar>:GitGutter<CR>
+
 " Adding line number highlight by default
 let g:gitgutter_highlight_linenrs = 1
 " main commandes :
