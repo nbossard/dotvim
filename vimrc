@@ -1043,8 +1043,19 @@ augroup AutoSaveFolds
 augroup END
 " }}}
 
-"Adding useful shortcuts
+"{{ Adding useful shortcuts 
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+" replace currently selected text with default register (paste)
+" without yanking it
+vnoremap <leader>p "_dP
+
+" windows style 'ctrl + s' for saving
 nmap <c-s> :write<CR>
+" buffer navigation
+nmap gn :bn<CR>
+nmap gp :bp<CR>
 
 " Keep at least 5 lines visible at top and bottom of screen
 :set scrolloff=5
