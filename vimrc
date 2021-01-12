@@ -726,6 +726,13 @@ let g:ctrlsf_auto_focus = {
     \ }
 " }}}
 
+" {{{ vim-multiple-cursors : Plugin for multiple cursors
+" see : https://github.com/mg979/vim-visual-multi
+" Originally to use with ctrlsf to change multiple words at a time
+" usage : press ctrl-n n n
+Plugin 'mg979/vim-visual-multi'
+" }}}
+
 " {{{ Rainbow : To display colored parenthesis
 " See : https://github.com/luochen1990/rainbow
 Plugin 'luochen1990/rainbow'
