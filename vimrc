@@ -538,6 +538,7 @@ Plugin 'tpope/vim-surround'
 " }}}
 
 " {{{ rainbow_csv : plugin for editing csv tsv formatted files
+" https://github.com/mechatroner/rainbow_csv
 Plugin 'mechatroner/rainbow_csv'
 "}}}
 
@@ -573,6 +574,8 @@ Plugin 'editorconfig/editorconfig-vim'
 " Additional config for coc-tsserver is done in file opened by
 " : CocConfig
 "
+" NOTE THAT THEY ARE USING 'release' branch
+" so manual update : cd ~/.vim/bundle/coc.nvim; git pull
 Plugin 'neoclide/coc.nvim', {'pinned': 1}
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
