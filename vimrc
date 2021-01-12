@@ -175,7 +175,9 @@ let g:startify_lists = [
 " }}}
 
 " {{{ Vim-test : plugin for launching tests inside vim
-Plugin 'janko/vim-test'
+"see https://github.com/vim-test/vim-test
+"usage : testFile
+Plugin 'vim-test/vim-test'
 "let g:test#runner_commands = ['Mocha']
 let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
 let test#javascript#jest#options = {
