@@ -1052,7 +1052,10 @@ autocmd FileType yaml setlocal list
 " This affects all commands and all buffers.
 :set hidden
 
-"Quick file search mapped on F4, opens quickwin window
+"Quick file search mapped on F4, opens quickfix window
+" Could also be done by
+":vimgrep titi **/*   <=== will open results in quickfix list
+":cdo %s/titi/toto/gc  <== cdo, do for all files in quicklist
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/gj **" <Bar> cw<CR>
 map <F5> :execute "vimgrep /" . expand("<cWORD>") . "/gj **" <Bar> cw<CR>
 
