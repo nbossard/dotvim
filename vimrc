@@ -232,7 +232,8 @@ Plugin 'ryanoasis/vim-devicons'
 " https://github.com/vim-airline/vim-airline
 Plugin 'vim-airline/vim-airline'
 "an extra statusline on the top of the Vim window and can display loaded buffers and tabs in the current Vim session
-let g:airline#extensions#tabline#enabled = 1
+" NBO tried it but finally disabled cause slow downs too much
+let g:airline#extensions#tabline#enabled = 0
 " display clock in airline
 Plugin 'enricobacis/vim-airline-clock'
 " without this line, airline-clock defaults to updatetime and consumes a lot
