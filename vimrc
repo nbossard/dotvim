@@ -52,6 +52,10 @@ let g:javascript_plugin_jsdoc = 1
 " {{{ To support PlantUML File syntax
 " See: https://github.com/aklt/plantuml-syntax
 Plugin 'aklt/plantuml-syntax'
+" To automatically generate file on save
+"autocmd BufWritePost *.puml :make
+" to allow folding
+autocmd Filetype plantuml setlocal foldmethod=syntax
 " }}}
 
 " {{{ Adding support for '.feature' files,
