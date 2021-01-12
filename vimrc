@@ -1085,6 +1085,7 @@ map gsp [s
 " Allow search of currently selected text using //
 vnoremap // y/<C-R>"<CR>
 
+" {{{ Making cursor mode more visible
 " on entering / leaving insert mode, insert a cursor line and column
 " Make cursor more visible in insert mode :
 autocmd InsertEnter * set cursorcolumn
@@ -1093,6 +1094,7 @@ autocmd InsertLeave * set nocursorcolumn
 autocmd InsertLeave * set nocursorline
 highlight CursorColumn guibg=LightMagenta
 " highlight CursorLine: guibg=LightMagenta
+" }}}
 
 " Adding live view of substitute command on neovim only
 if exists('&inccommand')
@@ -1175,7 +1177,7 @@ augroup AutoSaveFolds
 augroup END
 " }}}
 
-"{{ Adding useful shortcuts
+"{{{ Adding useful shortcuts
 " delete without yanking
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
@@ -1188,6 +1190,7 @@ nmap <c-s> :write<CR>
 " buffer navigation
 nmap gn :bn<CR>
 nmap gp :bp<CR>
+"}}}
 
 " set diff options
 if has("patch-8.1.0360")
