@@ -914,6 +914,12 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'simnalamburt/vim-mundo'
 " }}}
 
+" {{{ vim-base64
+" https://github.com/christianrondeau/vim-base64
+" Usage : select then <leader>atob or <leader>btoa
+Plugin 'christianrondeau/vim-base64'
+""}}}
+
 " {{{ cheatsheet
 " Code documentation written as code!
 Plugin 'adambard/learnxinyminutes-docs'
