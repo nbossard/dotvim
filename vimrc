@@ -71,6 +71,7 @@ autocmd Filetype cucumber setlocal expandtab
 " }}}
 
 " {{{ Adding Golang plugin
+" see : https://github.com/fatih/vim-go
 Plugin 'fatih/vim-go'
 " Installing go-pls : syntax server for GO
 " go get golang.org/x/tools/gopls@latest
