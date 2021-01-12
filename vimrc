@@ -1181,5 +1181,11 @@ nmap <c-s> :write<CR>
 nmap gn :bn<CR>
 nmap gp :bp<CR>
 
+" set diff options
+if has("patch-8.1.0360")
+    set diffopt+=internal,algorithm:patience
+endif
+
+
 " Keep at least 5 lines visible at top and bottom of screen
 :set scrolloff=5
