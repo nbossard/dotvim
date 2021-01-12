@@ -185,6 +185,7 @@ let test#javascript#jest#options = {
   \ 'file':    '',
   \ 'suite':   '',
 \}
+" See also Mahali project vimrc config file
 "}}}
 
 " {{{ ===== NERDTree related configs =====
