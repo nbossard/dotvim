@@ -957,6 +957,8 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'reedes/vim-colors-pencil'
 " gruvbox : https://github.com/morhetz/gruvbox
 Plugin 'morhetz/gruvbox'
+" dracula : https://draculatheme.com/vim
+Plugin 'dracula/vim', { 'name': 'dracula' }
 " Go dedicated colorscheme
 " Plugin'bitfield/vim-gitgo'
 " visual studio code like dark theme
