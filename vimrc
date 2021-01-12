@@ -999,8 +999,11 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 "-----------------------END OF VUNDLE CONFIG---------------------
+
 " change default colorscheme
 colorscheme gruvbox
+" Make coc current object be highlighted in Magenta (was not enough visible)
+highlight CocHighlightText     ctermfg=LightMagenta    guifg=LightMagenta
 
 
 
