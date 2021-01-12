@@ -1087,6 +1087,8 @@ autocmd InsertEnter * set cursorcolumn
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorcolumn
 autocmd InsertLeave * set nocursorline
+highlight CursorColumn guibg=LightMagenta
+" highlight CursorLine: guibg=LightMagenta
 
 " Adding live view of substitute command on neovim only
 if exists('&inccommand')
