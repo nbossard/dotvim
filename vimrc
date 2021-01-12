@@ -1165,7 +1165,7 @@ augroup AutoSaveFolds
 augroup END
 " }}}
 
-"{{ Adding useful shortcuts 
+"{{ Adding useful shortcuts
 " delete without yanking
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
