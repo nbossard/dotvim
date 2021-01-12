@@ -18,40 +18,33 @@ let g:python3_host_prog='/usr/local/bin/python3'
 let mapleader=","
 
 "
-"---------------------- VUNDLE CONFIG -----------------------
-" Vundle install :
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"---------------------- VIM-PLUG CONFIG -----------------------
+" vim-plug replaces Vundle
+"vim-plug install :
+" https://github.com/junegunn/vim-plug
 
-set nocompatible              " be improved, required
-filetype off                  " required
-
-" set the run time path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
 " {{{ Languages syntax support plugins ======
 "
 " {{{ Arduino : For writing arduino sketches
-Plugin 'stevearc/vim-arduino'
+Plug 'stevearc/vim-arduino', {'for': 'arduino'}
 "}}}
 
 " {{{ Vue : syntax highlighting for Vue components.
-Plugin 'posva/vim-vue'
+Plug 'posva/vim-vue'
 " }}}
 
 " {{{ Syntax highlighting for js files
-Plugin 'vim-javascript'
-let g:javascript_plugin_jsdoc = 1
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 " }}}
 
 " {{{ To support PlantUML File syntax
 " See: https://github.com/aklt/plantuml-syntax
-Plugin 'aklt/plantuml-syntax'
+Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
 " To automatically generate file on save
 "autocmd BufWritePost *.puml :make
 " to allow folding
@@ -61,7 +54,7 @@ autocmd Filetype plantuml setlocal foldmethod=syntax
 " {{{ Adding support for '.feature' files,
 " these are test files
 " See : https://github.com/tpope/vim-cucumber
-Plugin 'tpope/vim-cucumber'
+Plug 'tpope/vim-cucumber'
 autocmd Filetype cucumber setlocal list
 autocmd Filetype cucumber setlocal foldmethod=indent
 autocmd Filetype cucumber setlocal tabstop=2
@@ -72,7 +65,7 @@ autocmd Filetype cucumber setlocal expandtab
 
 " {{{ Adding Golang plugin
 " see : https://github.com/fatih/vim-go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': 'go'}
 " Installing go-pls : syntax server for GO
 " go get golang.org/x/tools/gopls@latest
 " Making go-pls included server work for COC
@@ -122,7 +115,7 @@ let g:go_highlight_function_parameters = 1
 " {{{ GitGutter config
 " Plugin to display a git line change marker close to line number
 " see: https://github.com/airblade/vim-gitgutter
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " changing default mapping ]c cause conflicts with coc
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
@@ -150,7 +143,7 @@ let g:gitgutter_highlight_linenrs = 1
 " }}}
 
 " {{{ trying jreybert/vimagit for cross files commit
-Plugin 'jreybert/vimagit'
+Plug 'jreybert/vimagit'
 cabbrev magit Magit
 " }}}
 "
@@ -158,7 +151,7 @@ cabbrev magit Magit
 
 " {{{ Startify plugin : To change start screen (welcome page)
 " https://github.com/mhinz/vim-startify
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 let g:startify_files_number = 5
 let g:startify_commands = [
     \ ['NERDTree', ':NERDTree'],
@@ -177,7 +170,7 @@ let g:startify_lists = [
 " {{{ Vim-test : plugin for launching tests inside vim
 "see https://github.com/vim-test/vim-test
 "usage : testFile
-Plugin 'vim-test/vim-test'
+Plug 'vim-test/vim-test'
 "let g:test#runner_commands = ['Mocha']
 let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
 let test#javascript#jest#options = {
@@ -190,17 +183,17 @@ let test#javascript#jest#options = {
 
 " {{{ ===== NERDTree related configs =====
 " Nerdtree is a must have plugin, to have a browser for files on left panel
-Plugin 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 " Nerdtree plugin has plugins (sic)
 " Plugin-plugin to open file using System from NERDTree
-Plugin 'ivalkeen/nerdtree-execute'
-" Plugin-plugin To show git changed files in NERDTree
+Plug 'ivalkeen/nerdtree-execute'
+" Plug-plugin To show git changed files in NERDTree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'pseewald/nerdtree-tagbar-combined'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'pseewald/nerdtree-tagbar-combined'
 " Plugin to add coloring on devicons (see below)
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " NERDTree related config
 " Make NERDTree show hidden files by default
 let NERDTreeShowHidden=1
@@ -224,32 +217,32 @@ map gnF :NERDTreeFind<CR>
 " See https://github.com/ryanoasis/vim-devicons
 " Requires Nerd font
 " https://github.com/ryanoasis/nerd-fonts
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " }}}
 " }}} ===== end of nerdtree related config ======
 
 " {{{ Airline plugin : Improved status line bar
 " Use airline plugin as status line bar
 " https://github.com/vim-airline/vim-airline
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 "an extra statusline on the top of the Vim window and can display loaded buffers and tabs in the current Vim session
 " NBO tried it but finally disabled cause slow downs too much
 let g:airline#extensions#tabline#enabled = 0
 " display clock in airline
-Plugin 'enricobacis/vim-airline-clock'
+Plug 'enricobacis/vim-airline-clock'
 " without this line, airline-clock defaults to updatetime and consumes a lot
 " of CPU
 let g:airline#extensions#clock#updatetime = 60000
 " use > separators between sections
 let g:airline_powerline_fonts = 1
 " various airline bar themes
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " {{{ open-browser : Plugin to open URL under cursor in an external browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
 " Command : gx
-Plugin 'tyru/open-browser.vim'
+Plug 'tyru/open-browser.vim'
 " My setting.
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
@@ -259,20 +252,20 @@ vmap gx <Plug>(openbrowser-smart-search)
 " {{{ Plugin to display the list of registers
 " on a right bar on " or @ keypress
 " See : https://github.com/junegunn/vim-peekaboo
-Plugin 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo'
 " }}}
 
 " {{{ unicode : to show unicode (and digraph) tables and search
 " Usage :UnicodeTable
 " See : https://github.com/chrisbra/unicode.vim
-Plugin 'chrisbra/unicode.vim'
+Plug 'chrisbra/unicode.vim'
 "}}}
 
 "  {{{ ALE plugin : To support various linters
 " ALE = Asynchronous Lint Engine
 " See : https://github.com/dense-analysis/ale
 " acts as a Vim Language Server Protocol client
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 " By default, all available tools for all supported languages will be run.
 "
 " changing lint delay from 200ms to ... in order to run less often
@@ -288,12 +281,12 @@ nmap gap :ALEPrevious<CR>
 "{{{ BufOnly : Closes all buffers but this one
 " see : https://github.com/vim-scripts/BufOnly.vim
 " usage : :BufOnly
-Plugin 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/BufOnly.vim'
 "}}}
 
 " {{{ Fugitive plugin : to display git log in vim
 " see https://github.com/tpope/vim-fugitive
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "Afugitive addition plugin To display a gitk (git log (history))like in vim
 " https://github.com/junegunn/gv.vim
 " Most used commands :
@@ -303,18 +296,18 @@ Plugin 'tpope/vim-fugitive'
 " :GV --all
 " Only for current file :
 " :GV!
-Plugin 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim'
 autocmd FileType GV setlocal nolist
 autocmd FileType GV setlocal nonumber
 autocmd FileType GV setlocal norelativenumber
 " Additional plugin for opening gitlab website throught command Gbrowse
-Plugin 'shumphrey/fugitive-gitlab.vim'
+Plug 'shumphrey/fugitive-gitlab.vim'
 let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
 " Additional plugin to deal better with branches
 " See : https://github.com/idanarye/vim-merginal
 " Usage :
 " :Merginal
-Plugin 'idanarye/vim-merginal'
+Plug 'idanarye/vim-merginal'
 cabbrev Gsdiff Gdiffsplit
 command! -nargs=1 Gsdiff Gdiffsplit <args>
 " }}}
@@ -325,14 +318,14 @@ command! -nargs=1 Gsdiff Gdiffsplit <args>
 " Requires python2 and :
 " pip install Pillow
 if has('nvim')
-  Plugin 'ashisha/image.vim'
+  Plug 'ashisha/image.vim'
 endif
 " }}}
 
 " {{{ Vim indent guides : Plugin to display indent lines
 " Also tried Plugin 'Yggdroot/indentLine' but has issues with conceal usage
 " https://github.com/nathanaelkane/vim-indent-guides
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
@@ -346,12 +339,12 @@ autocmd FileType yaml let g:indent_guides_start_level = 1
 " {{{ loremipsum : allow generating of lorem ipsum
 " See : https://www.vim.org/scripts/script.php?script_id=2289
 " usage : :Loremipsum
-Plugin 'vim-scripts/loremipsum'
+Plug 'vim-scripts/loremipsum'
 " }}}
 
 " {{{ ctrl+P : Plugin to allow fuzzy search of files
 " See : https://github.com/kien/ctrlp.vim
-" Plugin 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 " Excluding node_modules folder
 " cause it slowdowns ctr-P
 " Should  be in local .vimrc but does not work
@@ -366,8 +359,8 @@ Plugin 'vim-scripts/loremipsum'
 " {{{ fzf : fuzzy finder inside vim
 " See : https://github.com/junegunn/fzf.vim
 set rtp+=~/.vim/bundle/fzf
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " reassign ctrl-p main command
 nmap <c-p> :FzfFiles<CR>
 " add a prefix Fzf to all commands
@@ -445,13 +438,13 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "
 " See https://github.com/Shougo/neosnippet.vim
 " and https://github.com/neoclide/coc-sources
-Plugin 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'
 if !has('nvim')
-  Plugin 'roxma/nvim-yarp'
-  Plugin 'roxma/vim-hug-neovim-rpc'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 " Note: was originally <c-k> but conflicted with digraph
@@ -480,21 +473,21 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " open it and type :Template
 " NBO pinned on 08 june 2020 cause incompatibility issues with COC on latest
 " revision
-Plugin 'aperezdc/vim-template', {'pinned': 1}
+Plug 'aperezdc/vim-template'
 
 " }}}
 
 " {{{ vim-bbye : To close buffer without closing window
 " See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
-Plugin 'moll/vim-bbye'
+Plug 'moll/vim-bbye'
 " Override standard bd command
 abbreviate bd Bdelete
 " }}}
 
 " {{{ vim-signature : To displays Vim marks in gutter
 " See : https://github.com/kshenoy/vim-signature
-Plugin 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature'
 " }}}
 
 " {{{ vim-notes : Plugin to take notes
@@ -503,10 +496,10 @@ Plugin 'kshenoy/vim-signature'
 " Nouvelle note : :Note
 " Retrouver une note :
 " :RecentNotes
-Plugin 'xolox/vim-notes'
+Plug 'xolox/vim-notes'
 let g:notes_directories = ['~/Documents/NotesVim']
 " Required by plugin vim-notes
-Plugin 'xolox/vim-misc'
+Plug 'xolox/vim-misc'
 " Renaming RecentNotes for easier finding
 " Rem : navigate using gf
 command! NotesRecent RecentNotes
@@ -515,7 +508,7 @@ command! NotesRecent RecentNotes
 " {{{ hardmode : Plugin for Disabling arrows, oh my god...
 " Enable it by
 " :call HardMode()
-Plugin 'wikitopian/hardmode'
+Plug 'wikitopian/hardmode'
 let g:HardMode_level="wannabe"
 " Always launch hardmode, sic
 ":call HardMode()
@@ -526,7 +519,7 @@ let g:HardMode_level="wannabe"
 " installation : requires gem install mdn_query
 " Usage : overwrites K key for some filetypes (Javascript)
 "         or :MdnQuery keyword
-Plugin 'jungomi/vim-mdnquery'
+Plug 'jungomi/vim-mdnquery'
 autocmd FileType vue setlocal keywordprg=:MdnQuery
 " }}}
 
@@ -535,18 +528,18 @@ autocmd FileType vue setlocal keywordprg=:MdnQuery
 " ysiw" ==> you surround inner word with quotes
 " yss* ==> you surround entire line with star
 " cs'" ==> change surrounding ' for "
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " }}}
 
 " {{{ rainbow_csv : plugin for editing csv tsv formatted files
 " https://github.com/mechatroner/rainbow_csv
-Plugin 'mechatroner/rainbow_csv'
+Plug 'mechatroner/rainbow_csv'
 "}}}
 
 " {{{ editor-config: A plugin for cross editors configuration file
 " for compatibility with other developers on other platforms
 " See configuration in .editorconfig file
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 " }}}
 
 " {{{ ====== Completion in Vim : ====
@@ -577,7 +570,7 @@ Plugin 'editorconfig/editorconfig-vim'
 "
 " NOTE THAT THEY ARE USING 'release' branch
 " so manual update : cd ~/.vim/bundle/coc.nvim; git pull
-Plugin 'neoclide/coc.nvim', {'pinned': 1}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
@@ -692,20 +685,20 @@ endif
 
 " {{{ vim-sass-colors : Plugin to colorize color texts in (s)css files
 " Also tried following, but does not work on scss variables :
-" Plugin 'gko/vim-coloresque'
-Plugin 'shmargum/vim-sass-colors'
+" Plug 'gko/vim-coloresque'
+Plug 'shmargum/vim-sass-colors'
 " }}}
 
 " {{{ vim-prettier : plugin to call Prettier, to format sources (on save)
 " See project local configuration in .prettierrc.js
-Plugin 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier'
 " }}}
 "
 " {{{ Plugin to simulate ctrl-shift-s
 " https://github.com/dyng/ctrlsf.vim
 " tip : to use regular expression type : :CtrlSF -R foo.*
 " tip : to switch to quickfix presentation : M
-Plugin 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
 "should not work but it does with neovim +iterm
 nmap     <C-S-F> <Plug>CtrlSFPrompt
 nmap     <C-F>f <Plug>CtrlSFPrompt
@@ -731,12 +724,12 @@ let g:ctrlsf_auto_focus = {
 " see : https://github.com/mg979/vim-visual-multi
 " Originally to use with ctrlsf to change multiple words at a time
 " usage : press ctrl-n n n
-Plugin 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi'
 " }}}
 
 " {{{ Rainbow : To display colored parenthesis
 " See : https://github.com/luochen1990/rainbow
-Plugin 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \  'separately': {
@@ -762,7 +755,7 @@ let g:rainbow_conf = {
 " https://github.com/ntpeters/vim-better-whitespace
 " To launch manual stripping of whitespaces :
 " :StripWhitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git']
 "To highlight space characters that appear before or in-between tabs
 let g:show_spaces_that_precede_tabs=1
@@ -774,7 +767,7 @@ let g:startify_change_to_dir=0
 
 " {{{ delimitMate : Plugin to auto close brackets, parenthesis
 " while typing in insert mode
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 " }}}
 
 " {{{ tagbar : Displaying a tag bar on right side
@@ -786,7 +779,7 @@ Plugin 'Raimondi/delimitMate'
 " https://github.com/universal-ctags/ctags
 " install with : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 set tags=tags
 " do not sort alphabetically
 let g:tagbar_sort = 0
@@ -801,12 +794,12 @@ autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | en
 " See https://github.com/plasticboy/vim-markdowns
 " Improve display, replace formatting by result for bold and italic
 autocmd Filetype markdown setlocal conceallevel=2
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " }}}
 
 " {{{ calendar : Adding calendar tool in Vim
-Plugin 'itchyny/calendar.vim'
+Plug 'itchyny/calendar.vim'
 let g:calendar_google_calendar = 1
 " }}}
 
@@ -814,7 +807,7 @@ let g:calendar_google_calendar = 1
 " see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
 " gcc for current line
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 "}}}
 
 " {{{ Plugin to generate remark slides
@@ -822,12 +815,12 @@ Plugin 'tomtom/tcomment_vim'
 " Commands :
 " :RemarkBuild
 " :RemarkPrview
-Plugin 'mauromorales/vim-remark'
+Plug 'mauromorales/vim-remark'
 " To ease table creation in remark
 " https://github.com/dhruvasagar/vim-table-mode
 " invoke vim-table-mode’s table mode with <leader>tm
 " enter | twice to write a properly formatted horizontal line
-Plugin 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode'
 let g:table_mode_corner="|"
 " }}}
 
@@ -835,7 +828,7 @@ let g:table_mode_corner="|"
 " https://github.com/heavenshell/vim-jsdoc
 " Usage :
 " :JsDoc
-Plugin 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc'
 "To fix neovim issue : unknown command
 command! -register JsDoc call jsdoc#insert()
 " To allow prompt for filling fields
@@ -849,7 +842,7 @@ let g:jsdoc_param_description_separator=' - '
 " {{{ Plugin to use gtd in vim
 " See : https://github.com/phb1/gtd.vim
 " rem : to delete a task : GtdDelete
-Plugin 'phb1/gtd.vim'
+Plug 'phb1/gtd.vim'
 let g:gtd#default_action = 'inbox'
 let g:gtd#default_context = 'work'
 let g:gtd#dir = '~/gtd'
@@ -877,12 +870,12 @@ nmap <leader>gr :GtdReview
 
 " Plugin to run mongodb js files directly from Vim
 " https://github.com/tpope/vim-dadbod
-Plugin 'tpope/vim-dadbod'
+Plug 'tpope/vim-dadbod'
 
 " {{{ Plugin for grammar check
 " see : https://github.com/rhysd/vim-grammarous
 " NOTE : REQUIRES JAVA 8
-" Plugin 'rhysd/vim-grammarous'
+" Plug 'rhysd/vim-grammarous'
 let g:grammarous#default_comments_only_filetypes = {
             \ '*' : 1, 'help' : 0, 'markdown' : 0,
             \ }
@@ -891,7 +884,7 @@ command! GrammarousCheckFR :GrammarousCheck --lang=fr
 
 " {{{ yaml-vim : Plugin so support yaml file format
 " https://github.com/mrk21/yaml-vim
-Plugin 'mrk21/yaml-vim'
+Plug 'mrk21/yaml-vim'
 " }}}
 
 " {{{ Plugin for making REST request using Curl
@@ -901,29 +894,29 @@ Plugin 'mrk21/yaml-vim'
 " http://localhost:9200
 " GET /_cat/nodes?v|
 " <C-J>
-Plugin 'diepm/vim-rest-console'
+Plug 'diepm/vim-rest-console'
 let vrc_horizontal_split=1
 " }}}
 
 " {{{ Plugin for dockerfiles
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
 " {{{ mundo : Plugin for displaying undo tree
 " https://github.com/simnalamburt/vim-mundo
 " Usage : https://simnalamburt.github.io/vim-mundo/
-Plugin 'simnalamburt/vim-mundo'
+Plug 'simnalamburt/vim-mundo'
 " }}}
 
 " {{{ vim-base64
 " https://github.com/christianrondeau/vim-base64
 " Usage : select then <leader>atob or <leader>btoa
-Plugin 'christianrondeau/vim-base64'
+Plug 'christianrondeau/vim-base64'
 ""}}}
 
 " {{{ cheatsheet
 " Code documentation written as code!
-Plugin 'adambard/learnxinyminutes-docs'
+Plug 'adambard/learnxinyminutes-docs'
 let g:bundle_dir = "/Users/nbossard/.vim/bundle/"
 
 function! HelpLearnXInMinutes(topic) abort
@@ -951,7 +944,7 @@ nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 " {{{ bufexplore : Plugin for buffers list display and management
 " Usage : <leader>be    ,be
 " Aimed to improve buffer list display (:ls ou :buffers ou via ctrl-P plugin)
- Plugin 'jlanzarotta/bufexplorer'
+ Plug 'jlanzarotta/bufexplorer'
 " }}}
 
 " {{{ Various colorscheme s
@@ -959,46 +952,37 @@ nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 set termguicolors
 "Enable quick switch schemecolor
 " Use F8 and shift+F8 to quick switch
-Plugin 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-colorscheme-switcher'
 :let g:colorscheme_switcher_exclude = ['default', 'blue', 'shine', 'elflord']
 :let g:colorscheme_switcher_exclude_builtins = 1
 "Adding a light theme similar to GitHub
 "Usage : :colorscheme github
 "See color schemes list : :colorscheme <ctrl+d>
-Plugin 'acarapetis/vim-colors-github'
-Plugin 'nanotech/jellybeans.vim'
+Plug 'acarapetis/vim-colors-github'
+Plug 'nanotech/jellybeans.vim'
 "Pencil color theme
-Plugin 'reedes/vim-colors-pencil'
+Plug 'reedes/vim-colors-pencil'
 " gruvbox : https://github.com/morhetz/gruvbox
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " dracula : https://draculatheme.com/vim
-Plugin 'dracula/vim', { 'name': 'dracula' }
+Plug 'dracula/vim', { 'name': 'dracula' }
 " Go dedicated colorscheme
 " Plugin'bitfield/vim-gitgo'
 " visual studio code like dark theme
-Plugin 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 "}}}
 
 " Jsonc : jsonc type file support
-Plugin 'neoclide/jsonc.vim'
+Plug 'neoclide/jsonc.vim'
 autocmd BufNewFile,BufRead *.jsonc setlocal filetype=jsonc
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#end()
 
-"-----------------------END OF VUNDLE CONFIG---------------------
+"-----------------------END OF VIM-PLUG CONFIG---------------------
 
 " change default colorscheme
 colorscheme gruvbox
