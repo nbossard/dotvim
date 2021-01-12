@@ -1197,6 +1197,19 @@ if has("patch-8.1.0360")
     set diffopt+=internal,algorithm:patience
 endif
 
-
 " Keep at least 5 lines visible at top and bottom of screen
 :set scrolloff=5
+
+" {{{ Improving copier-coller classic support
+"  When the "unnamed" string is included in the 'clipboard' option, the unnamed
+" register is the same as the "* register.  Thus you can yank to and paste the
+" selection without prepending "* to commands.
+set clipboard+=unnamed  " use the clipboards of vim and win
+
+" This should not be set in vimrc (see :checkhealth warning)
+" Cause it disables too many features
+" https://vimhelp.org/options.txt.html#%27paste%27
+"set paste               " Paste from a windows or from vim
+
+set guioptions+=a       " Visual selection automatically copied to the clipboard
+" }}}
