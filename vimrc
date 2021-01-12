@@ -96,6 +96,23 @@ let g:go_doc_popup_window = 1
 " error is : 'primitive.E composite literal uses unkeyed fields'
 " Note : the list of checks done by vet can be obtained by running 'go tool vet help' in a terminal
 let g:ale_go_govet_options = '--composites=false'
+
+" Formatting on save is default option (similar to GoFmt).
+" Just adding auto import in addition to format:
+let g:go_fmt_autosave = 0
+let g:go_fmt_command = "goimports"
+
+" Add More highlighting
+let g:go_highlight_types = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_function_parameters = 1
+
+
 " }}}
 
 "}}} ==== end of language syntax plugins =====
