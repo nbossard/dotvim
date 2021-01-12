@@ -1098,8 +1098,12 @@ endif
 " Adding relative numbers
 ":set number relativenumber
 
+
+"Json files related configs
 " Add support for comments in jsonc files
 autocmd FileType json syntax match Comment +\/\/.\+$+
+"Set conceallevels
+autocmd FileType json setlocal conceallevel=0
 
 " Allow folding in markdown files
 let g:markdown_folding = 2
