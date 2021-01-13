@@ -147,6 +147,34 @@ let g:gitgutter_highlight_linenrs = 1
 Plug 'jreybert/vimagit'
 cabbrev magit Magit
 " }}}
+
+" {{{ Fugitive plugin : to display git log in vim
+" see https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-fugitive'
+"Afugitive addition plugin To display a gitk (git log (history))like in vim
+" https://github.com/junegunn/gv.vim
+" Most used commands :
+" View log :
+" :GV
+" View log will all branches (use git log options) :
+" :GV --all
+" Only for current file :
+" :GV!
+Plug 'junegunn/gv.vim'
+autocmd FileType GV setlocal nolist
+autocmd FileType GV setlocal nonumber
+autocmd FileType GV setlocal norelativenumber
+" Additional plugin for opening gitlab website throught command Gbrowse
+Plug 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
+" Additional plugin to deal better with branches
+" See : https://github.com/idanarye/vim-merginal
+" Usage :
+" :Merginal
+Plug 'idanarye/vim-merginal'
+cabbrev Gsdiff Gdiffsplit
+command! -nargs=1 Gsdiff Gdiffsplit <args>
+" }}}
 "
 " }}} === End of Git related plugins ====
 
@@ -284,34 +312,6 @@ nmap gap :ALEPrevious<CR>
 " usage : :BufOnly
 Plug 'vim-scripts/BufOnly.vim'
 "}}}
-
-" {{{ Fugitive plugin : to display git log in vim
-" see https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-fugitive'
-"Afugitive addition plugin To display a gitk (git log (history))like in vim
-" https://github.com/junegunn/gv.vim
-" Most used commands :
-" View log :
-" :GV
-" View log will all branches (use git log options) :
-" :GV --all
-" Only for current file :
-" :GV!
-Plug 'junegunn/gv.vim'
-autocmd FileType GV setlocal nolist
-autocmd FileType GV setlocal nonumber
-autocmd FileType GV setlocal norelativenumber
-" Additional plugin for opening gitlab website throught command Gbrowse
-Plug 'shumphrey/fugitive-gitlab.vim'
-let g:fugitive_gitlab_domains = ['https://gitlab.forge.orange-labs.fr']
-" Additional plugin to deal better with branches
-" See : https://github.com/idanarye/vim-merginal
-" Usage :
-" :Merginal
-Plug 'idanarye/vim-merginal'
-cabbrev Gsdiff Gdiffsplit
-command! -nargs=1 Gsdiff Gdiffsplit <args>
-" }}}
 
 " {{{ image : allow Vim to open binary image files (PNG, JPG,...) as ASCII ART
 " See : https://github.com/ashisha/image.vim
