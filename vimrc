@@ -36,7 +36,7 @@ Plug 'stevearc/vim-arduino', {'for': 'arduino'}
 "}}}
 
 " {{{ Vue : syntax highlighting for Vue components.
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue', {'for': 'vue'}
 " }}}
 
 " {{{ Syntax highlighting for js files
@@ -55,7 +55,7 @@ autocmd Filetype plantuml setlocal foldmethod=syntax
 " {{{ Adding support for '.feature' files,
 " these are test files
 " See : https://github.com/tpope/vim-cucumber
-Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-cucumber', {'for': 'cucumber'}
 autocmd Filetype cucumber setlocal list
 autocmd Filetype cucumber setlocal foldmethod=indent
 autocmd Filetype cucumber setlocal tabstop=2
