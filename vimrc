@@ -313,16 +313,6 @@ nmap gap :ALEPrevious<CR>
 Plug 'vim-scripts/BufOnly.vim'
 "}}}
 
-" {{{ image : allow Vim to open binary image files (PNG, JPG,...) as ASCII ART
-" See : https://github.com/ashisha/image.vim
-" wich happens often to me
-" Requires python2 and :
-" pip install Pillow
-if has('nvim')
-  Plug 'ashisha/image.vim'
-endif
-" }}}
-
 " {{{ Vim indent guides : Plugin to display indent lines
 " Also tried Plugin 'Yggdroot/indentLine' but has issues with conceal usage
 " https://github.com/nathanaelkane/vim-indent-guides
