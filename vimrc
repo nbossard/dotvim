@@ -913,7 +913,7 @@ Plug 'christianrondeau/vim-base64'
 " Learn X in Y minutes
 " Code documentation written as code!
 Plug 'adambard/learnxinyminutes-docs'
-let g:bundle_dir = "/Users/nbossard/.vim/bundle/"
+let g:bundle_dir = "/Users/nbossard/.vim/plugged"
 
 function! HelpLearnXInMinutes(topic) abort
     let l:file = &filetype
