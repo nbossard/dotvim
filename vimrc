@@ -910,6 +910,7 @@ Plug 'christianrondeau/vim-base64'
 ""}}}
 
 " {{{ cheatsheet
+" Learn X in Y minutes
 " Code documentation written as code!
 Plug 'adambard/learnxinyminutes-docs'
 let g:bundle_dir = "/Users/nbossard/.vim/bundle/"
