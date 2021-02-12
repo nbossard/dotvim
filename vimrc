@@ -779,6 +779,12 @@ let g:tagbar_sort = 0
 autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
 " }}}
 
+" {{{ File-line : plugin
+" Allow opening a filename with line number
+" See https://github.com/bogado/file-line
+Plug 'bogado/file-line'
+" }}}
+
 " {{{ Markdown plugin
 " See https://github.com/plasticboy/vim-markdowns
 " Improve display, replace formatting by result for bold and italic
