@@ -634,7 +634,8 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
+" NBO: disabling in normal mode cause <C-i> and <TAB> are equivalent and this disables <C-I>
+" nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
@@ -668,10 +669,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "**************** end of Coc suggested configuration *****************
-"Fixing unexpected mapping of ctrl + i (used to come-back front)
-if has('nvim')
-  nunmap <C-I>
-endif
 " }}}
 " }}}
 
