@@ -234,7 +234,8 @@ let NERDTreeAutoCenterTreshold=8
 " Hide some files
 let NERDTreeIgnore=['\.swp']
 " Add mapping for 'nerdtree find' : gnf
-function NERDTreeShowMeFile()
+" rem function! where ! means overwrite if already exists
+function! NERDTreeShowMeFile()
   :NERDTreeFind
   :normal zz
   :normal o
