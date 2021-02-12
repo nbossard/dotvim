@@ -29,7 +29,7 @@ let mapleader=","
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" {{{ Languages syntax support plugins ======
+"{{{ ==== Languages syntax support plugins ======
 "
 " {{{ Arduino : For writing arduino sketches
 Plug 'stevearc/vim-arduino', {'for': 'arduino'}
@@ -933,12 +933,13 @@ nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 " }}}
 
 " {{{ bufexplore : Plugin for buffers list display and management
+" https://github.com/jlanzarotta/bufexplorer
 " Usage : <leader>be    ,be
 " Aimed to improve buffer list display (:ls ou :buffers ou via ctrl-P plugin)
  Plug 'jlanzarotta/bufexplorer'
 " }}}
 
-" {{{ Various colorscheme s
+" {{{ ===== Various colorscheme s ====
 "Enables 24-bit RGB color
 set termguicolors
 "Enable quick switch schemecolor
