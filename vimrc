@@ -207,6 +207,7 @@ let test#javascript#jest#options = {
   \ 'file':    '',
   \ 'suite':   '',
 \}
+cabbrev te TestFile
 " See also Mahali project vimrc config file
 "}}}
 
