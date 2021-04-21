@@ -323,6 +323,8 @@ nmap gap :ALEPrevious<CR>
 " see : https://github.com/vim-scripts/BufOnly.vim
 " usage : :BufOnly
 Plug 'vim-scripts/BufOnly.vim'
+cabbrev bother BufOnly
+cabbrev BOther BufOnly
 "}}}
 
 " {{{ Vim indent guides : Plugin to display indent lines
