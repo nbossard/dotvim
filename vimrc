@@ -259,6 +259,9 @@ Plug 'vim-airline/vim-airline'
 "an extra statusline on the top of the Vim window and can display loaded buffers and tabs in the current Vim session
 " NBO tried it but finally disabled cause slow downs too much
 let g:airline#extensions#tabline#enabled = 0
+"Also tried : Plug 'ap/vim-buftabline'
+"but same slowing down
+"
 " display clock in airline
 Plug 'enricobacis/vim-airline-clock'
 " without this line, airline-clock defaults to updatetime and consumes a lot
