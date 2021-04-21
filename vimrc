@@ -269,6 +269,11 @@ Plug 'enricobacis/vim-airline-clock'
 let g:airline#extensions#clock#updatetime = 60000
 " use > separators between sections
 let g:airline_powerline_fonts = 1
+"
+"Disable tagbar, cause already displayed on right
+"and hides filename
+let g:airline#extensions#tagbar#enabled = 0
+"
 " various airline bar themes
 Plug 'vim-airline/vim-airline-themes'
 " }}}
