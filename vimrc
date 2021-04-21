@@ -286,6 +286,8 @@ Plug 'tyru/open-browser.vim'
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+" open regular expression test website
+cabbrev regex101 OpenBrowser https://regex101.com
 " }}}
 
 " {{{ Plugin to display the list of registers
