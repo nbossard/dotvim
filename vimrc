@@ -534,6 +534,7 @@ autocmd FileType vue setlocal keywordprg=:MdnQuery
 " https://github.com/tpope/vim-surround
 " ysiw" ==> you surround inner word with quotes
 " yss* ==> you surround entire line with star
+" ysiw<em> ==> you surroung inner word with <em></em>
 " cs'" ==> change surrounding ' for "
 Plug 'tpope/vim-surround'
 " }}}
