@@ -37,6 +37,7 @@ Plug 'stevearc/vim-arduino', {'for': 'arduino'}
 
 " {{{ Vue : syntax highlighting for Vue components.
 Plug 'posva/vim-vue', {'for': 'vue'}
+autocmd Filetype vue setlocal foldmethod=syntax
 " }}}
 
 " {{{ Syntax highlighting for js files
