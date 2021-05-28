@@ -807,6 +807,9 @@ Plug 'bogado/file-line'
 autocmd Filetype markdown setlocal conceallevel=2
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+" Enable color column for markdown files
+"autocmd Filetype markdown setlocal highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
+autocmd Filetype markdown setlocal colorcolumn=80
 " }}}
 
 " {{{ calendar : Adding calendar tool in Vim
