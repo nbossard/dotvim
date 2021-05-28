@@ -147,6 +147,7 @@ let g:gitgutter_highlight_linenrs = 1
 " {{{ trying jreybert/vimagit for cross files commit
 Plug 'jreybert/vimagit'
 cabbrev magit Magit
+cabbrev maggit Magit
 " }}}
 
 " {{{ Fugitive plugin : to display git log in vim
