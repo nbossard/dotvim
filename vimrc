@@ -213,6 +213,21 @@ cabbrev te TestFile
 " See also Mahali project vimrc config file
 "}}}
 
+" {{{ vim-translator : Plugin for translating between human languages
+" See: https://github.com/voldikss/vim-translator
+" usage: no default mapping, use commands
+" :Translate <== translate selected text to default language (english)
+" or :TranslateR <==  <== translate and replace  selected text to default language (english)
+Plug 'voldikss/vim-translator'
+" Changing default target language from chinese to english
+let g:translator_target_lang='en'
+" As I am a french guy, I find these addditional commands useful
+" Note the -range and <line1> <line2> to mark the selectedd text
+" See : https://stackoverflow.com/questions/29495291/apply-vim-user-defined-command-to-visual-selection-or-all
+command -range TranslateToFR <line1>,<line2>Translate --target_lang=fr
+command -range TranslateRToFR <line1>,<line2>TranslateR --target_lang=fr
+" }}}
+
 " {{{ ===== NERDTree related configs =====
 " Nerdtree is a must have plugin, to have a browser for files on left panel
 Plug 'preservim/nerdtree'
