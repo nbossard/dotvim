@@ -931,6 +931,7 @@ Plug 'mrk21/yaml-vim', {'for': 'yaml'}
 " <C-J>
 Plug 'diepm/vim-rest-console', {'for': 'rest'}
 let vrc_horizontal_split=1
+autocmd FileType rest setlocal nospell
 " }}}
 
 " {{{ Plugin for dockerfiles
