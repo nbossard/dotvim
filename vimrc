@@ -937,6 +937,10 @@ let vrc_horizontal_split=1
 Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
+" {{{ Plugin for .gitignore files
+Plug 'gisphm/vim-gitignore', {'for': 'gitignore'}
+" }}}
+
 " {{{ mundo : Plugin for displaying undo tree
 " https://github.com/simnalamburt/vim-mundo
 " Usage : https://simnalamburt.github.io/vim-mundo/
