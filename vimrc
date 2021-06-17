@@ -868,6 +868,12 @@ let g:jsdoc_return_type=1
 let g:jsdoc_param_description_separator=' - '
 " }}}
 
+" {{{ killersheep : A game, to test popup windows
+" See : https://github.com/vim/killersheep
+" Usage :Kill
+Plug 'vim/killersheep'
+" }}}
+
 " {{{ Plugin to use gtd in vim
 " See : https://github.com/phb1/gtd.vim
 " rem : to delete a task : GtdDelete
