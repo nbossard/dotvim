@@ -917,9 +917,9 @@ let g:grammarous#default_comments_only_filetypes = {
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
 " }}}
 
-" {{{ yaml-vim : Plugin so support yaml file format
+" {{{ yaml-vim : Plugin to support yaml file format
 " https://github.com/mrk21/yaml-vim
-Plug 'mrk21/yaml-vim'
+Plug 'mrk21/yaml-vim', {'for': 'yaml'}
 " }}}
 
 " {{{ Plugin for making REST request using Curl
