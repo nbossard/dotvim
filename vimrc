@@ -1040,6 +1040,8 @@ Plug 'dracula/vim', { 'name': 'dracula' }
 " Plugin'bitfield/vim-gitgo'
 " visual studio code like dark theme
 Plug 'tomasiser/vim-code-dark'
+" https://vimawesome.com/plugin/landscape-vim
+Plug 'itchyny/landscape.vim'
 "}}}
 
 " Jsonc : jsonc type file support
