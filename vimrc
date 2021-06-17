@@ -1012,7 +1012,9 @@ Plug 'skywind3000/asyncrun.vim'
 " https://github.com/jlanzarotta/bufexplorer
 " Usage : <leader>be    ,be
 " Aimed to improve buffer list display (:ls ou :buffers ou via ctrl-P plugin)
- Plug 'jlanzarotta/bufexplorer'
+" Plug 'jlanzarotta/bufexplorer'
+" NOTE : disabling it to use FzfBuffers cause it has a preview and looks smarter
+map <leader>be :FzfBuffers<cr>
 " }}}
 
 " {{{ ===== Various colorscheme s ====
