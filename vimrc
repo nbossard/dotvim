@@ -985,6 +985,28 @@ command! -nargs=+ HelpLearnXInMinutes call HelpLearnXInMinutes(<f-args>)
 command! -nargs=+ Cheatsheet call HelpLearnXInMinutes(<f-args>)
 nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 " }}}
+"
+" {{{ripgrep : brings usage of 'ripgrep' in vim
+" See: https://github.com/jremmen/vim-ripgrep
+" A much faster version that grep and much much than vimgrep
+" usage to search 'toto' in all project files :
+" :Rg toto
+" usage to search 'toto' in go files only:
+" :Rg toto -t go
+" usage to search for a regular expression:
+" :Rg 'mic.*v2'
+Plug 'jremmen/vim-ripgrep'
+" config -vimgrep : to display multiple results in the same line in multiple
+" line in quickfix
+" config -S : to use smart casing syntax (minuscule means minuscule or majuscule)
+let g:rg_command = 'rg --vimgrep -S'
+cabbrev rg Rg
+" }}}
+
+" {{{ Asyncrun
+" Required by vim-ripgrep
+Plug 'skywind3000/asyncrun.vim'
+" }}}
 
 " {{{ bufexplore : Plugin for buffers list display and management
 " https://github.com/jlanzarotta/bufexplorer
