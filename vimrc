@@ -950,13 +950,17 @@ Plug 'simnalamburt/vim-mundo'
 
 " {{{ vim-base64
 " https://github.com/christianrondeau/vim-base64
-" Usage : select then <leader>atob or <leader>btoa
+" Usage : select then
+" <leader>atob   ===> to convert from base 64 to string
+"  or
+" <leader>btoa   ===> to convert from string to base 64
 Plug 'christianrondeau/vim-base64'
 ""}}}
 
 " {{{ cheatsheet
 " Learn X in Y minutes
 " Code documentation written as code!
+" usage : <leader>hl
 Plug 'adambard/learnxinyminutes-docs'
 let g:bundle_dir = "/Users/nbossard/.vim/plugged"
 
