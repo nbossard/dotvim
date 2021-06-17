@@ -1044,9 +1044,11 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'itchyny/landscape.vim'
 "}}}
 
-" Jsonc : jsonc type file support
+" {{{ Jsonc : jsonc type file support
 Plug 'neoclide/jsonc.vim'
 autocmd BufNewFile,BufRead *.jsonc setlocal filetype=jsonc
+" }}}
+
 
 " All of your Plugins must be added before the following line
 " Specify a directory for plugins
