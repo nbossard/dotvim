@@ -929,7 +929,7 @@ Plug 'mrk21/yaml-vim', {'for': 'yaml'}
 " http://localhost:9200
 " GET /_cat/nodes?v|
 " <C-J>
-Plug 'diepm/vim-rest-console'
+Plug 'diepm/vim-rest-console', {'for': 'rest'}
 let vrc_horizontal_split=1
 " }}}
 
