@@ -1258,6 +1258,10 @@ endif
 " Keep at least 5 lines visible at top and bottom of screen
 :set scrolloff=5
 
+"{{{ Common typo autofix
+iabbrev improcing improving
+"}}}
+
 " {{{ Improving copier-coller classic support
 "  When the "unnamed" string is included in the 'clipboard' option, the unnamed
 " register is the same as the "* register.  Thus you can yank to and paste the
