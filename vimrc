@@ -1116,10 +1116,10 @@ autocmd FileType yaml setlocal list
 
 "Quick file search mapped on F4, opens quickfix window
 " Could also be done by
-":vimgrep titi **/*   <=== will open results in quickfix list
+":ripgrep titi **/*   <=== will open results in quickfix list
 ":cdo %s/titi/toto/gc  <== cdo, do for all files in quicklist
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/gj **" <Bar> cw<CR>
-map <F5> :execute "vimgrep /" . expand("<cWORD>") . "/gj **" <Bar> cw<CR>
+map <F4> :execute "ripgrep /" . expand("<cword>") . "/gj **" <Bar> cw<CR>
+map <F5> :execute "ripgrep /" . expand("<cWORD>") . "/gj **" <Bar> cw<CR>
 
 " Allowing per project configuration
 " For example to have a custom spellfile
