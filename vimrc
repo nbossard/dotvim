@@ -51,6 +51,9 @@ Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
 "autocmd BufWritePost *.puml :make
 " to allow folding
 autocmd Filetype plantuml setlocal foldmethod=syntax
+" changing max image size to support images like database schema
+" See : https://plantuml.com/fr/faq#e689668a91b8d065
+let g:plantuml_executable_script='plantuml -DPLANTUML_LIMIT_SIZE=8192 -verbose'
 " }}}
 
 " {{{ Adding support for '.feature' files,
