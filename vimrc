@@ -319,6 +319,7 @@ Plug 'junegunn/vim-peekaboo'
 " }}}
 
 " {{{ unicode : to show unicode (and digraph) tables and search
+" such as smileys, emoticons...
 " Usage :UnicodeTable
 " See : https://github.com/chrisbra/unicode.vim
 Plug 'chrisbra/unicode.vim'
@@ -555,6 +556,7 @@ autocmd FileType vue setlocal keywordprg=:MdnQuery
 " ysiw" ==> you surround inner word with quotes
 " yss* ==> you surround entire line with star
 " ysiw<em> ==> you surroung inner word with <em></em>
+" Ìn visual mode use : S
 " cs'" ==> change surrounding ' for "
 Plug 'tpope/vim-surround'
 " }}}
@@ -577,13 +579,21 @@ Plug 'editorconfig/editorconfig-vim'
 " {{{ Plugin for completion : COC
 " https://github.com/neoclide/coc.nvim
 " INSTALL : then switch to branch release
+"
+" NOTE THAT THEY ARE USING 'release' branch
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"
 " INSTALL : then run :
 " :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-vetur
 " :CocInstall coc-dictionary
+"
 " Emmet is already included in coc-vetur, but not in HTML so adding it
 " :CocInstall coc-emmet
+"
 " :CocInstall coc-html
+"
 " :CocInstall coc-markdownlint
+"
 " :CocInstall coc-vimlsp
 "
 " Also tried coc marketplace :
