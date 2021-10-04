@@ -110,6 +110,11 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_space_tab_error = 1
 let g:go_highlight_function_parameters = 1
 
+" To use delve debugger :
+" GoDebugstart or GoDebugTest
+" GoDebugcontinue
+" GoDebugstop
+" "<F6> to inspect value of object under cursor
 
 " }}}
 
