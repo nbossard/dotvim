@@ -650,6 +650,8 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+" bug turn around : most terminals send <NUL> for Ctrl-space
+inoremap <silent><expr> <Nul> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
