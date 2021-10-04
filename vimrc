@@ -964,6 +964,7 @@ autocmd FileType rest setlocal nospell
 " }}}
 
 " {{{ Plugin for dockerfiles
+" See: https://github.com/ekalinin/Dockerfile.vim
 Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
@@ -987,6 +988,7 @@ Plug 'christianrondeau/vim-base64'
 ""}}}
 
 " {{{ cheatsheet
+" See : https://github.com/adambard/learnxinyminutes-docs
 " Learn X in Y minutes
 " Code documentation written as code!
 " usage : <leader>hl
