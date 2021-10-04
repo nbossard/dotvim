@@ -29,6 +29,10 @@ let mapleader=","
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" {{{ Plugins tried and rejected
+" Plug 'psliwka/vim-smoothie' ==> 'Allow more smooth scrolling' ==> too slow
+" }}}
+
 "{{{ ==== Languages syntax support plugins ======
 "
 " {{{ Arduino : For writing arduino sketches
