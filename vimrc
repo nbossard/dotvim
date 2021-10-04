@@ -843,8 +843,8 @@ autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | en
 Plug 'bogado/file-line'
 " }}}
 
-" {{{ Markdown plugin
-" See https://github.com/plasticboy/vim-markdowns
+" {{{ vim-markdown plugin for syntax and folding
+" See https://github.com/plasticboy/vim-markdown
 " Improve display, replace formatting by result for bold and italic
 autocmd Filetype markdown setlocal conceallevel=2
 Plug 'godlygeek/tabular'
@@ -852,6 +852,8 @@ Plug 'plasticboy/vim-markdown'
 " Enable color column for markdown files
 "autocmd Filetype markdown setlocal highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
 autocmd Filetype markdown setlocal colorcolumn=80
+" NOTE :
+" View result in browser using :OpenBrowserCurrent
 " }}}
 
 " {{{ calendar : Adding calendar tool in Vim
