@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
 
 " {{{ Plugins tried and rejected
 " Plug 'psliwka/vim-smoothie' ==> 'Allow more smooth scrolling' ==> too slow
+" Plug 'dhruvasagar/vim-zoom' ==> 'toggle zoom of current window within the current tab'
 " }}}
 
 "{{{ ==== Languages syntax support plugins ======
