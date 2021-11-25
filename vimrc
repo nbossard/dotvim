@@ -254,7 +254,6 @@ Plug 'ivalkeen/nerdtree-execute'
 " Plug-plugin To show git changed files in NERDTree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'pseewald/nerdtree-tagbar-combined'
 " Plugin to add coloring on devicons (see below)
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
