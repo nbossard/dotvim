@@ -266,7 +266,7 @@ autocmd FileType nerdtree setlocal norelativenumber
 let NERDTreeAutoCenter=1
 let NERDTreeAutoCenterTreshold=8
 " Hide some files
-let NERDTreeIgnore=['\.swp']
+let NERDTreeIgnore=['\.swp','\.DS_Store']
 " Add mapping for 'nerdtree find' : gnf
 " rem function! where ! means overwrite if already exists
 function! NERDTreeShowMeFile()
