@@ -73,11 +73,15 @@ autocmd Filetype cucumber setlocal softtabstop=2
 autocmd Filetype cucumber setlocal expandtab
 " }}}
 
-" {{{ Adding Golang plugin
+" {{{ Adding Golang plugin : vim-go
 " see : https://github.com/fatih/vim-go
 Plug 'fatih/vim-go', {'for': 'go'}
+"
 " Installing go-pls : syntax server for GO
-" go get golang.org/x/tools/gopls@latest
+" normally done by command : 'go get golang.org/x/tools/gopls@latest'
+" but in fact installed using homebrew 'brew install gopls',
+" this way it is kept up-to-date
+"
 " Making go-pls included server work for COC
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
@@ -166,7 +170,7 @@ cabbrev maggit Magit
 " {{{ Fugitive plugin : to display git log in vim
 " see https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'
-"Afugitive addition plugin To display a gitk (git log (history))like in vim
+"A fugitive addition plugin To display a gitk (git log (history))like in vim
 " https://github.com/junegunn/gv.vim
 " Most used commands :
 " View log :
@@ -469,10 +473,13 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 "}}}
 
+Plug 'dbeniamine/cheat.sh-vim'
 
 " {{{ Using snippets in Vim
 " in combination with Coc
 " dont forget : :CocInstall coc-neosnippet
+"
+" to jump : <C-J>
 "
 " See https://github.com/Shougo/neosnippet.vim
 " and https://github.com/neoclide/coc-sources
@@ -501,6 +508,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
  if has('conceal')
    set conceallevel=2 concealcursor=nv
  endif
+ "
  " NBO : adding my own snippets directory
  let g:neosnippet#snippets_directory='~/.vim/nbo_snippets'
 " }}}
@@ -594,7 +602,27 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 " INSTALL : then run :
-" :CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-vetur
+"
+" https://github.com/neoclide/coc-tsserver
+" Support of typescript
+" :CocInstall coc-tsserver
+"
+" https://github.com/neoclide/coc-eslint
+" Javascript linter
+" :CocInstall coc-eslint
+"
+" https://github.com/neoclide/coc-json
+" Json language server
+" :CocInstall coc-json
+"
+" :CocInstall coc-prettier
+"
+" :CocInstall coc-css
+"
+" https://github.com/neoclide/coc-vetur
+" Vue language server extension
+" :CocInstall coc-vetur
+"
 " :CocInstall coc-dictionary
 "
 " Emmet is already included in coc-vetur, but not in HTML so adding it
@@ -1026,6 +1054,7 @@ nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 " :Rg toto -t go
 " usage to search for a regular expression:
 " :Rg 'mic.*v2'
+" Note : By default, ripgrep will respect gitignore rules and automatically skip hidden files/directories and binary files
 Plug 'jremmen/vim-ripgrep'
 " config -vimgrep : to display multiple results in the same line in multiple
 " line in quickfix
@@ -1160,7 +1189,7 @@ set secure
 
 "spell : to enable :
 " (enabled in project config file usually)
-" :set spell spelllang=fr
+" :set spell spelllang=en,fr
 " Usual commands :
 " zg => add word to dico
 " zw => remove word from dico
