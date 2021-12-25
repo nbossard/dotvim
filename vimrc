@@ -350,7 +350,7 @@ vmap gx <Plug>(openbrowser-smart-search)
 " Additional command "OpenBrowserCurrent" to Open current file in browser
 command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
 " open regular expression test website
-cabbrev regex101 OpenBrowser https://regex101.com
+command! RegEx101 OpenBrowser https://regex101.com
 " }}}
 
 " {{{ Plugin to display the list of registers
