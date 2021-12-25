@@ -197,6 +197,12 @@ command! -nargs=1 Gsdiff Gdiffsplit <args>
 "
 " }}} === End of Git related plugins ====
 
+" {{{ Copilot
+" See: https://github.com/github/copilot.vim
+" And: https://copilot.github.com/
+Plug 'github/copilot.vim', {'for': ['javascript', 'typescript', 'java', 'go']}
+" }}}
+
 " {{{ Startify plugin : To change start screen (welcome page)
 " https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'
