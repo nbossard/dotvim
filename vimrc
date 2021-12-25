@@ -1029,6 +1029,12 @@ let vrc_horizontal_split=1
 autocmd FileType rest setlocal nospell
 " }}}
 
+" {{{ try again splitjoin plugin
+" See : https://github.com/AndrewRadev/splitjoin.vim
+" usage : gS gJ
+Plug 'AndrewRadev/splitjoin.vim'
+" }}}
+
 " {{{ Plugin for dockerfiles
 " See: https://github.com/ekalinin/Dockerfile.vim
 Plug 'ekalinin/Dockerfile.vim'
