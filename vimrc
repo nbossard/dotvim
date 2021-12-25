@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
 " }}}
 
 "{{{ ==== Languages syntax support plugins ======
-"
+
 " {{{ Arduino : For writing arduino sketches
 Plug 'stevearc/vim-arduino', {'for': 'arduino'}
 "}}}
