@@ -219,6 +219,21 @@ let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ ]
+" let g:startify_custom_header = g:ascii + startify#fortune#boxed('', '═','║','╔','╗','╝','╚')
+" Using own bases of fortunes as suggested here : https://sudonull.com/post/105462-Configure-Vim-Start-Screen
+" following constant will be used by projects
+let g:fortune = map(split(system('fortune ~/.vim ~/.vim/plugged/vimtips-fortune/fortunes | cowsay'), '\n'), '"   ". v:val')
+" }}}
+
+" {{{ plugin to edit fortune files
+" https://github.com/ljcooke/vim-fortune
+Plug 'ljcooke/vim-fortune', {'for': 'fortune'}
+" }}}
+
+" {{{ Plugin to use a text file as a database for vim topic fortunes
+" https://github.com/openuado/vimtips-fortune
+Plug 'openuado/vimtips-fortune'
+let g:loaded_fortune_vimtips = 0
 " }}}
 
 " {{{ Vim-test : plugin for launching tests inside vim
