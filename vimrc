@@ -434,7 +434,7 @@ set rtp+=~/.vim/bundle/fzf
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " reassign ctrl-p main command
-nmap <c-p> :FzfFiles<CR>
+nmap <c-p> :echo "Calling ':FzfFiles', also try classic way ':find toto\<TAB\>'" <bar> :FzfFiles<CR>
 " add a prefix Fzf to all commands
 let g:fzf_command_prefix = 'Fzf'
 " Always enable preview window on the right with 60% width
