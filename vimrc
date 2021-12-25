@@ -834,6 +834,7 @@ let g:ctrlsf_auto_focus = {
 " see : https://github.com/mg979/vim-visual-multi
 " Originally to use with ctrlsf to change multiple words at a time
 " usage : press ctrl-n n n
+" or q to skip current
 Plug 'mg979/vim-visual-multi'
 " }}}
 
@@ -915,6 +916,8 @@ Plug 'plasticboy/vim-markdown'
 " Enable color column for markdown files
 "autocmd Filetype markdown setlocal highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
 autocmd Filetype markdown setlocal colorcolumn=80
+" NOTE :
+" Format at a maximum width using ':gq'
 " NOTE :
 " View result in browser using :OpenBrowserCurrent
 " }}}
@@ -1094,6 +1097,8 @@ Plug 'jremmen/vim-ripgrep'
 " config -vimgrep : to display multiple results in the same line in multiple
 " line in quickfix
 " config -S : to use smart casing syntax (minuscule means minuscule or majuscule)
+"
+" Will search from current dir, to search from another use :RgRoot
 let g:rg_command = 'rg --vimgrep -S'
 cabbrev rg Rg
 " }}}
@@ -1344,6 +1349,9 @@ nmap <c-s> :write<CR>
 nmap gn :bn<CR>
 nmap gp :bp<CR>
 "}}}
+
+" To see the named color list
+" open file ~/.vim/colortest.vim
 
 " set diff options
 if has("patch-8.1.0360")
