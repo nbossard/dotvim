@@ -381,6 +381,9 @@ let g:ale_lint_delay=3000
 " Git plugin to embed git command in vim
 nmap gan :ALENext<CR>
 nmap gap :ALEPrevious<CR>
+"
+" NOTE : ALE is used by vim-go, see vim-go for go related configuration
+let g:ale_linters = { 'go': ['golint', 'go vet'] }
 " }}}
 
 "{{{ BufOnly : Closes all buffers but this one
