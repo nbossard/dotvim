@@ -736,6 +736,11 @@ function! s:show_documentation()
   endif
 endfunction
 
+" NBO : Mapping ctrl+k to show signature in insert mode
+" This is done to force signature display when not opened automatically by
+" typing '('
+inoremap <silent> <C-K> <C-r>=CocActionAsync('showSignatureHelp')<CR>
+
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " changing coc highlight color cause light grey is invisible
