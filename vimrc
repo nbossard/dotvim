@@ -1248,7 +1248,8 @@ map gsp [s
 
 " Allow search of currently selected text using //
 vnoremap // y/<C-R>"<CR>
-
+" Allow clearing of searched text using ///
+noremap /// :nohl<CR>
 " {{{ Making cursor mode more visible
 " on entering / leaving insert mode, insert a cursor line and column
 " Make cursor more visible in insert mode :
