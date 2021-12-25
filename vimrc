@@ -267,7 +267,14 @@ command -range TranslateRToFR <line1>,<line2>TranslateR --target_lang=fr
 " }}}
 
 " {{{ ===== NERDTree related configs =====
+"
+" TODO : study new alternatives to NERDTree :
+" - https://github.com/lambdalisue/fern.vim
+" - https://github.com/weirongxu/coc-explorer
+"
 " Nerdtree is a must have plugin, to have a browser for files on left panel
+" This plugin is replacing default file browser netrw
+" (netrw can be launched with :Lexplore)
 Plug 'preservim/nerdtree'
 " Nerdtree plugin has plugins (sic)
 " Plugin-plugin to open file using System from NERDTree
