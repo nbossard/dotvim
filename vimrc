@@ -1391,6 +1391,11 @@ endif
 iabbrev improcing improving
 "}}}
 
+" Adding command to generate a random password
+" for use in 'pass edit'
+command Password :r!pwgen --no-vowels --numerals --symbols --remove-chars "'\"~" 16 1
+
+
 " {{{ Improving copier-coller classic support
 "  When the "unnamed" string is included in the 'clipboard' option, the unnamed
 " register is the same as the "* register.  Thus you can yank to and paste the
