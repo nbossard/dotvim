@@ -1395,6 +1395,15 @@ iabbrev improcing improving
 " for use in 'pass edit'
 command Password :r!pwgen --no-vowels --numerals --symbols --remove-chars "'\"~" 16 1
 
+" {{{ Call external tool called gocloc to count lines of code
+" see: https://github.com/hhatto/gocloc
+" rem : '!' ===> run external command
+" rem : 'r' ===> read command output to current buffer
+function! Rungocloc()
+   :enew | r ! gocloc .
+endfunction
+command Gocloc :call Rungocloc()
+" }}}
 
 " {{{ Improving copier-coller classic support
 "  When the "unnamed" string is included in the 'clipboard' option, the unnamed
