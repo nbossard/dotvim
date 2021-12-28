@@ -1405,6 +1405,14 @@ endfunction
 command Gocloc :call Rungocloc()
 " }}}
 
+" {{{ cfilter : official plugin to filter quickfix list content
+" to filter clist results
+" See https://github.com/vim/vim/blob/master/runtime/pack/dist/opt/cfilter/plugin/cfilter.vim
+" ex to filter out results containing "v2" :Cfilter! "v2"
+" NOTE: colder can rollback cfilter effect
+:packadd cfilter
+" }}}
+
 " {{{ Improving copier-coller classic support
 "  When the "unnamed" string is included in the 'clipboard' option, the unnamed
 " register is the same as the "* register.  Thus you can yank to and paste the
