@@ -1115,6 +1115,16 @@ cabbrev rg Rg
 Plug 'skywind3000/asyncrun.vim'
 " }}}
 
+" {{{ caser
+" Easy change from camel case to snake case and others...
+" Usage :
+" :Snake
+" :Camel
+" :Kebab
+Plug 'nicwest/vim-camelsnek'
+let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+" }}}
+
 " {{{ bufexplore : Plugin for buffers list display and management
 " https://github.com/jlanzarotta/bufexplorer
 " Usage : <leader>be    ,be
