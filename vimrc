@@ -1086,6 +1086,7 @@ endfunction
 
 command! -nargs=+ HelpLearnXInMinutes call HelpLearnXInMinutes(<f-args>)
 command! -nargs=+ Cheatsheet call HelpLearnXInMinutes(<f-args>)
+command! LearnXInMinutes call HelpLearnXInMinutes(&filetype)
 nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 " }}}
 "
