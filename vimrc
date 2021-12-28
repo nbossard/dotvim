@@ -1012,7 +1012,9 @@ command! GrammarousCheckFR :GrammarousCheck --lang=fr
 
 " {{{ yaml-vim : Plugin to support yaml file format
 " https://github.com/mrk21/yaml-vim
-Plug 'mrk21/yaml-vim', {'for': 'yaml'}
+" Plug 'mrk21/yaml-vim', {'for': 'yaml'}
+" Additional configuration for yaml files
+autocmd FileType yaml set foldmethod=indent
 " }}}
 
 " {{{ Plugin for making REST request using Curl
