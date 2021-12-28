@@ -1134,6 +1134,14 @@ let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
 map <leader>be :FzfBuffers<cr>
 " }}}
 
+" {{{ Distraction free writing hides everything except current window
+" see: https://github.com/junegunn/goyo.vim
+" Usage :
+" :Goyo
+" :Gogyo!
+Plug 'junegunn/goyo.vim'
+" }}}
+
 " {{{ ===== Various colorscheme s ====
 "Enables 24-bit RGB color
 set termguicolors
