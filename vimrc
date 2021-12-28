@@ -673,10 +673,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 " Additional config for coc-tsserver is done in file opened by
 " : CocConfig
-"
-" NOTE THAT THEY ARE USING 'release' branch
-" so manual update : cd ~/.vim/bundle/coc.nvim; git pull
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" configs
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
