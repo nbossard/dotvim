@@ -1413,6 +1413,15 @@ command Gocloc :call Rungocloc()
 :packadd cfilter
 " }}}
 
+" {{{ wildmenu : set wildmenu to allow a menu of matching items in command line when TAB is
+" pressed
+" it appears as a vertical menu in Neovim and as a horizontal list in vim
+" e.g. :colors <TAB>
+" e.g. :find order<TAB>
+set wildmenu
+set wildmode=longest:full,full
+" }}}
+
 " {{{ Improving copier-coller classic support
 "  When the "unnamed" string is included in the 'clipboard' option, the unnamed
 " register is the same as the "* register.  Thus you can yank to and paste the
