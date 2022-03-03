@@ -618,7 +618,12 @@ Plug 'tpope/vim-surround'
 
 " {{{ rainbow_csv : plugin for editing csv tsv formatted files
 " https://github.com/mechatroner/rainbow_csv
+" useful commands :
+" :RainbowAlign
+" :Select a1,a4 order by a11
 Plug 'mechatroner/rainbow_csv'
+" removing line wrapping on csv
+autocmd filetype csv setlocal nowrap
 "}}}
 
 " {{{ editor-config: A plugin for cross editors configuration file
