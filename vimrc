@@ -933,8 +933,16 @@ autocmd Filetype markdown setlocal colorcolumn=80
 " }}}
 
 " {{{ calendar : Adding calendar tool in Vim
+" See: https://github.com/itchyny/calendar.vim
+" Usage :
+"   :Calendar
+"   :Calendar -view=year -split=vertical -width=27
+"       ===> :Cal
 Plug 'itchyny/calendar.vim'
 let g:calendar_google_calendar = 1
+" NBO custom commands
+cabbrev Cal Calendar -view=year -split=vertical -width=27
+cabbrev cal Calendar -view=year -split=vertical -width=27
 " }}}
 
 " {{{ tcomment_vim : Quick comment uncomment
