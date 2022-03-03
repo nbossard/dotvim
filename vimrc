@@ -546,6 +546,10 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
  let g:neosnippet#snippets_directory='~/.vim/nbo_snippets'
 " }}}
 
+" Tested and removed : twilight : disable unused part of code to ease
+" readability See : https://github.com/folke/twilight.nvim
+" Gave up as in fact folding is better.
+
 " {{{ vim-template : To allow usage of templates on new files
 " see : https://github.com/aperezdc/vim-template
 " Usage : create a new file with accurate extension (.vue)
