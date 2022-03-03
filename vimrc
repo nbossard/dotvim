@@ -201,7 +201,9 @@ command! -nargs=1 Gsdiff Gdiffsplit <args>
 " {{{ Copilot
 " See: https://github.com/github/copilot.vim
 " And: https://copilot.github.com/
-Plug 'github/copilot.vim', {'for': ['javascript', 'typescript', 'java', 'go']}
+Plug 'github/copilot.vim', {'for': ['javascript', 'typescript', 'java', 'go', 'vue', 'md', 'puml']}
+imap <C-n> <Plug>(copilot-next)
+imap <C-p> <Plug>(copilot-previous)
 " }}}
 
 " {{{ Startify plugin : To change start screen (welcome page)
