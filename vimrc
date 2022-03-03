@@ -512,7 +512,7 @@ Plug 'dbeniamine/cheat.sh-vim'
 " in combination with Coc
 " dont forget : :CocInstall coc-neosnippet
 "
-" to jump : <C-J>
+" to jump : <C-J> (in insert mode)
 "
 " See https://github.com/Shougo/neosnippet.vim
 " and https://github.com/neoclide/coc-sources
