@@ -877,7 +877,7 @@ let g:rainbow_conf = {
 " To launch manual stripping of whitespaces :
 " :StripWhitespace
 Plug 'ntpeters/vim-better-whitespace'
-let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git', 'taskedit']
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git', 'taskedit', 'csv']
 "To highlight space characters that appear before or in-between tabs
 let g:show_spaces_that_precede_tabs=1
 "Enabling stripping on save (with confirmation)
