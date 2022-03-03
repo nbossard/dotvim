@@ -1409,6 +1409,8 @@ endif
 
 "{{{ Common typo autofix
 iabbrev improcing improving
+iabbrev splitted split
+iabbrev splited split
 "}}}
 
 " Adding command to generate a random password
