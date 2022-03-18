@@ -216,9 +216,13 @@ autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 " {{{ Copilot
 " See: https://github.com/github/copilot.vim
 " And: https://copilot.github.com/
-Plug 'github/copilot.vim', {'for': ['javascript', 'typescript', 'java', 'go', 'vue', 'md', 'puml']}
+Plug 'github/copilot.vim'
+" configuring alternate suggestions
 imap <C-n> <Plug>(copilot-next)
 imap <C-p> <Plug>(copilot-previous)
+let g:copilot_filetypes = {
+      \ 'markdown': v:true,
+      \ }
 " }}}
 
 " {{{ Startify plugin : To change start screen (welcome page)
