@@ -83,8 +83,17 @@ Plug 'fatih/vim-go', {'for': 'go'}
 " this way it is kept up-to-date
 "
 " Making go-pls included server work for COC
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+" NBO : disabling pls in vim-go cause conflicts with similar coc-go
+" See very good thread here : https://github.com/golang/go/issues/41998
+let g:go_gopls_enabled = 0
+"Also disabling mapping like gd, cause they are not working as gopls is
+"disabled... but go-coc do
+let g:go_def_mapping_enabled = 0
+"Also disabling mapping like K, cause they are not working as gopls is
+"disabled... but go-coc do
+let g:go_doc_keywordprg_enabled = 0
+
+"various
 autocmd FileType go setlocal foldmethod=syntax
 autocmd Filetype go setlocal tabstop=4
 autocmd Filetype go setlocal shiftwidth=4
