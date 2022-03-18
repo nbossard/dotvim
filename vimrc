@@ -205,6 +205,12 @@ cabbrev Gsdiff Gdiffsplit
 command! -nargs=1 Gsdiff Gdiffsplit <args>
 " }}}
 "
+
+" When editing a git commit message (.git/COMMIT_EDITMSG)
+" you often won't start on the first line due to Vim remembering your last position in that file
+" Fix for this:
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
 " }}} === End of Git related plugins ====
 
 " {{{ Copilot
