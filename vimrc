@@ -1049,6 +1049,13 @@ let g:grammarous#default_comments_only_filetypes = {
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
 " }}}
 
+" {{{ vim-conflicted : Plugin for efficiently use vim with mergetool
+"See https://github.com/christoomey/vim-conflicted
+" usage (out of vim) : git mergetool
+" or : git conflicted
+Plug 'christoomey/vim-conflicted'
+" }}}
+
 " {{{ yaml-vim : Plugin to support yaml file format
 " https://github.com/mrk21/yaml-vim
 " Plug 'mrk21/yaml-vim', {'for': 'yaml'}
