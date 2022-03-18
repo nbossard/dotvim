@@ -1042,7 +1042,7 @@ Plug 'tpope/vim-dadbod'
 " {{{ Plugin for grammar check
 " see : https://github.com/rhysd/vim-grammarous
 " NOTE : REQUIRES JAVA 8
-" Plug 'rhysd/vim-grammarous'
+Plug 'rhysd/vim-grammarous'
 let g:grammarous#default_comments_only_filetypes = {
             \ '*' : 1, 'help' : 0, 'markdown' : 0,
             \ }
