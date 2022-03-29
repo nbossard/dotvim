@@ -271,6 +271,13 @@ let test#javascript#jest#options = {
 \}
 cabbrev te TestFile
 " See also Mahali project vimrc config file
+
+" prevent neovim from closing terminal straight away
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    au TermOpen  * setlocal nonumber | startinsert
+    au TermClose * setlocal   number | call feedkeys("\<C-\>\<C-n>")
+endif
 "}}}
 
 " {{{ vim-translator : Plugin for translating between human languages
