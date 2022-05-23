@@ -222,6 +222,7 @@ imap <C-n> <Plug>(copilot-next)
 imap <C-p> <Plug>(copilot-previous)
 let g:copilot_filetypes = {
       \ 'markdown': v:true,
+      \ 'yaml': v:true,
       \ }
 " }}}
 
