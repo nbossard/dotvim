@@ -381,6 +381,14 @@ vmap gx <Plug>(openbrowser-smart-search)
 command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
 " open regular expression test website
 command! RegEx101 OpenBrowser https://regex101.com
+" open current file in gitlab
+let reponame = substitute(system("basename `git rev-parse --show-toplevel`"), '\n\+$', '', '')
+if reponame == "documentation"
+  let branchname = "master"
+else
+  let branchname = "develop"
+endif
+command! OpenInGitlab execute "OpenBrowser" "https://gitlab.tech.orange/mahali/" . reponame . "/-/tree/" . branchname . "/" . fnamemodify(expand("%"), ":~:.")
 " }}}
 
 " {{{ Plugin to display the list of registers
