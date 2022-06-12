@@ -599,8 +599,8 @@ Plug 'aperezdc/vim-template'
 " See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
 Plug 'moll/vim-bbye'
-" Override standard bd command
-abbreviate bd Bdelete
+" Define a similar to bd command
+abbreviate bdd Bdelete
 " }}}
 
 " {{{ vim-signature : To displays Vim marks in gutter

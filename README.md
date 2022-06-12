@@ -13,4 +13,4 @@ Switch to the `~/.vim` directory, and install vundle (plugin manager):
 
     cd ~/.vim
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    Launch vim and run :PluginInstall	
+    Launch vim and run :PluginInstall
