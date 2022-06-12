@@ -695,6 +695,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Json language server
 " :CocInstall coc-json
 "
+" Coc prettier IS USELESS
+" CAUSE THERE IS ALREADY https://github.com/prettier/vim-prettier
 " :CocInstall coc-prettier
 "
 " :CocInstall coc-css
