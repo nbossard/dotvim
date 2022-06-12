@@ -407,7 +407,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'chrisbra/unicode.vim'
 "}}}
 
-"  {{{ ALE plugin : To support various linters
+" {{{ ALE plugin : To support various linters
 " ALE = Asynchronous Lint Engine
 " See : https://github.com/dense-analysis/ale
 " acts as a Vim Language Server Protocol client
@@ -850,10 +850,15 @@ Plug 'shmargum/vim-sass-colors'
 " }}}
 
 " {{{ vim-prettier : plugin to call Prettier, to format sources (on save)
+" See : https://github.com/prettier/vim-prettier
+" A vim plugin wrapper for prettier, pre-configured with custom default prettier settings
+" By default it will auto format javascript, typescript, less, scss, css, json, graphql
+" and markdown files if they have/support the "@format" pragma annotation in the header of the file.
+"
 " See project local configuration in .prettierrc.js
 Plug 'prettier/vim-prettier'
 " }}}
-"
+
 " {{{ Plugin to simulate ctrl-shift-s
 " https://github.com/dyng/ctrlsf.vim
 " tip : to use regular expression type : :CtrlSF -R foo.*
