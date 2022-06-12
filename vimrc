@@ -315,6 +315,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plugin to add coloring on devicons (see below)
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plugin that adds a menu item to open the selected folder in Mac OS X Terminal
+" https://github.com/mortonfox/nerdtree-term
+Plug 'mortonfox/nerdtree-term'
 " NERDTree related config
 " Make NERDTree show hidden files by default
 let NERDTreeShowHidden=1
