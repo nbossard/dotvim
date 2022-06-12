@@ -929,7 +929,7 @@ Plug 'Raimondi/delimitMate'
 " {{{ tagbar : Displaying a tag bar on right side
 " see https://github.com/majutsushi/tagbar
 " Relies on external tag generator :
-" Tried exuberant ctags , but did not work
+" Tried exuberant ctags, but did not work
 " Replaced by Universal ctags :
 " https://ctags.io/
 " https://github.com/universal-ctags/ctags
