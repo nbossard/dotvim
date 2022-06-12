@@ -987,6 +987,20 @@ cabbrev cal Calendar -view=year -split=vertical -width=27
 Plug 'tomtom/tcomment_vim'
 "}}}
 
+" {{{ scrollbar : display a scrollbar on the right for info (not for clicking)
+" See : https://github.com/Xuyuanp/scrollbar.nvim
+" Rem : Does not work on vim, only for neovim
+Plug 'Xuyuanp/scrollbar.nvim'
+let g:scrollbar_excluded_filetypes = ['nerdtree', 'tagbar']
+" Suggested configuration by plugin website
+augroup ScrollbarInit
+  autocmd!
+  autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+augroup end
+" }}}
+
 " {{{ Plugin to generate remark slides
 " See https://github.com/mauromorales/vim-remark
 " Commands :
