@@ -1,0 +1,34 @@
+# nbo own snippets for Golang coding
+# neosnippet syntax
+# https://github.com/Shougo/neosnippet.vim/blob/master/doc/neosnippet.txt
+
+
+snippet logger-fatal
+abbr logger.Fatal(ctx, "", err)
+        logger.Fatal(ctx, "${1:description du probleme}", err)
+
+snippet logger-error
+abbr logger.Error(c, log.EventTypeTechnical, "", err)
+        logger.Error(${1:context}, log.EventTypeTechnical, "${2:description du probleme}", err)
+
+snippet logger-warn
+abbr logger.Warn(c, log.EventTypeTechnical, "", err)
+        logger.Warn(${1:context}, log.EventTypeTechnical, "${2:description du probleme}")
+
+snippet logger-info logger.Info(ctx,log.EventTypeTechnical,  "")
+        logger.Info(${1:context}, log.EventTypeTechnical, "${2:description du probleme}")
+
+snippet logger-debug logger.Debug(ctx, "", err)
+        logger.Debug(ctx, "${1:description du probleme}")
+
+snippet erra
+abbr err with abort for web services
+        if err != nil {
+                detailErr := errors.Parse(err.Error())
+                c.AbortWithStatusJSON(int(detailErr.Code), detailErr)
+                return
+        }
+
+snippet contains
+abbr strings.Contains()
+        strings.Contains("${1:container}", "${2:searched string}")
