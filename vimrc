@@ -954,11 +954,37 @@ Plug 'majutsushi/tagbar'
 set tags=tags
 " do not sort alphabetically
 let g:tagbar_sort = 0
+" Adding support of YAML files by tagbar
+" ...at least anchors
+let g:tagbar_type_yaml = {
+    \ 'ctagstype' : 'yaml',
+    \ 'kinds' : [
+        \ 'a:anchors',
+        \ 's:section',
+        \ 'e:entry'
+    \ ],
+  \ 'sro' : '.',
+    \ 'scope2kind': {
+      \ 'section': 's',
+      \ 'entry': 'e'
+    \ },
+    \ 'kind2scope': {
+      \ 's': 'section',
+      \ 'e': 'entry'
+    \ },
+    \ 'sort' : 0
+    \ }
 " Position the (global) quickfix window at the very bottom of the window
 " (useful for making sure that it appears underneath tagbar splits)
 " NOTE: Using a check here to make sure that window-specific location-lists
 " aren't effected, as they use the same `FileType` as quickfix-lists.
 autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
+" augroup show_hide_tagbar_onfiletype
+"     autocmd!
+"     let filetypes_with_tag=['markdown','go']
+"     autocmd BufWinEnter * if (index(filetypes_with_tag, &filetype) >= 0) | execute "TagbarOpen" | else | execute "TagbarClose" | endif
+" augroup END
+"
 " }}}
 
 " {{{ File-line : plugin
