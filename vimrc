@@ -1110,7 +1110,7 @@ nmap <leader>gr :GtdReview
 " https://github.com/tpope/vim-dadbod
 Plug 'tpope/vim-dadbod'
 
-" {{{ Plugin for grammar check
+" {{{ vim-grammarous : Plugin for grammar check
 " see : https://github.com/rhysd/vim-grammarous
 " NOTE : REQUIRES JAVA 8
 Plug 'rhysd/vim-grammarous'
