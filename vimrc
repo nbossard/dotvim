@@ -1120,6 +1120,14 @@ let g:grammarous#default_comments_only_filetypes = {
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
 " }}}
 
+" {{{ Plugin vim-ghost
+" See: https://github.com/raghur/vim-ghost
+" Edit browser textarea content in Vim/Neovim
+" Usage :GhostStart
+" Go back to browser, click on a textarea then click on ghost plugin icon
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+" }}}
+
 " {{{ vim-conflicted : Plugin for efficiently use vim with mergetool
 "See https://github.com/christoomey/vim-conflicted
 " usage (out of vim) : git mergetool
