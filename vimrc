@@ -73,6 +73,11 @@ autocmd Filetype cucumber setlocal softtabstop=2
 autocmd Filetype cucumber setlocal expandtab
 " }}}
 
+"{{{ Adding support for makefiles
+" makefiles have to be tab indented, however they are not valid
+autocmd Filetype make set autoindent noexpandtab tabstop=4 shiftwidth=4
+"}}}
+
 " {{{ Adding Golang plugin : vim-go
 " see : https://github.com/fatih/vim-go
 Plug 'fatih/vim-go', {'for': 'go'}
