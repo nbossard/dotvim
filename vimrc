@@ -1017,7 +1017,7 @@ autocmd Filetype markdown setlocal colorcolumn=80
 Plug 'itchyny/calendar.vim'
 let g:calendar_google_calendar = 1
 " NBO custom commands
-cabbrev Cal Calendar -view=year -split=vertical -width=27
+command Cal Calendar -view=year -split=vertical -width=27
 cabbrev cal Calendar -view=year -split=vertical -width=27
 " }}}
 
