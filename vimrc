@@ -1026,6 +1026,11 @@ command Cal Calendar -view=year -split=vertical -width=27
 cabbrev cal Calendar -view=year -split=vertical -width=27
 " }}}
 
+" {{{ speeddating : Allow intelligent increase of dates
+" Usage : traditional <C-X> or <C-A>
+Plug 'tpope/vim-speeddating'
+" }}}
+
 " {{{ tcomment_vim : Quick comment uncomment
 " see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
