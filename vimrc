@@ -141,6 +141,11 @@ let g:go_highlight_function_parameters = 1
 
 " }}}
 
+" {{{ Plugin for coloring gomod files
+" https://github.com/maralla/gomod.vim
+Plug 'maralla/gomod.vim', {'for': 'gomod'}
+" }}}
+
 "}}} ==== end of language syntax plugins =====
 
 " {{{ ==== Git related Plugins ===
