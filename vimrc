@@ -1010,6 +1010,8 @@ Plug 'plasticboy/vim-markdown'
 " Enable color column for markdown files
 "autocmd Filetype markdown setlocal highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
 autocmd Filetype markdown setlocal colorcolumn=80
+" Allow coloring of fenced blocks
+let g:vim_markdown_fenced_languages = ['javascript', 'typescript', 'sh', 'go']
 " NOTE :
 " Format at a maximum width using ':gq'
 " NOTE :
