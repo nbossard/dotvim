@@ -1053,15 +1053,18 @@ Plug 'tomtom/tcomment_vim'
 " {{{ scrollbar : display a scrollbar on the right for info (not for clicking)
 " See : https://github.com/Xuyuanp/scrollbar.nvim
 " Rem : Does not work on vim, only for neovim
-Plug 'Xuyuanp/scrollbar.nvim'
-let g:scrollbar_excluded_filetypes = ['nerdtree', 'tagbar']
-" Suggested configuration by plugin website
-augroup ScrollbarInit
-  autocmd!
-  autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
-augroup end
+if has('nvim')
+  Plug 'Xuyuanp/scrollbar.nvim'
+  let g:scrollbar_excluded_filetypes = ['nerdtree', 'tagbar']
+  " Suggested configuration by plugin website
+  augroup ScrollbarInit
+    autocmd!
+    autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+    autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+  augroup end
+endif
+" }}}
 " }}}
 
 " {{{ Plugin to generate remark slides
@@ -1258,7 +1261,11 @@ cabbrev rg Rg
 " }}}
 
 " {{{ Asyncrun
+" See: https://github.com/skywind3000/asyncrun.vim
 " Required by vim-ripgrep
+" Usage: :AsyncRun <command>
+" DONT FORGET TO :copen quickfix before
+" Output is displayed in the quickfix window
 Plug 'skywind3000/asyncrun.vim'
 " }}}
 
