@@ -1035,6 +1035,13 @@ cabbrev cal Calendar -view=year -split=vertical -width=27
 " Usage : traditional <C-X> or <C-A>
 Plug 'tpope/vim-speeddating'
 " }}}
+" {{{
+" Same for boolean : vim-CtrlXA
+" see : https://github.com/Konfekt/vim-CtrlXA
+Plug 'Konfekt/vim-CtrlXA'
+nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
+nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
+" }}}
 
 " {{{ tcomment_vim : Quick comment uncomment
 " see https://github.com/tomtom/tcomment_vim
