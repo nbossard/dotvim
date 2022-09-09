@@ -378,6 +378,9 @@ let g:airline_powerline_fonts = 1
 "and hides filename
 let g:airline#extensions#tagbar#enabled = 0
 "
+" disabling on nerdtree cause too small to be readable
+let g:airline#extensions#nerdtree_statusline = 0
+
 " various airline bar themes
 Plug 'vim-airline/vim-airline-themes'
 " }}}
