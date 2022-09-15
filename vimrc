@@ -166,6 +166,10 @@ let g:go_highlight_function_parameters = 1
 Plug 'maralla/gomod.vim', {'for': 'gomod'}
 " }}}
 
+" {{{ Plugin for .gitignore files
+Plug 'gisphm/vim-gitignore', {'for': 'gitignore'}
+" }}}
+
 "}}} ==== end of language syntax plugins =====
 
 " {{{ ==== Git related Plugins ===
@@ -1196,10 +1200,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 " {{{ Plugin for dockerfiles
 " See: https://github.com/ekalinin/Dockerfile.vim
 Plug 'ekalinin/Dockerfile.vim'
-" }}}
-
-" {{{ Plugin for .gitignore files
-Plug 'gisphm/vim-gitignore', {'for': 'gitignore'}
 " }}}
 
 " {{{ mundo : Plugin for displaying undo tree
