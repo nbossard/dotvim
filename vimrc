@@ -1304,6 +1304,14 @@ map <leader>be :FzfBuffers<cr>
 Plug 'junegunn/goyo.vim'
 " }}}
 
+" {{{ taboo.vim : plugin for renaming tabs
+" See: https://github.com/gcmt/taboo.vim
+" To edit tab names
+" Usage : TabooOpen toto
+Plug 'gcmt/taboo.vim'
+" }}}
+
+
 " {{{ ===== Various colorscheme s ====
 "Enables 24-bit RGB color
 set termguicolors
