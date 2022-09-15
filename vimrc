@@ -878,7 +878,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " {{{ vim-sass-colors : Plugin to colorize color texts in (s)css files
 " Also tried following, but does not work on scss variables :
 " Plug 'gko/vim-coloresque'
-Plug 'shmargum/vim-sass-colors'
+Plug 'shmargum/vim-sass-colors', { 'for': ['sass', 'scss'] }
 " }}}
 
 " {{{ vim-prettier : plugin to call Prettier, to format sources (on save)
