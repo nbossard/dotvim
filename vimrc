@@ -2,6 +2,7 @@
 " Saved in git for history and for sharing across computers.
 " As described here :
 " See README.md for configuration.
+" vim: set foldmethod=marker :
 "
 " Other installs :
 " brew install python@2
