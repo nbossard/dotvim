@@ -51,8 +51,18 @@ call plug#begin('~/.vim/plugged')
 " " Rem : navigate using gf
 " command! NotesRecent RecentNotes
 " }}}
-
+"
+" {{{ vim-template : To allow usage of templates on new files
+" see : https://github.com/aperezdc/vim-template
+" Usage : create a new file with accurate extension (.vue)
+" open it and type :Template
+" NBO pinned on 08 june 2020 cause incompatibility issues with COC on latest
+" revision
+" Disbled on 2020-06-08 cause unused
+" Plug 'aperezdc/vim-template'
 " }}}
+
+" }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
 
@@ -625,15 +635,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " readability See : https://github.com/folke/twilight.nvim
 " Gave up as in fact folding is better.
 
-" {{{ vim-template : To allow usage of templates on new files
-" see : https://github.com/aperezdc/vim-template
-" Usage : create a new file with accurate extension (.vue)
-" open it and type :Template
-" NBO pinned on 08 june 2020 cause incompatibility issues with COC on latest
-" revision
-Plug 'aperezdc/vim-template'
-
-" }}}
 
 " {{{ vim-bbye : To close buffer without closing window
 " See : https://github.com/moll/vim-bbye
