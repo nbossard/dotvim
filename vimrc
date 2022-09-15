@@ -62,6 +62,12 @@ call plug#begin('~/.vim/plugged')
 " Plug 'aperezdc/vim-template'
 " }}}
 
+" {{{ cheat.sh : to search for cheatsheets
+" See : https://github.com/dbeniamine/cheat.sh-vim
+" Never really used it, cause there is copilot
+" Plug 'dbeniamine/cheat.sh-vim'
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -591,7 +597,6 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 "}}}
 
-Plug 'dbeniamine/cheat.sh-vim'
 
 " {{{ Using snippets in Vim
 " in combination with Coc
