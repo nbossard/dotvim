@@ -75,6 +75,12 @@ call plug#begin('~/.vim/plugged')
 " Plug 'editorconfig/editorconfig-vim'
 " }}}
 
+" {{{ killersheep : A game, to test popup windows
+" See : https://github.com/vim/killersheep
+" Usage :Kill
+" Plug 'vim/killersheep'
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -1114,11 +1120,6 @@ let g:jsdoc_access_descriptions=1
 let g:jsdoc_return_type=1
 let g:jsdoc_param_description_separator=' - '
 " }}}
-
-" {{{ killersheep : A game, to test popup windows
-" See : https://github.com/vim/killersheep
-" Usage :Kill
-Plug 'vim/killersheep'
 " }}}
 
 " {{{ Plugin to use gtd in vim
