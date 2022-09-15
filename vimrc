@@ -68,6 +68,13 @@ call plug#begin('~/.vim/plugged')
 " Plug 'dbeniamine/cheat.sh-vim'
 " }}}
 
+" {{{ editor-config: A plugin for cross editors configuration file
+" for compatibility with other developers on other platforms
+" See configuration in .editorconfig file
+" Currently not used, cause not really needed
+" Plug 'editorconfig/editorconfig-vim'
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -688,16 +695,10 @@ Plug 'tpope/vim-surround'
 " useful commands :
 " :RainbowAlign
 " :Select a1,a4 order by a11
-Plug 'mechatroner/rainbow_csv'
+Plug 'mechatroner/rainbow_csv', {'for': 'csv'}
 " removing line wrapping on csv
 autocmd filetype csv setlocal nowrap
 "}}}
-
-" {{{ editor-config: A plugin for cross editors configuration file
-" for compatibility with other developers on other platforms
-" See configuration in .editorconfig file
-Plug 'editorconfig/editorconfig-vim'
-" }}}
 
 " {{{ ====== Completion in Vim : ====
 " Tested and removed 'deoplin' for completion
