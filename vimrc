@@ -30,9 +30,28 @@ let mapleader=","
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+"{{{ ==== Plugins tried and rejected or interesting but given up ======
+
 " {{{ Plugins tried and rejected
 " Plug 'psliwka/vim-smoothie' ==> 'Allow more smooth scrolling' ==> too slow
 " Plug 'dhruvasagar/vim-zoom' ==> 'toggle zoom of current window within the current tab'
+" }}}
+
+" {{{ vim-notes : Plugin to take notes
+" See https://github.com/xolox/vim-notes
+" usage :
+" Nouvelle note : :Note
+" Retrouver une note :
+" :RecentNotes
+" Plug 'xolox/vim-notes'
+" let g:notes_directories = ['~/Documents/NotesVim']
+" " Required by plugin vim-notes
+" Plug 'xolox/vim-misc'
+" " Renaming RecentNotes for easier finding
+" " Rem : navigate using gf
+" command! NotesRecent RecentNotes
+" }}}
+
 " }}}
 
 "{{{ ==== Languages syntax support plugins ======
@@ -625,20 +644,6 @@ abbreviate bdd Bdelete
 Plug 'kshenoy/vim-signature'
 " }}}
 
-" {{{ vim-notes : Plugin to take notes
-" See https://github.com/xolox/vim-notes
-" usage :
-" Nouvelle note : :Note
-" Retrouver une note :
-" :RecentNotes
-Plug 'xolox/vim-notes'
-let g:notes_directories = ['~/Documents/NotesVim']
-" Required by plugin vim-notes
-Plug 'xolox/vim-misc'
-" Renaming RecentNotes for easier finding
-" Rem : navigate using gf
-command! NotesRecent RecentNotes
-" }}}
 
 " {{{ hardmode : Plugin for Disabling arrows, oh my god...
 " Enable it by
