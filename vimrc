@@ -1565,10 +1565,15 @@ endif
 " Keep at least 5 lines visible at top and bottom of screen
 :set scrolloff=5
 
-"{{{ Common typo autofix
+"{{{ Common typo autofix by replacing word
 iabbrev improcing improving
 iabbrev splitted split
 iabbrev splited split
+iabbrev throught through
+iabbrev TODDO TODO
+iabbrev TOOD TODO
+iabbrev Addding Adding
+iabbrev addding adding
 "}}}
 
 " Adding command to generate a random password
