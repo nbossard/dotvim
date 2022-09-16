@@ -1095,12 +1095,12 @@ endif
 " Commands :
 " :RemarkBuild
 " :RemarkPrview
-Plug 'mauromorales/vim-remark'
+Plug 'mauromorales/vim-remark', {'for': 'md'}
 " To ease table creation in remark
 " https://github.com/dhruvasagar/vim-table-mode
 " invoke vim-table-mode’s table mode with <leader>tm
 " enter | twice to write a properly formatted horizontal line
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', {'for': 'md'}
 let g:table_mode_corner="|"
 " }}}
 
