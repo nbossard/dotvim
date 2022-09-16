@@ -144,6 +144,15 @@ call plug#begin('~/.vim/plugged')
 " But was malfunctionning
 " }}}
 
+" {{{ hardmode : Plugin for Disabling arrows, oh my god...
+" Enable it by
+" :call HardMode()
+" Plug 'wikitopian/hardmode'
+" let g:HardMode_level="wannabe"
+" Always launch hardmode, sic
+":call HardMode()
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -721,15 +730,6 @@ abbreviate bdd Bdelete
 " {{{ vim-signature : To displays Vim marks in gutter
 " See : https://github.com/kshenoy/vim-signature
 Plug 'kshenoy/vim-signature'
-" }}}
-
-" {{{ hardmode : Plugin for Disabling arrows, oh my god...
-" Enable it by
-" :call HardMode()
-Plug 'wikitopian/hardmode'
-let g:HardMode_level="wannabe"
-" Always launch hardmode, sic
-":call HardMode()
 " }}}
 
 " {{{ vim-mdnquery : Plugin to open javascript MDN directly from vim
