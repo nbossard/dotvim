@@ -110,6 +110,17 @@ call plug#begin('~/.vim/plugged')
 " nmap <leader>gr :GtdReview
 " }}}
 
+" {{{ caser
+" Easy change from camel case to snake case and others...
+" Usage :
+" :Snake
+" :Camel
+" :Kebab
+" UNUSED and interaction with gmail is falling, so disabled
+" Plug 'nicwest/vim-camelsnek'
+" let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -1281,16 +1292,6 @@ cabbrev rg Rg
 " DONT FORGET TO :copen quickfix before
 " Output is displayed in the quickfix window
 Plug 'skywind3000/asyncrun.vim'
-" }}}
-
-" {{{ caser
-" Easy change from camel case to snake case and others...
-" Usage :
-" :Snake
-" :Camel
-" :Kebab
-Plug 'nicwest/vim-camelsnek'
-let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
 " }}}
 
 " {{{ bufexplore : Plugin for buffers list display and management
