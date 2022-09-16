@@ -1,8 +1,5 @@
 {
-  "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-  "suggest.enablePreview": true,
-  "suggest.floatEnable": true,
 
   "vetur.useWorkspaceDependencies": true,
   "vetur.experimental.templateInterpolationService": false,
@@ -10,7 +7,6 @@
   "vetur.validation.script": false,
   "vetur.dev.logLevel": "DEBUG",
 
-  "coc.preferences.enableFloatHighlight": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "⚠⚠⚠",
   "diagnostic.enableSign": true,
@@ -18,7 +14,6 @@
   "diagnostic.hintSign": "⚠",
   "diagnostic.errorSign": "⚠",
   "diagnostic.warningSign": "⚠",
-  "diagnostic.refreshAfterSave": true,
 
   "typescript.suggestionActions.enabled": false,
 
