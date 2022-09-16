@@ -653,7 +653,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " readability See : https://github.com/folke/twilight.nvim
 " Gave up as in fact folding is better.
 
-
 " {{{ vim-bbye : To close buffer without closing window
 " See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
@@ -666,7 +665,6 @@ abbreviate bdd Bdelete
 " See : https://github.com/kshenoy/vim-signature
 Plug 'kshenoy/vim-signature'
 " }}}
-
 
 " {{{ hardmode : Plugin for Disabling arrows, oh my god...
 " Enable it by
