@@ -153,6 +153,34 @@ call plug#begin('~/.vim/plugged')
 ":call HardMode()
 " }}}
 
+" " {{{ Plugin to simulate ctrl-shift-s
+" UNUSED CAUSE NOW USING ripgrep all the time
+" " https://github.com/dyng/ctrlsf.vim
+" " tip : to use regular expression type : :CtrlSF -R foo.*
+" " tip : to switch to quickfix presentation : M
+" Plug 'dyng/ctrlsf.vim'
+" "should not work but it does with neovim +iterm
+" nmap     <C-S-F> <Plug>CtrlSFPrompt
+" nmap     <C-F>f <Plug>CtrlSFPrompt
+" vmap     <C-S-F> <Plug>CtrlSFVwordPath
+" vmap     <C-F>f <Plug>CtrlSFVwordPath
+" vmap     <C-S-F> <Plug>CtrlSFVwordExec
+" vmap     <C-F>F <Plug>CtrlSFVwordExec
+" nmap     <C-F>n <Plug>CtrlSFCwordPath
+" nmap     <C-F>p <Plug>CtrlSFPwordPath
+" nnoremap <C-F>o :CtrlSFOpen<CR>
+" nnoremap <C-F>t :CtrlSFToggle<CR>
+" inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+" let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'dist']
+" let g:ctrlsf_position = 'bottom'
+" let g:ctrlsf_winsize = '33%'
+" let g:ctrlsf_auto_focus = {
+"     \ "at": "done",
+"     \ "duration_less_than": 1000
+"     \ }
+" " }}}
+
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -950,32 +978,6 @@ Plug 'shmargum/vim-sass-colors', { 'for': ['sass', 'scss'] }
 "
 " See project local configuration in .prettierrc.js
 Plug 'prettier/vim-prettier'
-" }}}
-
-" {{{ Plugin to simulate ctrl-shift-s
-" https://github.com/dyng/ctrlsf.vim
-" tip : to use regular expression type : :CtrlSF -R foo.*
-" tip : to switch to quickfix presentation : M
-Plug 'dyng/ctrlsf.vim'
-"should not work but it does with neovim +iterm
-nmap     <C-S-F> <Plug>CtrlSFPrompt
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-S-F> <Plug>CtrlSFVwordPath
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-S-F> <Plug>CtrlSFVwordExec
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-let g:ctrlsf_ignore_dir = ['bower_components', 'node_modules', 'dist']
-let g:ctrlsf_position = 'bottom'
-let g:ctrlsf_winsize = '33%'
-let g:ctrlsf_auto_focus = {
-    \ "at": "done",
-    \ "duration_less_than": 1000
-    \ }
 " }}}
 
 " {{{ vim-multiple-cursors : Plugin for multiple cursors
