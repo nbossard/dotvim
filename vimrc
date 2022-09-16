@@ -262,6 +262,11 @@ Plug 'maralla/gomod.vim', {'for': 'gomod'}
 Plug 'gisphm/vim-gitignore', {'for': 'gitignore'}
 " }}}
 
+" {{{ plugin to edit fortune files
+" https://github.com/ljcooke/vim-fortune
+Plug 'ljcooke/vim-fortune', {'for': 'fortune'}
+" }}}
+
 "}}} ==== end of language syntax plugins =====
 
 " {{{ ==== Git related Plugins ===
@@ -372,11 +377,6 @@ let g:startify_lists = [
 " Using own bases of fortunes as suggested here : https://sudonull.com/post/105462-Configure-Vim-Start-Screen
 " following constant will be used by projects
 let g:fortune = map(split(system('fortune ~/.vim ~/.vim/plugged/vimtips-fortune/fortunes | cowsay'), '\n'), '"   ". v:val')
-" }}}
-
-" {{{ plugin to edit fortune files
-" https://github.com/ljcooke/vim-fortune
-Plug 'ljcooke/vim-fortune', {'for': 'fortune'}
 " }}}
 
 " {{{ Plugin to use a text file as a database for vim topic fortunes
