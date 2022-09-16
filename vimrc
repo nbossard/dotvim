@@ -134,6 +134,16 @@ call plug#begin('~/.vim/plugged')
 " cabbrev cal Calendar -view=year -split=vertical -width=27
 " }}}
 
+" {{{ linediff : vim diff a selection of text
+" See : https://github.com/AndrewRadev/linediff.vim
+" usage : select a block of line, type ':Linediff', select another block, type ':Linediff'
+" UNUSED andd complex to use, so disabled
+" Plug 'AndrewRadev/linediff.vim'
+"
+" Also tried https://github.com/rickhowe/spotdiff.vim
+" But was malfunctionning
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
