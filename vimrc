@@ -379,12 +379,6 @@ let g:startify_lists = [
 let g:fortune = map(split(system('fortune ~/.vim ~/.vim/plugged/vimtips-fortune/fortunes | cowsay'), '\n'), '"   ". v:val')
 " }}}
 
-" {{{ Plugin to use a text file as a database for vim topic fortunes
-" https://github.com/openuado/vimtips-fortune
-Plug 'openuado/vimtips-fortune'
-let g:loaded_fortune_vimtips = 0
-" }}}
-
 " {{{ Vim-test : plugin for launching tests inside vim
 "see https://github.com/vim-test/vim-test
 "usage : testFile
