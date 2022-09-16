@@ -116,9 +116,22 @@ call plug#begin('~/.vim/plugged')
 " :Snake
 " :Camel
 " :Kebab
-" UNUSED and interaction with gmail is falling, so disabled
 " Plug 'nicwest/vim-camelsnek'
 " let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+" }}}
+
+" {{{ calendar : Adding calendar tool in Vim
+" See: https://github.com/itchyny/calendar.vim
+" UNUSED and interaction with gmail is falling, so disabled
+" Usage :
+"   :Calendar
+"   :Calendar -view=year -split=vertical -width=27
+"       ===> :Cal
+" Plug 'itchyny/calendar.vim'
+" let g:calendar_google_calendar = 1
+" " NBO custom commands
+" command Cal Calendar -view=year -split=vertical -width=27
+" cabbrev cal Calendar -view=year -split=vertical -width=27
 " }}}
 
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
@@ -1081,23 +1094,11 @@ let g:vim_markdown_fenced_languages = ['javascript', 'typescript', 'sh', 'go']
 " View result in browser using :OpenBrowserCurrent
 " }}}
 
-" {{{ calendar : Adding calendar tool in Vim
-" See: https://github.com/itchyny/calendar.vim
-" Usage :
-"   :Calendar
-"   :Calendar -view=year -split=vertical -width=27
-"       ===> :Cal
-Plug 'itchyny/calendar.vim'
-let g:calendar_google_calendar = 1
-" NBO custom commands
-command Cal Calendar -view=year -split=vertical -width=27
-cabbrev cal Calendar -view=year -split=vertical -width=27
-" }}}
-
 " {{{ speeddating : Allow intelligent increase of dates
 " Usage : traditional <C-X> or <C-A>
 Plug 'tpope/vim-speeddating'
 " }}}
+
 " {{{
 " Same for boolean : vim-CtrlXA
 " see : https://github.com/Konfekt/vim-CtrlXA
