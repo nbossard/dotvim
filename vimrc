@@ -81,6 +81,35 @@ call plug#begin('~/.vim/plugged')
 " Plug 'vim/killersheep'
 " }}}
 
+" {{{ Plugin to use gtd in vim
+" See : https://github.com/phb1/gtd.vim
+" rem : to delete a task : GtdDelete
+" Plug 'phb1/gtd.vim'
+" let g:gtd#default_action = 'inbox'
+" let g:gtd#default_context = 'work'
+" let g:gtd#dir = '~/gtd'
+" let g:gtd#map_browse_older = '<Left>'
+" let g:gtd#map_browse_newer = '<Right>'
+" let g:gtd#review = [
+"   \ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
+"   \ '!todo @work',
+"   \ '!todo @work #10min',
+"   \ '!todo @work #30min',
+"   \ '!waiting @work',
+"   \ '!archived @work',
+"   \ ]
+" " to refresh task list : ,re
+" let g:gtd#map_refresh = "re"
+" autocmd BufWinEnter gtd-results :GtdRefresh
+" " Keys to create a nex task : ,gn
+" nmap <Leader>gn <Plug>GtdNew
+" vmap <Leader>gn <Plug>GtdNew
+" abbreviate gtdnew GtdNew
+" abbreviate gtdn GtdNew
+" "Keys to review tasks
+" nmap <leader>gr :GtdReview
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -1118,35 +1147,6 @@ let g:jsdoc_access_descriptions=1
 let g:jsdoc_return_type=1
 let g:jsdoc_param_description_separator=' - '
 " }}}
-" }}}
-
-" {{{ Plugin to use gtd in vim
-" See : https://github.com/phb1/gtd.vim
-" rem : to delete a task : GtdDelete
-Plug 'phb1/gtd.vim'
-let g:gtd#default_action = 'inbox'
-let g:gtd#default_context = 'work'
-let g:gtd#dir = '~/gtd'
-let g:gtd#map_browse_older = '<Left>'
-let g:gtd#map_browse_newer = '<Right>'
-let g:gtd#review = [
-  \ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
-  \ '!todo @work',
-  \ '!todo @work #10min',
-  \ '!todo @work #30min',
-  \ '!waiting @work',
-  \ '!archived @work',
-  \ ]
-" to refresh task list : ,re
-let g:gtd#map_refresh = "re"
-autocmd BufWinEnter gtd-results :GtdRefresh
-" Keys to create a nex task : ,gn
-nmap <Leader>gn <Plug>GtdNew
-vmap <Leader>gn <Plug>GtdNew
-abbreviate gtdnew GtdNew
-abbreviate gtdn GtdNew
-"Keys to review tasks
-nmap <leader>gr :GtdReview
 " }}}
 
 " Plugin to run mongodb js files directly from Vim
