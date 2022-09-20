@@ -188,6 +188,19 @@ call plug#begin('~/.vim/plugged')
 " TRIED https://github.com/heavenshell/vim-jsdoc but was too limited
 " }}}
 
+" {{{ Plugin to run mongodb js files directly from Vim
+" https://github.com/tpope/vim-dadbod
+" UNUSED cause using command line instead
+" Plug 'tpope/vim-dadbod'
+" Plug 'kristijanhusak/vim-dadbod-ui'
+" let g:dbs = {
+" \ 'mongolocal_test': 'mongodb://localhost:27017/test',
+" \ }
+" let g:db_ui_use_nerd_fonts=0
+" let g:db_ui_show_database_icon=0
+" let g:db_ui_auto_execute_table_helpers = 1
+" }}}
+
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
 "{{{ ==== Languages syntax support plugins ======
@@ -1177,9 +1190,6 @@ let g:table_mode_corner="|"
 " }}}
 " }}}
 
-" Plugin to run mongodb js files directly from Vim
-" https://github.com/tpope/vim-dadbod
-Plug 'tpope/vim-dadbod'
 
 " {{{ vim-grammarous : Plugin for grammar check
 " see : https://github.com/rhysd/vim-grammarous
