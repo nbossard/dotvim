@@ -180,6 +180,13 @@ call plug#begin('~/.vim/plugged')
 "     \ }
 " " }}}
 
+" {{{ Plugin to generate JSDoc
+" see: https://github.com/kkoomen/vim-doge
+" Usage : ,d then wait a few seconds
+" UNUSED cause too slow and too llimited, disabled
+" Plug 'kkoomen/vim-doge', { 'do': { -> dogge#install() } }
+" TRIED https://github.com/heavenshell/vim-jsdoc but was too limited
+" }}}
 
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
@@ -1167,19 +1174,6 @@ Plug 'dhruvasagar/vim-table-mode', {'for': 'md'}
 let g:table_mode_corner="|"
 " }}}
 
-" {{{ Plugin to generate JSDoc
-" https://github.com/heavenshell/vim-jsdoc
-" Usage :
-" :JsDoc
-Plug 'heavenshell/vim-jsdoc'
-"To fix neovim issue : unknown command
-command! -register JsDoc call jsdoc#insert()
-" To allow prompt for filling fields
-let g:jsdoc_allow_input_prompt=1
-" to enable @access tag
-let g:jsdoc_access_descriptions=1
-let g:jsdoc_return_type=1
-let g:jsdoc_param_description_separator=' - '
 " }}}
 " }}}
 
