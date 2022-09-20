@@ -1327,7 +1327,7 @@ Plug 'skywind3000/asyncrun.vim'
 " Aimed to improve buffer list display (:ls ou :buffers ou via ctrl-P plugin)
 " Plug 'jlanzarotta/bufexplorer'
 " NOTE : disabling it to use FzfBuffers cause it has a preview and looks smarter
-map <leader>be :FzfBuffers<cr>
+map <leader>be  :echo "Calling ':FzfBuffers', also try classic way ':buffers' of ':ls' then ':ls\<number\>'" <bar> :FzfBuffers<cr>
 " }}}
 
 " {{{ Distraction free writing hides everything except current window
