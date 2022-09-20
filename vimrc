@@ -180,6 +180,12 @@ call plug#begin('~/.vim/plugged')
 "     \ }
 " " }}}
 
+" {{{ Plugin to save sessions automatically,
+" to be used in combination with startify
+" UNUSED so disabled
+" Plug 'tpope/vim-obsession'
+" }}}
+
 " {{{ Plugin to generate JSDoc
 " see: https://github.com/kkoomen/vim-doge
 " Usage : ,d then wait a few seconds
