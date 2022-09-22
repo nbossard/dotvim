@@ -666,11 +666,6 @@ nmap <c-p> :echo "Calling ':FzfFiles', also try classic way ':find toto\<TAB\>'"
 let g:fzf_command_prefix = 'Fzf'
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:60%'
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
 
 " An action can be a reference to a function that processes selected lines
 function! s:build_quickfix_list(lines)
