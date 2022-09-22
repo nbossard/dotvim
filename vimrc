@@ -674,6 +674,7 @@ function! s:build_quickfix_list(lines)
   cc
 endfunction
 
+" Customizable extra key bindings for opening selected files in different ways
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
