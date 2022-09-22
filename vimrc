@@ -724,6 +724,16 @@ let g:fzf_colors =
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" NOTE : excluding of some files is done based on git-ignore
+" Andd this is defined by setting environment variable FZF_DEFAULT_COMMAND
+" in .zshrc file
+
+"Adding shortcut for fzfrg
+abbreviate frg FzfRg
+nmap <c-f> :echo "Calling ':FzfRg', also try more classic way ':Rg toto'" <bar> :FzfRg<CR>
+nmap <C-S-F> :echo "Calling ':FzfRg', also try more classic way ':Rg toto'" <bar> :FzfRg<CR>
+
 "}}}
 
 
