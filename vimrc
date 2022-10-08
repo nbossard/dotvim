@@ -470,6 +470,11 @@ if has('nvim')
     au TermOpen  * setlocal nonumber | startinsert
     au TermClose * setlocal   number | call feedkeys("\<C-\>\<C-n>")
 endif
+
+" Prevent vim from closing straight away
+if !has('nvim')
+    let test#strategy = "vimterminal"
+endif
 "}}}
 
 " {{{ vim-translator : Plugin for translating between human languages
