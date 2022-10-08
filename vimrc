@@ -461,6 +461,7 @@ let test#javascript#jest#options = {
   \ 'suite':   '',
 \}
 cabbrev te TestFile
+cabbrev tf TestFile
 " See also Mahali project vimrc config file
 
 " prevent neovim from closing terminal straight away
