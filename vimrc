@@ -435,12 +435,11 @@ let g:startify_files_number = 5
 let g:startify_commands = [
     \ ['NERDTree', ':NERDTree'],
     \ ['Vim Reference', 'h ref'],
-    \ ['Hard Core mode', ':call HardMode()'],
     \ ]
 let g:startify_lists = [
       \ { 'type': 'commands',  'header': ['   Commands']       },
-      \ { 'type': 'files',     'header': ['   MRU']            },
       \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'files',     'header': ['   MRU']            },
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ ]
