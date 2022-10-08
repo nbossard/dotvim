@@ -1263,12 +1263,14 @@ let g:minimap_close_buftypes = ['json','help']
 " Commands :
 " :RemarkBuild
 " :RemarkPrview
-Plug 'mauromorales/vim-remark', {'for': 'md'}
-" To ease table creation in remark
+Plug 'mauromorales/vim-remark', {'for': 'markdown'}
+" }}}
+
+" {{{ To ease table creation in remark
 " https://github.com/dhruvasagar/vim-table-mode
 " invoke vim-table-mode’s table mode with <leader>tm
 " enter | twice to write a properly formatted horizontal line
-Plug 'dhruvasagar/vim-table-mode', {'for': 'md'}
+Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
 let g:table_mode_corner="|"
 " }}}
 
