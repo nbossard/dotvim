@@ -330,6 +330,11 @@ Plug 'gisphm/vim-gitignore', {'for': 'gitignore'}
 Plug 'ljcooke/vim-fortune', {'for': 'fortune'}
 " }}}
 
+" {{{ Plugin for dockerfiles
+" See: https://github.com/ekalinin/Dockerfile.vim
+Plug 'ekalinin/Dockerfile.vim', {'for': ['Dockerfile','yaml.docker-compose']}
+" }}}
+
 "}}} ==== end of language syntax plugins =====
 
 " {{{ ==== Git related Plugins ===
