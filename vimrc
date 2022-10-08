@@ -1132,6 +1132,7 @@ Plug 'Raimondi/delimitMate'
 " install with : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
 Plug 'majutsushi/tagbar'
+cabbrev tagbar Tagbar
 set tags=tags
 " do not sort alphabetically
 let g:tagbar_sort = 0
