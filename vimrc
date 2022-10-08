@@ -1199,10 +1199,23 @@ Plug 'tpope/vim-speeddating'
 
 " {{{
 " Same for boolean : vim-CtrlXA
+" and many more : yes /no, enable/disable,...
 " see : https://github.com/Konfekt/vim-CtrlXA
 Plug 'Konfekt/vim-CtrlXA'
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
+" augroup VimAfter
+"     autocmd!
+"     autocmd VimEnter let g:CtrlXA_Toggles = [
+"     \ ['sweet', 'bitter'],
+"     \ ] + g:CtrlXA_Toggles
+" augroup END
+
+autocmd FileType javascript
+      \ let b:CtrlXA_Toggles = [
+      \ ['DOIT','SKIPIT'],
+      \ ['FAKE','DOCHANGES'],
+      \ ] + g:CtrlXA_Toggles
 " }}}
 
 " {{{ tcomment_vim : Quick comment uncomment
