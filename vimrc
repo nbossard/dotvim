@@ -1431,6 +1431,8 @@ Plug 'gcmt/taboo.vim'
 set termguicolors
 "Enable quick switch schemecolor
 " Use F8 and shift+F8 to quick switch
+" Required by plugin colorscheme_switcher
+Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 :let g:colorscheme_switcher_exclude = ['default', 'blue', 'shine', 'elflord']
 :let g:colorscheme_switcher_exclude_builtins = 1
@@ -1451,6 +1453,27 @@ Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'tomasiser/vim-code-dark'
 " https://vimawesome.com/plugin/landscape-vim
 Plug 'itchyny/landscape.vim'
+Plug 'hzchirs/vim-material'
+" https://github.com/glepnir/oceanic-material
+" For mattis pres slides
+Plug 'glepnir/oceanic-material'
+
+"https://github.com/hzchirs/vim-material
+" " Dark
+" Plug 'hzchirs/vim-material'
+" set background=dark
+" colorscheme vim-material
+" " Palenight
+" let g:material_style='palenight'
+" set background=dark
+" colorscheme vim-material
+" " Oceanic
+" let g:material_style='oceanic'
+" set background=dark
+" colorscheme vim-material
+" " Light
+" set background=light
+" colorscheme vim-material
 "}}}
 
 " {{{ Jsonc : jsonc type file support
