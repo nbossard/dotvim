@@ -1061,6 +1061,17 @@ let g:rainbow_conf = {
 " go ==> disabled ==> useless for this language, trying to improve performance
 " }}}
 
+" {{{ Plugin vim-expand-region
+" See : https://github.com/terryma/vim-expand-region
+" usage : v to expand, ctrl-v to reduce
+Plug 'terryma/vim-expand-region'
+" Sub plugin to select inner line
+Plug 'kana/vim-textobj-line'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+" }}}
+
+
 " {{{ Adding plugin to highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
 " To launch manual stripping of whitespaces :
