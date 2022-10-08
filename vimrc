@@ -1630,6 +1630,9 @@ nnoremap ' :call Marks()<CR>
 
 " For supporting mouse click in all modes
 :set mouse=a
+" Sets the model to use for the mouse.
+" popup_setpos : place cursor, start or extend selection
+:set mousemodel=popup_setpos
 
 " Replace bullshit vim help navigation commands
 " Done in after/ftplugin/help.vim
