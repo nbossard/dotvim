@@ -1080,14 +1080,18 @@ Plug 'ntpeters/vim-better-whitespace'
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git', 'taskedit', 'csv', 'minimap']
 "To highlight space characters that appear before or in-between tabs
 let g:show_spaces_that_precede_tabs=1
-"Enabling stripping on save (with confirmation)
+" To enable highlighting of trailing whitespace
 let g:better_whitespace_enabled=1
+"Enabling stripping on save (with confirmation)
 let g:strip_whitespace_on_save=1
 let g:startify_change_to_dir=0
 " }}}
 
 " {{{ delimitMate : Plugin to auto close brackets, parenthesis
 " while typing in insert mode
+" See : https://github.com/Raimondi/delimitMate
+" Rem : not responsible for HTML tags, it is coc-html
+
 Plug 'Raimondi/delimitMate'
 " }}}
 
