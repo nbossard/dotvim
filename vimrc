@@ -1342,7 +1342,7 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'christianrondeau/vim-base64'
 ""}}}
 
-" {{{ cheatsheet
+" {{{ cheatsheet / reminder / aide-mémoire
 " See : https://github.com/adambard/learnxinyminutes-docs
 " Learn X in Y minutes
 " Code documentation written as code!
@@ -1425,7 +1425,6 @@ Plug 'junegunn/goyo.vim'
 " Usage : TabooOpen toto
 Plug 'gcmt/taboo.vim'
 " }}}
-
 
 " {{{ ===== Various colorscheme s ====
 "Enables 24-bit RGB color
