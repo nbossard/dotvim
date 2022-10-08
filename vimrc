@@ -600,7 +600,7 @@ Plug 'junegunn/vim-peekaboo'
 " }}}
 
 " {{{ unicode : to show unicode (and digraph) tables and search
-" such as smileys, emoticons...
+" such as smileys, emojis, emoticons...
 " Usage :UnicodeTable
 " See : https://github.com/chrisbra/unicode.vim
 Plug 'chrisbra/unicode.vim'
