@@ -952,6 +952,7 @@ function! s:show_documentation()
   endif
 endfunction
 
+
 " NBO : Mapping ctrl+k to show signature in insert mode
 " This is done to force signature display when not opened automatically by
 " typing '('
@@ -1022,7 +1023,10 @@ Plug 'shmargum/vim-sass-colors', { 'for': ['sass', 'scss'] }
 " and markdown files if they have/support the "@format" pragma annotation in the header of the file.
 "
 " See project local configuration in .prettierrc.js
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', {
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'svelte', 'yaml', 'html'] }
+" Enable auto formatting of files that have "@format" or "@prettier" tag in header
+let g:prettier#autoformat = 1
 " }}}
 
 " {{{ vim-multiple-cursors : Plugin for multiple cursors
