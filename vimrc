@@ -850,6 +850,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " https://github.com/neoclide/coc-tsserver
 " Support of typescript
 " :CocInstall coc-tsserver
+let g:coc_global_extensions = ['coc-tsserver']
 "
 " https://github.com/neoclide/coc-eslint
 " Javascript linter
@@ -858,12 +859,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " https://github.com/neoclide/coc-json
 " Json language server
 " :CocInstall coc-json
+let g:coc_global_extensions += ['coc-json']
 "
 " Coc prettier IS USELESS
 " CAUSE THERE IS ALREADY https://github.com/prettier/vim-prettier
 " :CocInstall coc-prettier
 "
 " :CocInstall coc-css
+let g:coc_global_extensions += ['coc-css']
 "
 " https://github.com/neoclide/coc-vetur
 " Vue language server extension
@@ -875,10 +878,34 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-emmet
 "
 " :CocInstall coc-html
+" See https://github.com/neoclide/coc-html
+" Note options are set in coc-settings.json
+let g:coc_global_extensions += ['coc-html']
 "
 " :CocInstall coc-markdownlint
+let g:coc_global_extensions += ['coc-markdownlint']
 "
 " :CocInstall coc-vimlsp
+" See https://github.com/iamcco/coc-vimlsp
+let g:coc_global_extensions += ['coc-vimlsp']
+"
+" See https://github.com/neoclide/coc-yaml
+" :CocInstall coc-yaml
+let g:coc_global_extensions += ['coc-yaml']
+
+"
+" See https://github.com/josa42/coc-docker
+" :CocInstall coc-docker
+let g:coc_global_extensions += ['coc-docker']
+"
+" SH language server extension using bash-language-server for coc.nvim
+" See : https://github.com/josa42/coc-sh
+" :CocInstall coc-sh
+let g:coc_global_extensions += ['coc-sh']
+"
+" :CocInstall coc-go
+let g:coc_global_extensions = ['coc-eslint', 'coc-css', 'coc-vetur', 'coc-dictionary', 'coc-emmet', 'coc-markdownlint',  'coc-go']
+
 "
 " Also tried coc marketplace :
 " https://github.com/fannheyward/coc-marketplace
