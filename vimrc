@@ -1752,3 +1752,6 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 
 set guioptions+=a       " Visual selection automatically copied to the clipboard
 " }}}
+
+" shortcuts
+command Json set filetype=json
