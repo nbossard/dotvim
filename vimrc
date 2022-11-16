@@ -1692,6 +1692,10 @@ nmap gp :bp<CR>
 " To see the named color list
 " open file ~/.vim/colortest.vim
 
+" Adding display of matching while typing search pattern
+" Enabled by default in neovim but not in vim
+:set incsearch
+
 " set diff options
 if has("patch-8.1.0360")
     set diffopt+=internal,algorithm:patience
