@@ -869,8 +869,11 @@ let g:coc_global_extensions += ['coc-json']
 let g:coc_global_extensions += ['coc-css']
 "
 " https://github.com/neoclide/coc-vetur
-" Vue language server extension
+" Vue language server extension ==> deprecated, use volar for Vue3
+" :CocInstall @yaegassy/coc-volar
 " :CocInstall coc-vetur
+let g:coc_global_extensions += ['@yaegassy/coc-volar']
+" let g:coc_global_extensions += ['@yaegassy/coc-volar-tools']
 "
 " :CocInstall coc-dictionary
 "
