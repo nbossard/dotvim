@@ -1761,6 +1761,12 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 set guioptions+=a       " Visual selection automatically copied to the clipboard
 " }}}
 
+" {{{ Modify the cursor shape in insert mode
+" See : https://stackoverflow.com/questions/6488683/how-to-change-the-cursor-between-normal-and-insert-modes-in-vim
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+" }}}
+
 " shortcuts
 command Json set filetype=json
 
