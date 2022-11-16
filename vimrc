@@ -907,7 +907,7 @@ let g:coc_global_extensions += ['coc-docker']
 let g:coc_global_extensions += ['coc-sh']
 "
 " :CocInstall coc-go
-let g:coc_global_extensions = ['coc-eslint', 'coc-css', 'coc-vetur', 'coc-dictionary', 'coc-emmet', 'coc-markdownlint',  'coc-go']
+let g:coc_global_extensions += ['coc-eslint', 'coc-css', 'coc-dictionary', 'coc-emmet', 'coc-markdownlint',  'coc-go']
 
 "
 " Also tried coc marketplace :
