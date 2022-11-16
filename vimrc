@@ -1713,6 +1713,7 @@ iabbrev TODDO TODO
 iabbrev TOOD TODO
 iabbrev Addding Adding
 iabbrev addding adding
+cabbrev spllit split
 "}}}
 
 " Adding command to generate a random password
