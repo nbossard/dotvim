@@ -314,6 +314,8 @@ let g:go_highlight_function_parameters = 1
 " GoDebugstop
 " "<F6> to inspect value of object under cursor
 
+" define alias for my strange memory
+command GoTestCoverage GoCoverage
 " }}}
 
 " {{{ Plugin for coloring gomod files
