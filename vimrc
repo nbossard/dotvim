@@ -1344,6 +1344,11 @@ autocmd FileType rest setlocal nospell
 " See : https://github.com/AndrewRadev/splitjoin.vim
 " usage : gS gJ
 Plug 'AndrewRadev/splitjoin.vim', {'for': ['go', 'md', 'javascript', 'yaml', 'json']}
+" changing mapping from gS to,S and gJ to ,J
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+nmap <Leader>j :SplitjoinJoin<cr>
+nmap <Leader>s :SplitjoinSplit<cr>
 " }}}
 
 " {{{ mundo : Plugin for displaying undo tree
