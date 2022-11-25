@@ -1782,6 +1782,9 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 "set paste               " Paste from a windows or from vim
 
 set guioptions+=a       " Visual selection automatically copied to the clipboard
+
+" for version of vim compiled without -clipboard
+vnoremap <C-y> :'<,'>w !xclip -selection clipboard<Cr><Cr>
 " }}}
 
 " {{{ Modify the cursor shape in insert mode
