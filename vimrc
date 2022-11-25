@@ -741,7 +741,7 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " NOTE : excluding of some files is done based on git-ignore
-" Andd this is defined by setting environment variable FZF_DEFAULT_COMMAND
+" And this is defined by setting environment variable FZF_DEFAULT_COMMAND
 " in .zshrc file
 
 "Adding shortcut for fzfrg
