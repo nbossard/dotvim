@@ -533,8 +533,8 @@ function! NERDTreeShowMeFile()
   :normal zz
   :normal o
 endfunction
-map gnf :call NERDTreeShowMeFile()<CR>
-map gnF :NERDTreeFind<CR>
+map gnf :call NERDTreeShowMeFile()<CR>zz
+map gnF :NERDTreeFind<CR>zz
 
 " {{{ Plugin to add icons : in ctrlP, Airline, NERDTree, Startify
 " See https://github.com/ryanoasis/vim-devicons
