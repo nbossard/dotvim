@@ -1097,10 +1097,22 @@ let g:rainbow_conf = {
 " See : https://github.com/terryma/vim-expand-region
 " usage : v to expand, ctrl-v to reduce
 Plug 'terryma/vim-expand-region'
-" Sub plugin to select inner line
-Plug 'kana/vim-textobj-line'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+" special expand config for golang
+let g:expand_region_textobj_go = {
+      \ 'iw'  :0,
+      \ 'iW'  :0,
+      \ 'i"'  :0,
+      \ 'i''' :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'il'  :0,
+      \ 'ip'  :0,
+      \ 'if'  :0,
+      \ 'af'  :0,
+      \ }
 " }}}
 
 
