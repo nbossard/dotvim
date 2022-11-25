@@ -834,6 +834,8 @@ Plug 'tpope/vim-surround'
 Plug 'mechatroner/rainbow_csv', {'for': 'csv'}
 " removing line wrapping on csv
 autocmd filetype csv setlocal nowrap
+" automatic running of rainbowAlign at file opening
+au BufWinEnter *.csv :RainbowAlign
 "}}}
 
 " {{{ ====== Completion in Vim : ====
