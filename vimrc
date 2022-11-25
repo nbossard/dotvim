@@ -1713,8 +1713,10 @@ nmap gp :bp<CR>
 :set incsearch
 
 " set diff options
-if has("patch-8.1.0360")
-    set diffopt+=internal,algorithm:patience
+if has('nvim')
+  if has("patch-8.1.0360")
+      set diffopt+=internal,algorithm:patience
+  endif
 endif
 
 " Keep at least 5 lines visible at top and bottom of screen
