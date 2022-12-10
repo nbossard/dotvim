@@ -889,6 +889,7 @@ let g:coc_global_extensions += ['@yaegassy/coc-volar']
 "
 " Emmet is already included in coc-vetur, but not in HTML so adding it
 " :CocInstall coc-emmet
+" let g:coc_global_extensions += ['coc-emmet']
 "
 " :CocInstall coc-html
 " See https://github.com/neoclide/coc-html
@@ -906,7 +907,6 @@ let g:coc_global_extensions += ['coc-vimlsp']
 " :CocInstall coc-yaml
 let g:coc_global_extensions += ['coc-yaml']
 
-"
 " See https://github.com/josa42/coc-docker
 " :CocInstall coc-docker
 let g:coc_global_extensions += ['coc-docker']
@@ -917,7 +917,7 @@ let g:coc_global_extensions += ['coc-docker']
 let g:coc_global_extensions += ['coc-sh']
 "
 " :CocInstall coc-go
-let g:coc_global_extensions += ['coc-eslint', 'coc-css', 'coc-dictionary', 'coc-emmet', 'coc-markdownlint',  'coc-go']
+let g:coc_global_extensions += ['coc-eslint', 'coc-css', 'coc-dictionary', 'coc-markdownlint',  'coc-go']
 
 "
 " Also tried coc marketplace :
