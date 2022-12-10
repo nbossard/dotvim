@@ -454,7 +454,8 @@ let g:fortune = map(split(system('fortune ~/.vim ~/.vim/plugged/vimtips-fortune/
 " {{{ Vim-test : plugin for launching tests inside vim
 "see https://github.com/vim-test/vim-test
 "usage : testFile
-Plug 'vim-test/vim-test'
+Plug 'vim-test/vim-test', { 'on': 'TestFile' }
+autocmd! User vim-test echom 'vim-test is now lazy loaded!'
 "let g:test#runner_commands = ['Mocha']
 let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
 let test#javascript#jest#options = {
@@ -484,7 +485,8 @@ endif
 " usage: no default mapping, use commands
 " :Translate <== translate selected text to default language (english)
 " or :TranslateR <==  <== translate and replace  selected text to default language (english)
-Plug 'voldikss/vim-translator'
+Plug 'voldikss/vim-translator', { 'on': ['Translate', 'TranslateR'] }
+autocmd! User vim-translator echom 'vim-translator is now lazy loaded!'
 " Changing default target language from chinese to english
 let g:translator_target_lang='en'
 " As I am a french guy, I find these addditional commands useful
@@ -631,7 +633,8 @@ let g:ale_linters = { 'go': ['golint', 'go vet'] }
 "{{{ BufOnly : Closes all buffers but this one
 " see : https://github.com/vim-scripts/BufOnly.vim
 " usage : :BufOnly
-Plug 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/BufOnly.vim', { 'on': 'BufOnly' }
+autocmd! User BufOnly.vim echom 'BufOnly is now lazy loaded!'
 cabbrev bother BufOnly
 cabbrev BOther BufOnly
 "}}}
@@ -653,7 +656,8 @@ autocmd FileType yaml let g:indent_guides_start_level = 1
 " {{{ loremipsum : allow generating of lorem ipsum
 " See : https://www.vim.org/scripts/script.php?script_id=2289
 " usage : :Loremipsum
-Plug 'vim-scripts/loremipsum'
+Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
+autocmd! User loremipsum echom 'loremipsum is now lazy loaded!'
 " }}}
 
 " {{{ ctrl+P : Plugin to allow fuzzy search of files
@@ -797,7 +801,8 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " {{{ vim-bbye : To close buffer without closing window
 " See : https://github.com/moll/vim-bbye
 " Command :Bdelete shortcut :Bd
-Plug 'moll/vim-bbye'
+Plug 'moll/vim-bbye', { 'on': ['Bdelete'] }
+autocmd! User vim-bbye echom 'vim-bbye is now lazy loaded!'
 " Define a similar to bd command
 abbreviate bdd Bdelete
 " }}}
@@ -1150,7 +1155,8 @@ Plug 'Raimondi/delimitMate'
 " https://github.com/universal-ctags/ctags
 " install with : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': ['Tagbar'] }
+autocmd! User tagbar echom 'Tagbar is now lazy loaded!'
 cabbrev tagbar Tagbar
 set tags=tags
 " do not sort alphabetically
@@ -1263,7 +1269,8 @@ endif
 " {{{ minimap: display a right-side minimap
 " See : https://github.com/wfxr/minimap.vim
 " requires brew install code-minimap
-Plug 'wfxr/minimap.vim'
+Plug 'wfxr/minimap.vim', { 'on': ['Minimap', 'MinimapToggle'] }
+autocmd! User minimap.vim echom 'Minimap is now lazy loaded!'
 " recommanded configuration
 let g:minimap_width = 10
 let g:minimap_auto_start = 0
@@ -1354,7 +1361,9 @@ nmap <Leader>s :SplitjoinSplit<cr>
 " {{{ mundo : Plugin for displaying undo tree
 " https://github.com/simnalamburt/vim-mundo
 " Usage : https://simnalamburt.github.io/vim-mundo/
-Plug 'simnalamburt/vim-mundo'
+" Usage: :MundoToggle or :MundoShow
+Plug 'simnalamburt/vim-mundo', {'on': ['MundoToggle', 'MundoShow']}
+autocmd! User vim-mundo echow 'Mundo is now lazy loaded!'
 " }}}
 
 " {{{ vim-base64
