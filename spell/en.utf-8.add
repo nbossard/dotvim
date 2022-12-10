@@ -89,3 +89,6 @@ enum
 bsonType
 jsonSchema
 RunCommand
+USSD
+config
+XOF
