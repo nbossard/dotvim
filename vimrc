@@ -604,10 +604,13 @@ Plug 'junegunn/vim-peekaboo'
 " }}}
 
 " {{{ unicode : to show unicode (and digraph) tables and search
-" such as smileys, emojis, emoticons...
+" such as smileys, emojis, emoticons...chars allowed by UTF-8.
 " Usage :UnicodeTable
 " See : https://github.com/chrisbra/unicode.vim
 Plug 'chrisbra/unicode.vim'
+command! UnicodeGreenCheckbox :norm a✅
+command! UnicodeRedCross :norm a❌
+command! UnicodeQuestionRed :norm a❓
 "}}}
 
 " {{{ ALE plugin : To support various linters
