@@ -1538,7 +1538,10 @@ colorscheme gruvbox
 " Make coc current object be highlighted in Magenta (was not enough visible)
 highlight CocHighlightText     ctermfg=LightMagenta    guifg=LightMagenta
 
-
+" {{{ Enable viewing of man page in vim
+" Using command :Man
+runtime! ftplugin/man.vim
+" }}}
 
 " {{{ fzf : Try to use fuzzy finder in Vim
 " https://github.com/junegunn/fzf#as-vim-plugin
