@@ -337,6 +337,11 @@ Plug 'ljcooke/vim-fortune', {'for': 'fortune'}
 Plug 'ekalinin/Dockerfile.vim', {'for': ['Dockerfile','yaml.docker-compose']}
 " }}}
 
+" {{{ Jsonc : jsonc type file support
+Plug 'neoclide/jsonc.vim', {'for': 'jsonc'}
+autocmd BufNewFile,BufRead *.jsonc setlocal filetype=jsonc
+" }}}
+
 "}}} ==== end of language syntax plugins =====
 
 " {{{ ==== Git related Plugins ===
@@ -1143,7 +1148,6 @@ let g:startify_change_to_dir=0
 " while typing in insert mode
 " See : https://github.com/Raimondi/delimitMate
 " Rem : not responsible for HTML tags, it is coc-html
-
 Plug 'Raimondi/delimitMate'
 " }}}
 
@@ -1509,11 +1513,6 @@ Plug 'glepnir/oceanic-material'
 " set background=light
 " colorscheme vim-material
 "}}}
-
-" {{{ Jsonc : jsonc type file support
-Plug 'neoclide/jsonc.vim'
-autocmd BufNewFile,BufRead *.jsonc setlocal filetype=jsonc
-" }}}
 
 
 " All of your Plugins must be added before the following line
