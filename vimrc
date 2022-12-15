@@ -459,7 +459,7 @@ let g:fortune = map(split(system('fortune ~/.vim ~/.vim/plugged/vimtips-fortune/
 " {{{ Vim-test : plugin for launching tests inside vim
 "see https://github.com/vim-test/vim-test
 "usage : testFile
-Plug 'vim-test/vim-test', { 'on': 'TestFile' }
+Plug 'vim-test/vim-test', { 'on': ['TestFile','TestLast']}
 autocmd! User vim-test echom 'vim-test is now lazy loaded!'
 "let g:test#runner_commands = ['Mocha']
 let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
@@ -1209,8 +1209,8 @@ Plug 'bogado/file-line'
 " See https://github.com/plasticboy/vim-markdown
 " Improve display, replace formatting by result for bold and italic
 autocmd Filetype markdown setlocal conceallevel=2
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " Enable color column for markdown files
 "autocmd Filetype markdown setlocal highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
 autocmd Filetype markdown setlocal colorcolumn=80
@@ -1421,7 +1421,8 @@ nnoremap <leader>hl :call HelpLearnXInMinutes(&filetype)<cr>
 " usage to search for a regular expression:
 " :Rg 'mic.*v2'
 " Note : By default, ripgrep will respect gitignore rules and automatically skip hidden files/directories and binary files
-Plug 'jremmen/vim-ripgrep'
+Plug 'jremmen/vim-ripgrep', {'on': ['Rg']}
+autocmd! User vim-ripgrep echom 'Ripgrep is now lazy loaded!'
 " config -vimgrep : to display multiple results in the same line in multiple
 " line in quickfix
 " config -S : to use smart casing syntax (minuscule means minuscule or majuscule)
@@ -1437,7 +1438,8 @@ cabbrev rg Rg
 " Usage: :AsyncRun <command>
 " DONT FORGET TO :copen quickfix before
 " Output is displayed in the quickfix window
-Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun']}
+autocmd! User asyncrun echom 'Asyncrun is now lazy loaded!'
 " }}}
 
 " {{{ bufexplore : Plugin for buffers list display and management
@@ -1448,20 +1450,28 @@ Plug 'skywind3000/asyncrun.vim'
 " NOTE : disabling it to use FzfBuffers cause it has a preview and looks smarter
 map <leader>be  :echo "Calling ':FzfBuffers', also try classic way ':buffers' of ':ls' then ':ls\<number\>'" <bar> :FzfBuffers<cr>
 " }}}
+"
+"{{{ figlet : To transform selected text in ascii art
+" Usage : select text then :FIGlet
+Plug 'fadein/vim-FIGlet' , {'on': ['FIGlet']}
+autocmd! User vim-FIGlet echom 'FIGlet is now lazy loaded!'
+" }}}
 
 " {{{ Distraction free writing hides everything except current window
 " see: https://github.com/junegunn/goyo.vim
 " Usage :
 " :Goyo
 " :Gogyo!
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', {'on': ['Goyo', 'Goyo!']}
+autocmd! User goyo echom 'Goyo is now lazy loaded!'
 " }}}
 
 " {{{ taboo.vim : plugin for renaming tabs
 " See: https://github.com/gcmt/taboo.vim
 " To edit tab names
 " Usage : TabooOpen toto
-Plug 'gcmt/taboo.vim'
+Plug 'gcmt/taboo.vim', {'on': ['TabooOpen']}
+autocmd! User taboo echom 'Taboo is now lazy loaded!'
 " }}}
 
 " {{{ ===== Various colorscheme s ====
