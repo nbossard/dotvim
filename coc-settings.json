@@ -1,35 +1,57 @@
 {
-  "suggest.maxCompleteItemCount": 20,
+	"suggest.maxCompleteItemCount": 20,
 
-  "vetur.useWorkspaceDependencies": true,
-  "vetur.experimental.templateInterpolationService": false,
-  "vetur.validation.template": false,
-  "vetur.validation.script": false,
-  "vetur.dev.logLevel": "DEBUG",
+	"vetur.useWorkspaceDependencies": true,
+	"vetur.experimental.templateInterpolationService": false,
+	"vetur.validation.template": false,
+	"vetur.validation.script": false,
+	"vetur.dev.logLevel": "DEBUG",
 
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextPrefix": "⚠⚠⚠",
-  "diagnostic.enableSign": true,
-  "diagnostic.infoSign": "⚠",
-  "diagnostic.hintSign": "⚠",
-  "diagnostic.errorSign": "⚠",
-  "diagnostic.warningSign": "⚠",
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextPrefix": "⚠⚠⚠",
+	"diagnostic.enableSign": true,
+	"diagnostic.infoSign": "⚠",
+	"diagnostic.hintSign": "⚠",
+	"diagnostic.errorSign": "⚠",
+	"diagnostic.warningSign": "⚠",
 
-  "typescript.suggestionActions.enabled": false,
+	// typescript related config
+	"typescript.suggestionActions.enabled": true,
+	"typescript.inlayHints.parameterNames.enabled": "all",
+	"typescript.inlayHints.variableTypes.enabled": true,
+	"typescript.showDeprecated": true,
+	"typescript.suggest.completeJSDocs": true,
 
-  "markdownlint.config": {
-    "line-length": {"line_length": 120},
-    "no-trailing-punctuation": false,
-    "MD003": {
-      "style": "atx"
-    }
-  },
+	"javascript.suggestionActions.enabled": true,
+	"javascript.inlayHints.parameterNames.enabled": "all",
+	"javascript.inlayHints.variableTypes.enabled": true,
 
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "filetypes": ["go"]
-    }
-  }
+	"markdownlint.config": {
+		"line-length": { "line_length": 120 },
+		"no-trailing-punctuation": false,
+		"MD003": {
+			"style": "atx"
+		}
+	},
+
+	// golang related config
+	"inlayHint.enable": true,
+	"inlayHint.enableParameter": true,
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"]
+		}
+	},
+
+	// coc-html related config
+	// disabled auto closing, cause annoying and also disturbs copilot
+	"html.autoClosingTags": false,
+
+	// playing with priority to make coc-neosnippet appear first
+	// Note: see priority list : CocList Sources
+	// doc : https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#completion-sources
+	"coc.source.buffer.priority": 10,
+	"tabnine.priority": 90
 }
