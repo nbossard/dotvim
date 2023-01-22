@@ -372,7 +372,7 @@ let g:gitgutter_highlight_linenrs = 1
 " ]h or [h --> next hunk
 " ,gn or ,gp --> next hunk
 " ,hp --> display hunk change
-" ,hs --> stage hunk
+" ,hs --> stage hunk (add hunk to staging area)
 " ,hs --> undo hunk
 " :GitGutterFold --> sic
 "
