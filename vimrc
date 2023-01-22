@@ -517,7 +517,8 @@ command -range TranslateRToFR <line1>,<line2>TranslateR --target_lang=fr
 Plug 'preservim/nerdtree'
 " Nerdtree plugin has plugins (sic)
 " Plugin-plugin to open file using System from NERDTree
-Plug 'ivalkeen/nerdtree-execute'
+" Plug 'ivalkeen/nerdtree-execute' ==> removed, duplicate with menu/open, and
+" takes lot of time at startup
 " Plug-plugin To show git changed files in NERDTree
 " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
