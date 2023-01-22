@@ -619,8 +619,11 @@ Plug 'junegunn/vim-peekaboo'
 " See : https://github.com/chrisbra/unicode.vim
 Plug 'chrisbra/unicode.vim'
 command! UnicodeGreenCheckbox :norm a✅
+command! UTF8GreenCheckbox UnicodeGreenCheckbox
 command! UnicodeRedCross :norm a❌
+command! UTF8RedCross UnicodeRedCross
 command! UnicodeQuestionRed :norm a❓
+command! UTF8QuestionRed UnicodeQuestionRed
 "}}}
 
 " {{{ ALE plugin : To support various linters
