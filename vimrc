@@ -1118,7 +1118,9 @@ let g:rainbow_conf = {
 
 " {{{ Plugin vim-expand-region
 " See : https://github.com/terryma/vim-expand-region
-" usage : v to expand, ctrl-v to reduce
+" usage : v to expand/increase selection, ctrl-v to reduce
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
 Plug 'terryma/vim-expand-region'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
