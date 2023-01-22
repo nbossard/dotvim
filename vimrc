@@ -211,6 +211,10 @@ call plug#begin('~/.vim/plugged')
 
 "{{{ ==== Languages syntax support plugins ======
 
+" {{{ Plugin to support syntax for taskwarrior config files
+Plug 'nbossard/vim-taskwarrior-conf', {'for': 'taskrc'}
+" }}}
+
 " {{{ Arduino : For writing arduino sketches
 Plug 'stevearc/vim-arduino', {'for': 'arduino'}
 "}}}
