@@ -463,7 +463,7 @@ let g:fortune = map(split(system('fortune ~/.vim ~/.vim/plugged/vimtips-fortune/
 " {{{ Vim-test : plugin for launching tests inside vim
 "see https://github.com/vim-test/vim-test
 "usage : testFile
-Plug 'vim-test/vim-test', { 'on': ['TestFile','TestLast']}
+Plug 'vim-test/vim-test', { 'on': ['TestFile','TestLast','TestNearest']}
 autocmd! User vim-test echom 'vim-test is now lazy loaded!'
 "let g:test#runner_commands = ['Mocha']
 let test#javascript#jest#executable = './node_modules/.bin/vue-cli-service test:unit'
