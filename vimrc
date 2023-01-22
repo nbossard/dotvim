@@ -643,7 +643,9 @@ nmap gan :ALENext<CR>
 nmap gap :ALEPrevious<CR>
 "
 " NOTE : ALE is used by vim-go, see vim-go for go related configuration
-let g:ale_linters = { 'go': ['golint', 'go vet'] }
+
+" For golangci-lint, see  dedicated config file '.golangci.yml' at root of project
+let g:ale_linters = { 'go': ['golint', 'go vet', 'golangci-lint'] }
 " }}}
 
 "{{{ BufOnly : Closes all buffers but this one
