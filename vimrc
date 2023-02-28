@@ -1188,7 +1188,7 @@ Plug 'Raimondi/delimitMate'
 " https://github.com/universal-ctags/ctags
 " install with : brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " see also : npm install -g git+https://github.com/ramitos/jsctags.git
-Plug 'majutsushi/tagbar', { 'on': ['Tagbar'] }
+Plug 'majutsushi/tagbar', { 'on': ['Tagbar', 'TagbarClose'] }
 autocmd! User tagbar echom 'Tagbar is now lazy loaded!'
 cabbrev tagbar Tagbar
 set tags=tags
