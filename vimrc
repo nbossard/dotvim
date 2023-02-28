@@ -1643,6 +1643,8 @@ set secure
 " defining custom alias
 map gsn ]s
 map gsp [s
+" Add spell suggestions defined by me on top of suggestions
+set spellsuggest=file:~/.vim/spell_suggestions.txt,best
 " grammar check : see vim-grammarous plugin above
 
 
@@ -1777,7 +1779,7 @@ endif
 " Keep at least 5 lines visible at top and bottom of screen
 :set scrolloff=5
 
-"{{{ Common typo autofix by replacing word
+"{{{ Common typo autofix/alias by replacing word
 iabbrev improcing improving
 iabbrev splitted split
 iabbrev splited split
