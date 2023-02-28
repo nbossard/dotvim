@@ -421,8 +421,19 @@ command! -nargs=1 Gsdiff Gdiffsplit <args>
 " you often won't start on the first line due to Vim remembering your last position in that file
 " Fix for this:
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+" disable whitespace mix checking in git commit messages
+autocmd FileType gitcommit silent! call airline#extensions#whitespace#disable()
+
 
 " }}} === End of Git related plugins ====
+
+" {{{ firenvim : plugin to edit textareas in firefox with neovim
+" See : https://github.com/glacambre/firenvim
+" Issue : Text is too small ? change size, see set guifont below (suggestion : h24)
+if has('nvim')
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
+" }}}
 
 " {{{ Copilot
 " See: https://github.com/github/copilot.vim
