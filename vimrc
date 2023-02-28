@@ -1335,7 +1335,7 @@ let g:table_mode_corner="|"
 
 " }}}
 
-" {{{ vim-grammarous : Plugin for grammar check
+" {{{ vim-grammarous : Plugin for grammar check, in addition to spell
 " see : https://github.com/rhysd/vim-grammarous
 " NOTE : REQUIRES JAVA 8
 " Usage : :GrammarousCheck
