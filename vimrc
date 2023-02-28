@@ -624,6 +624,7 @@ command! UnicodeRedCross :norm a❌
 command! UTF8RedCross UnicodeRedCross
 command! UnicodeQuestionRed :norm a❓
 command! UTF8QuestionRed UnicodeQuestionRed
+command! UnicodeBomb :norm a💣
 "}}}
 
 " {{{ ALE plugin : To support various linters
