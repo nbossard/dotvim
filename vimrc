@@ -1788,12 +1788,30 @@ iabbrev TODDO TODO
 iabbrev TOOD TODO
 iabbrev Addding Adding
 iabbrev addding adding
+iabbrev gitlab GitLab
+iabbrev backend back-end
+iabbrev frontend front-end
+iabbrev 0th 0Th
+iabbrev 19th 19Th
+iabbrev 8th 8Th
+iabbrev 7th 7Th
+iabbrev 6th 6Th
+iabbrev 5th 5Th
+iabbrev 4th 4Th
+iabbrev gomicro go-micro
+iabbrev USSDD USSD
+iabbrev lreaddy lready
 cabbrev spllit split
+cabbrev dedvelop develop
 "}}}
 
 " Adding command to generate a random password
 " for use in 'pass edit'
 command Password :r!pwgen --no-vowels --numerals --symbols --remove-chars "'\"~" 16 1
+
+" Adding command to insert current date
+" for use in changelog by example
+imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " {{{ Call external tool called gocloc to count lines of code
 " see: https://github.com/hhatto/gocloc
