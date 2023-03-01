@@ -1610,7 +1610,7 @@ set path=$PWD/**
 " SpecialKey is the name of group including spaces,
 " ctermfg => color terminal  foreground
 " to disable : 'set nolist'
-set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.
+set listchars=tab:>-,trail:.,extends:>,precedes:<,space:.,nbsp:!
 " list of filetypes for wich we want spaces to be displayed
 autocmd FileType vim setlocal list
 autocmd FileType yaml setlocal list
