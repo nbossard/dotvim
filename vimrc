@@ -1831,6 +1831,11 @@ command Gocloc :call Rungocloc()
 :packadd cfilter
 " }}}
 
+" Config for neovide graphical client
+" Also impacts firenvim
+" See: https://github.com/neovide/neovide
+set guifont=Hack\ Nerd\ Font\ Mono:h24
+
 " {{{ wildmenu : set wildmenu to allow a menu of matching items in command line when TAB is
 " pressed
 " it appears as a vertical menu in Neovim and as a horizontal list in vim
