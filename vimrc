@@ -51,16 +51,7 @@ call plug#begin('~/.vim/plugged')
 " " Rem : navigate using gf
 " command! NotesRecent RecentNotes
 " }}}
-"
-" {{{ vim-template : To allow usage of templates on new files
-" see : https://github.com/aperezdc/vim-template
-" Usage : create a new file with accurate extension (.vue)
-" open it and type :Template
-" NBO pinned on 08 june 2020 cause incompatibility issues with COC on latest
-" revision
-" Disbled on 2020-06-08 cause unused
-" Plug 'aperezdc/vim-template'
-" }}}
+
 
 " {{{ cheat.sh : to search for cheatsheets
 " See : https://github.com/dbeniamine/cheat.sh-vim
@@ -1500,6 +1491,16 @@ autocmd! User goyo echom 'Goyo is now lazy loaded!'
 " Usage : TabooOpen toto
 Plug 'gcmt/taboo.vim', {'on': ['TabooOpen']}
 autocmd! User taboo echom 'Taboo is now lazy loaded!'
+" }}}
+
+" {{{ vim-template : To allow usage of templates on new files
+" see : https://github.com/aperezdc/vim-template
+" Usage : create a new file with accurate extension (.vue)
+" open it and type :Template
+" Note that template folder can be defined at project level with for example:
+" let g:templates_directory='./.vim/templates'
+Plug 'aperezdc/vim-template', {'on': ['Template']}
+autocmd! User vim-template echom 'vim-template is now lazy loaded!'
 " }}}
 
 " {{{ ===== Various colorscheme s ====
