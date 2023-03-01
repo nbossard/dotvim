@@ -1863,8 +1863,9 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 " }}}
 
-" shortcuts
-command Json set filetype=json
+" shortcuts to set tiletypes
+command Json set filetype=json|Prettier
+command Markdown set filetype=markdown
 
 " move lines up or down
 nnoremap <C-j> :m .+1<CR>==
