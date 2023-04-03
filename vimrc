@@ -1170,11 +1170,15 @@ let g:strip_whitespace_on_save=1
 let g:startify_change_to_dir=0
 " }}}
 
-" {{{ delimitMate : Plugin to auto close brackets, parenthesis
+" {{{ delimitMate : Plugin to auto close brackets, parenthesis, quotes
 " while typing in insert mode
 " See : https://github.com/Raimondi/delimitMate
 " Rem : not responsible for HTML tags, it is coc-html
 Plug 'Raimondi/delimitMate'
+" Disabled on HTML files cause that disturbs copilot
+autocmd FileType htm let b:loaded_delimitMate = 0
+" Disabled on single quotes in plantuml cause quotes are used for comments
+autocmd FileType plantuml let b:delimitMate_quotes = "\""
 " }}}
 
 " {{{ tagbar : Displaying a tag bar on right side
