@@ -663,10 +663,15 @@ nmap gap :ALEPrevious<CR>
 " and spectral : npm install -g @stoplight/spectral-cli
 "
 " For golangci-lint, see  dedicated config file '.golangci.yml' at root of project
+" staticcheck is used to detect dead code especially in godog source files.
 let g:ale_linters = {
   \ 'go':   ['golint', 'go vet', 'golangci-lint', 'staticcheck'],
   \ 'yaml': ['yamllint', 'spectral']
   \ }
+
+" Disable ALE for copilot solution proposal file
+" opened when typing :Copilot
+autocmd filetype copilot.go let b:ale_enabled=0
 
 " }}}
 
