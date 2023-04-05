@@ -1317,10 +1317,11 @@ let g:vim_markdown_fenced_languages = ['javascript', 'typescript', 'sh', 'go']
 Plug 'tpope/vim-speeddating'
 " }}}
 
-" {{{
-" Same for boolean : vim-CtrlXA
-" and many more : yes /no, enable/disable,...
+" {{{ Same for boolean : vim-CtrlXA
+" and many more : yes /no, enable/disable, git rebase,
 " see : https://github.com/Konfekt/vim-CtrlXA
+" Usage : traditional <C-X> or <C-A>
+" See also vim-speeddating above
 Plug 'Konfekt/vim-CtrlXA'
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
@@ -1331,10 +1332,28 @@ nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 "     \ ] + g:CtrlXA_Toggles
 " augroup END
 
+" additional rules for javascript
 autocmd FileType javascript
       \ let b:CtrlXA_Toggles = [
       \ ['DOIT','SKIPIT'],
       \ ['FAKE','DOCHANGES'],
+      \ ['us','task'],
+      \ ['POST','GET', 'PUT', 'DELETE'],
+      \ ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+      \ ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+      \ ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      \ ] + g:CtrlXA_Toggles
+
+" additional rules for feature files
+autocmd FileType cucumber
+      \ let b:CtrlXA_Toggles = [
+      \ ['Given', 'When', 'Then', 'And', 'But'],
+      \ ] + g:CtrlXA_Toggles
+
+" additional rules for rest files
+autocmd FileType rest
+      \ let b:CtrlXA_Toggles = [
+      \ ['GET', 'POST', 'PUT', 'DELETE'],
       \ ] + g:CtrlXA_Toggles
 " }}}
 
