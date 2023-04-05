@@ -655,8 +655,19 @@ nmap gap :ALEPrevious<CR>
 "
 " NOTE : ALE is used by vim-go, see vim-go for go related configuration
 
+
+" For markdown lint ALE relies on markdownlint
+" https://github.com/DavidAnson/markdownlint
+"
+" For yaml lint ALE relies on yamllint
+" and spectral : npm install -g @stoplight/spectral-cli
+"
 " For golangci-lint, see  dedicated config file '.golangci.yml' at root of project
-let g:ale_linters = { 'go': ['golint', 'go vet', 'golangci-lint'] }
+let g:ale_linters = {
+  \ 'go':   ['golint', 'go vet', 'golangci-lint', 'staticcheck'],
+  \ 'yaml': ['yamllint', 'spectral']
+  \ }
+
 " }}}
 
 "{{{ BufOnly : Closes all buffers but this one
