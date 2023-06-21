@@ -964,6 +964,12 @@ let g:coc_global_extensions += ['coc-sh']
 " :CocInstall coc-pyright
 let g:coc_global_extensions += ['coc-pyright']
 "
+" Tabnine : IA local computer based completion
+" See: https://github.com/neoclide/coc-tabnine
+" NBO : disabled on 2023-06-21 cause mac warning popup about not certified
+"       CocUninstall coc-tabnine
+" let g:coc_global_extensions += ['coc-tabnine']
+"
 " :CocInstall coc-go
 let g:coc_global_extensions += ['coc-eslint', 'coc-css', 'coc-dictionary', 'coc-markdownlint',  'coc-go']
 
