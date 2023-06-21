@@ -958,6 +958,12 @@ let g:coc_global_extensions += ['coc-docker']
 " :CocInstall coc-sh
 let g:coc_global_extensions += ['coc-sh']
 "
+" Pyright is a full-featured, standards-based static type checker for Python.
+" See: https://github.com/fannheyward/coc-pyright
+" See: https://github.com/microsoft/pyright
+" :CocInstall coc-pyright
+let g:coc_global_extensions += ['coc-pyright']
+"
 " :CocInstall coc-go
 let g:coc_global_extensions += ['coc-eslint', 'coc-css', 'coc-dictionary', 'coc-markdownlint',  'coc-go']
 
