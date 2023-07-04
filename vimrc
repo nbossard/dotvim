@@ -423,6 +423,17 @@ autocmd FileType gitcommit silent! call airline#extensions#whitespace#disable()
 " Issue : Text is too small ? change size, see set guifont below (suggestion : h24)
 if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+  " disable firenvim for some websites
+  " rem : needs restart of the browser
+  if exists('g:started_by_firenvim')
+    let fc = g:firenvim_config['localSettings']
+    let fc['https?://[^/]+\.google\.com/'] = { 'takeover': 'never', 'priority': 1 }
+    " vim edition is lost in taiga
+    let fc['https?://taiga\.tech\.orange/'] = { 'takeover': 'never', 'priority': 1 }
+    let fc['https?://teams\.microsoft\.com/'] = { 'takeover': 'never', 'priority': 1 }
+    let fc['https?://chat\.openai\.com/'] = { 'takeover': 'never', 'priority': 1 }
+  endif
 endif
 " }}}
 
