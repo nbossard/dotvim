@@ -1222,6 +1222,14 @@ Plug 'majutsushi/tagbar'
 " NOT USING lazy loading for tagbar, cause it interfers with autoopening
 cabbrev tagbar Tagbar
 set tags=tags
+" If you use multiple tabs and want Tagbar to also open in the current tab when
+" you switch to an already loaded, supported buffer:
+if exists('g:started_by_firenvim')
+  " do nothing
+else
+  autocmd BufEnter * nested :call tagbar#autoopen(0)
+endif
+
 " show a preview window on top of screen (ugly)
 let g:tagbar_autopreview = 0
 " do not sort alphabetically
@@ -1399,7 +1407,12 @@ Plug 'wfxr/minimap.vim', { 'on': ['Minimap', 'MinimapToggle'] }
 autocmd! User minimap.vim echom 'Minimap is now lazy loaded!'
 " recommanded configuration
 let g:minimap_width = 10
-let g:minimap_auto_start = 0
+" If set to `1`, the minimap window will show on startup.
+if exists('g:started_by_firenvim')
+  let g:minimap_auto_start = 0
+else
+  let g:minimap_auto_start = 1
+endif
 let g:minimap_auto_start_win_enter = 0
 let g:minimap_highlight_search = 1
 let g:minimap_highlight_range = 1
