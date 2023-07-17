@@ -1388,6 +1388,14 @@ autocmd FileType rest
       \ ] + g:CtrlXA_Toggles
 " }}}
 
+" additionnal rules for taskedit files
+autocmd FileType taskedit
+      \ let b:CtrlXA_Toggles = [
+      \ ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+      \ ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+      \ ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      \ ] + g:CtrlXA_Toggles
+
 " {{{ tcomment_vim : Quick comment uncomment
 " see https://github.com/tomtom/tcomment_vim
 " Usage : gc<motion>
