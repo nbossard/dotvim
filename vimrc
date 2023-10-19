@@ -1503,6 +1503,7 @@ let g:minimap_highlight_search = 1
 let g:minimap_highlight_range = 1
 let g:minimap_git_colors = 1
 " NBO custom config
+" Disable minimap for specific file types.
 let g:minimap_block_filetypes = ['fugitive', 'nerdtree', 'fzf', 'help', 'markdown', 'tagbar']
 let g:minimap_close_filetypes = ['startify', 'netrw', 'vim-plug']
 let g:minimap_close_buftypes = ['json','help']
