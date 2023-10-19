@@ -926,6 +926,8 @@ let g:coc_global_extensions = ['coc-tsserver']
 "
 " https://github.com/neoclide/coc-json
 " Json language server
+" Allows to use json schema for completion in json files.
+" e.g. in coc-settings.json
 " :CocInstall coc-json
 let g:coc_global_extensions += ['coc-json']
 "
