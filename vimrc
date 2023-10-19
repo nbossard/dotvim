@@ -197,6 +197,20 @@ call plug#begin('~/.vim/plugged')
 " let g:db_ui_show_database_icon=0
 " let g:db_ui_auto_execute_table_helpers = 1
 " }}}
+"
+" {{{ vim-which-key: plugin to display available keybindings
+" UNUSED and complex to configure, removing it
+" See doc here : https://github.com/liuchengxu/vim-which-key#minimal-configuration
+" Give a try may be to folke/which-key.nvim (neovim only) Plug 'folke/which-key.nvim'
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" Plug 'liuchengxu/vim-which-key'
+" " autocmd! User vim-which-key echom 'WhichKey is now lazy loaded!'
+" nnoremap <silent> <leader> :<c-u>WhichKey  ','<CR>
+" vnoremap <silent> <leader> :<c-u>WhichKeyVisual  ','<CR>
+" " Define prefix dictionary
+" let g:which_key_map =  {}
+" }}}
+
 
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
