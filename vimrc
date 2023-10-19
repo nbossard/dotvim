@@ -478,6 +478,9 @@ let g:copilot_filetypes = {
 " {{{ Startify plugin : To change start screen (welcome page)
 " https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'
+if exists('g:started_by_firenvim')
+    let g:startify_disable_at_vimenter = 1
+endif
 let g:startify_files_number = 5
 let g:startify_commands = [
     \ ['NERDTree', ':NERDTree'],
