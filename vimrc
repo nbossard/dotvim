@@ -2094,3 +2094,12 @@ nnoremap <C-k> :m .-2<CR>==
 " inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Additionall commands for taskwarrior
+" t for listing all tasks
+if !has('nvim')
+  nmap <leader>t :call popup_create(systemlist('task'), {'close': 'click', 'moved':'any', 'border': [2,2,2,2], 'drag': 1, 'maxheight': 29, 'scrollbar': 1, 'resize': 1})<CR>
+endif
+if has('nvim')
+   nmap <leader>t :!task<CR>
+endif
