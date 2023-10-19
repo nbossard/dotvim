@@ -473,9 +473,6 @@ let g:copilot_filetypes = {
       \ 'yaml': v:true,
       \ 'gitcommit': v:true,
       \ }
-" https://github.com/community/community/discussions/16298
-" There's currently an issue running on Node.js 18.1.0+
- let g:copilot_node_command = "/usr/local/Cellar/node@16/16.19.0_1/bin/node"
 " }}}
 
 " {{{ Startify plugin : To change start screen (welcome page)
