@@ -707,7 +707,11 @@ command! UTFWarning UnicodeWarning
 " ALE = Asynchronous Lint Engine
 " See : https://github.com/dense-analysis/ale
 " acts as a Vim Language Server Protocol client
+"
+" NBOSSARD : prototype to support ghelkin-lint
+" Plug 'nbossard/ale', {'branch': 'feature/support_gherkin-lint'}
 Plug 'dense-analysis/ale'
+"
 " By default, all available tools for all supported languages will be run.
 "
 " changing lint delay from 200ms to ... in order to run less often
