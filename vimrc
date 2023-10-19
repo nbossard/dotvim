@@ -556,6 +556,9 @@ let g:translator_target_lang='en'
 " See : https://stackoverflow.com/questions/29495291/apply-vim-user-defined-command-to-visual-selection-or-all
 command -range TranslateToFR <line1>,<line2>Translate --target_lang=fr
 command -range TranslateRToFR <line1>,<line2>TranslateR --target_lang=fr
+" Useful in Mahali project
+command -range TranslateToMG <line1>,<line2>Translate --target_lang=mg
+command -range TranslateRToMG <line1>,<line2>TranslateR --target_lang=mg
 " }}}
 
 " {{{ ===== NERDTree related configs =====
