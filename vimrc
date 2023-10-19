@@ -738,6 +738,9 @@ let g:ale_linters = {
   \ 'go':   ['golint', 'go vet', 'golangci-lint', 'staticcheck'],
   \ 'yaml': ['yamllint', 'spectral']
   \ }
+" adding ale linter 'gherkin-ling' for cucumber files,
+" see nbossard prototype above
+" g:ale_linters.cucumber = ['gherkin-lint']
 
 " Disable ALE for copilot solution proposal file
 " opened when typing :Copilot
