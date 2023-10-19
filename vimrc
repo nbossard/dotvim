@@ -519,6 +519,12 @@ let test#javascript#jest#options = {
   \ 'file':    '',
   \ 'suite':   '',
 \}
+" To run fuzzy testing 
+" let test#go#gotest#options = {
+"   \ 'nearest': '-run Test -fuzz',
+"   \ 'file':    '-fuzz',
+"   \ 'suite':   '-fuzz',
+" \}
 cabbrev te TestFile
 cabbrev tf TestFile
 " See also Mahali project vimrc config file
