@@ -219,6 +219,17 @@ call plug#begin('~/.vim/plugged')
 " Plug 'nvim-lua/plenary.nvim'
 " " }}}
 
+" " {{{ Plugin vim-ghost
+" " See: https://github.com/raghur/vim-ghost
+" " Edit browser (chrome/firefox) textarea content in Vim/Neovim
+" " Usage :GhostStart
+" " Go back to browser, click on a textarea then click on ghost plugin icon
+" "  Only enabled for Vim 8 (not for Neovim).
+" Plug 'roxma/nvim-yarp', v:version >= 800 && !has('nvim') ? {} : { 'on': [], 'for': [] }
+" Plug 'roxma/vim-hug-neovim-rpc', v:version >= 800 && !has('nvim') ? {} : { 'on': [], 'for': [] }
+" Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+" autocmd! User vim-ghost echom 'vim-ghost is now lazy loaded!'
+" " }}}
 
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
@@ -1540,14 +1551,6 @@ let g:grammarous#default_comments_only_filetypes = {
             \ '*' : 1, 'help' : 0, 'markdown' : 0,
             \ }
 command! GrammarousCheckFR :GrammarousCheck --lang=fr
-" }}}
-
-" {{{ Plugin vim-ghost
-" See: https://github.com/raghur/vim-ghost
-" Edit browser textarea content in Vim/Neovim
-" Usage :GhostStart
-" Go back to browser, click on a textarea then click on ghost plugin icon
-Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 " }}}
 
 " {{{ vim-conflicted : Plugin for efficiently use vim with mergetool
