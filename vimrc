@@ -1261,7 +1261,6 @@ let g:expand_region_textobj_go = {
       \ }
 " }}}
 
-
 " {{{ Adding plugin to highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
 " To launch manual stripping of whitespaces :
@@ -1275,6 +1274,8 @@ let g:better_whitespace_enabled=1
 "Enabling stripping on save (with confirmation)
 let g:strip_whitespace_on_save=1
 let g:startify_change_to_dir=0
+" Note that overwriting this with a b: is ignored
+let g:strip_whitespace_confirm=0
 " }}}
 
 " {{{ delimitMate : Plugin to auto close brackets, parenthesis, quotes
@@ -1380,11 +1381,6 @@ let g:tagbar_type_go ={
 " NOTE: Using a check here to make sure that window-specific location-lists
 " aren't effected, as they use the same `FileType` as quickfix-lists.
 autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
-" augroup show_hide_tagbar_onfiletype
-"     autocmd!
-"     let filetypes_with_tag=['markdown','go']
-"     autocmd BufWinEnter * if (index(filetypes_with_tag, &filetype) >= 0) | execute "TagbarOpen" | else | execute "TagbarClose" | endif
-" augroup END
 "
 " }}}
 
