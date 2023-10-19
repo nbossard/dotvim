@@ -249,6 +249,8 @@ let g:plantuml_executable_script='plantuml -DPLANTUML_LIMIT_SIZE=8192 -verbose'
 " these are test files. Aka cucumber files. Written in Gherkin.
 " See : https://github.com/tpope/vim-cucumber
 Plug 'tpope/vim-cucumber', {'for': 'cucumber'}
+" forked repository to add support for rules
+" Plug 'nbossard/vim-cucumber', {'for': 'cucumber', 'branch': 'feature/gherkin_v6_rule_keyword'}
 autocmd Filetype cucumber setlocal list
 autocmd Filetype cucumber setlocal foldmethod=indent
 autocmd Filetype cucumber setlocal tabstop=2
