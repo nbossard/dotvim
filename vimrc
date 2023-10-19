@@ -627,6 +627,11 @@ command! OpenInGitlab execute "OpenBrowser" "https://gitlab.tech.orange/mahali/"
 Plug 'junegunn/vim-peekaboo'
 " }}}
 
+" compare files in two directories recursively
+" usage : :DirDiff <dir1> <dir2>
+" See: https://github.com/will133/vim-dirdiff
+Plug 'will133/vim-dirdiff', { 'on': ['Dirdiff'] }
+
 " {{{ unicode : to show unicode (and digraph) tables and search
 " such as smileys, emojis, emoticons...chars allowed by UTF-8.
 " Usage :UnicodeTable
