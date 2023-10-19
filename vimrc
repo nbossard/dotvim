@@ -443,6 +443,7 @@ autocmd FileType gitcommit silent! call airline#extensions#whitespace#disable()
 
 " {{{ firenvim : plugin to edit textareas in firefox with neovim
 " See : https://github.com/glacambre/firenvim
+" see: https://github.com/glacambre/firenvim#configuring-firenvim
 " Issue : Text is too small ? change size, see set guifont below (suggestion : h24)
 if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
