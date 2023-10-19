@@ -1525,6 +1525,10 @@ Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
 let g:table_mode_corner="|"
 " }}}
 
+" {{{ Plugin jacinto can be used to validate json files
+" see: https://github.com/alfredodeza/jacinto.vim
+" usage :Jacinto validate
+Plug 'https://github.com/alfredodeza/jacinto.vim', { 'for': 'json' }
 " }}}
 
 " {{{ vim-grammarous : Plugin for grammar check, in addition to spell
