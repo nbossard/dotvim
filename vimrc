@@ -471,6 +471,7 @@ imap <C-p> <Plug>(copilot-previous)
 let g:copilot_filetypes = {
       \ 'markdown': v:true,
       \ 'yaml': v:true,
+      \ 'gitcommit': v:true,
       \ }
 " https://github.com/community/community/discussions/16298
 " There's currently an issue running on Node.js 18.1.0+
