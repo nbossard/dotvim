@@ -957,7 +957,8 @@ let g:coc_global_extensions += ['@yaegassy/coc-volar']
 let g:coc_global_extensions += ['coc-html']
 "
 " :CocInstall coc-markdownlint
-let g:coc_global_extensions += ['coc-markdownlint']
+" 2023-10-19 MarkdownLint is already provided by ALE
+" let g:coc_global_extensions += ['coc-markdownlint']
 "
 " :CocInstall coc-vimlsp
 " See https://github.com/iamcco/coc-vimlsp
