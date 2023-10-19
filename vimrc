@@ -601,6 +601,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 " {{{ open-browser : Plugin to open URL under cursor in an external browser
 " See doc at : https://www.vim.org/scripts/script.php?script_id=3133
+" Addditional commands added by me:
+" - OpenInGitlab / RevealInGitlab
+" - OpenInGitHub / RevealInGitHub
 " Command : gx
 Plug 'tyru/open-browser.vim'
 " My setting.
@@ -619,7 +622,12 @@ else
   let branchname = "develop"
 endif
 command! OpenInGitlab execute "OpenBrowser" "https://gitlab.tech.orange/mahali/" . reponame . "/-/tree/" . branchname . "/" . fnamemodify(expand("%"), ":~:.")
+command RevealInGitlab OpenInGitlab
+
+" open current file in github
+command! OpenInGitHub execute "OpenBrowser" "https://github.com/nbossard/dotvim/blob/master/" . fnamemodify(expand("%"), ":~:.")
 " }}}
+command RevealInGitHub OpenInGitHub
 
 " {{{ Plugin to display the list of registers
 " on a right bar on " or @ keypress
