@@ -246,7 +246,7 @@ let g:plantuml_executable_script='plantuml -DPLANTUML_LIMIT_SIZE=8192 -verbose'
 " }}}
 
 " {{{ Adding support for '.feature' files,
-" these are test files
+" these are test files. Aka cucumber files. Written in Gherkin.
 " See : https://github.com/tpope/vim-cucumber
 Plug 'tpope/vim-cucumber', {'for': 'cucumber'}
 autocmd Filetype cucumber setlocal list
