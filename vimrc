@@ -1408,12 +1408,13 @@ let g:vim_markdown_fenced_languages = ['javascript', 'typescript', 'sh', 'go']
 " }}}
 
 " {{{ speeddating : Allow intelligent increase of dates
+" See https://github.com/tpope/vim-speeddating
 " Usage : traditional <C-X> or <C-A>
 Plug 'tpope/vim-speeddating'
 " }}}
 
-" {{{ Same for boolean : vim-CtrlXA
-" and many more : yes /no, enable/disable, git rebase,
+" {{{ Extended for customise : vim-CtrlXA
+" Booleans and many more : yes /no, enable/disable, git rebase,
 " see : https://github.com/Konfekt/vim-CtrlXA
 " Usage : traditional <C-X> or <C-A>
 " See also vim-speeddating above
