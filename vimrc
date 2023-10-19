@@ -1597,7 +1597,7 @@ nmap <Leader>s :SplitjoinSplit<cr>
 " Usage : https://simnalamburt.github.io/vim-mundo/
 " Usage: :MundoToggle or :MundoShow
 Plug 'simnalamburt/vim-mundo', {'on': ['MundoToggle', 'MundoShow']}
-autocmd! User vim-mundo echow 'Mundo is now lazy loaded!'
+autocmd! User vim-mundo echom 'Mundo is now lazy loaded!'
 " }}}
 
 " {{{ vim-base64
