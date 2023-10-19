@@ -1558,6 +1558,8 @@ command! GrammarousCheckFR :GrammarousCheck --lang=fr
 " usage (out of vim) : git mergetool
 " or : git conflicted
 Plug 'christoomey/vim-conflicted'
+" Adding info in statusline
+set stl+=%{ConflictedVersion()}
 " }}}
 
 " {{{ yaml-vim : Plugin to support yaml file format
