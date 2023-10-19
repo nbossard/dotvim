@@ -2009,6 +2009,9 @@ iabbrev 7th 7Th
 iabbrev 6th 6Th
 iabbrev 5th 5Th
 iabbrev 4th 4Th
+iabbrev Seee See
+iabbrev donee done
+iabbrev doees does
 iabbrev gomicro go-micro
 iabbrev USSDD USSD
 iabbrev lreaddy lready
