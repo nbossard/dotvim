@@ -327,6 +327,13 @@ let g:go_highlight_function_parameters = 1
 
 " define alias for my strange memory
 command GoTestCoverage GoCoverage
+
+" Define options for gofmt, see vim doc
+" -s stands for simplify code
+" suggested by linter
+let g:go_fmt_options = {
+\ 'gofmt': '-s -w',
+\ }
 " }}}
 
 " {{{ Plugin for coloring gomod files
