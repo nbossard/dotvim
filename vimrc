@@ -1474,6 +1474,7 @@ Plug 'tomtom/tcomment_vim'
 if has('nvim')
   Plug 'Xuyuanp/scrollbar.nvim'
   let g:scrollbar_excluded_filetypes = ['nerdtree', 'tagbar']
+  " See also completed elsewhere
   " Suggested configuration by plugin website
   augroup ScrollbarInit
     autocmd!
