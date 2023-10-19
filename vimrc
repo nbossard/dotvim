@@ -211,6 +211,14 @@ call plug#begin('~/.vim/plugged')
 " let g:which_key_map =  {}
 " }}}
 
+" " {{{ obsidian.nvim : plugin to edit markdown files in vim using obsidian principles
+" UNUSED, no interest? disabling it
+" " See : https://github.com/epwalsh/obsidian.nvim
+" Plug 'epwalsh/obsidian.nvim', {'for': 'markdown'}
+" " Plug 'epwalsh/obsidian.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" " }}}
+
 
 " }}}  ==== End of plugins tried and rejected or interesting but given up ======
 
