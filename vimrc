@@ -1742,6 +1742,7 @@ let g:gruvbox_improved_errors=1
 " alternative to gruvbox that supports neovim
 " Plug 'luisiacc/gruvbox-baby'
 " dracula : https://draculatheme.com/vim
+" It seems dracula does not support treesiter
 Plug 'dracula/vim', { 'name': 'dracula' }
 " Go dedicated colorscheme
 " Plugin'bitfield/vim-gitgo'
