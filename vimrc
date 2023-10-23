@@ -1732,10 +1732,6 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 :let g:colorscheme_switcher_exclude = ['default', 'blue', 'shine', 'elflord']
 :let g:colorscheme_switcher_exclude_builtins = 1
-"Adding a light theme similar to GitHub
-"Usage : :colorscheme github
-"See color schemes list : :colorscheme <ctrl+d>
-Plug 'acarapetis/vim-colors-github'
 Plug 'nanotech/jellybeans.vim'
 "Pencil color theme
 Plug 'reedes/vim-colors-pencil'
