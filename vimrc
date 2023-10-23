@@ -682,16 +682,17 @@ command! OpenInGitHub execute "OpenBrowser" "https://github.com/nbossard/dotvim/
 " }}}
 command RevealInGitHub OpenInGitHub
 
-" {{{ Plugin to display the list of registers
+" {{{ vim-peekaboo : plugin to display the list of registers
 " on a right bar on " or @ keypress
 " See : https://github.com/junegunn/vim-peekaboo
 Plug 'junegunn/vim-peekaboo'
 " }}}
 
-" compare files in two directories recursively
+" {{{ vim-dirdiff : plugin to compare files in two directories recursively
 " usage : :DirDiff <dir1> <dir2>
 " See: https://github.com/will133/vim-dirdiff
 Plug 'will133/vim-dirdiff', { 'on': ['Dirdiff'] }
+" }}}
 
 " {{{ unicode : to show unicode (and digraph) tables and search
 " such as smileys, emojis, emoticons...chars allowed by UTF-8.
@@ -1432,12 +1433,18 @@ Plug 'tpope/vim-speeddating'
 Plug 'Konfekt/vim-CtrlXA'
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
-" augroup VimAfter
-"     autocmd!
-"     autocmd VimEnter let g:CtrlXA_Toggles = [
-"     \ ['sweet', 'bitter'],
-"     \ ] + g:CtrlXA_Toggles
-" augroup END
+
+" NBO CANT MAKE THIS WORK !!!! SO USING ADDITIONAL RULES PER FILETYPE
+augroup VimAfterCtrlXA
+    autocmd!
+    autocmd VimEnter let g:CtrlXA_Toggles = [
+    \ ['Nicolas', 'James'],
+    \ ['BOSSARD', 'ZHIHONG_GUO'],
+    \ ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+    \ ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+    \ ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    \ ] + g:CtrlXA_Toggles
+augroup END
 
 " additional rules for javascript
 autocmd FileType javascript
@@ -1446,9 +1453,6 @@ autocmd FileType javascript
       \ ['FAKE','DOCHANGES'],
       \ ['us','task'],
       \ ['POST','GET', 'PUT', 'DELETE'],
-      \ ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
-      \ ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-      \ ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       \ ] + g:CtrlXA_Toggles
 
 " additional rules for feature files
@@ -2064,6 +2068,9 @@ set wildmode=longest:full,full
 " register is the same as the "* register.  Thus you can yank to and paste the
 " selection without prepending "* to commands.
 set clipboard+=unnamed  " use the clipboards of vim and win
+
+" Define command to copy in clipboard current file and line
+command FullPath echom expand("%:h") . '/' . expand("%:t") . ':' . line(".")
 
 " This should not be set in vimrc (see :checkhealth warning)
 " Cause it disables too many features
