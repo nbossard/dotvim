@@ -2102,7 +2102,7 @@ command Nospell set nospell
 command Json set filetype=json|Prettier
 command Markdown set filetype=markdown
 
-" move lines up or down
+" Shortcuts to move lines up or down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 " Disabling it in insert mode cause conflicts with snippet next field
