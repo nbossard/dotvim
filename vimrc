@@ -1737,6 +1737,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'reedes/vim-colors-pencil'
 " gruvbox : https://github.com/morhetz/gruvbox
 Plug 'morhetz/gruvbox'
+let g:gruvbox_improved_warnings=1
+let g:gruvbox_improved_errors=1
+" alternative to gruvbox that supports neovim
+" Plug 'luisiacc/gruvbox-baby'
 " dracula : https://draculatheme.com/vim
 Plug 'dracula/vim', { 'name': 'dracula' }
 " Go dedicated colorscheme
