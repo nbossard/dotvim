@@ -1520,7 +1520,11 @@ let g:minimap_git_colors = 1
 " NBO custom config
 " Disable minimap for specific file types.
 let g:minimap_block_filetypes = ['fugitive', 'nerdtree', 'fzf', 'help', 'markdown', 'tagbar']
-let g:minimap_close_filetypes = ['startify', 'netrw', 'vim-plug']
+" Close minimap for specific file types.  If a filetype listed here is also
+" present in `g:minimap_block_filetypes`, the minimap will prefer to close
+" rather than disable.
+let g:minimap_close_filetypes = ['startify', 'netrw', 'vim-plug', 'terminal']
+" Disable minimap for specific buffer types.
 let g:minimap_close_buftypes = ['json','help']
 " }}}
 
