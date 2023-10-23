@@ -1503,8 +1503,8 @@ endif
 " {{{ minimap: display a right-side minimap
 " See : https://github.com/wfxr/minimap.vim
 " requires brew install code-minimap
-Plug 'wfxr/minimap.vim', { 'on': ['Minimap', 'MinimapToggle'] }
-autocmd! User minimap.vim echom 'Minimap is now lazy loaded!'
+Plug 'wfxr/minimap.vim'
+" No lazy loading, as it is not working with autoopen
 " recommanded configuration
 let g:minimap_width = 10
 " If set to `1`, the minimap window will show on startup.
