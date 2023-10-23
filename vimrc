@@ -1725,6 +1725,7 @@ autocmd! User vim-template echom 'vim-template is now lazy loaded!'
 "Enables 24-bit RGB color
 set termguicolors
 "Enable quick switch schemecolor
+"See https://github.com/xolox/vim-colorscheme-switcher
 " Use F8 and shift+F8 to quick switch
 " Required by plugin colorscheme_switcher
 Plug 'xolox/vim-misc'
