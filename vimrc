@@ -2095,6 +2095,9 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 " }}}
 
+" Adding command shortcut for "set nospell"
+command Nospell set nospell
+
 " shortcuts to set tiletypes (command alias)
 command Json set filetype=json|Prettier
 command Markdown set filetype=markdown
