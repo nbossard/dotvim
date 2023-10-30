@@ -65,6 +65,9 @@ function plug_gitsigns()
     "lewis6991/gitsigns.nvim",
     version = "*",
     lazy = false,
+    config = function()
+      require("gitsigns").setup {}
+    end,
   }
 end
 
@@ -89,5 +92,11 @@ require("lazy").setup({
   plug_nvim_tree(),
   plug_gitsigns(),
   plug_vim_taskwarrior_conf(),
+  {
+    'morhetz/gruvbox',
+    config = function()
+      vim.cmd.colorscheme("gruvbox")
+    end
+  }
 })
 
