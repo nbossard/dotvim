@@ -1,14 +1,8 @@
--- Nicolas Bossard, 28Th may 2018, personal syntax for VIM editor
+-- Nicolas Bossard, 1st november 2023, personal syntax for NEOVIM editor
 -- Saved in git for history and for sharing across computers.
 -- As described here :
 -- See README.md for configuration.
 -- vim: set foldmethod=marker :
---
--- Other installs :
--- brew install python@2
--- brew install python3
--- pip2 install neovim --upgrade
--- pip3 install neovim --upgrade
 --
 -- then test config with (neovim only):
 -- :checkhealth
