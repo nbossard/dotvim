@@ -65,6 +65,19 @@ function plug_gitsigns()
   }
 end
 
+-- replacing airline
+function plug_lualine()
+return {
+  'nvim-lualine/lualine.nvim',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons'
+  },
+  config = function()
+    require('lualine').setup()
+  end
+}
+end
+
 -- {{{ ==== Languages syntax support plugins ======
 
 -- {{{ Plugin to support syntax for taskwarrior config files
@@ -84,6 +97,7 @@ require("lazy").setup({
   "folke/which-key.nvim",
   "folke/neodev.nvim",
   plug_nvim_tree(),
+  plug_lualine(),
   plug_gitsigns(),
   plug_vim_taskwarrior_conf(),
   {
