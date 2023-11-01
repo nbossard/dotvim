@@ -54,6 +54,10 @@ function plug_nvim_tree()
   } 
 end
 
+-- {{{ gitsigns : to display a git column markers
+-- close to line numbers
+-- see : https://github.com/lewis6991/gitsigns.nvim
+-- Replacing GitGutter
 function plug_gitsigns()
    return {
     "lewis6991/gitsigns.nvim",
@@ -64,7 +68,10 @@ function plug_gitsigns()
     end,
   }
 end
+--- }}}
 
+-- {{{ lualine : to display a bottom status bar
+-- see : https://github.com/nvim-lualine/lualine.nvim
 -- replacing airline
 function plug_lualine()
 return {
@@ -77,6 +84,7 @@ return {
   end
 }
 end
+--- }}}
 
 -- {{{ ==== Languages syntax support plugins ======
 
