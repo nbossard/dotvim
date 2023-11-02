@@ -18,9 +18,10 @@ vim.wo.number=true
 
 --
 -- ---------------------- PACKAGE MANAGER CONFIG -----------------------
+
+-- {{{ lazy : plugin manager
 -- lazy replaces vim-plug
 -- vim-plug replaces Vundle
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -33,14 +34,16 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+--- }}}
 
+-- {{{ nvim-tree : file tree manager
 -- Installing nvim-tree to replace nerdtree
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
  vim.opt.termguicolors = true
-function plug_nvim_tree() 
+function plug_nvim_tree()
   return {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -51,8 +54,9 @@ function plug_nvim_tree()
     config = function()
       require("nvim-tree").setup {}
     end,
-  } 
+  }
 end
+--- }}}
 
 -- {{{ gitsigns : to display a git column markers
 -- close to line numbers
