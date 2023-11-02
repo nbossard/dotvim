@@ -90,6 +90,42 @@ return {
 end
 --- }}}
 
+-- {{{ Adding plugin to highlight trailing whitespace
+-- https://github.com/ntpeters/vim-better-whitespace
+-- To launch manual stripping of whitespaces :
+-- :StripWhitespace
+function plug_trailing_whitespaces()
+  return {
+    "ntpeters/vim-better-whitespace",
+    version = "*",
+    lazy = false,
+    config = function()
+      vim.g.better_whitespace_filetypes_blacklist={'diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git', 'taskedit', 'csv', 'minimap'}
+      -- To highlight space characters that appear before or in-between tabs
+      vim.g.show_spaces_that_precede_tabs=1
+      -- To enable highlighting of trailing whitespace
+      vim.g.better_whitespace_enabled=1
+      -- Enabling stripping on save (with confirmation)
+      vim.g.strip_whitespace_on_save=1
+      vim.g.startify_change_to_dir=0
+      --  Note that overwriting this with a b: is ignored
+      vim.g.strip_whitespace_confirm=0
+    end,
+  }
+end
+-- }}}
+
+-- {{{ tcomment_vim : Quick comment uncomment
+-- see https://github.com/tomtom/tcomment_vim
+-- Usage : gc<motion>
+-- gcc for current line
+function plug_tcomment()
+  return {
+    'tomtom/tcomment_vim'
+  }
+end
+ -- }}}
+
 -- {{{ ==== Languages syntax support plugins ======
 
 -- {{{ Plugin to support syntax for taskwarrior config files
@@ -111,7 +147,9 @@ require("lazy").setup({
   plug_nvim_tree(),
   plug_lualine(),
   plug_gitsigns(),
+  plug_trailing_whitespaces(),
   plug_vim_taskwarrior_conf(),
+  plug_tcomment(),
   {
     'morhetz/gruvbox',
     config = function()
