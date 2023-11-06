@@ -2,7 +2,7 @@
 -- Saved in git for history and for sharing across computers.
 -- As described here :
 -- See README.md for configuration.
--- vim: set foldmethod=marker :
+-- vim: set foldmethod=marker tabstop=2 softtabstop=2 shiftwidth=2 expandtab:
 --
 -- then test config with (neovim only):
 -- :checkhealth
