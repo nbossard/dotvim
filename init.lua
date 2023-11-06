@@ -16,6 +16,13 @@ vim.g.mapleader=","
 -- display line numbers
 vim.wo.number=true
 
+-- Allowing per project configuration
+-- For example to have a custom spellfile
+-- See https://andrew.stwrt.ca/posts/project-specific-vimrc/
+vim.opt.exrc = true
+vim.opt.secure = true
+
+
 --
 -- ---------------------- PACKAGE MANAGER CONFIG -----------------------
 
