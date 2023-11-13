@@ -148,6 +148,49 @@ function plug_vim_taskwarrior_conf()
 end
 -- }}}
 
+-- {{ Plugin to support Go Language
+-- https://github.com/ray-x/go.nvim
+-- Replaces fatih/vim-go written in vimscript mostly
+function plug_x_go()
+  return
+    {
+      "ray-x/go.nvim",
+      dependencies = {  -- optional packages
+        "ray-x/guihua.lua",
+        "neovim/nvim-lspconfig",
+        "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+        require("go").setup()
+      end,
+      event = {"CmdlineEnter"},
+      ft = {"go", 'gomod'},
+      build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    }
+end
+
+
+-- }}}
+
+
+-- {{{ ===== Various colorscheme s ====
+
+function plug_color_scheme_gruvbox()
+  return {
+    'morhetz/gruvbox',
+    config = function()
+      vim.cmd.colorscheme("gruvbox")
+    end
+  }
+end
+
+-- usedd by documentation repository
+function plug_color_scheme_dracula()
+  return {
+    'dracula/vim',
+  }
+end
+
 -- }}}
 
 require("lazy").setup({
@@ -159,11 +202,10 @@ require("lazy").setup({
   plug_trailing_whitespaces(),
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
+  plug_x_go(),
+  plug_color_scheme_gruvbox(),
+  plug_color_scheme_dracula(),
   {
-    'morhetz/gruvbox',
-    config = function()
-      vim.cmd.colorscheme("gruvbox")
-    end
   }
 })
 
