@@ -20,7 +20,7 @@ let g:python3_host_prog='/usr/local/bin/python3'
 let mapleader=","
 
 "
-"---------------------- VIM-PLUG CONFIG -----------------------
+"---------------------- PACKAGE MANAGER CONFIG -----------------------
 " vim-plug replaces Vundle
 "vim-plug install :
 " https://github.com/junegunn/vim-plug
@@ -1403,11 +1403,11 @@ Plug 'bogado/file-line'
 " }}}
 
 " {{{ vim-markdown plugin for syntax and folding
-" See https://github.com/plasticboy/vim-markdown
+" See https://github.com/preservim/vim-markdown
 " Improve display, replace formatting by result for bold and italic
 autocmd Filetype markdown setlocal conceallevel=2
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 " Enable color column for markdown files
 "autocmd Filetype markdown setlocal highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
 autocmd Filetype markdown setlocal colorcolumn=80
