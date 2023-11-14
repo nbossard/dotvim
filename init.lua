@@ -113,12 +113,21 @@ function  plug_startup()
 end
 -- }}}
 
+-- {{{ telescope : A highly extendable fuzzy finder over lists
+-- Replacing CtrlP and fzf : fuzzy finder inside vim
+-- used to search files and live ripgrep
 function plug_telescope()
   return {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      -- alias ":rg" to ":Telescope live_grep"
+      vim.cmd('command! -nargs=0 Rg Telescope live_grep')
+      vim.cmd('abbreviate rg Rg')
+    end
   }
 end
+-- }}}
 
 -- {{{ Adding plugin to highlight trailing whitespace
 -- https://github.com/ntpeters/vim-better-whitespace
