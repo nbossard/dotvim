@@ -113,6 +113,13 @@ function  plug_startup()
 end
 -- }}}
 
+function plug_telescope()
+  return {
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  }
+end
+
 -- {{{ Adding plugin to highlight trailing whitespace
 -- https://github.com/ntpeters/vim-better-whitespace
 -- To launch manual stripping of whitespaces :
@@ -218,9 +225,8 @@ require("lazy").setup({
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
   plug_x_go(),
+  plug_telescope(),
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
-  {
-  }
 })
 
