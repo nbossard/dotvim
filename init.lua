@@ -49,7 +49,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
- vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 function plug_nvim_tree()
   return {
     "nvim-tree/nvim-tree.lua",
