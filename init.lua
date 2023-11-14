@@ -99,6 +99,20 @@ return {
 end
 --- }}}
 
+-- {{{ startup.nvim: The fully customizable greeter for neovim
+-- replacing startify
+-- See hhttps://github.com/startup-nvim/startup.nvim
+function  plug_startup()
+  return {
+    "startup-nvim/startup.nvim",
+    requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+    config = function()
+      require"startup".setup()
+    end
+  }
+end
+-- }}}
+
 -- {{{ Adding plugin to highlight trailing whitespace
 -- https://github.com/ntpeters/vim-better-whitespace
 -- To launch manual stripping of whitespaces :
@@ -199,6 +213,7 @@ require("lazy").setup({
   plug_nvim_tree(),
   plug_lualine(),
   plug_gitsigns(),
+  plug_startup(),
   plug_trailing_whitespaces(),
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
