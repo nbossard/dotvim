@@ -226,6 +226,8 @@ end
 require("lazy").setup({
   "folke/which-key.nvim",
   "folke/neodev.nvim",
+  'github/copilot.vim',
+  'nvim-lspconfig',
   plug_nvim_tree(),
   plug_lualine(),
   plug_gitsigns(),
