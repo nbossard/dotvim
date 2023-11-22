@@ -292,3 +292,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 -- }}}
+
+-- Adding command to insert current date
+-- for use in changelog by example
+-- imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
+vim.keymap.set('i', '<C-d>', vim.fn.strftime('%Y-%m-%d'))
