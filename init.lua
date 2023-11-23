@@ -121,9 +121,13 @@ function plug_telescope()
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
+      -- adding alias used when using ripgrep
       -- alias ":rg" to ":Telescope live_grep"
       vim.cmd('command! -nargs=0 Rg Telescope live_grep')
       vim.cmd('abbreviate rg Rg')
+      -- adding alias used when using plugin bufexplore
+      -- <leader>be to open buffers
+      vim.keymap.set('n','<leader>be', ':Telescope buffers<CR>')
     end
   }
 end
@@ -164,6 +168,26 @@ function plug_tcomment()
   }
 end
  -- }}}
+
+-- {{{ chatGPT : plugin to use OpenAI GPT-3 to generate text
+-- see https://github.com/jackMort/ChatGPT.nvim
+function plug_chatGPT()
+  return {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "echo $CHATGPT_API_KEY"
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
+end
+-- }}}
 
 -- {{{ ==== Languages syntax support plugins ======
 
@@ -235,9 +259,9 @@ require("lazy").setup({
   plug_trailing_whitespaces(),
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
-  plug_ctrlxa(),
   plug_x_go(),
   plug_telescope(),
+  plug_chatGPT(),
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
 })
