@@ -63,6 +63,7 @@ function plug_nvim_tree()
       require("nvim-tree").setup {}
       -- Define the alias for previous plugin Nerdtree
       vim.cmd('command! -nargs=0 NERDTree NvimTreeOpen')
+      vim.keymap.set('n','gnF', ':NvimTreeFindFile<CR>')
     end,
   }
 end
