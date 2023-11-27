@@ -220,6 +220,18 @@ function plug_chatGPT()
 end
 -- }}}
 
+--- {{{ coq : completion
+-- rem : coq is not coc
+-- usage :COQdeps
+-- then :COQnow
+function plug_coq()
+  return {
+    'ms-jpq/coq_nvim',
+    branch = 'coq',
+  }
+end
+
+
 -- {{{ ==== Languages syntax support plugins ======
 
 -- {{{ Plugin to support syntax for taskwarrior config files
@@ -294,6 +306,7 @@ require("lazy").setup({
   plug_telescope(),
   plug_gx(),
   plug_chatGPT(),
+  plug_coq(),
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
 })
