@@ -173,7 +173,7 @@ end
 
 -- {{{ gx : open links under cursor
 -- see : https://github.com/chrishrb/gx.nvim
-function plug_gx
+function plug_gx()
   return {
     "chrishrb/gx.nvim",
     event = { "BufEnter" },
