@@ -43,6 +43,31 @@ end
 vim.opt.rtp:prepend(lazypath)
 --- }}}
 
+-- lazy configuration options
+-- event = "VimEnter" -- lazy load when vim starts
+-- event = "VeryLazy" -- lazy load when a plugin is used
+-- event = "BufEnter" : lazy load when a buffer is opened
+-- event = "CmdlineEnter" : lazy load when a command is run
+
+-- {{{ which-key : plugin to display key mapping
+-- see : https://github.com/folke/which-key.nvim
+function plug_which_key()
+  return {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  }
+end
+--- }}}
+
 -- {{{ nvim-tree : file tree manager
 -- Installing nvim-tree to replace nerdtree
 --
@@ -63,7 +88,11 @@ function plug_nvim_tree()
       require("nvim-tree").setup {}
       -- Define the alias for previous plugin Nerdtree
       vim.cmd('command! -nargs=0 NERDTree NvimTreeOpen')
+      -- key mapping to open current file in nvim-tree
       vim.keymap.set('n','gnF', ':NvimTreeFindFile<CR>')
+      -- document this key mapping for which-key
+      local wk = require("which-key")
+      wk.register({ g = { n =  { F = { "<cmd>NvimTreeFindFile<cr>", "Locate current file in nvim-tree" }, }, }, })
     end,
   }
 end
@@ -129,7 +158,20 @@ function plug_telescope()
       vim.cmd('abbreviate rg Rg')
       -- adding alias used when using plugin bufexplore
       -- <leader>be to open buffers
-      vim.keymap.set('n','<leader>be', ':Telescope buffers<CR>')
+      -- OLD STYLE replaced by which key register : vim.keymap.set('n','<leader>be', ':Telescope buffers<CR>')
+      local wk = require("which-key")
+      wk.register({
+        b = {
+          name = "buffer", -- optional group name
+          e = { "<cmd>Telescope buffers<cr>", "Show buffers list" } -- create a binding with label
+        },
+        f = {
+          name = "file", -- optional group name
+          f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+          r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File"} -- additional options for creating the keymap
+        }
+      }, {prefix = "<leader>"})
+
     end
   }
 end
@@ -291,7 +333,7 @@ end
 -- }}}
 
 require("lazy").setup({
-  "folke/which-key.nvim",
+  plug_which_key(),
   "folke/neodev.nvim",
   'github/copilot.vim',
   'nvim-lspconfig',
