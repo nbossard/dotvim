@@ -264,6 +264,8 @@ end
 
 --- {{{ coq : completion
 -- rem : coq is not coc
+-- see : https://github.com/ms-jpq/coq_nvim
+-- alternative to nvim-cmp (https://github.com/hrsh7th/nvim-cmp/)
 -- usage :COQdeps
 -- then :COQnow
 function plug_coq()
@@ -272,6 +274,7 @@ function plug_coq()
     branch = 'coq',
   }
 end
+-- }}}
 
 
 -- {{{ ==== Languages syntax support plugins ======
