@@ -317,11 +317,13 @@ require("lazy").setup({
 -- For JavaScript and TypeScript
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 require'lspconfig'.tsserver.setup{}
-
 -- For bash
 -- npm i -g bash-language-server
 -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
 require'lspconfig'.bashls.setup{}
+-- For Golang
+-- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
+require'lspconfig'.gopls.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
