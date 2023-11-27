@@ -45,6 +45,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- {{{ nvim-tree : file tree manager
 -- Installing nvim-tree to replace nerdtree
+--
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -101,7 +102,7 @@ end
 
 -- {{{ startup.nvim: The fully customizable greeter for neovim
 -- replacing startify
--- See hhttps://github.com/startup-nvim/startup.nvim
+-- See https://github.com/startup-nvim/startup.nvim
 function  plug_startup()
   return {
     "startup-nvim/startup.nvim",
