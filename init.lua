@@ -290,9 +290,12 @@ function plug_vim_taskwarrior_conf()
 end
 -- }}}
 
--- {{ Plugin to support Go Language
+-- {{{ Plugin to support Go Language (golang)
 -- https://github.com/ray-x/go.nvim
 -- Replaces fatih/vim-go written in vimscript mostly
+-- Rem : needs to install a tree-sitter parser
+--`:TSInstallSync go`
+-- For debugging, see https://github.com/mfussenegger/nvim-dap
 function plug_x_go()
   return
     {
@@ -310,10 +313,19 @@ function plug_x_go()
       build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
     }
 end
-
-
 -- }}}
 
+-- {{{ Plugin for coloring gomod files
+-- https://github.com/maralla/gomod.vim
+function plug_coloring_gomod()
+  return {
+    'maralla/gomod.vim',
+    ft = {'gomod'},
+  }
+end
+-- }}}
+
+-- }}}
 
 -- {{{ ===== Various colorscheme s ====
 
@@ -348,6 +360,7 @@ require("lazy").setup({
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
   plug_x_go(),
+  plug_coloring_gomod(),
   plug_telescope(),
   plug_gx(),
   plug_chatGPT(),
