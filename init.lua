@@ -82,6 +82,7 @@ function plug_nvim_tree()
     version = "*",
     lazy = false,
     dependencies = {
+      -- optional used to show icons in the tree
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
@@ -244,8 +245,9 @@ end
 
 -- {{{ chatGPT : plugin to use OpenAI GPT-3 to generate text
 -- see https://github.com/jackMort/ChatGPT.nvim
-function plug_chatGPT()
-  return {
+-- useful commands once dialog window open:
+-- <C-y> apply changes
+
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
