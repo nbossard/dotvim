@@ -325,8 +325,7 @@ function plug_x_go()
       config = function()
         require("go").setup()
       end,
-      event = {"CmdlineEnter"},
-      ft = {"go", 'gomod'},
+      ft = {"go", 'gomod'}, -- Lazy load on filetype go
       build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
     }
 end
