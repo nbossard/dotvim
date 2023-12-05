@@ -267,7 +267,6 @@ function plug_chatGPT()
         s = { "<cmd>ChatGPTRun summarize<CR>", "ChatGPT Summarize", mode = { "n", "v" } },
         f = { "<cmd>ChatGPTRun fix_bugs<CR>", "ChatGPT Fix Bugs", mode = { "n", "v" } },
         x = { "<cmd>ChatGPTRun explain_code<CR>", "ChatGPT Explain Code", mode = { "n", "v" } },
-        r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "ChatGPT Roxygen Edit", mode = { "n", "v" } },
         l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "ChatGPT Code Readability Analysis", mode = { "n", "v" } },
       }})
     end,
