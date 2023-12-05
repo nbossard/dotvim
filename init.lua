@@ -385,10 +385,15 @@ require("lazy").setup({
 
 
 -- {{{ LSP config
+-- See : LspInfo
 
 -- For JavaScript and TypeScript
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 require'lspconfig'.tsserver.setup{}
+-- For Angular
+-- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
+-- npm install -g @angular/language-server
+require'lspconfig'.angularls.setup{}
 -- For bash
 -- npm i -g bash-language-server
 -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
