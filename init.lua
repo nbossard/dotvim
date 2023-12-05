@@ -200,6 +200,18 @@ function plug_tcomment()
 end
  -- }}}
 
+-- {{{ vim-test : plugin to run tests inside vim
+-- see https://github.com/vim-test/vim-test
+-- Usage : :TestFile
+function plug_testfile()
+  return {
+    'vim-test/vim-test',
+    ft = "typescript",
+    cmd = "TestFile",
+  }
+end
+-- }}}
+
 -- {{{ gx : open links under cursor
 -- see : https://github.com/chrishrb/gx.nvim
 function plug_gx()
@@ -367,6 +379,7 @@ require("lazy").setup({
   plug_x_go(),
   plug_coloring_gomod(),
   plug_telescope(),
+  plug_testfile(),
   plug_gx(),
   plug_chatGPT(),
   plug_coq(),
