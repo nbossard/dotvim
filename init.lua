@@ -214,13 +214,11 @@ end
 
 -- {{{ gx : open links under cursor
 -- see : https://github.com/chrishrb/gx.nvim
-function plug_gx()
+local function plug_gx()
   return {
     "chrishrb/gx.nvim",
     event = { "BufEnter" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true, -- default settings
-
     -- you can specify also another config if you want
     config = function() require("gx").setup {
       open_browser_app = "open", -- specify your browser app; default for macOS is "open", Linux "xdg-open" and Windows "powershell.exe"
@@ -233,7 +231,7 @@ function plug_gx()
         search = true, -- search the web/selection on the web if nothing else is found
       },
       handler_options = {
-        search_engine = "google", -- you can select between google, bing, duckduckgo, and ecosia
+        -- search_engine = "google", -- you can select between google, bing, duckduckgo, and ecosia
         search_engine = "https://search.brave.com/search?q=", -- or you can pass in a custom search engine
       },
     } end,
