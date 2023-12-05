@@ -475,3 +475,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- for use in changelog by example
 -- imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 vim.keymap.set('i', '<C-d>', vim.fn.strftime('%Y-%m-%d'))
+
+-- Adding command to generate a random password
+-- for use in 'pass edit'
+-- vim.cmd('command! r!pwgen --no-vowels --numerals --symbols --remove-chars "\"~" 16 1 Password')
+vim.cmd("command! -nargs=0 Password :r!pwgen --no-vowels --numerals --symbols --remove-chars \"'\\\"~\" 16 1")
+-- command Password :r!pwgen --no-vowels --numerals --symbols --remove-chars "'\"~" 16 1
