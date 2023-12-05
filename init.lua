@@ -51,7 +51,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- {{{ which-key : plugin to display key mapping
 -- see : https://github.com/folke/which-key.nvim
-function plug_which_key()
+local function plug_which_key()
   return {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -76,7 +76,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
-function plug_nvim_tree()
+local function plug_nvim_tree()
   return {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -103,7 +103,7 @@ end
 -- close to line numbers
 -- see : https://github.com/lewis6991/gitsigns.nvim
 -- Replacing GitGutter
-function plug_gitsigns()
+local function plug_gitsigns()
    return {
     "lewis6991/gitsigns.nvim",
     version = "*",
@@ -118,7 +118,7 @@ end
 -- {{{ lualine : to display a bottom status bar
 -- see : https://github.com/nvim-lualine/lualine.nvim
 -- replacing airline
-function plug_lualine()
+local function plug_lualine()
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
@@ -134,7 +134,7 @@ end
 -- {{{ telescope : A highly extendable fuzzy finder over lists
 -- Replacing CtrlP and fzf : fuzzy finder inside vim
 -- used to search files and live ripgrep
-function plug_telescope()
+local function plug_telescope()
   return {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -168,7 +168,7 @@ end
 -- https://github.com/ntpeters/vim-better-whitespace
 -- To launch manual stripping of whitespaces :
 -- :StripWhitespace
-function plug_trailing_whitespaces()
+local function plug_trailing_whitespaces()
   return {
     "ntpeters/vim-better-whitespace",
     version = "*",
@@ -193,7 +193,7 @@ end
 -- see https://github.com/tomtom/tcomment_vim
 -- Usage : gc<motion>
 -- gcc for current line
-function plug_tcomment()
+local function plug_tcomment()
   return {
     'tomtom/tcomment_vim'
   }
@@ -203,7 +203,7 @@ end
 -- {{{ vim-test : plugin to run tests inside vim
 -- see https://github.com/vim-test/vim-test
 -- Usage : :TestFile
-function plug_testfile()
+local function plug_testfile()
   return {
     'vim-test/vim-test',
     ft = "typescript",
@@ -245,7 +245,7 @@ end
 -- see https://github.com/jackMort/ChatGPT.nvim
 -- useful commands once dialog window open:
 -- <C-y> apply changes
-function plug_chatGPT()
+local function plug_chatGPT()
   return {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
@@ -285,7 +285,7 @@ end
 -- alternative to nvim-cmp (https://github.com/hrsh7th/nvim-cmp/)
 -- usage :COQdeps
 -- then :COQnow
-function plug_coq()
+local function plug_coq()
   return {
     'ms-jpq/coq_nvim',
     branch = 'coq',
@@ -298,7 +298,7 @@ end
 
 -- {{{ Plugin to support syntax for taskwarrior config files
 -- Plug 'nbossard/vim-taskwarrior-conf', {'for': 'taskrc'}
-function plug_vim_taskwarrior_conf()
+local function plug_vim_taskwarrior_conf()
   return {
     "nbossard/vim-taskwarrior-conf",
     version = "*",
@@ -313,7 +313,7 @@ end
 -- Rem : needs to install a tree-sitter parser
 --`:TSInstallSync go`
 -- For debugging, see https://github.com/mfussenegger/nvim-dap
-function plug_x_go()
+local function plug_x_go()
   return
     {
       "ray-x/go.nvim",
@@ -333,7 +333,7 @@ end
 
 -- {{{ Plugin for coloring gomod files
 -- https://github.com/maralla/gomod.vim
-function plug_coloring_gomod()
+local function plug_coloring_gomod()
   return {
     'maralla/gomod.vim',
     ft = {'gomod'},
@@ -345,7 +345,7 @@ end
 
 -- {{{ ===== Various colorscheme s ====
 
-function plug_color_scheme_gruvbox()
+local function plug_color_scheme_gruvbox()
   return {
     'morhetz/gruvbox',
     config = function()
@@ -355,7 +355,7 @@ function plug_color_scheme_gruvbox()
 end
 
 -- usedd by documentation repository
-function plug_color_scheme_dracula()
+local function plug_color_scheme_dracula()
   return {
     'dracula/vim',
   }
