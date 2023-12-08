@@ -324,6 +324,22 @@ local function plug_vim_taskwarrior_conf()
 end
 -- }}}
 
+-- {{{ To support PlantUML File syntax
+-- See: https://github.com/aklt/plantuml-syntax
+local function plug_plantuml_syntax()
+  return {
+    "aklt/plantuml-syntax",
+    version = "*",
+    lazy = true,
+    ft = "plantuml",
+    config = function()
+      -- set foldmethod=syntax
+      vim.cmd('autocmd Filetype plantuml setlocal foldmethod=syntax')
+      vim.g.plantuml_executable_script='plantuml -DPLANTUML_LIMIT_SIZE=8192 -verbose'
+    end,
+  }
+end
+
 -- {{{ Plugin to support Go Language (golang)
 -- https://github.com/ray-x/go.nvim
 -- Replaces fatih/vim-go written in vimscript mostly
@@ -398,6 +414,7 @@ require("lazy").setup({
   plug_trailing_whitespaces(),
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
+  plug_plantuml_syntax(),
   plug_x_go(),
   plug_coloring_gomod(),
   plug_telescope(),
