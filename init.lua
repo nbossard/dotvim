@@ -378,6 +378,12 @@ local function plug_color_scheme_dracula()
   }
 end
 
+-- from neovim conf
+local function plug_color_solarized_osaka()
+  return {
+    'craftzdog/solarized-osaka.nvim',
+  }
+end
 -- }}}
 
 require("lazy").setup({
@@ -401,6 +407,7 @@ require("lazy").setup({
   plug_coq(),
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
+  plug_color_solarized_osaka(),
 })
 
 
