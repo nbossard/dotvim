@@ -401,6 +401,10 @@ require'lspconfig'.bashls.setup{}
 -- For Golang
 -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
 require'lspconfig'.gopls.setup{}
+-- For JSON
+-- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
+-- npm install -g vscode-langservers-extracted
+require'lspconfig'.jsonls.setup {}
 -- For Lua
 -- Install server using `brew install lua-language-server`
 -- See setup config here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
