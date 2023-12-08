@@ -483,6 +483,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 vim.keymap.set('i', '<C-d>', vim.fn.strftime('%Y-%m-%d'))
 
+-- Keep at least 5 lines visible at top and bottom of screen
+vim.opt.scrolloff=5
+
 -- Adding command to generate a random password
 -- for use in 'pass edit'
 -- vim.cmd('command! r!pwgen --no-vowels --numerals --symbols --remove-chars "\"~" 16 1 Password')
