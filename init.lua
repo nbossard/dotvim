@@ -102,6 +102,7 @@ end
 -- {{{ gitsigns : to display a git column markers
 -- close to line numbers
 -- see : https://github.com/lewis6991/gitsigns.nvim
+-- Usage : :Gitsigns
 -- Replacing GitGutter
 local function plug_gitsigns()
    return {
