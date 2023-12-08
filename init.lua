@@ -111,6 +111,13 @@ local function plug_gitsigns()
     lazy = false,
     config = function()
       require("gitsigns").setup {}
+      local wk = require("which-key")
+      -- add key map for go to next/previous hunk
+      wk.register({g = {h = {
+        name="Git Hunk",
+        n = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next hunk" },
+        p = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous hunk" },
+      }, }})
     end,
   }
 end
