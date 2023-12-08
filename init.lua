@@ -68,6 +68,17 @@ local function plug_which_key()
 end
 --- }}}
 
+-- {{{ Treesitter : syntax highlighter
+-- see : https://github.com/nvim-treesitter/nvim-treesitter
+-- Usage : TSInstall <language>
+-- :TSUpdate all
+local function plug_treesitter()
+  return {
+    "nvim-treesitter/nvim-treesitter",
+  }
+end
+--}}}
+
 -- {{{ nvim-tree : file tree manager
 -- Installing nvim-tree to replace nerdtree
 --
@@ -374,6 +385,7 @@ require("lazy").setup({
   "folke/neodev.nvim", -- luas development
   'github/copilot.vim',
   'nvim-lspconfig',
+  plug_treesitter(),
   plug_nvim_tree(),
   plug_lualine(),
   plug_gitsigns(),
