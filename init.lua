@@ -49,6 +49,34 @@ vim.opt.rtp:prepend(lazypath)
 -- event = "BufEnter" : lazy load when a buffer is opened
 -- event = "CmdlineEnter" : lazy load when a command is run
 
+-- {{{ copilot-lua plugin for github copilot
+-- replacing official'github/copilot.vim',
+-- see : https://github.com/zbirenbaum/copilot.lua
+local function plug_copilot()
+  return {
+  "zbirenbaum/copilot.lua",
+  cmd = "Copilot",
+  event = "InsertEnter",
+  filetypes = {
+    yaml = false,
+    markdown = true,
+    help = false,
+    gitcommit = false,
+    gitrebase = false
+  },
+  config = function()
+    require("copilot").setup({
+      suggestion = {
+        auto_trigger = true,
+        accept_word = "<M-l>",
+        accept_line = "<M-l>",
+      }
+    })
+  end,
+  }
+end
+--- }}}
+
 -- {{{ which-key : plugin to display key mapping
 -- see : https://github.com/folke/which-key.nvim
 local function plug_which_key()
@@ -398,14 +426,15 @@ end
 local function plug_color_solarized_osaka()
   return {
     'craftzdog/solarized-osaka.nvim',
+    event = "VeryLazy",
   }
 end
 -- }}}
 
 require("lazy").setup({
+  plug_copilot(),
   plug_which_key(),
   "folke/neodev.nvim", -- luas development
-  'github/copilot.vim',
   'nvim-lspconfig',
   plug_treesitter(),
   plug_nvim_tree(),
