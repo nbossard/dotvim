@@ -21,8 +21,10 @@ vim.wo.number=true
 -- See https://andrew.stwrt.ca/posts/project-specific-vimrc/
 vim.opt.exrc = true
 vim.opt.secure = true
-
-
+-- allow Vim to read and interpret these modelines when opening files.
+vim.opt.modeline = true
+-- how many lines from the top and bottom of the file will be checked for modelines.
+vim.opt.modelines = 5
 --
 -- ---------------------- PACKAGE MANAGER CONFIG -----------------------
 
