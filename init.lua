@@ -103,6 +103,7 @@ end
 local function plug_treesitter()
   return {
     "nvim-treesitter/nvim-treesitter",
+    event="BufRead",
   }
 end
 --}}}
@@ -119,7 +120,7 @@ local function plug_nvim_tree()
   return {
     "nvim-tree/nvim-tree.lua",
     version = "*",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       -- optional used to show icons in the tree
       "nvim-tree/nvim-web-devicons",
@@ -184,6 +185,7 @@ end
 local function plug_telescope()
   return {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    event = "VeryLazy",
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       -- adding alias used when using ripgrep
@@ -219,7 +221,7 @@ local function plug_trailing_whitespaces()
   return {
     "ntpeters/vim-better-whitespace",
     version = "*",
-    lazy = false,
+    event = { "BufEnter" },
     config = function()
       vim.g.better_whitespace_filetypes_blacklist={'diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git', 'taskedit', 'csv', 'minimap'}
       -- To highlight space characters that appear before or in-between tabs
@@ -242,7 +244,8 @@ end
 -- gcc for current line
 local function plug_tcomment()
   return {
-    'tomtom/tcomment_vim'
+    'tomtom/tcomment_vim',
+    event = "VeryLazy"
   }
 end
  -- }}}
@@ -293,7 +296,7 @@ end
 local function plug_chatGPT()
   return {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
+    event = "CmdLineEnter",
     config = function()
       require("chatgpt").setup({
         api_key_cmd = "echo $CHATGPT_API_KEY"
@@ -334,6 +337,7 @@ local function plug_coq()
   return {
     'ms-jpq/coq_nvim',
     branch = 'coq',
+    event = "VeryLazy",
   }
 end
 -- }}}
