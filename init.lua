@@ -346,6 +346,26 @@ local function plug_coq()
 end
 -- }}}
 
+-- {{{ Plugin for making REST request using Curl
+-- https://github.com/diepm/vim-rest-console
+-- usage :
+-- :set ft=rest
+-- http://localhost:9200
+-- GET /_cat/nodes?v|
+-- <C-J>
+local function plug_rest()
+  return {
+    'diepm/vim-rest-console',
+    ft="rest",
+    config = function ()
+      vim.cmd('autocmd FileType rest setlocal nospell')
+      vim.g.vrc_horizontal_split=1
+    end,
+  }
+end
+-- }}}
+
+
 
 -- {{{ ==== Languages syntax support plugins ======
 
@@ -459,6 +479,8 @@ require("lazy").setup({
   plug_gx(),
   plug_chatGPT(),
   plug_coq(),
+  plug_rest(),
+
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
   plug_color_solarized_osaka(),
