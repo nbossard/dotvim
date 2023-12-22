@@ -112,6 +112,8 @@ end
 
 -- {{{ nvim-tree : file tree manager
 -- Installing nvim-tree to replace nerdtree
+-- see : https://github.com/nvim-tree/nvim-tree.lua
+-- Help window : "g?"
 --
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
