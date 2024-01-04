@@ -365,7 +365,22 @@ local function plug_rest()
 end
 -- }}}
 
-
+-- {{{ rainbow_csv : plugin for editing csv tsv formatted files
+-- https://github.com/mechatroner/rainbow_csv
+-- useful commands :
+-- :RainbowAlign
+-- :Select a1,a4 order by a11
+local function plug_rainbow_csv()
+  return {
+    'mechatroner/rainbow_csv',
+    ft = {'csv', 'tsv'},
+    config = function()
+      -- removing line wrapping on csv
+      vim.cmd('autocmd FileType csv setlocal nowrap')
+    end,
+  }
+end
+-- }}}
 
 -- {{{ ==== Languages syntax support plugins ======
 
@@ -480,6 +495,7 @@ require("lazy").setup({
   plug_chatGPT(),
   plug_coq(),
   plug_rest(),
+  plug_rainbow_csv(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
