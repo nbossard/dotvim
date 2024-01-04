@@ -382,6 +382,23 @@ local function plug_rainbow_csv()
 end
 -- }}}
 
+-- {{{ folke/trouble.nvim : display errors, including lsp, correctly
+-- https://github.com/folke/trouble.nvim
+local function plug_trouble()
+  return {
+    'folke/trouble.nvim',
+    event = "VeryLazy",
+    dependencies= {
+      'kyazdani42/nvim-web-devicons',
+    },
+    opts ={
+        auto_open = true,
+        auto_close = true,
+      }
+  }
+end
+-- }}}
+
 -- {{{ ==== Languages syntax support plugins ======
 
 -- {{{ Plugin to support syntax for taskwarrior config files
@@ -480,6 +497,7 @@ require("lazy").setup({
   "folke/neodev.nvim", -- luas development
   'nvim-lspconfig',
   plug_treesitter(),
+  plug_trouble(),
   plug_nvim_tree(),
   plug_lualine(),
   plug_gitsigns(),
@@ -505,6 +523,9 @@ require("lazy").setup({
 
 -- {{{ LSP config
 -- See : LspInfo
+--
+-- Error messages are displayed inlined with the code, usually too long
+-- Using folke/trouble.nvim to display them in a separate window
 
 -- For JavaScript and TypeScript
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
