@@ -533,6 +533,8 @@ require("lazy").setup({
 -- For JavaScript and TypeScript
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 require'lspconfig'.tsserver.setup{}
+vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
+
 -- For Angular
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
 -- npm install -g @angular/language-server
