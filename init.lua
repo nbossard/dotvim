@@ -184,6 +184,7 @@ end
 --- }}}
 
 -- {{{ telescope : A highly extendable fuzzy finder over lists
+-- https://github.com/nvim-telescope/telescope.nvim
 -- Replacing CtrlP and fzf : fuzzy finder inside vim
 -- used to search files and live ripgrep
 local function plug_telescope()
@@ -193,7 +194,7 @@ local function plug_telescope()
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       -- adding alias used when using ripgrep
-      -- alias ":rg" to ":Telescope live_grep"
+      -- alias ":Rg" to ":Telescope live_grep"
       vim.cmd('command! -nargs=0 Rg Telescope live_grep')
       vim.cmd('abbreviate rg Rg')
       -- adding alias used when using plugin bufexplore
@@ -522,6 +523,7 @@ require("lazy").setup({
 
 
 -- {{{ LSP config
+-- https://github.com/neovim/nvim-lspconfig
 -- See : LspInfo
 --
 -- Error messages are displayed inlined with the code, usually too long
@@ -597,10 +599,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local wk = require("which-key")
+    -- g prefix
     wk.register({ g = { d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP Goto Definition" }, mode = { "n" }}})
     wk.register({ g = { D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "LSP Goto Declaration" }, mode = { "n" } }})
     wk.register({ g = { i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP Goto Implementation" }, mode = { "n" } }})
     wk.register({ g = { r = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP Goto References" }, mode = { "n" } }})
+    -- leader prefix
     wk.register({ r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" }} , {prefix = "<leader>" })
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
