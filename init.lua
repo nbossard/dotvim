@@ -643,3 +643,7 @@ vim.opt.scrolloff=5
 -- vim.cmd('command! r!pwgen --no-vowels --numerals --symbols --remove-chars "\"~" 16 1 Password')
 vim.cmd("command! -nargs=0 Password :r!pwgen --no-vowels --numerals --symbols --remove-chars \"'\\\"~\" 16 1")
 -- command Password :r!pwgen --no-vowels --numerals --symbols --remove-chars "'\"~" 16 1
+
+-- Shortcuts to move lines up or down
+vim.cmd("nnoremap <C-j> :m .+1<CR>==")
+vim.cmd("nnoremap <C-k> :m .-2<CR>==")
