@@ -609,6 +609,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     wk.register({ g = { r = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP Goto References" }, mode = { "n" } }})
     -- leader prefix
     wk.register({ r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" }} , {prefix = "<leader>" })
+    wk.register({ l = { f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "LSP Format" } } }, { prefix = "<leader>" })
+    wk.register({ l = { a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP Code Action" } } }, { prefix = "<leader>" })
+
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
