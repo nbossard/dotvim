@@ -497,6 +497,7 @@ require("lazy").setup({
   plug_which_key(),
   "folke/neodev.nvim", -- luas development
   'nvim-lspconfig',
+  'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_treesitter(),
   plug_trouble(),
   plug_nvim_tree(),
