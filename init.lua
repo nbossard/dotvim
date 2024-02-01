@@ -218,6 +218,50 @@ local function plug_telescope()
 end
 -- }}}
 
+-- {{{ Plugin to use ripgrep  inside vim
+-- https://github.com/mangelozzi/rgflow.nvim
+local function plug_rgflow()
+  return {
+    "mangelozzi/rgflow.nvim",
+    event = "CmdlineEnter",
+    config = function()
+        require('rgflow').setup(
+        {
+            -- Set the default rip grep flags and options for when running a search via
+            -- RgFlow. Once changed via the UI, the previous search flags are used for
+            -- each subsequent search (until Neovim restarts).
+            cmd_flags = "--smart-case --fixed-strings --ignore --max-columns 200",
+            -- Mappings to trigger RgFlow functions
+            default_trigger_mappings = true,
+            -- These mappings are only active when the RgFlow UI (panel) is open
+            default_ui_mappings = true,
+            -- QuickFix window only mapping
+            default_quickfix_mappings = true,
+        })
+            --            -- Normal mode maps
+            -- n = {
+            --     ["<leader>rG"] = "open_blank", -- open UI - search pattern = blank
+            --     ["<leader>rg"] = "open_cword", -- open UI - search pattern = <cword>
+            --     ["<leader>rp"] = "open_paste", -- open UI - search pattern = First line of unnamed register as the search pattern
+            --     ["<leader>ra"] = "open_again", -- open UI - search pattern = Previous search pattern
+            --     ["<leader>rx"] = "abort",      -- close UI / abort searching / abortadding results
+            --     ["<leader>rc"] = "print_cmd",  -- Print a version of last run rip grep that can be pasted into a shell
+            --     ["<leader>r?"] = "print_status",  -- Print info about the current state of rgflow (mostly useful for deving on rgflow) 
+            -- },
+        local wk = require("which-key")
+
+        wk.register({ r = { name = "rgflow",
+          g = {":lua require('rgflow').open_blank()<cr>", "open UI - search pattern = blank"},
+          G = {":lua require('rgflow').open_cword()<cr>", "open UI - search pattern = <cword>"},
+          p = {":lua require('rgflow').open_paste()<cr>", "open UI - search pattern = First line of unnamed register as the search pattern"},
+          a = {":lua require('rgflow').open_again()<cr>", "open UI - search pattern = Previous search pattern"},
+          c = {":lua require('rgflow').print_cmd()<cr>", "Print last run for paste shell"},
+        }}, {prefix = "<leader>", mode = "n"})
+    end,
+  }
+end
+-- }}}
+
 -- {{{ Adding plugin to highlight trailing whitespace
 -- https://github.com/ntpeters/vim-better-whitespace
 -- To launch manual stripping of whitespaces :
@@ -516,6 +560,7 @@ require("lazy").setup({
   plug_coq(),
   plug_rest(),
   plug_rainbow_csv(),
+  plug_rgflow(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
@@ -608,7 +653,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     wk.register({ g = { i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP Goto Implementation" }, mode = { "n" } }})
     wk.register({ g = { r = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP Goto References" }, mode = { "n" } }})
     -- leader prefix
-    wk.register({ r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" }} , {prefix = "<leader>" })
+    wk.register({ l = { r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" } } } , {prefix = "<leader>"})
     wk.register({ l = { f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "LSP Format" } } }, { prefix = "<leader>" })
     wk.register({ l = { a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP Code Action" } } }, { prefix = "<leader>" })
 
