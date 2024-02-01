@@ -50,6 +50,7 @@ vim.opt.rtp:prepend(lazypath)
 -- event = "VeryLazy" -- lazy load when a plugin is used
 -- event = "BufEnter" : lazy load when a buffer is opened
 -- event = "CmdlineEnter" : lazy load when a command is run
+-- ft = "typescript",
 
 -- {{{ copilot-lua plugin for github copilot
 -- replacing official'github/copilot.vim',
@@ -97,6 +98,16 @@ local function plug_which_key()
   }
 end
 --- }}}
+
+-- {{{ ALE : Asynchronous Lint Engine
+-- see : https://github.com/dense-analysis/ale
+local function plug_ale()
+  return {
+    "dense-analysis/ale",
+    ft = "typescript",
+  }
+end
+-- }}}
 
 -- {{{ Treesitter : syntax highlighter
 -- see : https://github.com/nvim-treesitter/nvim-treesitter
@@ -542,6 +553,7 @@ require("lazy").setup({
   "folke/neodev.nvim", -- luas development
   'nvim-lspconfig',
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
+  plug_ale(),
   plug_treesitter(),
   plug_trouble(),
   plug_nvim_tree(),
