@@ -137,11 +137,19 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+-- function to open the file tree at start
+-- later when all plugins are started
+-- see https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
+-- rem : do not lazy load nvim-tree
+local function open_nvim_tree()
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+-- config function to setup nvim-tree
 local function plug_nvim_tree()
   return {
     "nvim-tree/nvim-tree.lua",
     version = "*",
-    event = "VeryLazy",
     dependencies = {
       -- optional used to show icons in the tree
       "nvim-tree/nvim-web-devicons",
@@ -155,6 +163,8 @@ local function plug_nvim_tree()
       -- document this key mapping for which-key
       local wk = require("which-key")
       wk.register({ g = { n =  { F = { "<cmd>NvimTreeFindFile<cr>", "Locate current file in nvim-tree" }, }, }, })
+      -- launch at start
+      vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
     end,
   }
 end
