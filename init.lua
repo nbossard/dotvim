@@ -122,9 +122,15 @@ end
 --}}}
 
 -- {{{ nvim-tree : file tree manager
+--
 -- Installing nvim-tree to replace nerdtree
 -- see : https://github.com/nvim-tree/nvim-tree.lua
 -- Help window : "g?"
+--
+-- If folders like node_modules are not displayed,
+-- may be they are filtered by automatic filtering
+-- based on .gitignore file content.
+-- Try pressing "I" to toggle the display of GIT ignored files.
 --
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
