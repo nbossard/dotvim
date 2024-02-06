@@ -157,7 +157,7 @@ local function plug_nvim_tree()
     config = function()
       require("nvim-tree").setup {}
       -- Define the alias for previous plugin Nerdtree
-      vim.cmd('command! -nargs=0 NERDTree NvimTreeOpen')
+      vim.cmd('command! -nargs=0 NERDTree echo "Use :NvimTreeOpen"')
       -- key mapping to open current file in nvim-tree
       vim.keymap.set('n','gnF', ':NvimTreeFindFile<CR>')
       -- document this key mapping for which-key
@@ -273,7 +273,7 @@ local function plug_rgflow()
             --     ["<leader>ra"] = "open_again", -- open UI - search pattern = Previous search pattern
             --     ["<leader>rx"] = "abort",      -- close UI / abort searching / abortadding results
             --     ["<leader>rc"] = "print_cmd",  -- Print a version of last run rip grep that can be pasted into a shell
-            --     ["<leader>r?"] = "print_status",  -- Print info about the current state of rgflow (mostly useful for deving on rgflow) 
+            --     ["<leader>r?"] = "print_status",  -- Print info about the current state of rgflow (mostly useful for deving on rgflow)
             -- },
         local wk = require("which-key")
 
