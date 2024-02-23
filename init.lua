@@ -605,6 +605,7 @@ require("lazy").setup({
 
 -- For JavaScript and TypeScript
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+-- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup{}
 vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
 
@@ -613,8 +614,8 @@ vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
 -- npm install -g @angular/language-server
 require'lspconfig'.angularls.setup{}
 -- For bash
--- npm i -g bash-language-server
 -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
+-- npm install -g bash-language-server
 require'lspconfig'.bashls.setup{}
 -- For Golang
 -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
