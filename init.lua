@@ -375,7 +375,7 @@ local function plug_chatGPT()
     event = "CmdLineEnter",
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = "echo $CHATGPT_API_KEY"
+        api_key_cmd = "pass show openai.com_apikey"
       })
       -- document this key mapping for which-key
       local wk = require("which-key")
