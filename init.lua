@@ -481,7 +481,7 @@ local function plug_trouble()
     'folke/trouble.nvim',
     event = "VeryLazy",
     dependencies= {
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
     },
     opts ={
         auto_open = true,
