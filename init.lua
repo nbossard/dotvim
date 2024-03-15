@@ -100,11 +100,31 @@ end
 --- }}}
 
 -- {{{ ALE : Asynchronous Lint Engine
--- see : https://github.com/dense-analysis/ale
+-- see : https://github.com/dense-analysis/aleo
+-- Usage : :ALEFix to make Prettier fix the file
+--   see g:ale_fixers below
 local function plug_ale()
   return {
     "dense-analysis/ale",
     ft = "typescript",
+    config = function()
+      vim.g.ale_fixers = {
+        typescript = {'prettier'},
+        javascript = {'prettier'},
+        json = {'prettier'},
+        yaml = {'prettier'},
+        markdown = {'prettier'},
+        css = {'prettier'},
+        scss = {'prettier'},
+        html = {'prettier'},
+        vue = {'prettier'}
+      }
+      -- key mapping to Fix the file
+      vim.keymap.set('n','<leader>a', ':ALEFix<CR>')
+      -- document this key mapping for which-key
+      local wk = require("which-key")
+      wk.register({ a = { "<cmd>ALEFix<cr>", "ALE Fix" } })
+    end,
   }
 end
 -- }}}
