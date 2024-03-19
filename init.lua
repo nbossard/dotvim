@@ -438,11 +438,36 @@ end
 -- alternative to nvim-cmp (https://github.com/hrsh7th/nvim-cmp/)
 -- usage :COQdeps
 -- then :COQnow
+--
+-- COQ will also propose snippets stored in folder nbo_snippets
+-- To use snippets :COQsnips edit then COQsnips compile
 local function plug_coq()
   return {
     'ms-jpq/coq_nvim',
     branch = 'coq',
     event = "VeryLazy",
+    config = function()
+      -- making COQ reuse existing snippets folder
+      -- it is the same format
+      vim.g.coq_settings = {
+        clients = {
+          snippets = {
+            enabled = true,
+            user_path = vim.fn.stdpath('config')..'/nbo_snippets',
+          },
+
+        }
+       }
+
+      -- document this key mapping for which-key
+      local wk = require("which-key")
+      wk.register({ c = { name = "COQ",
+        d = { "<cmd>COQdeps<CR>", "Coq Dependencies" },
+        n = { "<cmd>COQnow<CR>", "Coq Now" },
+        s = { "<cmd>COQsnips edit<CR>", "Coq Snips Edit" },
+        c = { "<cmd>COQsnips compile<CR>", "Coq Snips Compile" },
+      }}, {prefix = "<leader>"})
+    end,
   }
 end
 -- }}}
@@ -635,7 +660,10 @@ require("lazy").setup({
 -- For JavaScript and TypeScript
 -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 -- npm install -g typescript typescript-language-server
-require'lspconfig'.tsserver.setup{}
+-- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
+require'lspconfig'.tsserver.setup{
+  capabilities = require('coq').lsp_ensure_capabilities(),
+}
 vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
 
 -- For Angular
