@@ -67,7 +67,8 @@ local function plug_copilot()
     markdown = true,
     help = false,
     gitcommit = false,
-    gitrebase = false
+    gitrebase = false,
+    sh = true
   },
   config = function()
     require("copilot").setup({
