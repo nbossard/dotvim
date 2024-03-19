@@ -395,7 +395,9 @@ end
 local function plug_chatGPT()
   return {
     "jackMort/ChatGPT.nvim",
-    event = "CmdLineEnter",
+    -- setting to VeryLazy and not CmdlineEnter
+    -- as it can be used before throught key mapping
+    event = "VeryLazy",
     config = function()
       require("chatgpt").setup({
         api_key_cmd = "pass show openai.com_apikey"
