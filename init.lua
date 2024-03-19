@@ -125,7 +125,7 @@ local function plug_ale()
       vim.keymap.set('n','<leader>a', ':ALEFix<CR>')
       -- document this key mapping for which-key
       local wk = require("which-key")
-      wk.register({ a = { "<cmd>ALEFix<cr>", "ALE Fix" } })
+      wk.register({ a = { "<cmd>ALEFix<cr>", "ALE Fix" } }, { prefix = "<leader>" })
     end,
   }
 end
