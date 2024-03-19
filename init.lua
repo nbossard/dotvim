@@ -404,7 +404,8 @@ local function plug_chatGPT()
       })
       -- document this key mapping for which-key
       local wk = require("which-key")
-      wk.register({ c = { name = "ChatGPT",
+      -- do not use "c" as it is already used by COQ
+      wk.register({ g = { name = "ChatGPT",
         c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
         e = { "<cmd>ChatGPTEditWithInstruction<CR>", "ChatGPT Edit with instruction", mode = { "n", "v" } },
         g = { "<cmd>ChatGPTRun grammar_correction<CR>", "ChatGPT Grammar Correction", mode = { "n", "v" } },
