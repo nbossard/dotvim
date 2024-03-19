@@ -418,7 +418,10 @@ local function plug_chatGPT()
         f = { "<cmd>ChatGPTRun fix_bugs<CR>", "ChatGPT Fix Bugs", mode = { "n", "v" } },
         x = { "<cmd>ChatGPTRun explain_code<CR>", "ChatGPT Explain Code", mode = { "n", "v" } },
         l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "ChatGPT Code Readability Analysis", mode = { "n", "v" } },
-      }})
+      }}, {prefix = "<leader>"})
+      -- Adding shortcut for completion in insert mode
+      vim.keymap.set('i', '<C-Space>', '<cmd>ChatGPTComplete<CR>')
+
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
