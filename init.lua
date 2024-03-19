@@ -31,6 +31,8 @@ vim.opt.modelines = 5
 -- {{{ lazy : plugin manager
 -- lazy replaces vim-plug
 -- vim-plug replaces Vundle
+-- following line is evaluated to ~/.local/share/nvim/lazy/lazy.nvim
+-- (:echo luaeval('vim.fn.stdpath("data")'))
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
