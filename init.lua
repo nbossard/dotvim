@@ -193,7 +193,7 @@ local function plug_nvim_tree()
 end
 --- }}}
 
--- {{{ gitsigns : to display a git column markers
+-- {{{ gitsigns : to display a git column markers in the gutter
 -- close to line numbers
 -- see : https://github.com/lewis6991/gitsigns.nvim
 -- Usage : :Gitsigns
@@ -204,13 +204,28 @@ local function plug_gitsigns()
     version = "*",
     lazy = false,
     config = function()
-      require("gitsigns").setup {}
+      require("gitsigns").setup {
+        -- requires activation using :Gitsigns toggle_current_line_blame
+        -- also try
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+          delay = 1000,
+          ignore_whitespace = false,
+          virt_text_priority = 100,
+        },
+        current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+        current_line_blame_formatter_opts = {
+          relative_time = false,
+        },
+      }
       local wk = require("which-key")
       -- add key map for go to next/previous hunk
       wk.register({g = {h = {
         name="Git Hunk",
         n = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next hunk" },
         p = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous hunk" },
+        b = { "<cmd>lua require('gitsigns').blame_line()<cr>", "Blame line" },
       }, }})
     end,
   }
@@ -307,6 +322,26 @@ local function plug_rgflow()
           a = {":lua require('rgflow').open_again()<cr>", "open UI - search pattern = Previous search pattern"},
           c = {":lua require('rgflow').print_cmd()<cr>", "Print last run for paste shell"},
         }}, {prefix = "<leader>", mode = "n"})
+    end,
+  }
+end
+-- }}}
+
+-- {{{ minimap : display a minimap on the right
+local function plug_minimap()
+  return {
+    "wfxr/minimap.vim",
+    event = "VimEnter",
+    config = function()
+      vim.g.minimap_auto_start = 1
+      vim.g.minimap_auto_start_win_enter = 1
+      vim.g.minimap_width = 10
+      vim.g.minimap_highlight_range = 1
+      vim.g.minimap_highlight_search = 1
+      vim.g.minimap_highlight_line = 1
+      vim.g.minimap_git_colors = 1
+      vim.g.minimap_auto_start_filetypes = {'markdown', 'yaml', 'json', 'html', 'css', 'scss', 'javascript', 'typescript', 'vue', 'go', 'lua'}
+      vim.g.minimap_close_filetypes = {'NvimTree', 'TelescopePrompt', 'TelescopeResults'}
     end,
   }
 end
@@ -643,6 +678,7 @@ require("lazy").setup({
   plug_rest(),
   plug_rainbow_csv(),
   plug_rgflow(),
+  plug_minimap(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
