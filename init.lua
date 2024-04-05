@@ -109,7 +109,7 @@ end
 local function plug_ale()
   return {
     "dense-analysis/ale",
-    ft = "typescript",
+    ft = "typescript,json,yaml,markdown,css,scss,html,vue",
     config = function()
       vim.g.ale_fixers = {
         typescript = {'prettier'},
