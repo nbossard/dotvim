@@ -449,8 +449,14 @@ local function plug_chatGPT()
     event = "VeryLazy",
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = "pass show openai.com_apikey"
+        actions_paths = {"~/dotvim/actions_chat_gpt_nbo.json"},
+        -- key for real ChatGPT
+        api_key_cmd = "pass show openai.com_apikey",
+        -- make it use lm studio
+        api_host_cmd = "echo http://localhost:1234",
       })
+
+
       -- document this key mapping for which-key
       local wk = require("which-key")
       -- do not use "c" as it is already used by COQ
