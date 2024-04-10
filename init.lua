@@ -74,8 +74,14 @@ local function plug_copilot()
     require("copilot").setup({
       suggestion = {
         auto_trigger = true,
-        accept_word = "<M-l>",
-        accept_line = "<M-l>",
+        keymap = {
+          -- keymap to accept the suggestion
+          accept = "<M-a>",
+          -- keymap to accept the word
+          accept_word = "<M-w>",
+          -- keymap to accept the line
+          accept_line = "<M-l>",
+        }
       }
     })
   end,
