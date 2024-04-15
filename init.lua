@@ -115,7 +115,7 @@ end
 local function plug_ale()
   return {
     "dense-analysis/ale",
-    ft = "typescript,json,yaml,markdown,css,scss,html,vue",
+    ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua",
     config = function()
       vim.g.ale_fixers = {
         typescript = {'prettier'},
@@ -129,7 +129,6 @@ local function plug_ale()
         vue = {'prettier'}
       }
       -- key mapping to Fix the file
-      vim.keymap.set('n','<leader>a', ':ALEFix<CR>')
       -- document this key mapping for which-key
       local wk = require("which-key")
       wk.register({ a = { "<cmd>ALEFix<cr>", "ALE Fix" } }, { prefix = "<leader>" })
@@ -188,7 +187,6 @@ local function plug_nvim_tree()
       -- Define the alias for previous plugin Nerdtree
       vim.cmd('command! -nargs=0 NERDTree echo "Use :NvimTreeOpen"')
       -- key mapping to open current file in nvim-tree
-      vim.keymap.set('n','gnF', ':NvimTreeFindFile<CR>')
       -- document this key mapping for which-key
       local wk = require("which-key")
       wk.register({ g = { n =  { F = { "<cmd>NvimTreeFindFile<cr>", "Locate current file in nvim-tree" }, }, }, })
@@ -256,7 +254,7 @@ return {
     'nvim-tree/nvim-web-devicons'
   },
   config = function()
-    require('lualine').setup()
+    require('lualine').setup({})
   end
 }
 end
