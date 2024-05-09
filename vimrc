@@ -2101,6 +2101,9 @@ command Nospell set nospell
 " Additional configuration for yaml files
 autocmd FileType yaml setlocal foldmethod=indent
 
+" Additional configurationfor typescript files
+autocmd FileType typescript setlocal foldmethod=syntax
+
 " shortcuts to set tiletypes (command alias)
 command Json set filetype=json|Prettier
 command Markdown set filetype=markdown
