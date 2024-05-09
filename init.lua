@@ -829,3 +829,10 @@ vim.api.nvim_set_option("clipboard","unnamed")
 -- Shortcuts to move lines up or down
 vim.cmd("nnoremap <C-j> :m .+1<CR>==")
 vim.cmd("nnoremap <C-k> :m .-2<CR>==")
+
+-- Changing search method to use smartcase
+vim.cmd("set ignorecase smartcase")
+
+-- call prettier from neovim without any plugin
+-- suppose prettier is installed globally
+-- :!prettier --write %
