@@ -227,6 +227,14 @@ local function plug_gitsigns()
         p = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous hunk" },
         b = { "<cmd>lua require('gitsigns').blame_line()<cr>", "Blame line" },
       }, }})
+      -- add other key maps
+      wk.register({ h = {
+        name="Git Hunk",
+        r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset hunk" },
+        p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview hunk" },
+        s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage hunk" },
+        d = { "<cmd>lua require('gitsigns').diffthis()<cr>", "Diff this" },
+      }}, {prefix="<leader>", mode="n"})
     end,
   }
 end
