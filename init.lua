@@ -717,6 +717,10 @@ require'lspconfig'.gopls.setup{}
 -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
 -- npm install -g vscode-langservers-extracted
 require'lspconfig'.jsonls.setup {}
+-- For Dockerfiles
+-- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dockerls
+-- npm install -g dockerfile-language-server-nodejs
+require'lspconfig'.dockerls.setup{}
 -- For Lua
 -- Install server using `brew install lua-language-server`
 -- See setup config here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
