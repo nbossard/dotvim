@@ -89,6 +89,20 @@ local function plug_copilot()
 end
 --- }}}
 
+-- {{{ TabbyML plugin
+-- see : https://tabby.tabbyml.com/docs/extensions/installation/vim/
+local function plug_tabby()
+  return {
+  "TabbyML/vim-tabby",
+  config = function()
+    vim.g.tabby_keybinding_accept = '<Tab>'
+    -- can be found here : http://localhost:8080/
+    vim.g.tabby_token= 'auth_9a8a149b6a634cb79a31268110d48eac'
+  end,
+  }
+end
+--- }}}
+
 -- {{{ which-key : plugin to display key mapping
 -- see : https://github.com/folke/which-key.nvim
 local function plug_which_key()
@@ -671,7 +685,8 @@ end
 -- }}}
 
 require("lazy").setup({
-  plug_copilot(),
+  -- plug_copilot(), -- stopped paying
+  plug_tabby(),
   plug_which_key(),
   "folke/neodev.nvim", -- luas development
   'nvim-lspconfig',
