@@ -848,6 +848,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- for use in changelog by example
 -- imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>
 vim.keymap.set('i', '<C-d>', vim.fn.strftime('%Y-%m-%d'))
+-- local wk = require("which-key")
+-- wk.register({ a = { "<cmd>ALEFix<cr>", "ALE Fix" } }, { prefix = "<leader>" })
 
 -- Keep at least 5 lines visible at top and bottom of screen
 vim.opt.scrolloff=5
