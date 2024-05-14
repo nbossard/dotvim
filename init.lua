@@ -732,6 +732,16 @@ require("lazy").setup({
 -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
 require'lspconfig'.tsserver.setup{
   capabilities = require('coq').lsp_ensure_capabilities(),
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue"
+  }
 }
 vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
 
