@@ -870,6 +870,11 @@ vim.cmd("nnoremap <C-k> :m .-2<CR>==")
 -- Changing search method to use smartcase
 vim.cmd("set ignorecase smartcase")
 
+-- Allow search of currently selected text using //
+vim.api.nvim_set_keymap('v', '//', 'y/<C-R>"<CR>', {})
+-- Allow clearing of searched text using ///
+vim.api.nvim_set_keymap('n', '///', ':nohl<CR>', {})
+
 -- call prettier from neovim without any plugin
 -- suppose prettier is installed globally
 -- :!prettier --write %
