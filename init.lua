@@ -127,6 +127,9 @@ end
 -- Usage : :ALEFix to make Prettier fix the file
 --   see g:ale_fixers below
 local function plug_ale()
+  -- define a new alias ":Prettier" as an alias to ALEFix
+  vim.cmd('command! -nargs=0 Prettier echo "Use :ALEFix"')
+
   return {
     "dense-analysis/ale",
     ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua",
