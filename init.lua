@@ -156,6 +156,7 @@ end
 
 -- {{{ Treesitter : syntax highlighter
 -- see : https://github.com/nvim-treesitter/nvim-treesitter
+-- Usage : TSInstallInfo
 -- Usage : TSInstall <language>
 -- :TSUpdate all
 local function plug_treesitter()
