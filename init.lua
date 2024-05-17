@@ -596,8 +596,6 @@ local function plug_trouble()
 end
 -- }}}
 
--- {{{ ==== Languages syntax support plugins ======
-
 -- {{{ Plugin to support syntax for taskwarrior config files
 -- Plug 'nbossard/vim-taskwarrior-conf', {'for': 'taskrc'}
 local function plug_vim_taskwarrior_conf()
@@ -821,7 +819,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local wk = require("which-key")
     -- g prefix
-    wk.register({ g = { d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP Goto Definition" }, mode = { "n" }}})
+    wk.register({ g = { d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP Goto Definition" }, mode = { "n" } }})
     wk.register({ g = { D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "LSP Goto Declaration" }, mode = { "n" } }})
     wk.register({ g = { i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP Goto Implementation" }, mode = { "n" } }})
     wk.register({ g = { r = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP Goto References" }, mode = { "n" } }})
