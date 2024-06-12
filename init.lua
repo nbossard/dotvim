@@ -589,6 +589,12 @@ local function plug_coq()
         s = { "<cmd>COQsnips edit<CR>", "Coq Snips Edit" },
         c = { "<cmd>COQsnips compile<CR>", "Coq Snips Compile" },
       }}, {prefix = "<leader>"})
+
+
+      -- define alias "COQ" for "COQnow"
+      -- to prevent calling COQdeps when typing COQ
+      vim.cmd('command! -nargs=0 COQ COQnow')
+
     end,
   }
 end
