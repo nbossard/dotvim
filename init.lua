@@ -6,7 +6,8 @@
 --
 -- then test config with (neovim only):
 -- :checkhealth
---
+-- then :checkhealth python3
+
 vim.g.python_host_prog='/usr/local/bin/python'
 vim.g.python3_host_prog='/opt/homebrew/bin/python3'
 
@@ -130,7 +131,8 @@ end
 --- }}}
 
 -- {{{ ALE : Asynchronous Lint Engine
--- see : https://github.com/dense-analysis/aleo
+-- Linter.
+-- see : https://github.com/dense-analysis/ale
 -- Usage : :ALEFix to make Prettier fix the file
 --   see g:ale_fixers below
 local function plug_ale()
