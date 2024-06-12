@@ -57,40 +57,40 @@ vim.opt.rtp:prepend(lazypath)
 -- event = "CmdlineEnter" : lazy load when a command is run
 -- ft = "typescript",
 
--- {{{ copilot-lua plugin for github copilot
--- replacing official'github/copilot.vim',
--- see : https://github.com/zbirenbaum/copilot.lua
-local function plug_copilot()
-  return {
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  event = "InsertEnter",
-  filetypes = {
-    yaml = false,
-    markdown = true,
-    help = false,
-    gitcommit = false,
-    gitrebase = false,
-    sh = true
-  },
-  config = function()
-    require("copilot").setup({
-      suggestion = {
-        auto_trigger = true,
-        keymap = {
-          -- keymap to accept the suggestion
-          accept = "<M-a>",
-          -- keymap to accept the word
-          accept_word = "<M-w>",
-          -- keymap to accept the line
-          accept_line = "<M-l>",
-        }
-      }
-    })
-  end,
-  }
-end
---- }}}
+-- -- {{{ copilot-lua plugin for github copilot
+-- -- replacing official'github/copilot.vim',
+-- -- see : https://github.com/zbirenbaum/copilot.lua
+-- local function plug_copilot()
+--   return {
+--   "zbirenbaum/copilot.lua",
+--   cmd = "Copilot",
+--   event = "InsertEnter",
+--   filetypes = {
+--     yaml = false,
+--     markdown = true,
+--     help = false,
+--     gitcommit = false,
+--     gitrebase = false,
+--     sh = true
+--   },
+--   config = function()
+--     require("copilot").setup({
+--       suggestion = {
+--         auto_trigger = true,
+--         keymap = {
+--           -- keymap to accept the suggestion
+--           accept = "<M-a>",
+--           -- keymap to accept the word
+--           accept_word = "<M-w>",
+--           -- keymap to accept the line
+--           accept_line = "<M-l>",
+--         }
+--       }
+--     })
+--   end,
+--   }
+-- end
+-- --- }}}
 
 -- {{{ TabbyML plugin
 -- see : https://tabby.tabbyml.com/docs/extensions/installation/vim/
