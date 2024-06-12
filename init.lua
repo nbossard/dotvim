@@ -600,6 +600,28 @@ local function plug_coq()
 end
 -- }}}
 
+
+-- {{{ Plugin for displaying method signature using LSP
+-- see https://github.com/ray-x/lsp_signature.nvim
+local function plug_lsp_signature()
+  return {
+      "ray-x/lsp_signature.nvim",
+      opts = {
+        debug=true,
+        transparency=20
+      },
+      config = function(_, opts)
+        require'lsp_signature'.setup(opts)
+
+        -- adding keymaps
+        vim.keymap.set({ 'n' }, '<C-k>', function()       require('lsp_signature').toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
+
+        vim.keymap.set({ 'n' }, '<Leader>k', function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, desc = 'toggle signature' })
+      end
+    }
+  end
+-- }}}
+
 -- {{{ Plugin for making REST request using Curl
 -- https://github.com/diepm/vim-rest-console
 -- usage :
@@ -801,6 +823,7 @@ require("lazy").setup({
   plug_gx(),
   plug_chatGPT(),
   plug_coq(),
+  plug_lsp_signature(),
   plug_rest(),
   plug_rainbow_csv(),
   plug_rgflow(),
