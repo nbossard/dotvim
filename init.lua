@@ -134,8 +134,15 @@ local function plug_ale()
 
   return {
     "dense-analysis/ale",
-    ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua",
+    ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua,go",
     config = function()
+      vim.g.ale_linters = {
+        -- golangci-lint calls numerous linters in the background
+        -- requires a project local config file
+        go=   {'golint', 'go vet', 'golangci-lint', 'staticcheck'},
+        yaml= {'yamllint', 'spectral'}
+      }
+
       vim.g.ale_fixers = {
         typescript = {'prettier'},
         javascript = {'prettier'},
