@@ -974,3 +974,12 @@ vim.api.nvim_set_keymap('n', '///', ':nohl<CR>', {})
 -- set search as ignorecase
 vim.cmd("set ignorecase")
 
+-- define alias to launch vista and COQ in one single command
+-- vim.cmd('command! -nargs=0 Dev :Vista<CR> | COQnow<CR>')
+function DevMode()
+  -- vim.cmd('Minimap')
+  vim.cmd('Trouble')
+  vim.cmd('Vista')
+  vim.cmd('COQnow')
+end
+vim.cmd('command! -nargs=0 Dev lua DevMode()')
