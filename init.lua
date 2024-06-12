@@ -970,3 +970,7 @@ vim.api.nvim_set_keymap('n', '///', ':nohl<CR>', {})
 -- call prettier from neovim without any plugin
 -- suppose prettier is installed globally
 -- :!prettier --write %
+--
+-- set search as ignorecase
+vim.cmd("set ignorecase")
+
