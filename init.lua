@@ -549,8 +549,20 @@ end
 -- usage :COQdeps
 -- then :COQnow
 --
+-- shortkey to force list display : ctr+space
+--
+-- METHODS SIGNATURE:
+-- does not seem to work : https://github.com/ms-jpq/coq_nvim/issues/494
+-- fallback on plugin : https://github.com/ray-x/lsp_signature.nvim
+--
+-- SNIPPPETS:
 -- COQ will also propose snippets stored in folder nbo_snippets
 -- To use snippets :COQsnips edit then COQsnips compile
+--
+-- ORIGIN of suggestions : 
+-- BUF  ==> bufers
+-- LSP  ==> Language Server Protocol
+-- SNIP ==> Snippets
 local function plug_coq()
   return {
     'ms-jpq/coq_nvim',
