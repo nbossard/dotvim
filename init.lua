@@ -95,12 +95,17 @@ end
 -- see : https://tabby.tabbyml.com/docs/extensions/installation/vim/
 local function plug_tabby()
   return {
-  "TabbyML/vim-tabby",
-  config = function()
-    vim.g.tabby_keybinding_accept = '<Tab>'
-    -- can be found here : http://localhost:8080/
-    vim.g.tabby_token= 'auth_9a8a149b6a634cb79a31268110d48eac'
-  end,
+    "TabbyML/vim-tabby",
+    config = function()
+      -- manual or auto mode
+      vim.g.tabby_trigger_mode = 'manual' --default is 'auto'
+      -- can be found here : http://localhost:8080/
+      -- or here :
+      vim.g.tabby_token= 'auth_9a8a149b6a634cb79a31268110d48eac'
+      -- keymaps
+      vim.g.tabby_keybinding_accept = '<M-l>' -- default is <tab>
+      vim.g.tabby_keybinding_trigger_or_dismiss = '<M-m>' -- default is <C-\>
+    end,
   }
 end
 --- }}}
