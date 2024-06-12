@@ -395,6 +395,8 @@ end
 -- }}}
 
 -- {{{ minimap : display a minimap on the right
+-- see : https://github.com/wfxr/minimap.vim
+-- started in dev mode
 local function plug_minimap()
   return {
     "wfxr/minimap.vim",
@@ -402,7 +404,7 @@ local function plug_minimap()
     config = function()
       vim.g.minimap_auto_start = 1
       vim.g.minimap_auto_start_win_enter = 1
-      vim.g.minimap_width = 10
+      vim.g.minimap_width = 8 --default 10
       vim.g.minimap_highlight_range = 1
       vim.g.minimap_highlight_search = 1
       vim.g.minimap_highlight_line = 1
