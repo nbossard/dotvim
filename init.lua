@@ -130,6 +130,111 @@ local function plug_which_key()
 end
 --- }}}
 
+-- {{{ LSP config
+-- https://github.com/neovim/nvim-lspconfig
+-- See : LspInfo
+local function plug_lspconfig()
+  return {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = true },
+    },
+    config = function()
+      vim.lsp.set_log_level("debug")
+
+      -- For JavaScript and TypeScript
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+      -- npm install -g typescript typescript-language-server
+      -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
+      require'lspconfig'.tsserver.setup{
+
+        -- to support COQ snippets
+        capabilities = require('coq').lsp_ensure_capabilities(),
+
+        init_options = {
+          preferences = {
+            disableSuggestions = true,
+          },
+        },
+        filetypes = {
+          "javascript",
+          "typescript",
+          "vue"
+        }
+      }
+      vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
+
+      -- For Angular
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
+      -- npm install -g @angular/language-server
+      require'lspconfig'.angularls.setup{}
+
+      -- For bash
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
+      -- npm install -g bash-language-server
+      require'lspconfig'.bashls.setup{}
+
+      -- For Golang
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
+      -- and here : https://github.com/golang/tools/tree/master/gopls
+      -- install :
+      -- go install golang.org/x/tools/gopls@latest
+      require'lspconfig'.gopls.setup({
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+
+          },
+        },
+      })
+      -- For JSON
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
+      -- npm install -g vscode-langservers-extracted
+      require'lspconfig'.jsonls.setup {}
+
+      -- For Lua
+      -- Install server using `brew install lua-language-server`
+      -- See setup config here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+      require'lspconfig'.lua_ls.setup{
+        on_init = function(client)
+          local path = client.workspace_folders[1].name
+          if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+            client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+              Lua = {
+                runtime = {
+                  -- Tell the language server which version of Lua you're using
+                  -- (most likely LuaJIT in the case of Neovim)
+                  version = 'LuaJIT'
+                },
+                -- Make the server aware of Neovim runtime files
+                workspace = {
+                  checkThirdParty = false,
+                  library = {
+                    vim.env.VIMRUNTIME
+                    -- "${3rd}/luv/library"
+                    -- "${3rd}/busted/library",
+                  }
+                  -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                  -- library = vim.api.nvim_get_runtime_file("", true)
+                }
+              }
+            })
+
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+          end
+    return true
+  end
+}
+
+    end
+  }
+end
+--- }}}
+
 -- {{{ ALE : Asynchronous Lint Engine
 -- Linter.
 -- see : https://github.com/dense-analysis/ale
