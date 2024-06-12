@@ -638,17 +638,29 @@ end
 
 -- {{{ folke/trouble.nvim : display errors, including lsp, correctly
 -- https://github.com/folke/trouble.nvim
+-- usage :Trouble
 local function plug_trouble()
   return {
     'folke/trouble.nvim',
-    event = "VeryLazy",
+    -- 2024-06-06 : version 3.1 and 3.2 seem to be buggy
+    -- Trouble command is not defined
+    version="v2.9.1",
+    cmd="Trouble",
     dependencies= {
       'nvim-tree/nvim-web-devicons',
     },
-    opts ={
-        auto_open = true,
+    opts = {
+        mode = "loclist",
+        auto_open = false,
         auto_close = true,
-      }
+        height = 6, --default 10
+    },
+
+    config = function()
+      -- key mapping to jump to next items skipping groups
+      -- local wk = require("which-key")
+      -- wk.register({ t = { ":lua require('trouble').next({skip_groups = true, jump = true});", "Trouble next" } }, { prefix = "g" })
+    end
   }
 end
 -- }}}
