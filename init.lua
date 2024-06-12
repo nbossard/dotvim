@@ -240,7 +240,11 @@ vim.opt.termguicolors = true
 -- rem : do not lazy load nvim-tree
 local function open_nvim_tree()
   -- open the tree
-  require("nvim-tree.api").tree.open()
+  if not vim.g.started_by_firenvim then
+    require("nvim-tree.api").tree.open()
+    -- do not leave focus on tree
+    vim.cmd(":wincmd w")
+  end
 end
 -- config function to setup nvim-tree
 local function plug_nvim_tree()
