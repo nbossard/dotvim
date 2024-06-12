@@ -12,6 +12,8 @@ vim.g.python3_host_prog='/opt/homebrew/bin/python3'
 
 -- define the <leader> key
 vim.g.mapleader=","
+-- define the <leader> key
+vim.g.maplocalleader=","
 
 -- display line numbers
 vim.wo.number=true
