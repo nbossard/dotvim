@@ -726,6 +726,28 @@ local function plug_coloring_gomod()
 end
 -- }}}
 
+-- {{{ scrollbar : display a scrollbar on the right for info (not for clicking)
+-- See : https://github.com/Xuyuanp/scrollbar.nvim
+-- Rem : Does not work on vim, only for neovim
+-- Same usage as minimap but seems much more stable
+local function plug_scrollbar()
+  return {
+    'Xuyuanp/scrollbar.nvim',
+    event = "BufEnter",
+    config = function()
+      vim.cmd([[
+      augroup ScrollbarInit
+        autocmd!
+        autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+        autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+        autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+      augroup end
+      ]])
+    end
+  }
+end
+-- }}}
+
 -- }}}
 
 -- {{{ ===== Various colorscheme s ====
@@ -783,6 +805,7 @@ require("lazy").setup({
   plug_rainbow_csv(),
   plug_rgflow(),
   plug_minimap(),
+  plug_scrollbar(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
