@@ -235,6 +235,25 @@ local function plug_lspconfig()
 end
 --- }}}
 
+-- {{{ marks
+-- display marks in gutter
+-- see : https://github.com/chentoast/marks.nvim
+-- reminder :
+-- < == special mark, beginning of last visual selection
+-- > == special mark, end of last visual selection
+local function plug_mark()
+  return {
+    'chentoast/marks.nvim', -- display marks
+    config = function()
+      require("marks").setup({
+        -- which builtin marks to show. default {}
+        builtin_marks = { ".", "<", ">", "^" },
+      })
+    end
+  }
+end
+-- }}}
+
 -- {{{ ALE : Asynchronous Lint Engine
 -- Linter.
 -- see : https://github.com/dense-analysis/ale
@@ -942,6 +961,7 @@ require("lazy").setup({
   'nvim-lspconfig',
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_ale(),
+  plug_mark(),
   plug_treesitter(),
   plug_trouble(),
   plug_nvim_tree(),
