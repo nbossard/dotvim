@@ -226,9 +226,9 @@ local function plug_lspconfig()
 
             client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
           end
-    return true
-  end
-}
+          return true
+        end
+      }
 
     end
   }
