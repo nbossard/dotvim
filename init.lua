@@ -660,6 +660,7 @@ local function plug_chatGPT()
     -- as it can be used before throught key mapping
     event = "VeryLazy",
     config = function()
+      -- see config possible here : https://github.com/jackMort/ChatGPT.nvim/blob/f1453f588eb47e49e57fa34ac1776b795d71e2f1/lua/chatgpt/config.lua#L10-L182
       require("chatgpt").setup({
         actions_paths = {"~/dotvim/actions_chat_gpt_nbo.json"},
         -- key for real ChatGPT
@@ -757,9 +758,27 @@ local function plug_coq()
 end
 -- }}}
 
+-- {{{ Plugin for adding 3rd party integrations with COQ
+local function plug_coq_3p()
+  return {
+    'ms-jpq/coq.thirdparty',
+    branch = '3p',
+    -- https://github.com/ms-jpq/coq.thirdparty
+    config = function()
+      require("coq_3p") {
+        -- 2024-06-04 Sadly does not work cause numerous calls leads to type change and type error
+        -- { src = "tabby", short_name = "TAB" },
+        -- See https://github.com/ms-jpq/coq.thirdparty/tree/3p?tab=readme-ov-file#comment-banner
+        { src = "figlet", short_name = "BIG", trigger = "!big"}
+      }
+    end
+  }
+end
+--  }}}
 
 -- {{{ Plugin for displaying method signature using LSP
 -- see https://github.com/ray-x/lsp_signature.nvim
+-- WARNING <C-k> and <leader>k will work only if cursor is in parenthesis not on function name
 local function plug_lsp_signature()
   return {
       "ray-x/lsp_signature.nvim",
