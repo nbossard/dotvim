@@ -9,6 +9,16 @@
       }
     }
   },
+  "document_function": {
+    "type": "chat",
+    "opts": {
+      "template": "Add comments line before this function explaining its behaviour. Use JSDOC format. Then paste existing code and preserve the indentation, do not mix spaces and tabulations.",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-3.5-turbo"
+      }
+    }
+  },
   "complete_code": {
     "type": "chat",
     "opts": {
