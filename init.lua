@@ -1128,9 +1128,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     wk.register({ g = { i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP Goto Implementation" }, mode = { "n" } }})
     wk.register({ g = { r = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP Goto References" }, mode = { "n" } }})
     -- leader prefix
-    wk.register({ l = { r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" } } } , {prefix = "<leader>"})
-    wk.register({ l = { f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "LSP Format" } } }, { prefix = "<leader>" })
-    wk.register({ l = { a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP Code Action" } } }, { prefix = "<leader>" })
+    wk.register({ l = { name="LSP",
+      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" },
+      f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "LSP Format" },
+      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP Code Action" }
+    } }, { prefix = "<leader>" })
 
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
