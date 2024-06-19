@@ -992,7 +992,7 @@ require("lazy").setup({
   plug_tabby(),
   plug_which_key(),
   "folke/neodev.nvim", -- luas development
-  'nvim-lspconfig',
+  plug_lspconfig(),
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_ale(),
   plug_mark(),
