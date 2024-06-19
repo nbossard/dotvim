@@ -380,13 +380,28 @@ local function plug_nvim_tree()
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("nvim-tree").setup {}
+      require("nvim-tree").setup {
+        -- Changes the tree root directory on DirChanged and refreshes the three.
+        sync_root_with_cwd = true,
+        -- Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree
+        respect_buf_cwd = true,
+        -- update the focused file on BufEnter, up-collapses the folders recursively until if finds the file.
+        update_focused_file = {
+          enable = true,
+          -- Update the root directory of the tree if the file is not under current root directory. 
+          update_root = {
+            enable = true,
+          }
+        },
+      }
       -- Define the alias for previous plugin Nerdtree
       vim.cmd('command! -nargs=0 NERDTree echo "Use :NvimTreeOpen"')
+
       -- key mapping to open current file in nvim-tree
       -- document this key mapping for which-key
       local wk = require("which-key")
       wk.register({ g = { n =  { F = { "<cmd>NvimTreeFindFile<cr>", "Locate current file in nvim-tree" }, }, }, })
+
       -- launch at start
       vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
     end,
