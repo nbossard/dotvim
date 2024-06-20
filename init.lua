@@ -1219,6 +1219,10 @@ function DevMode()
 end
 vim.cmd('command! -nargs=0 Dev lua DevMode()')
 
+-- Adding command to insert current date
+-- for use in changelog by example
+vim.cmd('imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>')
+
 -- changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
 -- not only deleted history
