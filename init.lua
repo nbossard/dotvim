@@ -342,6 +342,26 @@ local function plug_treesitter()
 end
 --}}}
 
+-- {{{ treesj: plugin to split or join lines of code with intelligence
+local function plug_treesj()
+return {
+  'Wansmer/treesj',
+  keys = { '<leader>m', '<leader>j', '<leader>s' },
+  dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
+  config = function()
+    require('treesj').setup({
+      use_default_keymaps = false,
+    })
+      local wk = require("which-key")
+      wk.register({
+        s = { "<cmd>TSJSplit<cr>", "Treejs Split" },
+        j = { "<cmd>TSJJoin<cr>", "Treejs Join" }
+      }, {prefix = "<leader>"})
+  end
+}
+end
+-- }}}
+
 -- {{{ nvim-tree : file tree manager
 --
 -- Installing nvim-tree to replace nerdtree
@@ -997,6 +1017,7 @@ require("lazy").setup({
   plug_ale(),
   plug_mark(),
   plug_treesitter(),
+  plug_treesj(),
   plug_trouble(),
   plug_nvim_tree(),
   plug_lualine(),
