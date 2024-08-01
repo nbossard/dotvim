@@ -174,6 +174,10 @@ local function plug_lspconfig()
       -- npm install -g bash-language-server
       require'lspconfig'.bashls.setup{}
 
+      -- For Java
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
+      require'lspconfig'.java_language_server.setup{}
+
       -- For Golang
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
       -- and here : https://github.com/golang/tools/tree/master/gopls
