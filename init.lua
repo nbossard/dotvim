@@ -343,6 +343,7 @@ end
 --}}}
 
 -- {{{ treesj: plugin to split or join lines of code with intelligence
+-- see : https://github.com/Wansmer/treesjs
 local function plug_treesj()
 return {
   'Wansmer/treesj',
