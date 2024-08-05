@@ -1082,16 +1082,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local wk = require("which-key")
     -- g prefix
-    wk.register({ g = { d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP Goto Definition" }, mode = { "n" } }})
-    wk.register({ g = { D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "LSP Goto Declaration" }, mode = { "n" } }})
-    wk.register({ g = { i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP Goto Implementation" }, mode = { "n" } }})
-    wk.register({ g = { r = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP Goto References" }, mode = { "n" } }})
+    wk.add({ { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "LSP Goto Definition" }, })
+    wk.add({ { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "LSP Goto Declaration" }, })
+    wk.add({ { "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "LSP Goto Implementation" }, })
+    wk.add({ { "gr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "LSP Goto References" }, })
     -- leader prefix
-    wk.register({ l = { name="LSP",
-      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP Rename" }, mode = { "n" },
-      f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "LSP Format" },
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP Code Action" }
-    } }, { prefix = "<leader>" })
+    wk.add({
+      { "<leader>l", group = "LSP" },
+      { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "LSP Code Action" },
+      { "<leader>lf", "<cmd>lua vim.lsp.buf.format { async = true }<cr>", desc = "LSP Format" },
+      { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "LSP Rename" },
+    })
 
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
