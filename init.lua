@@ -1140,10 +1140,6 @@ vim.api.nvim_set_keymap('v', '//', 'y/<C-R>"<CR>', {})
 -- Allow clearing of searched text using ///
 vim.api.nvim_set_keymap('n', '///', ':nohl<CR>', {})
 
--- call prettier from neovim without any plugin
--- suppose prettier is installed globally
--- :!prettier --write %
---
 -- set search as ignorecase
 vim.cmd("set ignorecase")
 
