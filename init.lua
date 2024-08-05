@@ -1025,7 +1025,7 @@ end
 -- }}}
 
 require("lazy").setup({
-  -- plug_copilot(), -- stopped paying
+  -- plug_copilot(), -- stopplspconfig.gopls.setuped paying
   plug_tabby(),
   plug_which_key(),
   "folke/neodev.nvim", -- luas development
