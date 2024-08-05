@@ -425,7 +425,7 @@ local function plug_nvim_tree()
       -- key mapping to open current file in nvim-tree
       -- document this key mapping for which-key
       local wk = require("which-key")
-      wk.register({ g = { n =  { F = { "<cmd>NvimTreeFindFile<cr>", "Locate current file in nvim-tree" }, }, }, })
+      wk.add({{ "gnF", "<cmd>NvimTreeFindFile<cr>", desc = "Locate current file in nvim-tree" },})
 
       -- launch at start
       vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
@@ -462,20 +462,20 @@ local function plug_gitsigns()
       }
       local wk = require("which-key")
       -- add key map for go to next/previous hunk
-      wk.register({g = {h = {
-        name="Git Hunk",
-        n = { "<cmd>lua require('gitsigns').next_hunk()<cr>", "Next hunk" },
-        p = { "<cmd>lua require('gitsigns').prev_hunk()<cr>", "Previous hunk" },
-        b = { "<cmd>lua require('gitsigns').blame_line()<cr>", "Blame line" },
-      }, }})
+      wk.add({
+        { "gh", group = "Git Hunk" },
+        { "ghb", "<cmd>lua require('gitsigns').blame_line()<cr>", desc = "Blame line" },
+        { "ghn", "<cmd>lua require('gitsigns').next_hunk()<cr>", desc = "Next hunk" },
+        { "ghp", "<cmd>lua require('gitsigns').prev_hunk()<cr>", desc = "Previous hunk" },
+      })
       -- add other key maps
-      wk.register({ h = {
-        name="Git Hunk",
-        r = { "<cmd>lua require('gitsigns').reset_hunk()<cr>", "Reset hunk" },
-        p = { "<cmd>lua require('gitsigns').preview_hunk()<cr>", "Preview hunk" },
-        s = { "<cmd>lua require('gitsigns').stage_hunk()<cr>", "Stage hunk" },
-        d = { "<cmd>lua require('gitsigns').diffthis()<cr>", "Diff this" },
-      }}, {prefix="<leader>", mode="n"})
+      wk.add({
+        { "<leader>h", group = "Git Hunk" },
+        { "<leader>hd", "<cmd>lua require('gitsigns').diffthis()<cr>", desc = "Diff this" },
+        { "<leader>hp", "<cmd>lua require('gitsigns').preview_hunk()<cr>", desc = "Preview hunk" },
+        { "<leader>hr", "<cmd>lua require('gitsigns').reset_hunk()<cr>", desc = "Reset hunk" },
+        { "<leader>hs", "<cmd>lua require('gitsigns').stage_hunk()<cr>", desc = "Stage hunk" },
+      })
     end,
   }
 end
@@ -515,17 +515,13 @@ local function plug_telescope()
       -- <leader>be to open buffers
       -- OLD STYLE replaced by which key register : vim.keymap.set('n','<leader>be', ':Telescope buffers<CR>')
       local wk = require("which-key")
-      wk.register({
-        b = {
-          name = "buffer", -- optional group name
-          e = { "<cmd>Telescope buffers<cr>", "Show buffers list" } -- create a binding with label
-        },
-        f = {
-          name = "file", -- optional group name
-          f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-          r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File"} -- additional options for creating the keymap
-        }
-      }, {prefix = "<leader>"})
+      wk.add({
+        { "<leader>b", group = "buffer" },
+        { "<leader>be", "<cmd>Telescope buffers<cr>", desc = "Show buffers list" },
+        { "<leader>f", group = "file" },
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+        { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
+      })
 
     end
   }
@@ -564,13 +560,14 @@ local function plug_rgflow()
             -- },
         local wk = require("which-key")
 
-        wk.register({ r = { name = "rgflow",
-          g = {":lua require('rgflow').open_blank()<cr>", "open UI - search pattern = blank"},
-          G = {":lua require('rgflow').open_cword()<cr>", "open UI - search pattern = <cword>"},
-          p = {":lua require('rgflow').open_paste()<cr>", "open UI - search pattern = First line of unnamed register as the search pattern"},
-          a = {":lua require('rgflow').open_again()<cr>", "open UI - search pattern = Previous search pattern"},
-          c = {":lua require('rgflow').print_cmd()<cr>", "Print last run for paste shell"},
-        }}, {prefix = "<leader>", mode = "n"})
+        wk.add({
+          { "<leader>r", group = "rgflow" },
+          { "<leader>rG", ":lua require('rgflow').open_cword()<cr>", desc = "open UI - search pattern = <cword>" },
+          { "<leader>ra", ":lua require('rgflow').open_again()<cr>", desc = "open UI - search pattern = Previous search pattern" },
+          { "<leader>rc", ":lua require('rgflow').print_cmd()<cr>", desc = "Print last run for paste shell" },
+          { "<leader>rg", ":lua require('rgflow').open_blank()<cr>", desc = "open UI - search pattern = blank" },
+          { "<leader>rp", ":lua require('rgflow').open_paste()<cr>", desc = "open UI - search pattern = First line of unnamed register as the search pattern" },
+        })
     end,
   }
 end
@@ -691,29 +688,43 @@ local function plug_chatGPT()
         -- key for real ChatGPT
         api_key_cmd = "pass show openai.com_apikey",
         -- make it use lm studio
-        api_host_cmd = "echo http://localhost:1234",
+        -- api_host_cmd = "echo http://localhost:1234",
+        openai_params = {
+          -- originally was changed in lua/chatgpt/flows/code_completions/init.lua#55
+          -- see model list :
+          -- https://platform.openai.com/docs/models/gpt-3-5-turbo
+          -- model = "gpt-3.5-turbo-instruct",
+          model = "gpt-3.5-turbo",
+        },
       })
 
 
       -- document this key mapping for which-key
       local wk = require("which-key")
       -- do not use "c" as it is already used by COQ
-      wk.register({ g = { name = "ChatGPT",
-        c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-        e = { "<cmd>ChatGPTEditWithInstruction<CR>", "ChatGPT Edit with instruction", mode = { "n", "v" } },
-        g = { "<cmd>ChatGPTRun grammar_correction<CR>", "ChatGPT Grammar Correction", mode = { "n", "v" } },
-        t = { "<cmd>ChatGPTRun translate<CR>", "ChatGPT Translate", mode = { "n", "v" } },
-        k = { "<cmd>ChatGPTRun keywords<CR>", "ChatGPT Keywords", mode = { "n", "v" } },
-        d = { "<cmd>ChatGPTRun docstring<CR>", "ChatGPT Docstring", mode = { "n", "v" } },
-        a = { "<cmd>ChatGPTRun add_tests<CR>", "ChatGPT Add Tests", mode = { "n", "v" } },
-        o = { "<cmd>ChatGPTRun optimize_code<CR>", "ChatGPT Optimize Code", mode = { "n", "v" } },
-        s = { "<cmd>ChatGPTRun summarize<CR>", "ChatGPT Summarize", mode = { "n", "v" } },
-        f = { "<cmd>ChatGPTRun fix_bugs<CR>", "ChatGPT Fix Bugs", mode = { "n", "v" } },
-        x = { "<cmd>ChatGPTRun explain_code<CR>", "ChatGPT Explain Code", mode = { "n", "v" } },
-        l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "ChatGPT Code Readability Analysis", mode = { "n", "v" } },
-      }}, {prefix = "<leader>"})
+      wk.add({
+        { "<leader>g", group = "ChatGPT" },
+        { "<leader>gc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+        {
+          mode = { "n", "v" },
+          { "<leader>ga", "<cmd>ChatGPTRun add_tests<CR>", desc = "ChatGPT Add Tests" },
+          { "<leader>gd", "<cmd>ChatGPTRun docstring<CR>", desc = "ChatGPT Docstring" },
+          { "<leader>ge", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "ChatGPT Edit with instruction" },
+          { "<leader>gf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "ChatGPT Fix Bugs" },
+          { "<leader>gg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "ChatGPT Grammar Correction" },
+          { "<leader>gk", "<cmd>ChatGPTRun keywords<CR>", desc = "ChatGPT Keywords" },
+          { "<leader>gl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "ChatGPT Code Readability Analysis" },
+          { "<leader>go", "<cmd>ChatGPTRun optimize_code<CR>", desc = "ChatGPT Optimize Code" },
+          { "<leader>gs", "<cmd>ChatGPTRun summarize<CR>", desc = "ChatGPT Summarize" },
+          { "<leader>gt", "<cmd>ChatGPTRun translate<CR>", desc = "ChatGPT Translate" },
+          { "<leader>gx", "<cmd>ChatGPTRun explain_code<CR>", desc = "ChatGPT Explain Code" },
+        },
+      }
+      )
       -- Adding shortcut for completion in insert mode
-      vim.keymap.set('i', '<C-Space>', '<cmd>ChatGPTComplete<CR>')
+      -- NOTE: conflicts with COQ
+      -- NOTE2 : disabled cause using tabby
+      -- vim.keymap.set('i', '<C-Space>', '<cmd>ChatGPTComplete<CR>')
 
     end,
     dependencies = {
@@ -766,12 +777,13 @@ local function plug_coq()
 
       -- document this key mapping for which-key
       local wk = require("which-key")
-      wk.register({ c = { name = "COQ",
-        d = { "<cmd>COQdeps<CR>", "Coq Dependencies" },
-        n = { "<cmd>COQnow<CR>", "Coq Now" },
-        s = { "<cmd>COQsnips edit<CR>", "Coq Snips Edit" },
-        c = { "<cmd>COQsnips compile<CR>", "Coq Snips Compile" },
-      }}, {prefix = "<leader>"})
+      wk.add({
+        { "<leader>c", group = "COQ" },
+        { "<leader>cc", "<cmd>COQsnips compile<CR>", desc = "Coq Snips Compile" },
+        { "<leader>cd", "<cmd>COQdeps<CR>", desc = "Coq Dependencies" },
+        { "<leader>cn", "<cmd>COQnow<CR>", desc = "Coq Now" },
+        { "<leader>cs", "<cmd>COQsnips edit<CR>", desc = "Coq Snips Edit" },
+      })
 
 
       -- define alias "COQ" for "COQnow"
