@@ -195,10 +195,20 @@ local function plug_lspconfig()
           },
         },
       })
+
       -- For JSON
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
       -- npm install -g vscode-langservers-extracted
       require'lspconfig'.jsonls.setup {}
+
+      -- For Python
+      -- several lsp :
+      --   pylyzer, written in rust : https://github.com/mtshiba/pylyzer.
+      --   testé mais sort pleins d'erreurs et consomme 300% de CPU en permanence
+      -- trying another one
+      -- https://github.com/python-lsp/python-lsp-server
+      -- installed via homebrew
+      require'lspconfig'.pylsp.setup{}
 
       -- For Lua
       -- Install server using `brew install lua-language-server`
