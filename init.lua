@@ -302,7 +302,7 @@ local function plug_ale()
       -- key mapping to Fix the file
       -- document this key mapping for which-key
       local wk = require("which-key")
-      wk.register({ a = { "<cmd>ALEFix<cr>", "ALE Fix" } }, { prefix = "<leader>" })
+      wk.add({ { "<leader>a", "<cmd>ALEFix<cr>", desc = "ALE Fix" }, })
     end,
   }
 end
@@ -517,9 +517,15 @@ local function plug_telescope()
     event = "VeryLazy",
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      -- adding alias used when using ripgrep
-      -- alias ":Rg" to ":Telescope live_grep"
-      vim.cmd('command! -nargs=0 Rg Telescope live_grep')
+      -- adding alias for telescope live_grep with optional parameter in command line
+      vim.api.nvim_create_user_command(
+      'Rg',
+      function(opts)
+        local search = opts.args or "" -- This ensures that opts.args is set to an empty string if no argument is provided
+        require('telescope.builtin').live_grep({ default_text = search })
+      end,
+      { nargs = '?' }  -- '?' allows zero or one argument
+      )
       vim.cmd('abbreviate rg Rg')
       -- adding alias used when using plugin bufexplore
       -- <leader>be to open buffers
@@ -576,6 +582,7 @@ local function plug_rgflow()
           { "<leader>ra", ":lua require('rgflow').open_again()<cr>", desc = "open UI - search pattern = Previous search pattern" },
           { "<leader>rc", ":lua require('rgflow').print_cmd()<cr>", desc = "Print last run for paste shell" },
           { "<leader>rg", ":lua require('rgflow').open_blank()<cr>", desc = "open UI - search pattern = blank" },
+          { "<leader>rr", ":lua require('rgflow').open_blank()<cr>", desc = "open UI - search pattern = blank" },
           { "<leader>rp", ":lua require('rgflow').open_paste()<cr>", desc = "open UI - search pattern = First line of unnamed register as the search pattern" },
         })
     end,
