@@ -326,7 +326,9 @@ local function plug_treesitter()
         -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
         auto_install = false,
         -- List of parsers to ignore installing (or "all")
-        ignore_install = {},
+        ignore_install = {
+          "make" -- NBO : 2024-08-16 not convinced with treesitter coloring of makefiles, less good than standard
+        },
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = true,
         highlight = {
