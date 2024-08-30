@@ -142,6 +142,11 @@ local function plug_lspconfig()
     config = function()
       vim.lsp.set_log_level("debug")
 
+      -- For HTML
+      -- See doc here
+      -- npm install -g vscode-langservers-extracted
+      require'lspconfig'.html.setup{}
+
       -- For JavaScript and TypeScript
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
       -- npm install -g typescript typescript-language-server
