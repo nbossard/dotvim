@@ -1192,6 +1192,17 @@ vim.cmd('command! -nargs=0 Dev lua DevMode()')
 -- for use in changelog by example
 vim.cmd('imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>')
 
+-- Customize the appearance of hidden characters
+-- reminder to use it type ":set list"
+vim.opt.listchars = {
+    space = '⋅',      -- Display spaces as ⋅ (you can use any character)
+    tab = '→ ',       -- Display tabs as → followed by a space
+    -- eol = '↴',        -- Display end of line as ↴
+    trail = '·',      -- Display trailing spaces as ·
+    extends = '⟩',    -- Display extends with ⟩
+    precedes = '⟨'    -- Display precedes with ⟨
+}
+
 -- changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
 -- not only deleted history
