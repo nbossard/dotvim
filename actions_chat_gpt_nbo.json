@@ -9,6 +9,17 @@
       }
     }
   },
+  "validate_elasticsearch_query": {
+    "type": "chat",
+    "opts": {
+      "title": "  Potential issues",
+      "template": "here is jsonc content :\n```{{filetype}}\n{{input}}\n```. Remove comments first to produce json and analyse this cleaned content as an elastic seach query and explain potential issues if any. Do not display to me content without comments as this is too long. Ignore issue with usage of  '_DASHBOARD_CONTEXT_' or '_TIME_RANGE_' in clauses, they will be later replaced by valid elastic clauses. Ignore issues about the fact there may have multiple elastic requests. Sort result by decreasing gravity. Answer in French but keep elastic keywords in english.",
+      "strategy": "display",
+      "params": {
+        "model": "gpt-4o"
+      }
+    }
+  },
   "document_function": {
     "type": "chat",
     "opts": {
