@@ -655,9 +655,19 @@ end
 local function plug_tcomment()
   return {
     'tomtom/tcomment_vim',
-    event = "VeryLazy"
+    event = "VeryLazy",
+    config = function()
+      -- Set the comment string for jsonc filetype
+      -- Seems not supported out-of-the-box
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "jsonc",
+        callback = function()
+          vim.bo.commentstring = "// %s"
+        end,
+      })
+    end
   }
-end
+  end
  -- }}}
 
 -- {{{ vim-test : plugin to run tests inside vim
