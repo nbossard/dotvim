@@ -147,6 +147,10 @@ local function plug_lspconfig()
       -- npm install -g vscode-langservers-extracted
       require'lspconfig'.html.setup{}
 
+      -- For CSS
+      -- npm install -g css-variables-language-server
+      require'lspconfig'.css_variables.setup{}
+
       -- For JavaScript and TypeScript
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
       -- npm install -g typescript typescript-language-server
