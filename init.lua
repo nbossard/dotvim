@@ -128,6 +128,15 @@ local function plug_which_key()
     }
   }
 end
+
+-- library mini icons
+-- is suggested to be installed by which-key in its checkhealth screen
+local function plug_mini_icons()
+  return {
+    'echasnovski/mini.nvim',
+    version = false
+  }
+end
 --- }}}
 
 -- {{{ LSP config
@@ -1066,6 +1075,7 @@ require("lazy").setup({
   -- plug_copilot(), -- stopplspconfig.gopls.setuped paying
   plug_tabby(),
   plug_which_key(),
+  plug_mini_icons(),
   "folke/neodev.nvim", -- luas development
   {
     "kylechui/nvim-surround",
