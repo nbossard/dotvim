@@ -184,6 +184,11 @@ local function plug_lspconfig()
       }
       vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
 
+      -- For Makefile
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#autotools_ls
+      -- install : pipx install autotools-language-server
+      require'lspconfig'.autotools_ls.setup{}
+
       -- For Angular
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
       -- npm install -g @angular/language-server
