@@ -166,7 +166,7 @@ local function plug_lspconfig()
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
       -- npm install -g typescript typescript-language-server
       -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
-      require'lspconfig'.tsserver.setup{
+      require'lspconfig'.ts_ls.setup{
 
         -- to support COQ snippets
         capabilities = require('coq').lsp_ensure_capabilities(),
