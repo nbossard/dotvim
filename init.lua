@@ -149,7 +149,9 @@ local function plug_lspconfig()
       inlay_hints = { enabled = true },
     },
     config = function()
-      vim.lsp.set_log_level("debug")
+
+      -- warning : debug level is very verbose
+      vim.lsp.set_log_level("WARN")
 
       -- For HTML
       -- See doc here
