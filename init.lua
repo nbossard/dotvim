@@ -346,7 +346,7 @@ local function plug_treesitter()
     config = function()
       require'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "lua", "go" , "java", "bash", "html", "css", "javascript"},
+        ensure_installed = { "lua", "go" , "java", "bash", "html", "css", "javascript", "markdown", "jsonc"},
         -- Automatically install missing parsers when entering buffer
         -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
         auto_install = false,
@@ -374,10 +374,28 @@ local function plug_treesitter()
         modules ={}
       }
 
-      -- treesitter breaks foldmethod=syntax (sic)
-      -- but works like this
-      vim.cmd("autocmd Filetype go set foldmethod=expr")
-      vim.cmd("autocmd Filetype go set foldexpr=nvim_treesitter#foldexpr()")
+      -- treesitter breaks foldmethod=syntax when enabled for a filetype
+      -- but works if setting it to expr
+      vim.cmd("autocmd Filetype go setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype go setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for lua
+      vim.cmd("autocmd Filetype lua setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype lua setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for javascript
+      vim.cmd("autocmd Filetype lua setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype lua setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for markdown
+      vim.cmd("autocmd Filetype markdown setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype markdown setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for javascript
+      vim.cmd("autocmd Filetype javascript setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype javascript setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for javascript
+      vim.cmd("autocmd Filetype jsonc setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype jsonc setlocal foldexpr=nvim_treesitter#foldexpr()")
+
+      vim.cmd("autocmd Filetype json setlocal foldmethod=syntax")
+
     end
   }
 end
