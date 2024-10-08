@@ -414,8 +414,8 @@ return {
     })
       local wk = require("which-key")
       wk.register({
-        s = { "<cmd>TSJSplit<cr>", "Treejs Split" },
-        j = { "<cmd>TSJJoin<cr>", "Treejs Join" }
+        s = { "<cmd>TSJSplit<cr>", "Treesj Split" },
+        j = { "<cmd>TSJJoin<cr>", "Treesj Join" }
       }, {prefix = "<leader>"})
   end
 }
