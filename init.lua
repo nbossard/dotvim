@@ -304,7 +304,7 @@ local function plug_ale()
 
   return {
     "dense-analysis/ale",
-    ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua,go",
+    ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua,go,make,javascript",
     config = function()
       vim.g.ale_linters = {
         -- golangci-lint calls numerous linters in the background
