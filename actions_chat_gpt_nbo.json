@@ -20,6 +20,17 @@
       }
     }
   },
+  "validate_comments": {
+    "type": "chat",
+    "opts": {
+      "title": "  Potential outdated comments",
+      "template": "here is source code :\n```{{filetype}}\n{{input}}\n```. Compare source code with comments and list all comments that are probably outdated, not aligned with the code it comments. Do not talk about valid comments, just problematic ones.",
+      "strategy": "display",
+      "params": {
+        "model": "gpt-4o"
+      }
+    }
+  },
   "document_function": {
     "type": "chat",
     "opts": {
