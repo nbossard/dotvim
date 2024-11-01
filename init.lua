@@ -99,13 +99,14 @@ local function plug_tabby()
     "TabbyML/vim-tabby",
     config = function()
       -- manual or auto mode
-      vim.g.tabby_trigger_mode = 'manual' --default is 'auto'
+      -- :lua print(vim.g.tabby_inline_completion_trigger)
+      vim.g.tabby_inline_completion_trigger = 'manual' --default is 'auto'
       -- can be found here : http://localhost:8080/
       -- or here :
       vim.g.tabby_token= 'auth_9a8a149b6a634cb79a31268110d48eac'
       -- keymaps
-      vim.g.tabby_keybinding_accept = '<M-l>' -- default is <tab>
-      vim.g.tabby_keybinding_trigger_or_dismiss = '<M-m>' -- default is <C-\>
+      vim.g.tabby_inline_completion_keybinding_trigger_or_dismiss = '<M-l>' -- default is <tab>
+      vim.g.tabby_inline_completion_keybinding_accept = '<M-m>' -- default is <C-\>
     end,
   }
 end
@@ -1016,7 +1017,7 @@ local function plug_x_go()
       },
       config = function()
         require("go").setup()
-        -- foldmethod is set by Treesitter 
+        -- foldmethod is set by Treesitter
 
         -- Run gofmt on save
         local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
