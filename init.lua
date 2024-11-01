@@ -94,6 +94,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- {{{ TabbyML plugin
 -- see : https://tabby.tabbyml.com/docs/extensions/installation/vim/
+-- done : npm install --global tabby-agent
 local function plug_tabby()
   return {
     "TabbyML/vim-tabby",
