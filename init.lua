@@ -349,9 +349,9 @@ local function plug_treesitter()
     config = function()
       require'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "lua", "go" , "java", "bash", "html", "css", "javascript", "markdown", "jsonc"},
+        ensure_installed = { "lua", "go" , "java", "bash", "html", "css", "javascript", "typescript", "markdown", "jsonc"},
         -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        -- Recommendation: set to false if you don't have `treesitter` CLI installed locally
         auto_install = false,
         -- List of parsers to ignore installing (or "all")
         ignore_install = {
@@ -394,8 +394,14 @@ local function plug_treesitter()
       vim.cmd("autocmd Filetype javascript setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype javascript setlocal foldexpr=nvim_treesitter#foldexpr()")
       -- same for javascript
+      vim.cmd("autocmd Filetype typescript setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype typescript setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for jsonc
       vim.cmd("autocmd Filetype jsonc setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype jsonc setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for html
+      vim.cmd("autocmd Filetype html setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype html setlocal foldexpr=nvim_treesitter#foldexpr()")
 
       vim.cmd("autocmd Filetype json setlocal foldmethod=syntax")
 
