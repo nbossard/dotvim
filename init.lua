@@ -1160,7 +1160,8 @@ end
 
 local function plug_color_scheme_gruvbox()
   return {
-    'morhetz/gruvbox',
+    -- 'morhetz/gruvbox',
+    'ellisonleao/gruvbox.nvim', -- better support of treesitter ?
     config = function()
       vim.cmd.colorscheme("gruvbox")
     end
