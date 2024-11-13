@@ -1357,6 +1357,10 @@ if project_config then
 end
 -- }}}
 
+-- Adding alias to open finder in file current directory
+-- Useful for quick pasting of screenshot in folder
+vim.cmd('command! -nargs=0 Finder !open %:p:h')
+
 -- Adding command to insert current date
 -- for use in changelog by example
 vim.cmd('imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>')
