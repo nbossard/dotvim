@@ -413,21 +413,19 @@ end
 -- {{{ treesj: plugin to split or join lines of code with intelligence
 -- see : https://github.com/Wansmer/treesjs
 local function plug_treesj()
-return {
-  'Wansmer/treesj',
-  keys = { '<leader>m', '<leader>j', '<leader>s' },
-  dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
-  config = function()
-    require('treesj').setup({
-      use_default_keymaps = false,
-    })
-      local wk = require("which-key")
-      wk.register({
-        s = { "<cmd>TSJSplit<cr>", "Treesj Split" },
-        j = { "<cmd>TSJJoin<cr>", "Treesj Join" }
-      }, {prefix = "<leader>"})
-  end
-}
+  return {
+    'Wansmer/treesj',
+    keys = { '<leader>m', '<leader>j', '<leader>s' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
+    config = function()
+      require('treesj').setup({
+        use_default_keymaps = false,
+      })
+      -- which key definition is done much below because
+      -- if done here plug is not loaded so no tooltip
+      -- if just here below, which-key is not loaded yet
+    end
+  }
 end
 -- }}}
 
