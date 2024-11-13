@@ -1361,6 +1361,22 @@ end
 -- Useful for quick pasting of screenshot in folder
 vim.cmd('command! -nargs=0 Finder !open %:p:h')
 
+-- {{{ spell related config
+-- Enable spell checking and set spell languages (English and French)
+-- Usual commands :
+-- zg => add word to dico
+-- zw => remove word from dico
+-- z= => suggest word
+vim.opt.spell = true
+vim.opt.spelllang = { 'en', 'fr' }
+-- Add spell suggestions defined by the user on top of default suggestions
+vim.opt.spellsuggest = { 'file:/Users/nbossard/dotvim/spell_suggestions.txt', 'best' }
+local wk = require("which-key")
+-- g prefix
+wk.add({ { "gsn", "]s", desc = "Go to next spell issue" }, })
+wk.add({ { "gsp", "[s", desc = "Go to previous spell issue" }, })
+-- }}}
+
 -- Adding command to insert current date
 -- for use in changelog by example
 vim.cmd('imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>')
