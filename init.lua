@@ -319,6 +319,7 @@ local function plug_ale()
         typescript = {'prettier'},
         javascript = {'prettier'},
         json = {'prettier'},
+        jsonc = {'prettier'},
         yaml = {'prettier'},
         markdown = {'prettier'},
         css = {'prettier'},
