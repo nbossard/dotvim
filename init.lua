@@ -1071,6 +1071,21 @@ local function plug_plantuml_syntax()
   }
 end
 
+-- {{{ To support Gitleaksignore File syntax
+-- See: https://github.com/nbossard/gitleaksignore-syntax
+local function plug_gitleaksignore_syntax()
+  return {
+    "nbossard/gitleaksignore-syntax",
+    version = "*",
+    config = function()
+      -- set foldmethod=syntax
+      vim.cmd('autocmd Filetype gitleasignore setlocal foldmethod=syntax')
+    end,
+  }
+end
+
+
+
 -- {{{ Plugin to support Go Language (golang)
 -- https://github.com/ray-x/go.nvim
 -- Replaces fatih/vim-go written in vimscript mostly
@@ -1199,6 +1214,7 @@ require("lazy").setup({
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
   plug_plantuml_syntax(),
+  plug_gitleaksignore_syntax();
   plug_x_go(),
   plug_coloring_gomod(),
   plug_telescope(),
