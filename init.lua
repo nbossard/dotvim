@@ -1365,7 +1365,7 @@ vim.cmd('command! -nargs=0 Finder !open %:p:h')
 -- for use in changelog by example
 vim.cmd('imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>')
 
--- Customize the appearance of hidden characters
+-- {{{ Customize the appearance of hidden characters
 -- reminder to use it type ":set list"
 vim.opt.listchars = {
     space = '⋅',      -- Display spaces as ⋅ (you can use any character)
@@ -1375,6 +1375,7 @@ vim.opt.listchars = {
     extends = '⟩',    -- Display extends with ⟩
     precedes = '⟨'    -- Display precedes with ⟨
 }
+-- }}}
 
 -- changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
