@@ -1224,18 +1224,27 @@ require("lazy").setup({
   plug_chatGPT(),
   plug_avante(),
   plug_coq(),
+  plug_coq_3p(),
   plug_lsp_signature(),
   plug_rest(),
   plug_rainbow_csv(),
   plug_rgflow(),
   plug_minimap(),
   plug_scrollbar(),
+  'glacambre/firenvim',
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
   plug_color_solarized_osaka(),
 })
 
+-- which-key settings for plugins not loaded (yet)
+local wk = require("which-key")
+wk.add(
+{
+  { "<leader>j", "<cmd>TSJJoin<cr>", desc = "Treesj Join" },
+  { "<leader>s", "<cmd>TSJSplit<cr>", desc = "Treesj Split" },
+})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
