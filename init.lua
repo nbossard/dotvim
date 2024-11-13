@@ -336,6 +336,19 @@ local function plug_ale()
 end
 -- }}}
 
+-- {{{ vim ghost : to use vim to edit firefox fields
+-- NBO : something strange with ghost, seems always loaded, strange strange
+local function plug_vimghost()
+  return {
+    "raghur/vim-ghost",
+    cmd = {
+      "GhostInstall",
+      "GhostStart"
+    }
+  }
+end
+-- }}}
+
 -- {{{ Treesitter : syntax highlighter
 -- see : https://github.com/nvim-treesitter/nvim-treesitter
 -- Usage : TSInstallInfo
@@ -1173,6 +1186,7 @@ require("lazy").setup({
   },
   plug_lspconfig(),
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
+  plug_vimghost(),
   plug_ale(),
   plug_mark(),
   plug_treesitter(),
