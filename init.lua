@@ -1337,6 +1337,26 @@ function DevMode()
 end
 vim.cmd('command! -nargs=0 Dev lua DevMode()')
 
+-- {{{ automatically load project specific init.lua
+-- in current folder or in parents till /
+local function find_project_config()
+    local current_dir = vim.fn.getcwd()
+    while current_dir ~= "/"  and current_dir ~= vim.fn.expand("~") and current_dir ~= vim.fn.expand("~/dotvim") do
+        local config_path = current_dir .. '/init.lua'
+        if vim.fn.filereadable(config_path) == 1 then
+            return config_path
+        end
+        current_dir = vim.fn.fnamemodify(current_dir, ":h")
+    end
+    return nil
+end
+local project_config = find_project_config()
+if project_config then
+    vim.notify("Chargement de la configuration du projet depuis " .. project_config, vim.log.levels.INFO)
+    dofile(project_config)
+end
+-- }}}
+
 -- Adding command to insert current date
 -- for use in changelog by example
 vim.cmd('imap <C-d> <C-R>=strftime("%Y-%m-%d")<CR>')
