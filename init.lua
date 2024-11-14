@@ -1156,7 +1156,7 @@ end
 
 -- }}}
 
--- {{{ ===== Various colorscheme s ====
+-- {{{ ===== Various color scheme s ====
 
 local function plug_color_scheme_gruvbox()
   return {
@@ -1168,7 +1168,7 @@ local function plug_color_scheme_gruvbox()
   }
 end
 
--- usedd by documentation repository
+-- used by documentation repository
 local function plug_color_scheme_dracula()
   return {
     'dracula/vim',
@@ -1363,18 +1363,28 @@ vim.cmd('command! -nargs=0 Finder !open %:p:h')
 
 -- {{{ spell related config
 -- Enable spell checking and set spell languages (English and French)
+--
 -- Usual commands :
 -- zg => add word to dico
 -- zw => remove word from dico
 -- z= => suggest word
+--
+-- List of exception words are stored in "spell" folder
+-- To check the spell file used :
+--    :set spellfile?
+-- To configure another file in a project configuration :
+--    vim.opt.spellfile = '~/.config/nvim/spell/en.utf-8.add'
+--
 vim.opt.spell = true
 vim.opt.spelllang = { 'en', 'fr' }
 -- Add spell suggestions defined by the user on top of default suggestions
 vim.opt.spellsuggest = { 'file:/Users/nbossard/dotvim/spell_suggestions.txt', 'best' }
+-- {{{key shortcuts
 local wk = require("which-key")
 -- g prefix
 wk.add({ { "gsn", "]s", desc = "Go to next spell issue" }, })
 wk.add({ { "gsp", "[s", desc = "Go to previous spell issue" }, })
+-- }}}
 -- }}}
 
 -- Adding command to insert current date
@@ -1393,7 +1403,7 @@ vim.opt.listchars = {
 }
 -- }}}
 
--- changing vim default behaviour on registers
+-- {{{ changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
 -- not only deleted history
 vim.cmd([[
