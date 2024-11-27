@@ -514,6 +514,16 @@ local function plug_nvim_tree()
     end,
   }
 end
+
+-- configure neovim to open image in an external editor
+vim.api.nvim_create_autocmd("BufReadCmd", {
+  pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" },
+  callback = function()
+    local filename = vim.fn.shellescape(vim.api.nvim_buf_get_name(0))
+    vim.cmd("silent !open " .. filename .. " &")
+    vim.cmd("let tobedeleted = bufnr('%') | b# | exe \"bd! \" . tobedeleted")
+  end
+})
 --- }}}
 
 -- {{{ gitsigns : to display a git column markers in the gutter
