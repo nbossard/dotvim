@@ -1105,8 +1105,7 @@ local function plug_gitleaksignore_syntax()
     end,
   }
 end
-
-
+-- }}}
 
 -- {{{ Plugin to support Go Language (golang)
 -- https://github.com/ray-x/go.nvim
@@ -1221,6 +1220,8 @@ local function plug_color_solarized_osaka()
   }
 end
 -- }}}
+
+
 
 require("lazy").setup({
   -- plug_copilot(), -- stopplspconfig.gopls.setuped paying
