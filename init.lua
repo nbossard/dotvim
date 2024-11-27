@@ -1176,6 +1176,22 @@ local function plug_scrollbar()
 end
 -- }}}
 
+-- {{{ nvim-surround : plugin for surrounding text with quotes, brackets, etc
+-- see : https://github.com/kylechui/nvim-surround
+local function plug_surround()
+  return {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  }
+end
+-- }}}
+
 -- }}}
 
 -- {{{ ===== Various color scheme s ====
@@ -1209,19 +1225,9 @@ end
 require("lazy").setup({
   -- plug_copilot(), -- stopplspconfig.gopls.setuped paying
   plug_tabby(),
+  plug_surround(),
   plug_which_key(),
   plug_mini_icons(),
-  "folke/neodev.nvim", -- luas development
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
-  },
   plug_lspconfig(),
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_vimghost(),
