@@ -597,7 +597,10 @@ local function plug_telescope()
   return {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     event = "VeryLazy",
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- All the lua functions I don't want to write twice.
+      'debugloop/telescope-undo.nvim', -- an undo tree : `Telescope undo`
+    },
     config = function()
       -- adding alias for telescope live_grep with optional parameter in command line
       vim.api.nvim_create_user_command(
@@ -608,6 +611,7 @@ local function plug_telescope()
       end,
       { nargs = '?' }  -- '?' allows zero or one argument
       )
+      require("telescope").load_extension("undo")
       vim.cmd('abbreviate rg Rg')
       -- adding alias used when using plugin bufexplore
       -- <leader>be to open buffers
@@ -1087,6 +1091,7 @@ local function plug_plantuml_syntax()
     end,
   }
 end
+-- }}}
 
 -- {{{ To support Gitleaksignore File syntax
 -- See: https://github.com/nbossard/gitleaksignore-syntax
