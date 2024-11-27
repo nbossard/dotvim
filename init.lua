@@ -1432,6 +1432,16 @@ vim.opt.listchars = {
 }
 -- }}}
 
+-- makefile preferences
+-- Json related config : Prettier compatible formatting with two spaces
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "makefile", "make" },
+  callback = function()
+    vim.opt_local.list = true
+    vim.opt_local.expandtab = false
+  end
+})
+
 -- {{{ changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
 -- not only deleted history
