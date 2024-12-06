@@ -1438,6 +1438,51 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+-- {{{ improve diff
+local function file_exists(filepath)
+    local f = io.open(filepath, "r")
+    if f then
+        f:close()
+        return true
+    else
+        return false
+    end
+end
+
+function DiffFiles(file2)
+    local file1 = vim.fn.expand('%:p')  -- Obtenir le chemin complet du tampon actuel
+
+    if not file_exists(file1) then
+        print("Fichier actuel introuvable : " .. file1)
+        return
+    end
+    if not file_exists(file2) then
+        print("Fichier introuvable : " .. file2)
+        return
+    end
+
+    -- Dans un nouveau tab
+    vim.cmd('tabnew')
+
+    -- Ouvrir le premier fichier dans une nouvelle fenêtre
+    vim.cmd('edit ' .. file1)
+    vim.cmd('diffthis')
+    vim.cmd('setlocal scrollbind')  -- Activer le scrollbind pour le premier fichier
+    vim.cmd('vsplit')
+    vim.cmd('wincmd l')
+
+    -- Ouvrir le deuxième fichier dans la même fenêtre
+    vim.cmd('edit ' .. file2)
+    vim.cmd('diffthis')
+    vim.cmd('setlocal scrollbind')  -- Activer le scrollbind pour le deuxième fichier
+end
+
+-- Créer un alias de commande pour DiffFiles
+vim.api.nvim_create_user_command('Diff', function(opts)
+    DiffFiles(opts.args)
+end, { nargs = 1 })
+--}}}
+
 -- {{{ changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
 -- not only deleted history
