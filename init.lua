@@ -431,11 +431,14 @@ end
 --}}}
 
 -- {{{ treesj: plugin to split or join lines of code with intelligence
--- see : https://github.com/Wansmer/treesjs
+-- see : https://github.com/Wansmer/treesj
 local function plug_treesj()
   return {
     'Wansmer/treesj',
-    keys = { '<leader>m', '<leader>j', '<leader>s' },
+    keys = {
+      { "<leader>j", "<cmd>TSJJoin<cr>", desc = "Treesj Join" },
+      { "<leader>s", "<cmd>TSJSplit<cr>", desc = "Treesj Split" },
+    },
     dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
     config = function()
       require('treesj').setup({
@@ -1265,14 +1268,6 @@ require("lazy").setup({
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
   plug_color_solarized_osaka(),
-})
-
--- which-key settings for plugins not loaded (yet)
-local wk = require("which-key")
-wk.add(
-{
-  { "<leader>j", "<cmd>TSJJoin<cr>", desc = "Treesj Join" },
-  { "<leader>s", "<cmd>TSJSplit<cr>", desc = "Treesj Split" },
 })
 
 -- Global mappings.
