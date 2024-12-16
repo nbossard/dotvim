@@ -105,6 +105,13 @@ vim.opt.rtp:prepend(lazypath)
 local function plug_tabby()
   return {
     "TabbyML/vim-tabby",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    init = function()
+      vim.g.tabby_agent_start_command = {"npx", "tabby-agent", "--stdio"}
+      vim.g.tabby_inline_completion_trigger = "auto"
+    end,
     config = function()
       -- manual or auto mode
       -- :lua print(vim.g.tabby_inline_completion_trigger)
