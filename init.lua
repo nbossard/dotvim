@@ -1493,10 +1493,17 @@ function DiffFiles(file2)
     vim.cmd('setlocal scrollbind')  -- Activer le scrollbind pour le deuxième fichier
 end
 
--- Créer un alias de commande pour DiffFiles
+-- Créer un alias de commande pour DiffFiles avec complétion de fichiers
 vim.api.nvim_create_user_command('Diff', function(opts)
     DiffFiles(opts.args)
-end, { nargs = 1 })
+end, {
+    nargs = 1,
+    desc = "Compare current buffer with specified file in a new tab",
+    complete = function(ArgLead, CmdLine, CursorPos)
+        -- Utiliser la complétion de fichiers intégrée
+        return vim.fn.getcompletion(ArgLead, 'file')
+    end
+})
 --}}}
 
 -- {{{ changing vim default behaviour on registers
