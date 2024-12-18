@@ -1195,6 +1195,8 @@ end
 
 -- {{{ nvim-surround : plugin for surrounding text with quotes, brackets, etc
 -- see : https://github.com/kylechui/nvim-surround
+-- rem : surround selection : key is "S"
+-- see : https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-surround.txt
 local function plug_surround()
   return {
     "kylechui/nvim-surround",
