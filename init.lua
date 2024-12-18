@@ -355,11 +355,12 @@ end
 -- NBO : something strange with ghost, seems always loaded, strange strange
 local function plug_vimghost()
   return {
-    "raghur/vim-ghost",
-    cmd = {
-      "GhostInstall",
-      "GhostStart"
-    }
+    -- OLD "raghur/vim-ghost", changed on 2024-12-16 to :
+    "subnut/nvim-ghost.nvim"
+    -- cmd = {
+    --   "GhostInstall",
+    --   "GhostStart"
+    -- }
   }
 end
 -- }}}
