@@ -1378,25 +1378,6 @@ function DevMode()
 end
 vim.cmd('command! -nargs=0 Dev lua DevMode()')
 
--- {{{ automatically load project specific init.lua
--- in current folder or in parents till /
-local function find_project_config()
-    local current_dir = vim.fn.getcwd()
-    while current_dir ~= "/"  and current_dir ~= vim.fn.expand("~") and current_dir ~= vim.fn.expand("~/dotvim") do
-        local config_path = current_dir .. '/init.lua'
-        if vim.fn.filereadable(config_path) == 1 then
-            return config_path
-        end
-        current_dir = vim.fn.fnamemodify(current_dir, ":h")
-    end
-    return nil
-end
-local project_config = find_project_config()
-if project_config then
-    vim.notify("Chargement de la configuration du projet depuis " .. project_config, vim.log.levels.INFO)
-    dofile(project_config)
-end
--- }}}
 
 -- Adding alias to open finder in file current directory
 -- Useful for quick pasting of screenshot in folder
@@ -1514,14 +1495,43 @@ function! SaveLastReg()
     if v:event['regname']==""
         if v:event['operator']=='y'
             for i in range(8,1,-1)
-                exe "let @".string(i+1)." = @". string(i) 
+                exe "let @".string(i+1)." = @". string(i)
             endfor
             if exists("g:last_yank")
                 let @1=g:last_yank
             endif
             let g:last_yank=@"
-        endif 
+        endif
     endif
-endfunction 
+endfunction
 :autocmd TextYankPost * call SaveLastReg()
 ]])
+-- }}}
+
+-- vim.cmd([[
+-- augroup go_with_java
+--   autocmd!
+--   autocmd FileType go syntax include @java syntax/java.vim
+--   autocmd FileType go syntax region javaBlock start='\/\*JAVA\*\/' end='\/\*ENDJAVA\*\/' contains=@java
+-- augroup END
+-- ]])
+
+-- {{{ automatically load project specific init.lua
+-- in current folder or in parents till /
+local function find_project_config()
+    local current_dir = vim.fn.getcwd()
+    while current_dir ~= "/"  and current_dir ~= vim.fn.expand("~") and current_dir ~= vim.fn.expand("~/dotvim") do
+        local config_path = current_dir .. '/init.lua'
+        if vim.fn.filereadable(config_path) == 1 then
+            return config_path
+        end
+        current_dir = vim.fn.fnamemodify(current_dir, ":h")
+    end
+    return nil
+end
+local project_config = find_project_config()
+if project_config then
+    vim.notify("Chargement de la configuration du projet depuis " .. project_config, vim.log.levels.INFO)
+    dofile(project_config)
+end
+-- }}}
