@@ -203,7 +203,7 @@ local function plug_lspconfig()
       -- For Makefile
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#autotools_ls
       -- install : pipx install autotools-language-server
-      require'lspconfig'.autotools_ls.setup{}
+      -- require'lspconfig'.autotools_ls.setup{}
 
       -- For Angular
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
