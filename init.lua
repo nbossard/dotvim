@@ -549,6 +549,10 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
 -- see : https://github.com/lewis6991/gitsigns.nvim
 -- Usage : :Gitsigns
 -- Replacing GitGutter
+--
+-- Compare current file with another version in git
+--    :Gitsigns diffthis main
+--
 local function plug_gitsigns()
    return {
     "lewis6991/gitsigns.nvim",
