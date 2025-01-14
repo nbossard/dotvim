@@ -873,6 +873,12 @@ end
 
 -- {{{ avante : plugin to have cursor like function
 -- see https://github.com/yetone/avante.nvim
+-- Nécessite anthropic Claude, ou llm-proxy
+-- voir dotfiles ENV var : ANTHROPIC_API_KEY
+-- et ENV var : OPENAI_API_KEY
+--
+-- commande pour changer de provider :
+--    AvanteSwitchProvider claude-llmproxy
 local function plug_avante()
   return {
     "yetone/avante.nvim",
@@ -880,7 +886,36 @@ local function plug_avante()
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      -- add any opts here
+      behaviour = {
+          auto_suggestions = true, -- Experimental stage
+      },
+      auto_suggestions_provider = "openai-llmproxy", 
+      provider = "openai", -- Recommend using Claude
+      -- provider = "claude", -- Recommend using Claude
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-sonnet-20241022",
+        temperature = 0,
+        max_tokens = 4096,
+      },
+      vendors = {
+        ["claude-llmproxy"] = {
+          endpoint = "https://llmproxy.ai.orange",
+          __inherited_from = "openai",
+          model = "vertex_ai/claude3.5-sonnet-v2",
+          timeout = 30000, -- Timeout in milliseconds
+          temperature = 0,
+          max_tokens = 8000,
+        },
+        ["openai-llmproxy"] = {
+          endpoint = "https://llmproxy.ai.orange",
+          __inherited_from = "openai",
+          model = "openai/gpt-4o-mini",
+          timeout = 30000, -- Timeout in milliseconds
+          temperature = 0,
+          max_tokens = 8000,
+        },
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
