@@ -1231,6 +1231,28 @@ local function plug_scrollbar()
 end
 -- }}}
 
+-- {{{ lsp_lines : display lsp on multiple lines below
+-- See : https://git.sr.ht/~whynothugo/lsp_lines.nvim
+-- Rem : will be integred in nvim 0.11
+local function plug_lsp_lines()
+  return {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    event = "BufEnter",
+    config = function()
+
+      -- the diagnostic object is a shared config object
+      -- it might be overwritten by ALE, golang plugin...
+      -- to display it use :
+      -- :lua print(vim.inspect(vim.diagnostic.config()))
+      vim.diagnostic.config({
+        virtual_text = true,
+        virtual_lines = { only_current_line = true }
+      })
+    end
+  }
+end
+-- }}}
+
 -- {{{ nvim-surround : plugin for surrounding text with quotes, brackets, etc
 -- see : https://github.com/kylechui/nvim-surround
 -- rem : surround selection : key is "S"
@@ -1319,6 +1341,7 @@ require("lazy").setup({
   plug_minimap(),
   plug_scrollbar(),
   'glacambre/firenvim',
+  plug_lsp_lines(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
