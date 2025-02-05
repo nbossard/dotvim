@@ -413,9 +413,6 @@ local function plug_treesitter()
       -- same for lua
       vim.cmd("autocmd Filetype lua setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype lua setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for javascript
-      vim.cmd("autocmd Filetype lua setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype lua setlocal foldexpr=nvim_treesitter#foldexpr()")
       -- same for markdown
       vim.cmd("autocmd Filetype markdown setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype markdown setlocal foldexpr=nvim_treesitter#foldexpr()")
