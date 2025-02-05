@@ -549,6 +549,8 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
 --
 -- Compare current file with another version in git
 --    :Gitsigns diffthis main
+-- show line commit
+--    :Gitsigns blame
 --
 local function plug_gitsigns()
    return {
