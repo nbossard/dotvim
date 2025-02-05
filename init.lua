@@ -1486,6 +1486,9 @@ vim.opt.listchars = {
 }
 -- }}}
 
+-- NDJSON files should be colored as JSON5
+vim.cmd([[autocmd BufNewFile,BufRead *.ndjson setfiletype json5]])
+
 -- makefile preferences
 -- Json related config : Prettier compatible formatting with two spaces
 vim.api.nvim_create_autocmd("FileType", {
