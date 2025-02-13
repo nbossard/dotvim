@@ -806,6 +806,11 @@ end
 
 -- {{{ chatGPT : plugin to use OpenAI GPT-3 to generate text
 -- see https://github.com/jackMort/ChatGPT.nvim
+--
+-- usage : ChatGPT
+-- usage : ChatGPTRun explain_code
+-- usage : ChatGPTEditWithInstructions
+--
 -- useful commands once dialog window open:
 -- <C-y> apply changes
 local function plug_chatGPT()
@@ -973,10 +978,11 @@ end
 -- COQ will also propose snippets stored in folder nbo_snippets
 -- To use snippets :COQsnips edit then COQsnips compile
 --
--- ORIGIN of suggestions : 
--- BUF  ==> bufers
+-- ORIGIN of suggestions
+-- BUF  ==> buffers
 -- LSP  ==> Language Server Protocol
 -- SNIP ==> Snippets
+-- TS   ==> TreeSitter
 local function plug_coq()
   return {
     'ms-jpq/coq_nvim',
