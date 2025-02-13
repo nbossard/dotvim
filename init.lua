@@ -1214,6 +1214,75 @@ local function plug_coloring_gomod()
 end
 -- }}}
 
+---{{{ obsidian.nvim: plugin for obsidian in neovim
+local function plug_obsidian()
+  return {
+    "epwalsh/obsidian.nvim",
+    version = "*",  -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim", -- All the lua functions I don't want to write twice.
+    },
+    opts = {
+      preferred_link_style = "markdown",
+      disable_frontmatter = true,
+      picker = {
+        -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+        name = "telescope.nvim",
+        -- Optional, configure key mappings for the picker. These are the defaults.
+        -- Not all pickers support all mappings.
+        note_mappings = {
+          -- Create a new note from your query.
+          new = "<C-x>",
+          -- Insert a link to the selected note.
+          insert_link = "<C-e>",
+        },
+        tag_mappings = {
+          -- Add tag(s) to current note.
+          tag_note = "<C-x>",
+          -- Insert a tag at the current location.
+          insert_tag = "<C-e>",
+        },
+      },
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/perso/obsidian/obsperso",
+          templates = {
+            folder = "my-templates-folder",
+            date_format = "%Y-%m-%d",
+            time_format = "%H:%M",
+          }
+        },
+        {
+          name = "OMPayMetrics",
+          path = "~/PilotageDistri/business-server",
+          overrides = {
+            templates = {
+              folder = "documentation/TemplatesObsidian",
+              date_format = "%Y-%m-%d",
+              time_format = "%H:%M",
+            },
+            daily_notes = {
+              -- Optional, if you keep daily notes in a separate directory.
+              folder = "documentation/Agenda",
+              -- Optional, if you want to change the date format for the ID of daily notes.
+              date_format = "%Y-%m-%d",
+              -- Optional, default tags to add to each new daily note created.
+              default_tags = {},
+              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+              template = "daily.md"
+            },
+          }
+        },
+      },
+    },
+  }
+end
+---}}}
+
 -- {{{ scrollbar : display a scrollbar on the right for info (not for clicking)
 -- See : https://github.com/Xuyuanp/scrollbar.nvim
 -- Rem : Does not work on vim, only for neovim
@@ -1345,6 +1414,7 @@ require("lazy").setup({
   plug_rgflow(),
   plug_minimap(),
   plug_scrollbar(),
+  plug_obsidian(),
   'glacambre/firenvim',
   plug_lsp_lines(),
 
