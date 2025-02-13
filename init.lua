@@ -510,7 +510,7 @@ local function plug_nvim_tree()
         -- update the focused file on BufEnter, up-collapses the folders recursively until if finds the file.
         update_focused_file = {
           enable = true,
-          -- Update the root directory of the tree if the file is not under current root directory. 
+          -- Update the root directory of the tree if the file is not under current root directory.
           update_root = {
             enable = true,
           }
@@ -551,6 +551,8 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
 --    :Gitsigns diffthis main
 -- show line commit
 --    :Gitsigns blame
+--    :Gitsigns blame_line
+--    :Gitsigns toggle_current_line_blame
 --
 local function plug_gitsigns()
    return {
