@@ -12,7 +12,7 @@
   "write_git_commit_message_short": {
     "type": "chat",
     "opts": {
-	    "template": "You are a developer writing a git commit messages. Do not provide info about file path. start your comment with an action in 'ing'. Write only one line of maximum length is 50 chars. Then paste following provided git info comments :  ```text\n{{input}}\n```\n\n```",
+	    "template": "You are a developer writing a git commit messages. Do not provide info about file path. Start your comment with an action in 'ing'. Write only one line of maximum length is 50 chars. Respect conventional commits rules. After generating messages, do paste following provided git info :  ```text\n{{input}}\n```\n\n```",
       "strategy": "replace",
       "params": {
         "model": "vertex_ai/claude3.5-sonnet-v2"
