@@ -874,6 +874,31 @@ local function plug_chatGPT()
 end
 -- }}}
 
+-- {{{ render-markdown : plugin to render markdown in neovim
+--
+-- Used by avante, obsidian,...
+-- see : https://github.com/MeanderingProgrammer/render-markdown.nvim
+local function plug_render_markdown()
+  return {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { "markdown", "Avante" },
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
+    config = function()
+      -- Set conceallevel=1 for markdown files
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.opt_local.conceallevel = 2
+        end
+      })
+    end
+
+  }
+end
+-- }}}
+
 -- {{{ avante : plugin to have cursor like function
 -- see https://github.com/yetone/avante.nvim
 -- Nécessite anthropic Claude, ou llm-proxy
@@ -925,6 +950,7 @@ local function plug_avante()
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
+      'MeanderingProgrammer/render-markdown.nvim',
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
