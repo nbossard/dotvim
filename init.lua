@@ -185,7 +185,7 @@ local function plug_lspconfig()
       require'lspconfig'.ts_ls.setup{
 
         -- to support COQ snippets
-        capabilities = require('coq').lsp_ensure_capabilities(),
+        -- capabilities = require('coq').lsp_ensure_capabilities(),
 
         init_options = {
           preferences = {
@@ -1351,6 +1351,16 @@ local function plug_obsidian()
     "epwalsh/obsidian.nvim",
     version = "*",  -- recommended, use latest release instead of latest commit
     lazy = true,
+    -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
+    completion = {
+      -- Set to false to disable completion.
+      nvim_cmp = true,
+      -- Trigger completion at 2 chars.
+      min_chars = 2,
+    },
+    cmd = {
+       "ObsidianSearch"
+    },
     ft = "markdown",
     dependencies = {
       -- Required.
@@ -1536,9 +1546,11 @@ require("lazy").setup({
   plug_testfile(),
   plug_gx(),
   plug_chatGPT(),
+  plug_render_markdown(),
   plug_avante(),
-  plug_coq(),
-  plug_coq_3p(),
+  -- plug_coq(),
+  -- plug_coq_3p(),
+  plug_cmp(), -- replacing COQ
   plug_lsp_signature(),
   plug_rest(),
   plug_rainbow_csv(),
