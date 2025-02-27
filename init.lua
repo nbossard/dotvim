@@ -208,7 +208,7 @@ local function plug_lspconfig()
       -- For Angular
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
       -- npm install -g @angular/language-server
-      require'lspconfig'.angularls.setup{}
+      -- require'lspconfig'.angularls.setup{}
 
       -- For bash
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
