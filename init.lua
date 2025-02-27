@@ -345,7 +345,7 @@ local function plug_ale()
       -- key mapping to Fix the file
       -- document this key mapping for which-key
       local wk = require("which-key")
-      wk.add({ { "<leader>a", "<cmd>ALEFix<cr>", desc = "ALE Fix" }, })
+      wk.add({ { "<leader>x", "<cmd>ALEFix<cr>", desc = "ALE Fix" }, })
     end,
   }
 end
