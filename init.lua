@@ -1774,7 +1774,7 @@ function DiffFiles(file2)
 end
 
 -- Créer un alias de commande pour DiffFiles avec complétion de fichiers
-vim.api.nvim_create_user_command('Diff', function(opts)
+vim.api.nvim_create_user_command('DiffFiles', function(opts)
     DiffFiles(opts.args)
 end, {
     nargs = 1,
