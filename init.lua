@@ -435,6 +435,12 @@ local function plug_treesitter()
       -- same for makefile
       vim.cmd("autocmd Filetype make setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype make setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for bash
+      vim.cmd("autocmd Filetype bash setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype bash setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for sh
+      vim.cmd("autocmd Filetype sh setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype sh setlocal foldexpr=nvim_treesitter#foldexpr()")
 
       vim.cmd("autocmd Filetype json setlocal foldmethod=syntax")
 
