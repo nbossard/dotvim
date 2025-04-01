@@ -323,10 +323,11 @@ local function plug_ale()
     ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua,go,make,javascript",
     cmd = "ALEFix",
     config = function()
+
       vim.g.ale_linters = {
         -- golangci-lint calls numerous linters in the background
         -- requires a project local config file
-        go=   {'golint', 'go vet', 'golangci-lint', 'staticcheck'},
+        go=   {'gobuild', 'golint', 'go vet', 'golangci-lint', 'staticcheck'},
         yaml= {'yamllint', 'spectral'}
       }
 
