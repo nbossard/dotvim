@@ -1104,7 +1104,7 @@ local function plug_cmp()
             notify_callback = function(msg)
               vim.notify(msg)
             end,
-            run_on_every_keystroke = true,
+            run_on_every_keystroke = false, -- WARNING FALSE == DISABLE THIS PLUGIN
             ignored_file_types = {
               -- default is not to ignore
               -- uncomment to ignore in lua:
