@@ -723,7 +723,7 @@ local function plug_minimap()
     config = function()
       vim.g.minimap_auto_start = 1
       vim.g.minimap_auto_start_win_enter = 1
-      vim.g.minimap_width = 8 --default 10
+      vim.g.minimap_width = 8 --det fault 10
       vim.g.minimap_highlight_range = 1
       vim.g.minimap_highlight_search = 1
       vim.g.minimap_highlight_line = 1
@@ -751,7 +751,7 @@ local function plug_trailing_whitespaces()
       -- To enable highlighting of trailing whitespace
       vim.g.better_whitespace_enabled=1
       -- Enabling stripping on save (with confirmation)
-      vim.g.strip_whitespace_on_save=1
+      vim.g.strip_whitespace_on_save=1    
       vim.g.startify_change_to_dir=0
       --  Note that overwriting this with a b: is ignored
       vim.g.strip_whitespace_confirm=0
