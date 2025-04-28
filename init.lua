@@ -1616,7 +1616,7 @@ require("lazy").setup({
   plug_scrollbar(),
   plug_obsidian(),
   'glacambre/firenvim',
-  plug_lsp_lines(),
+  -- plug_lsp_lines(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
