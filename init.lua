@@ -1829,7 +1829,7 @@ end, {
 -- {{{ Set up an autocommand for files containing API keys
 -- to replace keys by 🔑, to prevent accidental display in conf
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-    pattern = {"*API_KEYS.sh", "*.env", ".env*", "*.json"},
+    pattern = {"*API_KEYS.sh", "*.env", ".env*", "*.json", "config.yaml"},
     callback = function()
         -- Enable concealment for the buffer
         vim.wo.conceallevel = 2
@@ -1839,6 +1839,7 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
             " Match API keys including the quotes and export statements
             " Anthropic or Open AI or LLM proxy keys
             syntax match ApiKey /\v"sk-([a-zA-Z0-9-_]{22,})"/ conceal cchar=🔑
+            syntax match ApiKey /\vsk-([a-zA-Z0-9-_]{22,})/ conceal cchar=🔑
             " Tavily keys
             syntax match ApiKey /\v"tvly[a-zA-Z0-9_-]{32,}"/ conceal cchar=🔑
         ]])
