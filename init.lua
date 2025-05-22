@@ -1502,6 +1502,25 @@ local function plug_scrollbar()
 end
 -- }}}
 
+-- {{{ bufdel : close buffer without deleting window
+-- see : https://github.com/ojroques/nvim-bufdel
+-- replacing previously used : vim-bbye https://github.com/moll/vim-bbye
+local function plug_bufdel()
+  return {
+    "ojroques/nvim-bufdel",
+    event = "VeryLazy",
+    config = function()
+      require('bufdel').setup {
+        next = 'tabs',
+        quit = false,  -- quit Neovim when last buffer is closed
+      }
+      vim.cmd('abbreviate bdd BufDel')
+      vim.cmd('abbreviate bda BufDelAll')
+    end
+  }
+end
+-- }}}
+
 -- {{{ lsp_lines : display lsp on multiple lines below
 -- See : https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- Rem : will be integred in nvim 0.11
@@ -1614,6 +1633,7 @@ require("lazy").setup({
   plug_rgflow(),
   plug_minimap(),
   plug_scrollbar(),
+  plug_bufdel(),
   plug_obsidian(),
   'glacambre/firenvim',
   -- plug_lsp_lines(),
