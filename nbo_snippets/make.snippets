@@ -1,0 +1,37 @@
+# nbo own snippets for Makefiles
+# snipmate syntax
+# https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#snipmate
+
+snippet compact_json
+	@jq --compact-output .  ${1:input file} > ${1:output file}
+
+snippet jsonc_to_json
+	\$(call .cecho,"Converting \$< in json")
+	sed 's/\\/\\/.*//' \$< | jq '.' > \$@
+
+snippet call_echo
+	\$(call .cecho,"${1:}")
+
+snippet call_echo_bash
+	\$(call .cechobash,"${1:}")
+
+snippet call_echo_dark
+	\$(call .cechodark,"${1:}")
+
+snippet call_echo_dark_bash
+	\$(call .cechodarkbash,"${1:}")
+
+snippet dep1
+	\$<
+
+snippet dep2 "target dependency number 3"
+	\$(word 2,$^)
+
+snippet dep3 "target dependency number 3"
+	\$(word 3,$^)
+
+snippet depn "target dependency number 3"
+	\$(word ${1:integer},$^)
+
+snippet make "call another makefile"
+	\$(MAKE) -C ${1:nom dossier} ${2:nom target}
