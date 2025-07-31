@@ -1243,6 +1243,22 @@ local function plug_cmp()
     end
   }
 end
+-- }}}
+
+-- {{{ Plugin for snippets for cmp
+local function plug_luasnip()
+  return {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip.loaders.from_snipmate").lazy_load()
+    end
+  }
+end
+-- }}}
 
 -- {{{ Plugin for adding 3rd party integrations with COQ
 local function plug_coq_3p()
@@ -1661,6 +1677,7 @@ require("lazy").setup({
   plug_render_markdown(),
   plug_avante(),
   plug_mcphub(),
+  plug_luasnip(),
   -- plug_coq(),
   -- plug_coq_3p(),
   plug_cmp(), -- replacing COQ
