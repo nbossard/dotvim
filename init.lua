@@ -157,11 +157,22 @@ end
 
 -- {{{ LSP config
 -- https://github.com/neovim/nvim-lspconfig
+--
+-- *grr* *gra* *grn* *gri* *grt* *i_CTRL-S*
+-- These GLOBAL keymaps are created unconditionally when Nvim starts:
+-- - "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
+-- - "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
+-- - "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
+-- - "gri" is mapped in Normal mode to |vim.lsp.buf.implementation()|
+-- - "grt" is mapped in Normal mode to |vim.lsp.buf.type_definition()|
+-- - "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
+-- - CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 -- See : LspInfo
 local function plug_lspconfig()
   return {
     "neovim/nvim-lspconfig",
     opts = {
+      -- Note : inlay hints are not errors
       inlay_hints = { enabled = true },
     },
     config = function()
@@ -232,7 +243,6 @@ local function plug_lspconfig()
             },
             staticcheck = true,
             gofumpt = true,
-
           },
         },
       })
@@ -503,7 +513,7 @@ end
 local function plug_nvim_tree()
   return {
     "nvim-tree/nvim-tree.lua",
-    version = "*",
+    version = "*", -- * means any OFFICIAL version
     dependencies = {
       -- optional used to show icons in the tree
       "nvim-tree/nvim-web-devicons",
@@ -564,7 +574,7 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
 local function plug_gitsigns()
    return {
     "lewis6991/gitsigns.nvim",
-    version = "*",
+    version = "*", -- * means any OFFICIAL version
     lazy = false,
     config = function()
       require("gitsigns").setup {
@@ -739,10 +749,11 @@ end
 -- https://github.com/ntpeters/vim-better-whitespace
 -- To launch manual stripping of whitespaces :
 -- :StripWhitespace
+-- :EnableWhitespaces
 local function plug_trailing_whitespaces()
   return {
     "ntpeters/vim-better-whitespace",
-    version = "*",
+    version = "*", -- * means any OFFICIAL version
     event = { "BufEnter" },
     config = function()
       vim.g.better_whitespace_filetypes_blacklist={'diff', 'gitcommit', 'unite', 'qf', 'help', 'mail', 'startify', 'git', 'taskedit', 'csv', 'minimap'}
@@ -751,7 +762,7 @@ local function plug_trailing_whitespaces()
       -- To enable highlighting of trailing whitespace
       vim.g.better_whitespace_enabled=1
       -- Enabling stripping on save (with confirmation)
-      vim.g.strip_whitespace_on_save=1    
+      vim.g.strip_whitespace_on_save=1
       vim.g.startify_change_to_dir=0
       --  Note that overwriting this with a b: is ignored
       vim.g.strip_whitespace_confirm=0
@@ -826,7 +837,6 @@ end
 --
 -- usage : ChatGPT
 -- usage : ChatGPTRun explain_code
--- usage : ChatGPTEditWithInstructions
 --
 -- useful commands once dialog window open:
 -- <C-y> apply changes
@@ -929,7 +939,7 @@ local function plug_avante()
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = false, -- set this if you want to always pull the latest change
+    version = "*", -- * means any OFFICIAL version
     opts = {
       behaviour = {
           auto_suggestions = false, -- Experimental stage
