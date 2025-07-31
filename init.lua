@@ -150,6 +150,7 @@ end
 local function plug_mini_icons()
   return {
     'echasnovski/mini.nvim',
+    event = "VeryLazy",
     version = false
   }
 end
@@ -309,6 +310,7 @@ end
 local function plug_mark()
   return {
     'chentoast/marks.nvim', -- display marks
+    event = "VeryLazy",
     config = function()
       require("marks").setup({
         -- which builtin marks to show. default {}
@@ -464,6 +466,7 @@ end
 local function plug_treesitter_context()
   return {
     'nvim-treesitter/nvim-treesitter-context',
+    event = "VeryLazy",
     config = function()
       require'treesitter-context'.setup{
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
