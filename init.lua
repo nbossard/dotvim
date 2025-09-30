@@ -1220,7 +1220,12 @@ local function plug_cmp()
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
+      "petertriho/cmp-git",
+      "hrsh7th/cmp-omni",
       "hrsh7th/cmp-path",
+      -- For luasnip users.
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
       {
         "tzachar/cmp-ai",
         event = "VeryLazy",
@@ -1231,7 +1236,7 @@ local function plug_cmp()
             max_lines = 1000,
             provider = 'OpenAI',
             provider_options = {
-              model = 'vertex_ai/codestral',
+              model = 'vertex_ai/gemini-2.0-flash',
               raw_response_cb = function(response)
                 -- the `response` parameter contains the raw response (JSON-like) object.
 
@@ -1277,10 +1282,13 @@ local function plug_cmp()
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = 'cmp_ai' },
+          -- { name = 'cmp_ai' },
           { name = "path" },
-        }, {
           { name = "buffer" },
+          { name = "git" },
+          { name = "omni" },
+          { name = "luasnip" },
+          { name = "yank" }
         }),
         formatting = {
           format = function(entry, item)
