@@ -338,15 +338,21 @@ local function plug_ale()
 
   return {
     "dense-analysis/ale",
-    ft = "typescript,json,yaml,markdown,css,scss,html,vue,lua,go,make,javascript",
-    cmd = "ALEFix",
+    ft = "typescript,typescriptreact,json,yaml,markdown,css,scss,html,vue,lua,go,make,javascript,sh",
+    cmd = {"ALEFix", "ALEInfo"},
     config = function()
 
       vim.g.ale_linters = {
         -- golangci-lint calls numerous linters in the background
         -- requires a project local config file
         go=   {'gobuild', 'golint', 'go vet', 'golangci-lint', 'staticcheck'},
-        yaml= {'yamllint', 'spectral'}
+        yaml= {'yamllint', 'spectral'},
+        javascript = {'eslint'},
+        typescript = {'eslint', 'aichatnicolinter'},
+        typescriptreact = {'eslint'},
+        markdown = {'aichatnicolinter'},
+        sh = {'shellcheck'},
+        make = {'mbake'}
       }
 
       vim.g.ale_fixers = {
@@ -359,7 +365,9 @@ local function plug_ale()
         css = {'prettier'},
         scss = {'prettier'},
         html = {'prettier'},
-        vue = {'prettier'}
+        vue = {'prettier'},
+        typescriptreact = {'prettier'},
+        make = {'mbakefmt'}
       }
       -- key mapping to Fix the file
       -- document this key mapping for which-key
