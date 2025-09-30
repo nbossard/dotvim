@@ -50,12 +50,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 --- }}}
 
--- lazy configuration options
+-- lazy configuration options for loading spec
 -- event = "VimEnter" -- lazy load when vim starts
 -- event = "VeryLazy" -- lazy load when a plugin is used
 -- event = "BufEnter" : lazy load when a buffer is opened
 -- event = "CmdlineEnter" : lazy load when a command is run
 -- ft = "typescript",
+-- cmd = {"ALEFix", "ALEInfo"},
 
 -- -- {{{ copilot-lua plugin for github copilot
 -- -- replacing official'github/copilot.vim',
@@ -191,7 +192,7 @@ local function plug_lspconfig()
       require'lspconfig'.css_variables.setup{}
 
       -- For JavaScript and TypeScript
-      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#tsserver
       -- npm install -g typescript typescript-language-server
       -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
       require'lspconfig'.ts_ls.setup{
@@ -213,17 +214,17 @@ local function plug_lspconfig()
       vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
 
       -- For Makefile
-      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#autotools_ls
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#autotools_ls
       -- install : pipx install autotools-language-server
       -- require'lspconfig'.autotools_ls.setup{}
 
       -- For Angular
-      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#angularls
       -- npm install -g @angular/language-server
       -- require'lspconfig'.angularls.setup{}
 
       -- For bash
-      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
       -- npm install -g bash-language-server
       require'lspconfig'.bashls.setup{}
 
@@ -232,7 +233,7 @@ local function plug_lspconfig()
       require'lspconfig'.java_language_server.setup{}
 
       -- For Golang
-      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gopls
       -- and here : https://github.com/golang/tools/tree/master/gopls
       -- install :
       -- go install golang.org/x/tools/gopls@latest
@@ -249,7 +250,7 @@ local function plug_lspconfig()
       })
 
       -- For JSON
-      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jsonls
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonls
       -- npm install -g vscode-langservers-extracted
       require'lspconfig'.jsonls.setup {}
 
@@ -262,9 +263,14 @@ local function plug_lspconfig()
       -- installed via homebrew
       require'lspconfig'.pylsp.setup{}
 
+      -- For Cucumber
+      -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cucumber_language_server
+      -- tried it but complains a lot about undefined steps, disabled
+      -- require 'lspconfig'.cucumber_language_server.setup{}
+
       -- For Lua
       -- Install server using `brew install lua-language-server`
-      -- See setup config here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+      -- See setup config here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
       require'lspconfig'.lua_ls.setup {
         on_init = function(client)
           local path = client.workspace_folders[1].name
@@ -545,6 +551,7 @@ local function plug_nvim_tree()
     version = "*", -- * means any OFFICIAL version
     dependencies = {
       -- optional used to show icons in the tree
+      -- see https://github.com/nvim-tree/nvim-web-devicons
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
