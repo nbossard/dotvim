@@ -787,6 +787,27 @@ local function plug_rgflow()
 end
 -- }}}
 
+-- {{{ jsonpath : display current cursor jsonpath in winbar.
+-- see : https://github.com/phelipetls/jsonpath.nvim
+-- to copy path <leader>p
+local function plug_jsonpath()
+  return {
+    "phelipetls/jsonpath.nvim",
+    ft = {"json", "jsonc", "hjson"},
+    config = function ()
+      if vim.fn.exists("+winbar") == 1 then
+        -- displays info in winbar
+        vim.opt_local.winbar = "%{%v:lua.require'jsonpath'.get()%}"
+        -- send json path to clipboard
+      end
+      vim.keymap.set({'n'}, '<leader>p', function()
+        vim.fn.setreg("+", require("jsonpath").get())
+      end, { desc = "copy json path", buffer = true })
+    end
+  }
+end
+-- }}}
+
 -- {{{ minimap : display a minimap on the right
 -- see : https://github.com/wfxr/minimap.vim
 -- started in dev mode
@@ -1724,6 +1745,7 @@ require("lazy").setup({
   plug_rest(),
   plug_rainbow_csv(),
   plug_rgflow(),
+  plug_jsonpath(),
   plug_minimap(),
   plug_scrollbar(),
   plug_bufdel(),
