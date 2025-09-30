@@ -713,6 +713,34 @@ local function plug_telescope()
 end
 -- }}}
 
+-- {{{ grug-far : plugin to use ripgrep multiline search
+-- https://github.com/MagicDuck/grug-far.nvim
+-- useful text for search, relying on ripgrep
+-- allows multiline search
+-- Usage : select text in visual mode and type :'<,'>Rgm
+local function plug_ripgrep_multiline()
+  return {
+    'MagicDuck/grug-far.nvim',
+    event = "VeryLazy",
+    config = function()
+      -- Add this to your init.lua or a configuration file that gets loaded
+      vim.api.nvim_create_user_command('Rgm', function(opts)
+        local range = ''
+        if opts.range == 2 then
+          range = opts.line1 .. ',' .. opts.line2
+        end
+
+        vim.cmd(range .. 'GrugFar')
+      end, {
+      range = true,
+      desc = 'Alias for GrugFar command'
+    })
+  end
+}
+end
+-- }}}
+
+
 -- {{{ Plugin to use ripgrep  inside vim
 -- https://github.com/mangelozzi/rgflow.nvim
 local function plug_rgflow()
@@ -1662,6 +1690,7 @@ require("lazy").setup({
   plug_which_key(),
   plug_mini_icons(),
   plug_lspconfig(),
+  plug_ripgrep_multiline(),
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_vimghost(),
   plug_ale(),
