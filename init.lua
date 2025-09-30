@@ -1672,6 +1672,80 @@ local function plug_surround()
 end
 -- }}}
 
+-- {{{ vim-CtrlXA : plugin to toggle between predefined values
+-- see : https://github.com/Konfekt/vim-CtrlXA
+-- Usage : traditional <C-X> or <C-A>
+local function plug_ctrlxa()
+  return {
+    'Konfekt/vim-CtrlXA',
+    event = "VeryLazy",
+    config = function()
+      -- Set up mappings for SpeedDating fallback
+      vim.cmd([[
+        nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
+        nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
+      ]])
+      
+      -- Define global toggles
+      vim.g.CtrlXA_Toggles = {
+        {'Nicolas', 'James'},
+        {'BOSSARD', 'ZHIHONG_GUO'},
+        {'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'},
+        {'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'},
+        {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'},
+      }
+      
+      -- Additional rules for JavaScript
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "javascript",
+        callback = function()
+          vim.b.CtrlXA_Toggles = {
+            {'DOIT', 'SKIPIT'},
+            {'FAKE', 'DOCHANGES'},
+            {'us', 'task'},
+            {'POST', 'GET', 'PUT', 'DELETE'},
+          }
+          vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
+        end
+      })
+      
+      -- Additional rules for cucumber/feature files
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "cucumber",
+        callback = function()
+          vim.b.CtrlXA_Toggles = {
+            {'Given', 'When', 'Then', 'And', 'But'},
+          }
+          vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
+        end
+      })
+      
+      -- Additional rules for REST files
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "rest",
+        callback = function()
+          vim.b.CtrlXA_Toggles = {
+            {'GET', 'POST', 'PUT', 'DELETE'},
+          }
+          vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
+        end
+      })
+      
+      -- Additional rules for taskedit files
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "taskedit",
+        callback = function()
+          vim.b.CtrlXA_Toggles = {
+            {'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'},
+            {'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'},
+            {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'},
+          }
+          vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
+        end
+      })
+    end
+  }
+end
 -- }}}
 
 -- {{{ ===== Various color scheme s ====
@@ -1715,6 +1789,7 @@ require("lazy").setup({
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_vimghost(),
   plug_ale(),
+  plug_ctrlxa(),
   plug_mark(),
   plug_treesitter(),
   plug_treesitter_context(),
