@@ -1666,7 +1666,8 @@ local function plug_bufdel()
 end
 -- }}}
 
--- {{{ lsp_lines : display lsp on multiple lines below
+
+-- {{{ lsp_lines : display lsp error messages on multiple lines below
 -- See : https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- Rem : will be integred in nvim 0.11
 local function plug_lsp_lines()
