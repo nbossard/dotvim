@@ -1375,6 +1375,24 @@ local function plug_lsp_signature()
   end
 -- }}}
 
+-- {{{ Plugin to perform file operations (rename, delete, etc) in nvim-tree and have code change using LSP
+local function plug_lsp_file_operations()
+  return {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- Uncomment whichever supported plugin(s) you use
+      "nvim-tree/nvim-tree.lua",
+      -- "nvim-neo-tree/neo-tree.nvim",
+      -- "simonmclean/triptych.nvim"
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end,
+  }
+end
+-- }}}
+
 -- {{{ Plugin for making REST request using Curl
 -- https://github.com/diepm/vim-rest-console
 -- usage :
@@ -1847,6 +1865,7 @@ require("lazy").setup({
   -- plug_coq_3p(),
   plug_cmp(), -- replacing COQ
   plug_lsp_signature(),
+  plug_lsp_file_operations(),
   plug_rest(),
   plug_rainbow_csv(),
   plug_rgflow(),
