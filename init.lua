@@ -184,21 +184,17 @@ local function plug_lspconfig()
       -- For HTML
       -- See doc here
       -- npm install -g vscode-langservers-extracted
-      require'lspconfig'.html.setup{}
+      vim.lsp.enable('html')
 
       -- For CSS
       -- npm install -g css-variables-language-server
-      require'lspconfig'.css_variables.setup{}
+      vim.lsp.enable('css_variables')
 
       -- For JavaScript and TypeScript
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#tsserver
       -- npm install -g typescript typescript-language-server
       -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
-      require'lspconfig'.ts_ls.setup{
-
-        -- to support COQ snippets
-        -- capabilities = require('coq').lsp_ensure_capabilities(),
-
+      vim.lsp.config('ts_ls',{
         init_options = {
           preferences = {
             disableSuggestions = true,
@@ -239,11 +235,12 @@ local function plug_lspconfig()
         }
       }
       vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
+      vim.lsp.enable('ts_ls')
 
       -- For Makefile
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#autotools_ls
       -- install : pipx install autotools-language-server
-      -- require'lspconfig'.autotools_ls.setup{}
+      vim.lsp.enable('autotools_ls')
 
       -- For Angular
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#angularls
@@ -253,18 +250,25 @@ local function plug_lspconfig()
       -- For bash
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
       -- npm install -g bash-language-server
-      require'lspconfig'.bashls.setup{}
+      vim.lsp.enable('bashls')
 
       -- For Java
-      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
-      require'lspconfig'.java_language_server.setup{}
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#java_language_server
+      vim.lsp.config('java_language_server',{
+        cmd = {'jdtls'},
+        -- do not set filetype painless : it is too different from java
+        filetypes = {
+          "java"
+        }
+      })
+
 
       -- For Golang
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gopls
       -- and here : https://github.com/golang/tools/tree/master/gopls
       -- install :
       -- go install golang.org/x/tools/gopls@latest
-      require'lspconfig'.gopls.setup({
+      vim.lsp.config('gopls',{
         settings = {
           gopls = {
             analyses = {
@@ -279,7 +283,7 @@ local function plug_lspconfig()
       -- For JSON
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonls
       -- npm install -g vscode-langservers-extracted
-      require'lspconfig'.jsonls.setup {}
+      vim.lsp.enable('jsonls')
 
       -- For Python
       -- several lsp :
@@ -288,7 +292,7 @@ local function plug_lspconfig()
       -- trying another one
       -- https://github.com/python-lsp/python-lsp-server
       -- installed via homebrew
-      require'lspconfig'.pylsp.setup{}
+      vim.lsp.enable('pylsp')
 
       -- For Cucumber
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cucumber_language_server
@@ -298,7 +302,7 @@ local function plug_lspconfig()
       -- For Lua
       -- Install server using `brew install lua-language-server`
       -- See setup config here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
-      require'lspconfig'.lua_ls.setup {
+      vim.lsp.config('lua_ls',{
         on_init = function(client)
           local path = client.workspace_folders[1].name
           if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
@@ -327,7 +331,8 @@ local function plug_lspconfig()
         settings = {
           Lua = {}
         }
-      }
+      })
+      vim.lsp.enable('lua_ls')
 
     end
   }
