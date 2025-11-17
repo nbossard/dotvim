@@ -1884,6 +1884,17 @@ require("lazy").setup({
   plug_color_solarized_osaka(),
 })
 
+-- cucumber filetype default settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "cucumber",
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+  end,
+})
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
