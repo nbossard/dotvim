@@ -173,10 +173,9 @@ end
 local function plug_lspconfig()
   return {
     "neovim/nvim-lspconfig",
-    opts = {
-      -- Note : inlay hints are not errors
-      inlay_hints = { enabled = true },
-    },
+    on_attach = function(c, b)
+      require("inlay-hints").on_attach(c, b)
+    end,
     config = function()
 
       -- warning : debug level is very verbose
@@ -205,6 +204,34 @@ local function plug_lspconfig()
             disableSuggestions = true,
           },
         },
+        -- inlay hints configuration as suggested by
+        -- https://github.com/MysticalDevil/inlay-hints.nvim
+        -- configured below
+        settings = {
+          javascript = {
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+          typescript = {
+            inlayHints = {
+              includeInlayEnumMemberValueHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayVariableTypeHints = true,
+            },
+          },
+        },
+
         filetypes = {
           "javascript",
           "typescript",
@@ -306,6 +333,25 @@ local function plug_lspconfig()
   }
 end
 --- }}}
+
+-- {{{ plugin to ease config process of display LSP inlay hints
+-- see : https://github.com/MysticalDevil/inlay-hints.nvim
+-- See also configuration in LSP config above
+local function plug_lsp_inlay_hints()
+  return {
+    'MysticalDevil/inlay-hints.nvim',
+    event = "LspAttach",
+    dependencies = { "neovim/nvim-lspconfig"},
+    config= function ()
+      require("inlay-hints").setup(
+        {
+          commands = { enable = true }, -- Enable InlayHints commands, include `InlayHintsToggle`, `InlayHintsEnable` and `InlayHintsDisable`
+          autocmd = { enable = true } -- Enable the inlay hints on `LspAttach` event
+        })
+    end
+  }
+end
+-- }}}
 
 -- {{{ marks
 -- display marks in gutter
@@ -1834,6 +1880,7 @@ require("lazy").setup({
   plug_which_key(),
   plug_mini_icons(),
   plug_lspconfig(),
+  plug_lsp_inlay_hints(),
   plug_ripgrep_multiline(),
   'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
   plug_vimghost(),
