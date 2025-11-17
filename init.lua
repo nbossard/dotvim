@@ -1670,6 +1670,20 @@ local function plug_lsp_lines()
 end
 -- }}}
 
+-- {{{ nvim-colorizer.lua : to colorize color codes in files
+-- see: https://github.com/norcalli/nvim-colorizer.lua
+local function plug_colorizer()
+  return {
+  {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = { -- set to setup table
+    },
+  },
+}
+end
+-- }}}
+
 -- {{{ nvim-surround : plugin for surrounding text with quotes, brackets, etc
 -- see : https://github.com/kylechui/nvim-surround
 -- rem : surround selection : key is "S"
@@ -1843,6 +1857,7 @@ require("lazy").setup({
   plug_obsidian(),
   'glacambre/firenvim',
   -- plug_lsp_lines(),
+  plug_colorizer(),
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
