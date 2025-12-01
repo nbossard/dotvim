@@ -799,6 +799,26 @@ local function plug_ripgrep_multiline()
 end
 -- }}}
 
+-- {{{ vista : plugin to display tags or lsp info about methods, const, properties.. in a side window
+-- see : https://github.com/liuchengxu/vista.vim
+local function plug_vista()
+  return {
+    'liuchengxu/vista.vim',
+    cmd = {'Vista'},
+    config = function()
+      -- special executive for some filetypes
+      vim.g.vista_executive_for = {
+        -- use treesitter for go files
+        javascript = 'nvim_lsp'
+      }
+      -- sort methods by order of appearance
+      --
+      -- enable icons
+      -- let g:vista#renderer#enable_icon = 1
+      vim.cmd('let g:vista#renderer#enable_icon = 1')
+    end
+  }
+end
 
 -- {{{ Plugin to use ripgrep  inside vim
 -- https://github.com/mangelozzi/rgflow.nvim
@@ -1887,8 +1907,8 @@ require("lazy").setup({
   plug_lspconfig(),
   plug_lsp_inlay_hints(),
   plug_ripgrep_multiline(),
-  'liuchengxu/vista.vim', -- ctags equivalent, commande :Vista
-  plug_vimghost(),
+  plug_vista(),
+  -- plug_vimghost(),
   plug_ale(),
   plug_ctrlxa(),
   plug_mark(),
