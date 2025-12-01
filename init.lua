@@ -1657,7 +1657,7 @@ local function plug_obsidian()
       min_chars = 2,
     },
     cmd = {
-       "ObsidianSearch"
+       "ObsidianSearch","ObsidianToday",
     },
     ft = "markdown",
     dependencies = {
@@ -1666,6 +1666,12 @@ local function plug_obsidian()
     },
     opts = {
       preferred_link_style = "markdown",
+
+      -- Optional, customize how markdown links are formatted.
+      markdown_link_func = function(opts)
+        return require("obsidian.util").markdown_link(opts)
+      end,
+
       disable_frontmatter = true,
       picker = {
         -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
@@ -1693,11 +1699,44 @@ local function plug_obsidian()
             folder = "my-templates-folder",
             date_format = "%Y-%m-%d",
             time_format = "%H:%M",
+          },
+          overrides = {
+            daily_notes = {
+              -- Optional, if you keep daily notes in a separate directory.
+              folder = "Agenda",
+              -- Optional, if you want to change the date format for the ID of daily notes.
+              date_format = "%Y-%m-%d",
+              -- Optional, default tags to add to each new daily note created.
+              default_tags = {},
+              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+              template = "daily.md"
+            }
           }
         },
         {
-          name = "OMPayMetrics",
+          name = "business-server",
           path = "~/PilotageDistri/business-server",
+          overrides = {
+            templates = {
+              folder = "documentation/TemplatesObsidian",
+              date_format = "%Y-%m-%d",
+              time_format = "%H:%M",
+            },
+            daily_notes = {
+              -- Optional, if you keep daily notes in a separate directory.
+              folder = "documentation/Agenda",
+              -- Optional, if you want to change the date format for the ID of daily notes.
+              date_format = "%Y-%m-%d",
+              -- Optional, default tags to add to each new daily note created.
+              default_tags = {},
+              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+              template = "daily.md"
+            },
+          }
+        },
+        {
+          name = "business-server",
+          path = "~/PilotageDistri/business-server-dev",
           overrides = {
             templates = {
               folder = "documentation/TemplatesObsidian",
