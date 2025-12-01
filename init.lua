@@ -705,6 +705,26 @@ local function plug_gitsigns()
 end
 --- }}}
 
+-- {{{ lazyjui : plugin to display a UI for lazy.nvim
+-- see : https://github.com/mrdwarf7/lazyjui.nvim
+local function plug_lazyjui()
+  return {
+    "mrdwarf7/lazyjui.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+    keys = {
+      { "<leader>j", "", desc = "LazyJui" },
+      { "<leader>jj", ":LazyJui<CR>", desc = "Launch LazyJui" },
+    },
+    opts =  {
+      -- Will default to just `jjui`
+      cmd = { "jjui", "-r", "all()" },
+    }
+  }
+end
+--- }}}
+
 -- {{{ lualine : to display a bottom status bar
 -- see : https://github.com/nvim-lualine/lualine.nvim
 -- replacing airline
@@ -1919,6 +1939,7 @@ require("lazy").setup({
   plug_nvim_tree(),
   plug_lualine(),
   plug_gitsigns(),
+  plug_lazyjui(),
   plug_trailing_whitespaces(),
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
