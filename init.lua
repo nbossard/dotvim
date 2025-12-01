@@ -334,6 +334,12 @@ local function plug_lspconfig()
       })
       vim.lsp.enable('lua_ls')
 
+
+      -- For yaml
+      -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#yamlls
+      -- or npm install -g yaml-language-server
+      vim.lsp.enable('yamlls')
+
     end
   }
 end
