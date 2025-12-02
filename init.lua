@@ -913,6 +913,17 @@ local function plug_jsonpath()
 end
 -- }}}
 
+-- {{{ mason : package manager for LSP, DAP, linters, formatters
+-- :MasonInstall js-debug-adapter
+-- Site: https://github.com/mason-org/mason.nvim
+local function plug_mason()
+  return {
+    "mason-org/mason.nvim",
+    opts = {}
+  }
+end
+-- }}}
+
 -- {{{ nvim-dap-ui : Debug Adapter Protocol UI
 -- see : https://github.com/rcarriga/nvim-dap-ui
 -- A richer frienly UI for nvim-dap
@@ -2034,11 +2045,7 @@ require("lazy").setup({
   plug_rainbow_csv(),
   plug_rgflow(),
   plug_jsonpath(),
-  {"mxsdev/nvim-dap-vscode-js"},
-  -- {
-  --   "mason-org/mason.nvim",
-  --   opts = {}
-  -- },
+  plug_mason(),
   -- https://codeberg.org/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript
   -- note: add debug adapter for nodejs using mason
   {
