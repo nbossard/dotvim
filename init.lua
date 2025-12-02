@@ -913,6 +913,31 @@ local function plug_jsonpath()
 end
 -- }}}
 
+-- {{{ nvim-dap-ui : Debug Adapter Protocol UI
+-- see : https://github.com/rcarriga/nvim-dap-ui
+-- A richer frienly UI for nvim-dap
+local function plug_nvim_dap_ui()
+  return {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} ,
+    config = function ()
+      require("dapui").setup()
+          local wk = require("which-key")
+          wk.add({
+            { "<leader>d", group = "DAP" },
+            { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", desc = "DAP Continue" },
+            { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", desc = "DAP Step Into" },
+            { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", desc = "DAP Step Over" },
+            { "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", desc = "DAP Step Out" },
+            { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "DAP Toggle Breakpoint" },
+            { "<leader>dr", "<cmd>lua require'dap'.repl.open()<cr>", desc = "DAP REPL Open" },
+            { "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", desc = "DAP UI Toggle" },
+          })
+    end
+  }
+end
+-- }}}
+
 -- {{{ minimap : display a minimap on the right
 -- see : https://github.com/wfxr/minimap.vim
 -- started in dev mode
@@ -2068,6 +2093,7 @@ require("lazy").setup({
       end
     end
   },
+  plug_nvim_dap_ui(),
   plug_minimap(),
   plug_scrollbar(),
   plug_bufdel(),
