@@ -1007,6 +1007,7 @@ local function plug_nvim_dap_ui()
             { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "DAP Toggle Breakpoint" },
             { "<leader>dr", "<cmd>lua require'dap'.repl.open()<cr>", desc = "DAP REPL Open" },
             { "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", desc = "DAP UI Toggle" },
+            { "<leader>de", "<cmd>lua require'dapui'.eval()<cr>", desc = "DAP UI Eval" },
           })
     end
   }
