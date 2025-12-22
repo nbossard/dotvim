@@ -1086,7 +1086,7 @@ local function plug_tcomment()
 
 -- {{{ vim-test : plugin to run tests inside vim
 -- see https://github.com/vim-test/vim-test
--- Usage : :TestFile
+-- Usage launch a test: :TestFile
 local function plug_testfile()
   return {
     'vim-test/vim-test',
