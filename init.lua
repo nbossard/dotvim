@@ -636,6 +636,9 @@ local function plug_nvim_tree()
       }
       -- Define the alias for previous plugin Nerdtree
       vim.cmd('command! -nargs=0 NERDTree echo "Use :NvimTreeOpen"')
+      -- faster open alias
+      vim.cmd('command! -nargs=0 NVO :NvimTreeOpen')
+
 
       -- key mapping to open current file in nvim-tree
       -- document this key mapping for which-key
