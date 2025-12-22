@@ -848,6 +848,7 @@ local function plug_vista()
     end
   }
 end
+-- }}}
 
 -- {{{ Plugin to use ripgrep  inside vim
 -- https://github.com/mangelozzi/rgflow.nvim
