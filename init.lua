@@ -1096,6 +1096,71 @@ local function plug_testfile()
 end
 -- }}}
 
+-- {{{ neotest : plugin to autorun tests inside vim
+-- see https://github.com/nvim-neotest/neotest
+local function plug_neotest()
+  return {
+  "nvim-neotest/neotest",
+  dependencies = {
+    "nvim-neotest/nvim-nio", -- A library for asynchronous IO in Neovim
+    "nvim-lua/plenary.nvim", -- All the lua functions I don't want to write twice.
+    "antoinemadec/FixCursorHold.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    'adrigzr/neotest-mocha'
+  },
+  config = function()
+    require('neotest').setup({
+      adapters = {
+        require('neotest-mocha')({
+          command = "npm test --",
+          command_args = function(context)
+            -- The context contains:
+            --   results_path: The file that json results are written to
+            --   test_name: The exact name of the test; is empty for `file` and `dir` position tests.
+            --   test_name_pattern: The generated pattern for the test
+            --   path: The path to the test file
+            --
+            -- It should return a string array of arguments
+            --
+            -- Not specifying 'command_args' will use the defaults below
+            return {
+              "--full-trace",
+              "--reporter=json",
+              "--reporter-options-output=\"" .. context.results_path .. "\"",
+              "--grep=\"" .. context.test_name_pattern .. "\"",
+              context.path,
+            }
+          end,
+          env = { CI = true },
+          cwd = function(path)
+            return vim.fn.getcwd()
+          end,
+        }),
+      },
+      watch = {
+        enabled = true,
+        symbol_queries = {
+          javascript = [[
+          ;query
+          ;Captures named imports
+          (import_specifier name: (identifier) @symbol)
+          ;Captures default import
+          (import_clause (identifier) @symbol)
+          ;Capture require statements
+          (variable_declarator
+          name: (identifier) @symbol
+          value: (call_expression (identifier) @function  (#eq? @function "require")))
+            ;Capture namespace imports
+            (namespace_import (identifier) @symbol)
+            ]],
+          },
+        }
+    })
+  end
+}
+end
+-- }}}
+
 -- {{{ gx : open links under cursor
 -- see : https://github.com/chrishrb/gx.nvim
 local function plug_gx()
