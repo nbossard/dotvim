@@ -386,7 +386,7 @@ local function plug_lsp_inlay_hints()
   return {
     'MysticalDevil/inlay-hints.nvim',
     event = "LspAttach",
-    dependencies = { "neovim/nvim-lspconfig"},
+    dependencies = {}, -- DO NOT add nvim-lspconfig here, useless in O.11
     config= function ()
       require("inlay-hints").setup(
         {
