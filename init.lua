@@ -532,7 +532,7 @@ local function plug_treesitter()
 end
 --}}}
 
--- {{{ treesj: plugin to keep function name line on top
+-- {{{ treesitter context: plugin to keep function name line on top
 -- see https://github.com/nvim-treesitter/nvim-treesitter-context
 local function plug_treesitter_context()
   return {
