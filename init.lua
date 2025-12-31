@@ -1247,51 +1247,33 @@ local function plug_chatGPT()
     -- setting to VeryLazy and not CmdlineEnter
     -- as it can be used before throught key mapping
     event = "VeryLazy",
-    config = function()
       -- see config possible here : https://github.com/jackMort/ChatGPT.nvim/blob/f1453f588eb47e49e57fa34ac1776b795d71e2f1/lua/chatgpt/config.lua#L10-L182
+      -- key for real ChatGPT
+      -- api_key_cmd = "pass show openai.com_apikey",
+      -- key for llmproxy
+      -- PATH
+      -- make it use lm studio
+      -- api_host_cmd = "echo http://localhost:1234",
+      -- make it use llm proxy
+      -- originally was changed in lua/chatgpt/flows/code_completions/init.lua#55
+      -- see model list :
+      -- https://platform.openai.com/docs/models/gpt-3-5-turbo
+      -- model = "gpt-3.5-turbo-instruct",
+      -- model = "gpt-3.5-turbo",
+      -- model for llmproxy
+    config = function()
       require("chatgpt").setup({
         actions_paths = {"~/dotvim/actions_chat_gpt_nbo.json"},
-        -- key for real ChatGPT
-        api_key_cmd = "pass show openai.com_apikey",
-        -- make it use lm studio
-        -- api_host_cmd = "echo http://localhost:1234",
+        api_key_cmd = "pass show llmproxy.ai.orange | head -n1",
+        api_host_cmd = "echo https://llmproxy.ai.orange",
+        api_type_cmd = "echo openai",
         openai_params = {
-          -- originally was changed in lua/chatgpt/flows/code_completions/init.lua#55
-          -- see model list :
-          -- https://platform.openai.com/docs/models/gpt-3-5-turbo
-          -- model = "gpt-3.5-turbo-instruct",
-          model = "gpt-3.5-turbo",
+          model = "vertex_ai/claude3.5-sonnet-v2",
+        },
+        openai_edit_params = {
+          model = "vertex_ai/claude3.5-sonnet-v2",
         },
       })
-
-
-      -- document this key mapping for which-key
-      local wk = require("which-key")
-      -- do not use "c" as it is already used by COQ
-      wk.add({
-        { "<leader>g", group = "ChatGPT" },
-        { "<leader>gc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-        {
-          mode = { "n", "v" },
-          { "<leader>ga", "<cmd>ChatGPTRun add_tests<CR>", desc = "ChatGPT Add Tests" },
-          { "<leader>gd", "<cmd>ChatGPTRun docstring<CR>", desc = "ChatGPT Docstring" },
-          { "<leader>ge", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "ChatGPT Edit with instruction" },
-          { "<leader>gf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "ChatGPT Fix Bugs" },
-          { "<leader>gg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "ChatGPT Grammar Correction" },
-          { "<leader>gk", "<cmd>ChatGPTRun keywords<CR>", desc = "ChatGPT Keywords" },
-          { "<leader>gl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "ChatGPT Code Readability Analysis" },
-          { "<leader>go", "<cmd>ChatGPTRun optimize_code<CR>", desc = "ChatGPT Optimize Code" },
-          { "<leader>gs", "<cmd>ChatGPTRun summarize<CR>", desc = "ChatGPT Summarize" },
-          { "<leader>gt", "<cmd>ChatGPTRun translate<CR>", desc = "ChatGPT Translate" },
-          { "<leader>gx", "<cmd>ChatGPTRun explain_code<CR>", desc = "ChatGPT Explain Code" },
-        },
-      }
-      )
-      -- Adding shortcut for completion in insert mode
-      -- NOTE: conflicts with COQ
-      -- NOTE2 : disabled cause using tabby
-      -- vim.keymap.set('i', '<C-Space>', '<cmd>ChatGPTComplete<CR>')
-
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -1341,66 +1323,150 @@ local function plug_avante()
     event = "VeryLazy",
     lazy = false,
     version = "*", -- * means any OFFICIAL version
+    mode = "legacy", -- WARNING: Switch from "agentic" to "legacy". agentic is default and way too slow and complex
     opts = {
+      debug = false, -- !!!!!
+      -- The system_prompt type supports both a string and a function that returns a string
+      -- Using a function here allows dynamically updating the prompt with mcphub
+      system_prompt = function()
+          local hub = require("mcphub").get_hub_instance()
+          return hub:get_active_servers_prompt()
+      end,
+      -- The custom_tools type supports both a list and a function that returns a list
+      -- Using a function here prevents requiring mcphub before it's loaded
+      custom_tools = function()
+          return {
+              require("mcphub.extensions.avante").mcp_tool(),
+          }
+      end,
       behaviour = {
           auto_suggestions = false, -- Experimental stage
       },
-      auto_suggestions_provider = "codestral-llmproxy",
-      provider = "claude-llmproxy", -- Recommend using Claude
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- timeout in milliseconds
-        temperature = 0, -- adjust if needed
-        max_tokens = 4096,
-        -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
-      },
-      auto_suggestions_provider = "openai-llmproxy", 
-      provider = "openai", -- Recommend using Claude
-      -- provider = "claude", -- Recommend using Claude
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-5-sonnet-20241022",
-        temperature = 0,
-        max_tokens = 4096,
-      },
-      vendors = {
-        ["claude-llmproxy"] = {
+      auto_suggestions_provider = "llmproxy_codestral",
+      --
+      -- Recommend using Claude
+      -- provider = "llmproxy_openai", openai has issues with replace_in_file method
+      provider = "llmproxy_claude3_7",
+      providers= {
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+          timeout = 30000, -- timeout in milliseconds
+          extra_request_body = {
+            temperature = 0, -- adjust if needed
+            max_tokens = 4096,
+          }
+          -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+        },
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-3-5-sonnet-20241022",
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 4096,
+          }
+        },
+        llmproxy_claude3_5 = {
           endpoint = "https://llmproxy.ai.orange",
           __inherited_from = "openai",
           model = "vertex_ai/claude3.5-sonnet-v2",
           timeout = 30000, -- Timeout in milliseconds
-          temperature = 0,
-          max_tokens = 8000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 8000,
+          }
         },
-        ["openai-llmproxy"] = {
+        llmproxy_claude3_7 = {
+          endpoint = "https://llmproxy.ai.orange",
+          __inherited_from = "openai",
+          model = "vertex_ai/claude3.7-sonnet",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 8000,
+          }
+        },
+        llmproxy_openai = {
+          endpoint = "https://llmproxy.ai.orange",
+          __inherited_from = "openai",
+          model = "openai/gpt-4.1",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 8000,
+          }
+        },
+        llmproxy_openai_mini = {
           endpoint = "https://llmproxy.ai.orange",
           __inherited_from = "openai",
           model = "openai/gpt-4o-mini",
           timeout = 30000, -- Timeout in milliseconds
-          temperature = 0,
-          max_tokens = 8000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 8000,
+          }
         },
-        ["codestral-llmproxy"] = {
+        llmproxy_codestral = {
           endpoint = "https://llmproxy.ai.orange",
           __inherited_from = "openai",
           model = "vertex_ai/codestral",
           timeout = 2000, -- Timeout in milliseconds
-          temperature = 0,
-          max_tokens = 128000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 128000,
+          }
+        },
+        -- see : https://github.com/yetone/avante.nvim/blob/46583943b67e68640568cac829c5fe08c69088ff/lua/avante/config.lua#L335
+        llmproxy_gemini_2_0_flash = {
+          endpoint = "https://llmproxy.ai.orange",
+          __inherited_from = "openai",
+          model = "vertex_ai/gemini-2.0-flash",
+          context_window = 1048576,
+          use_ReAct_prompt = true,
+          timeout = 10000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0.75
+          }
         },
       },
+      -- Tool list: https://github.com/yetone/avante.nvim/tree/main/lua/avante/llm_tools
+      --    rag_search, python, git_diff, git_commit, list_files, search_files, search_keyword, read_file_toplevel_symbols,
+      --    read_file, create_file, rename_file, delete_file, create_dir, rename_dir, delete_dir, bash, web_search, fetch
+      -- prompt tools usage guide :
+      --    https://github.com/yetone/avante.nvim/blob/6f13034845f866726113f81c5dc07945e08e52db/lua/avante/templates/_tools-guidelines.avanterules
+      -- description of tools sent to llm :
+      --    https://github.com/yetone/avante.nvim/blob/6f13034845f866726113f81c5dc07945e08e52db/lua/avante/llm_tools.lua#L592
+      disabled_tools = {"web_search"},
     },
+
+    -- -- this is for RAG
+    -- web_search_engine = {
+    --   -- see : https://app.tavily.com
+    --   provider = "tavily", -- tavily, serpapi or google
+    -- },
+
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = "make",
+    -- NBO : nécessaire car on atteint souvent le rate limit sur github pour download images
+    -- et ça fail avec un message pas clair.
+    build = "make BUILD_FROM_SOURCE=true",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    rag_service = {
+      enabled = true, -- Enables the RAG service
+      host_mount = os.getenv("HOME"), -- Host mount path for the rag service
+      provider = "openai-llmproxy", -- The provider to use for RAG service (e.g. openai or ollama)
+      llm_model = "", -- The LLM model to use for RAG service
+      embed_model = "azure/text-embedding-3-large", -- The embedding model to use for RAG service
+      endpoint = "https://llmproxy.ai.orange/v1", -- The API endpoint for RAG service
+    },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       'MeanderingProgrammer/render-markdown.nvim',
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
+      --- The below dependencies are optional
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions are optional,
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       -- "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
@@ -1419,14 +1485,6 @@ local function plug_avante()
             use_absolute_path = true,
           },
         },
-      },
-      {
-        -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
       },
     },
   }
