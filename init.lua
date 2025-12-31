@@ -128,6 +128,47 @@ local function plug_tabby()
 end
 --- }}}
 
+-- {{{ start screen plugin
+-- tried alpha-nvim and startup.nvim but both are too complex to configure
+local function plug_start_screen()
+-- see also TODO startup.nvim
+  -- {
+  --   'goolord/alpha-nvim',
+  --   config= function ()
+  --     local startify = require("alpha.themes.startify")
+  --     -- available: devicons, mini, default is mini
+  --     -- if provider not loaded and enabled is true, it will try to use another provider
+  --     startify.file_icons.provider = "devicons"
+  --     -- add find files
+  --     startify.section.buttons.val = vim.list_extend(
+  --       startify.section.buttons.val,
+  --       {
+  --         startify.button("f", "  Find File", ":Telescope find_files <CR>"),
+  --       }
+  --     )
+  --
+  --     require("alpha").setup(
+  --       startify.config
+  --     )
+  --   end
+  -- },
+  -- {
+  --   "startup-nvim/startup.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+  --   config = function()
+  --     require("startup").setup({theme = "startify"})
+  --   end
+  -- },
+  return {
+    'nvim-mini/mini.starter',
+    version = '*',
+    config = function()
+      require('mini.starter').setup()
+    end
+  }
+end
+--- }}}
+
 -- {{{ which-key : plugin to display key mapping
 -- see : https://github.com/folke/which-key.nvim
 local function plug_which_key()
@@ -2155,6 +2196,7 @@ require("lazy").setup({
   plug_copilot(), -- stopplspconfig.gopls.setuped paying
   plug_tabby(),
   plug_surround(),
+  plug_start_screen(),
   plug_which_key(),
   plug_mini_icons(),
   plug_lspconfig(),
