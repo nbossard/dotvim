@@ -74,6 +74,7 @@ local function plug_copilot()
     gitrebase = false,
     sh = true
   },
+  copilot_model = "Claude Sonnet 4.5",
   config = function()
     require("copilot").setup({
       suggestion = {
