@@ -107,9 +107,7 @@ end
 -- local function plug_tabby()
 --   return {
 --     "TabbyML/vim-tabby",
---     dependencies = {
---       "neovim/nvim-lspconfig",
---     },
+--     dependencies = {}, -- do not add nvim-lspconfig here, useless in O.11
 --     init = function()
 --       vim.g.tabby_agent_start_command = {"npx", "tabby-agent", "--stdio"}
 --       vim.g.tabby_inline_completion_trigger = "auto"
