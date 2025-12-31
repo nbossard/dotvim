@@ -199,7 +199,7 @@ local function plug_mini_icons()
 end
 --- }}}
 
--- {{{ LSP config
+-- {{{ LSP configuration
 -- https://github.com/neovim/nvim-lspconfig
 --
 -- *grr* *gra* *grn* *gri* *grt* *i_CTRL-S*
@@ -212,16 +212,18 @@ end
 -- - "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
 -- - CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 -- See : LspInfo
-local function plug_lspconfig()
-  return {
-    "neovim/nvim-lspconfig",
-    on_attach = function(c, b)
-      require("inlay-hints").on_attach(c, b)
-    end,
-    config = function()
 
-      -- warning : debug level is very verbose
-      vim.lsp.set_log_level("WARN")
+-- NBO: 2025-01-31 Removed nvim-lspconfig plugin - not needed in Neovim 0.11+
+-- Neovim 0.11+ has built-in LSP configuration via vim.lsp.config() and vim.lsp.enable()
+-- Keeping the LSP configuration but moving it to a direct setup
+local function setup_lsp_servers()
+  -- Set autostart = false for all servers (we'll enable them explicitly)
+  vim.lsp.config('*', {
+    autostart = false
+  })
+
+  -- warning : debug level is very verbose
+  vim.lsp.set_log_level("WARN")
 
       -- For HTML
       -- See doc here
@@ -276,8 +278,7 @@ local function plug_lspconfig()
           "vue",
           "typescriptreact"
         }
-      }
-      vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
+      })
       vim.lsp.enable('ts_ls')
 
       -- For Makefile
@@ -373,10 +374,10 @@ local function plug_lspconfig()
       -- Using Marksman LSP
       -- see : https://github.com/artempyanykh/marksman
       vim.lsp.enable('marksman')
-
-    end
-  }
 end
+
+-- Call the LSP setup function
+setup_lsp_servers()
 --- }}}
 
 -- {{{ plugin to ease config process of display LSP inlay hints
