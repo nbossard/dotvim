@@ -2272,6 +2272,12 @@ require("lazy").setup({
   plug_color_solarized_osaka(),
 })
 
+-- vim.diagnostic is Neovim’s built-in diagnostics system.
+-- it’s the API Neovim uses to receive, store, display, and manage errors, warnings, and hints from tools like LSP servers, linters, and formatters.
+-- configure vim diagnostics to use virtual_lines only for current line
+-- debug with :lua print(vim.inspect(vim.diagnostic.config()))
+vim.diagnostic.config({ underline = true, virtual_text = true, virtual_lines = { current_line =true } })
+
 -- cucumber filetype default settings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "cucumber",
