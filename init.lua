@@ -2233,6 +2233,7 @@ require("lazy").setup({
   plug_coloring_gomod(),
   plug_telescope(),
   plug_testfile(),
+  plug_neotest(),
   plug_gx(),
   plug_chatGPT(),
   plug_render_markdown(),
