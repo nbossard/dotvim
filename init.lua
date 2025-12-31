@@ -553,6 +553,9 @@ local function plug_treesitter()
       -- same for javascript
       vim.cmd("autocmd Filetype typescript setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype typescript setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- same for json
+      vim.cmd("autocmd Filetype json setlocal foldmethod=expr")
+      vim.cmd("autocmd Filetype json setlocal foldexpr=nvim_treesitter#foldexpr()")
       -- same for jsonc
       vim.cmd("autocmd Filetype jsonc setlocal foldmethod=expr")
       vim.cmd("autocmd Filetype jsonc setlocal foldexpr=nvim_treesitter#foldexpr()")
