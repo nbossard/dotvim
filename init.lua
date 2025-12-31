@@ -273,7 +273,8 @@ local function plug_lspconfig()
         filetypes = {
           "javascript",
           "typescript",
-          "vue"
+          "vue",
+          "typescriptreact"
         }
       }
       vim.cmd("autocmd FileType typescript setlocal foldmethod=syntax")
