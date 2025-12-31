@@ -2264,6 +2264,8 @@ require("lazy").setup({
   'glacambre/firenvim',
   -- plug_lsp_lines(),
   plug_colorizer(),
+  -- to generate UUIDs
+  {{"tokikokoko/uuid-rs.nvim", build = ":UuidBuild"}},
   plug_disp_coverage(),
 
 
