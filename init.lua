@@ -2019,29 +2019,6 @@ local function plug_bufdel()
 end
 -- }}}
 
-
--- {{{ lsp_lines : display lsp error messages on multiple lines below
--- See : https://git.sr.ht/~whynothugo/lsp_lines.nvim
--- Rem : will be integred in nvim 0.11
-local function plug_lsp_lines()
-  return {
-    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    event = "BufEnter",
-    config = function()
-
-      -- the diagnostic object is a shared config object
-      -- it might be overwritten by ALE, golang plugin...
-      -- to display it use :
-      -- :lua print(vim.inspect(vim.diagnostic.config()))
-      vim.diagnostic.config({
-        virtual_text = true,
-        virtual_lines = { only_current_line = true }
-      })
-    end
-  }
-end
--- }}}
-
 -- {{{ nvim-colorizer.lua : to colorize color codes in files
 -- see: https://github.com/norcalli/nvim-colorizer.lua
 local function plug_colorizer()
