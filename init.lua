@@ -508,6 +508,8 @@ local function plug_treesitter()
         sync_install = true,
         highlight = {
           enable = true,
+          -- list of language that will be disabled
+          disable = { "query" },
         },
         indent = {
           enable = false
