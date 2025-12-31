@@ -2235,7 +2235,7 @@ require("lazy").setup({
   plug_testfile(),
   plug_neotest(),
   plug_gx(),
-  plug_chatGPT(),
+  -- plug_chatGPT(),
   plug_render_markdown(),
   plug_avante(),
   plug_mcphub(),
