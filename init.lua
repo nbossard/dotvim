@@ -602,12 +602,16 @@ end
 local function plug_treesj()
   return {
     'Wansmer/treesj',
-    keys = {
-      { "<leader>j", "<cmd>TSJJoin<cr>", desc = "Treesj Join" },
-      { "<leader>s", "<cmd>TSJSplit<cr>", desc = "Treesj Split" },
-    },
     dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
     config = function()
+      local wk = require("which-key")
+      -- add key map for split/join
+      wk.add({
+        { "<leader>s", group = "treeSJ (split/join)" },
+        { "<leader>sj", "<cmd>TSJJoin<cr>", desc = "Treesj Join" },
+        { "<leader>ss", "<cmd>TSJSplit<cr>", desc = "Treesj Split" },
+      })
+
       require('treesj').setup({
         use_default_keymaps = false,
       })
