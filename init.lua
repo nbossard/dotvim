@@ -382,6 +382,11 @@ local function plug_lspconfig()
       -- or npm install -g yaml-language-server
       vim.lsp.enable('yamlls')
 
+      -- For Markdown
+      -- Using Marksman LSP
+      -- see : https://github.com/artempyanykh/marksman
+      vim.lsp.enable('marksman')
+
     end
   }
 end
