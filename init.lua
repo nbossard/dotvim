@@ -2208,7 +2208,7 @@ require("lazy").setup({
   plug_start_screen(),
   plug_which_key(),
   plug_mini_icons(),
-  plug_lspconfig(),
+  -- plug_lspconfig(), -- NBO: 2025-01-31 Removed - not needed in Neovim 0.11+, using built-in vim.lsp.config()
   plug_lsp_inlay_hints(),
   plug_ripgrep_multiline(),
   plug_vista(),
