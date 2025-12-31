@@ -103,29 +103,29 @@ end
 --
 -- monitoring or debugging :
 --    http://0.0.0.0:8080/
-local function plug_tabby()
-  return {
-    "TabbyML/vim-tabby",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-    init = function()
-      vim.g.tabby_agent_start_command = {"npx", "tabby-agent", "--stdio"}
-      vim.g.tabby_inline_completion_trigger = "auto"
-    end,
-    config = function()
-      -- manual or auto mode
-      -- :lua print(vim.g.tabby_inline_completion_trigger)
-      vim.g.tabby_inline_completion_trigger = 'manual' --default is 'auto'
-      -- can be found here : http://localhost:8080/
-      -- or here :
-      vim.g.tabby_token= 'auth_9a8a149b6a634cb79a31268110d48eac'
-      -- keymaps
-      vim.g.tabby_inline_completion_keybinding_trigger_or_dismiss = '<M-l>' -- default is <tab>
-      vim.g.tabby_inline_completion_keybinding_accept = '<M-m>' -- default is <C-\>
-    end,
-  }
-end
+-- local function plug_tabby()
+--   return {
+--     "TabbyML/vim-tabby",
+--     dependencies = {
+--       "neovim/nvim-lspconfig",
+--     },
+--     init = function()
+--       vim.g.tabby_agent_start_command = {"npx", "tabby-agent", "--stdio"}
+--       vim.g.tabby_inline_completion_trigger = "auto"
+--     end,
+--     config = function()
+--       -- manual or auto mode
+--       -- :lua print(vim.g.tabby_inline_completion_trigger)
+--       vim.g.tabby_inline_completion_trigger = 'manual' --default is 'auto'
+--       -- can be found here : http://localhost:8080/
+--       -- or here :
+--       vim.g.tabby_token= 'auth_9a8a149b6a634cb79a31268110d48eac'
+--       -- keymaps
+--       vim.g.tabby_inline_completion_keybinding_trigger_or_dismiss = '<M-l>' -- default is <tab>
+--       vim.g.tabby_inline_completion_keybinding_accept = '<M-m>' -- default is <C-\>
+--     end,
+--   }
+-- end
 --- }}}
 
 -- {{{ start screen plugin
@@ -2194,7 +2194,7 @@ end
 
 require("lazy").setup({
   plug_copilot(), -- stopplspconfig.gopls.setuped paying
-  plug_tabby(),
+  -- plug_tabby(),
   plug_surround(),
   plug_start_screen(),
   plug_which_key(),
