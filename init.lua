@@ -429,7 +429,7 @@ local function plug_ale()
 
   return {
     "dense-analysis/ale",
-    ft = "typescript,typescriptreact,json,yaml,markdown,css,scss,html,vue,lua,go,make,javascript,sh",
+    ft = "typescript,typescriptreact,json,yaml,markdown,css,scss,html,vue,go,make,javascript,sh",
     cmd = {"ALEFix", "ALEInfo"},
     config = function()
 
@@ -443,7 +443,8 @@ local function plug_ale()
         typescriptreact = {'eslint'},
         markdown = {'aichatnicolinter'},
         sh = {'shellcheck'},
-        make = {'mbake'}
+        make = {'mbake'},
+        lua = {} -- explicitly disable to prevent ALE from starting another instance of lua-language-server
       }
 
       vim.g.ale_fixers = {
