@@ -836,6 +836,9 @@ local function plug_telescope()
         { "<leader>f", group = "file" },
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
+
+        { "<leader>t", group = "telescope" },
+        { "<leader>tr", "<cmd>Telescope lsp_references<cr>", desc = "LSP Goto References" },
       })
 
     end
@@ -1822,9 +1825,8 @@ local function plug_x_go()
   return
     {
       "ray-x/go.nvim",
-      dependencies = {  -- optional packages
+      dependencies = {  -- optional packages, removed nvim-lspconfig dependency
         "ray-x/guihua.lua",
-        "neovim/nvim-lspconfig",
         "nvim-treesitter/nvim-treesitter",
       },
       config = function()
