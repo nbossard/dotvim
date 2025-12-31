@@ -1168,11 +1168,11 @@ local function plug_neotest()
             --
             -- Not specifying 'command_args' will use the defaults below
             return {
-              "--full-trace",
-              "--reporter=json",
-              "--reporter-options-output=\"" .. context.results_path .. "\"",
-              "--grep=\"" .. context.test_name_pattern .. "\"",
-              context.path,
+                "--full-trace",
+                "--reporter=json",
+                "--reporter-options=output=" .. context.results_path,
+                "--grep=" .. context.test_name_pattern,
+                context.path,
             }
           end,
           env = { CI = true },
