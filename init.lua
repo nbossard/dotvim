@@ -1389,6 +1389,7 @@ end
 -- }}}
 
 -- {{{ mcphub : plugin to have access to MCP APIs
+-- WARNING : mcphub is used by avante
 -- see https://github.com/ravitemer/mcphub.nvim
 --
 local function plug_mcphub()
@@ -2005,6 +2006,27 @@ local function plug_colorizer()
 end
 -- }}}
 
+-- {{{ nvim-coverage : plugin to display code coverage in the gutter
+-- to test code coverage with  c8
+-- c8 --reporter=lcov mocha "tests/**/*.test.js"
+-- usage :CoverageLoad
+local function plug_disp_coverage()
+  return {
+    "andythigpen/nvim-coverage",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("coverage").setup({
+        lang = {
+          javascript = {
+            coverage_file = "coverage/lcov.info",
+          }
+        }
+      })
+    end
+  }
+end
+-- }}}
+
 -- {{{ nvim-surround : plugin for surrounding text with quotes, brackets, etc
 -- see : https://github.com/kylechui/nvim-surround
 -- rem : surround selection : key is "S"
@@ -2185,6 +2207,8 @@ require("lazy").setup({
   'glacambre/firenvim',
   -- plug_lsp_lines(),
   plug_colorizer(),
+  plug_disp_coverage(),
+
 
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
