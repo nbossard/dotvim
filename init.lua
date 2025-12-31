@@ -665,9 +665,9 @@ local function plug_nvim_tree()
     config = function()
       require("nvim-tree").setup {
         -- Changes the tree root directory on DirChanged and refreshes the three.
-        sync_root_with_cwd = true,
+        sync_root_with_cwd = false,
         -- Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree
-        respect_buf_cwd = true,
+        respect_buf_cwd = false,
         -- update the focused file on BufEnter, up-collapses the folders recursively until if finds the file.
         update_focused_file = {
           enable = true,
