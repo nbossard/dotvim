@@ -320,6 +320,7 @@ local function plug_lspconfig()
           },
         },
       })
+      vim.lsp.enable('gopls')
 
       -- For JSON
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonls
