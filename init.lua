@@ -312,6 +312,7 @@ local function setup_lsp_servers()
       -- install :
       -- go install golang.org/x/tools/gopls@latest
       vim.lsp.config('gopls',{
+        cmd = {'gopls'},
         settings = {
           gopls = {
             analyses = {
