@@ -226,10 +226,18 @@ local function setup_lsp_servers()
       -- For HTML
       -- See doc here
       -- npm install -g vscode-langservers-extracted
+      vim.lsp.config('html', {
+        cmd = {'vscode-html-language-server', '--stdio'},
+        filetypes = {'html'},
+      })
       vim.lsp.enable('html')
 
       -- For CSS
       -- npm install -g css-variables-language-server
+      vim.lsp.config('css_variables', {
+        cmd = {'css-variables-language-server', '--stdio'},
+        filetypes = {'css', 'scss', 'less'},
+      })
       vim.lsp.enable('css_variables')
 
       -- For JavaScript and TypeScript
@@ -283,6 +291,10 @@ local function setup_lsp_servers()
       -- For Makefile
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#autotools_ls
       -- install : pipx install autotools-language-server
+      vim.lsp.config('autotools_ls', {
+        cmd = {'autotools-language-server'},
+        filetypes = {'config', 'automake', 'make'},
+      })
       vim.lsp.enable('autotools_ls')
 
       -- For Angular
@@ -293,6 +305,10 @@ local function setup_lsp_servers()
       -- For bash
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
       -- npm install -g bash-language-server
+      vim.lsp.config('bashls', {
+        cmd = {'bash-language-server', 'start'},
+        filetypes = {'sh', 'bash'},
+      })
       vim.lsp.enable('bashls')
 
       -- For Java
@@ -329,6 +345,10 @@ local function setup_lsp_servers()
       -- For JSON
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonls
       -- npm install -g vscode-langservers-extracted
+      vim.lsp.config('jsonls', {
+        cmd = {'vscode-json-language-server', '--stdio'},
+        filetypes = {'json', 'jsonc'},
+      })
       vim.lsp.enable('jsonls')
 
       -- For Python
@@ -338,6 +358,10 @@ local function setup_lsp_servers()
       -- trying another one
       -- https://github.com/python-lsp/python-lsp-server
       -- installed via homebrew
+      vim.lsp.config('pylsp', {
+        cmd = {'pylsp'},
+        filetypes = {'python'},
+      })
       vim.lsp.enable('pylsp')
 
       -- For Cucumber
@@ -369,11 +393,19 @@ local function setup_lsp_servers()
       -- For yaml
       -- see doc here https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#yamlls
       -- or npm install -g yaml-language-server
+      vim.lsp.config('yamlls', {
+        cmd = {'yaml-language-server', '--stdio'},
+        filetypes = {'yaml', 'yaml.docker-compose', 'yaml.gitlab'},
+      })
       vim.lsp.enable('yamlls')
 
       -- For Markdown
       -- Using Marksman LSP
       -- see : https://github.com/artempyanykh/marksman
+      vim.lsp.config('marksman', {
+        cmd = {'marksman', 'server'},
+        filetypes = {'markdown', 'markdown.mdx'},
+      })
       vim.lsp.enable('marksman')
 end
 
