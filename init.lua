@@ -237,6 +237,7 @@ local function setup_lsp_servers()
       -- npm install -g typescript typescript-language-server
       -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
       vim.lsp.config('ts_ls',{
+        cmd = {'typescript-language-server', '--stdio'},
         init_options = {
           preferences = {
             disableSuggestions = true,
