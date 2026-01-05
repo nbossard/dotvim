@@ -760,12 +760,14 @@ end
 
 -- {{{ lazyjui : plugin to display a UI for lazy.nvim
 -- see : https://github.com/mrdwarf7/lazyjui.nvim
+-- usage : `:LazyJui`
 local function plug_lazyjui()
   return {
     "mrdwarf7/lazyjui.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
+    cmd = "LazyJui",
     keys = {
       { "<leader>j", "", desc = "LazyJui" },
       { "<leader>jj", ":LazyJui<CR>", desc = "Launch LazyJui" },
