@@ -2204,11 +2204,10 @@ local function plug_ctrlxa()
 
       -- Define global toggles
       vim.g.CtrlXA_Toggles = {
-        {'Nicolas', 'James'},
-        {'BOSSARD', 'ZHIHONG_GUO'},
         {'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'},
         {'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'},
         {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'},
+        {'true', 'false'},
       }
 
       -- Additional rules for JavaScript
