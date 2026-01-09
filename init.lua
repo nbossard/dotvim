@@ -2201,7 +2201,7 @@ local function plug_ctrlxa()
         nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
         nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
       ]])
-      
+
       -- Define global toggles
       vim.g.CtrlXA_Toggles = {
         {'Nicolas', 'James'},
@@ -2210,7 +2210,7 @@ local function plug_ctrlxa()
         {'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'},
         {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'},
       }
-      
+
       -- Additional rules for JavaScript
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "javascript",
@@ -2224,7 +2224,7 @@ local function plug_ctrlxa()
           vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
         end
       })
-      
+
       -- Additional rules for cucumber/feature files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "cucumber",
@@ -2235,7 +2235,7 @@ local function plug_ctrlxa()
           vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
         end
       })
-      
+
       -- Additional rules for REST files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "rest",
@@ -2246,7 +2246,7 @@ local function plug_ctrlxa()
           vim.cmd('let b:CtrlXA_Toggles = b:CtrlXA_Toggles + g:CtrlXA_Toggles')
         end
       })
-      
+
       -- Additional rules for taskedit files
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "taskedit",
