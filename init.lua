@@ -1977,99 +1977,119 @@ local function plug_obsidian()
       -- Required.
       "nvim-lua/plenary.nvim", -- All the lua functions I don't want to write twice.
     },
-    opts = {
-      preferred_link_style = "markdown",
+    config = function()
+      require("obsidian").setup({
+        preferred_link_style = "markdown",
 
-      -- Optional, customize how markdown links are formatted.
-      markdown_link_func = function(opts)
-        return require("obsidian.util").markdown_link(opts)
-      end,
+        -- Optional, customize how markdown links are formatted.
+        markdown_link_func = function(opts)
+          return require("obsidian.util").markdown_link(opts)
+        end,
 
-      disable_frontmatter = true,
-      picker = {
-        -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-        name = "telescope.nvim",
-        -- Optional, configure key mappings for the picker. These are the defaults.
-        -- Not all pickers support all mappings.
-        note_mappings = {
-          -- Create a new note from your query.
-          new = "<C-x>",
-          -- Insert a link to the selected note.
-          insert_link = "<C-e>",
+        -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
+        completion = {
+          -- Set to false to disable completion.
+          nvim_cmp = true,
+          -- Trigger completion at 2 chars.
+          min_chars = 2,
         },
-        tag_mappings = {
-          -- Add tag(s) to current note.
-          tag_note = "<C-x>",
-          -- Insert a tag at the current location.
-          insert_tag = "<C-e>",
-        },
-      },
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/perso/obsidian/obsperso",
-          templates = {
-            folder = "my-templates-folder",
-            date_format = "%Y-%m-%d",
-            time_format = "%H:%M",
+
+        disable_frontmatter = true,
+        picker = {
+          -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+          name = "telescope.nvim",
+          -- Optional, configure key mappings for the picker. These are the defaults.
+          -- Not all pickers support all mappings.
+          note_mappings = {
+            -- Create a new note from your query.
+            new = "<C-x>",
+            -- Insert a link to the selected note.
+            insert_link = "<C-e>",
           },
-          overrides = {
-            daily_notes = {
-              -- Optional, if you keep daily notes in a separate directory.
-              folder = "Agenda",
-              -- Optional, if you want to change the date format for the ID of daily notes.
+          tag_mappings = {
+            -- Add tag(s) to current note.
+            tag_note = "<C-x>",
+            -- Insert a tag at the current location.
+            insert_tag = "<C-e>",
+          },
+        },
+        workspaces = {
+          {
+            name = "personal",
+            path = "~/perso/obsidian/obsperso",
+            templates = {
+              folder = "my-templates-folder",
               date_format = "%Y-%m-%d",
-              -- Optional, default tags to add to each new daily note created.
-              default_tags = {},
-              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-              template = "daily.md"
+              time_format = "%H:%M",
+            },
+            overrides = {
+              daily_notes = {
+                -- Optional, if you keep daily notes in a separate directory.
+                folder = "Agenda",
+                -- Optional, if you want to change the date format for the ID of daily notes.
+                date_format = "%Y-%m-%d",
+                -- Optional, default tags to add to each new daily note created.
+                default_tags = {},
+                -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+                template = "daily.md"
+              }
             }
-          }
+          },
+          {
+            name = "business-server",
+            path = "~/PilotageDistri/business-server",
+            overrides = {
+              templates = {
+                folder = "documentation/TemplatesObsidian",
+                date_format = "%Y-%m-%d",
+                time_format = "%H:%M",
+              },
+              daily_notes = {
+                -- Optional, if you keep daily notes in a separate directory.
+                folder = "documentation/Agenda",
+                -- Optional, if you want to change the date format for the ID of daily notes.
+                date_format = "%Y-%m-%d",
+                -- Optional, default tags to add to each new daily note created.
+                default_tags = {},
+                -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+                template = "daily.md"
+              },
+            }
+          },
+          {
+            name = "business-server",
+            path = "~/PilotageDistri/business-server-dev",
+            overrides = {
+              templates = {
+                folder = "documentation/TemplatesObsidian",
+                date_format = "%Y-%m-%d",
+                time_format = "%H:%M",
+              },
+              daily_notes = {
+                -- Optional, if you keep daily notes in a separate directory.
+                folder = "documentation/Agenda",
+                -- Optional, if you want to change the date format for the ID of daily notes.
+                date_format = "%Y-%m-%d",
+                -- Optional, default tags to add to each new daily note created.
+                default_tags = {},
+                -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+                template = "daily.md"
+              },
+            }
+          },
         },
-        {
-          name = "business-server",
-          path = "~/PilotageDistri/business-server",
-          overrides = {
-            templates = {
-              folder = "documentation/TemplatesObsidian",
-              date_format = "%Y-%m-%d",
-              time_format = "%H:%M",
-            },
-            daily_notes = {
-              -- Optional, if you keep daily notes in a separate directory.
-              folder = "documentation/Agenda",
-              -- Optional, if you want to change the date format for the ID of daily notes.
-              date_format = "%Y-%m-%d",
-              -- Optional, default tags to add to each new daily note created.
-              default_tags = {},
-              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-              template = "daily.md"
-            },
-          }
-        },
-        {
-          name = "business-server",
-          path = "~/PilotageDistri/business-server-dev",
-          overrides = {
-            templates = {
-              folder = "documentation/TemplatesObsidian",
-              date_format = "%Y-%m-%d",
-              time_format = "%H:%M",
-            },
-            daily_notes = {
-              -- Optional, if you keep daily notes in a separate directory.
-              folder = "documentation/Agenda",
-              -- Optional, if you want to change the date format for the ID of daily notes.
-              date_format = "%Y-%m-%d",
-              -- Optional, default tags to add to each new daily note created.
-              default_tags = {},
-              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-              template = "daily.md"
-            },
-          }
-        },
-      },
-    },
+      })
+      -- add key mappings for obsidian
+      local wk = require("which-key")
+      wk.add({
+        { "<leader>o", group = "Obsidian" },
+        { "<leader>os", "<cmd>ObsidianSearch<CR>", desc = "Obsidian Search" },
+        { "<leader>ot", "<cmd>ObsidianToday<CR>", desc = "Obsidian Today" },
+        { "<leader>oo", "<cmd>ObsidianOpen<CR>", desc = "Obsidian Open" },
+        { "<leader>on", "<cmd>ObsidianNew<CR>", desc = "Obsidian New Note" },
+        { "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc = "Obsidian Backlinks" },
+      })
+    end,
   }
 end
 ---}}}
