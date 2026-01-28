@@ -1897,6 +1897,22 @@ local function plug_plantuml_syntax()
 end
 -- }}}
 
+-- {{{ To support PlantUML File syntax
+-- See: https://github.com/Maduki-tech/nvim-plantuml
+-- Usage: ":PlantUMLPreview" to preview the diagram
+local function plug_plantuml_view()
+  return {
+    'Maduki-tech/nvim-plantuml',
+    config = function()
+      require('plantuml').setup({
+        output_dir = '/tmp',
+        viewer = 'open',
+        auto_refresh = true,
+      })
+    end
+  }
+end
+
 -- {{{ To support Gitleaksignore File syntax
 -- See: https://github.com/nbossard/gitleaksignore-syntax
 local function plug_gitleaksignore_syntax()
@@ -2320,6 +2336,7 @@ require("lazy").setup({
   plug_vim_taskwarrior_conf(),
   plug_tcomment(),
   plug_plantuml_syntax(),
+  plug_plantuml_view(),
   plug_gitleaksignore_syntax();
   plug_x_go(),
   plug_coloring_gomod(),
