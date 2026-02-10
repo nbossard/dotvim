@@ -368,6 +368,11 @@ local function setup_lsp_servers()
       -- See doc here : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cucumber_language_server
       -- tried it but complains a lot about undefined steps, disabled
       -- require 'lspconfig'.cucumber_language_server.setup{}
+      vim.lsp.config('cucumber_language_server', {
+        cmd = {'cucumber-language-server', '--stdio'},
+        filetypes = {'cucumber', 'feature'},
+      })
+      vim.lsp.enable('cucumber_language_server')
 
       -- For Lua
       -- Install server using `brew install lua-language-server`
