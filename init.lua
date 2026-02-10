@@ -2038,12 +2038,12 @@ local function plug_obsidian()
           {
             name = "personal",
             path = "~/perso/obsidian/obsperso",
-            templates = {
-              folder = "my-templates-folder",
-              date_format = "%Y-%m-%d",
-              time_format = "%H:%M",
-            },
             overrides = {
+              templates = {
+                folder = "Templates",
+                date_format = "%Y-%m-%d",
+                time_format = "%H:%M",
+              },
               daily_notes = {
                 -- Optional, if you keep daily notes in a separate directory.
                 folder = "Agenda",
