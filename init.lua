@@ -1535,6 +1535,38 @@ local function plug_avante()
 end
 -- }}}
 
+-- {{{ opencode : plugin to use LLM to generate code based on a selection
+--
+local function plug_opencode()
+  return {
+    "NickvanDyke/opencode.nvim",
+    dependencies = {
+      -- Recommended for `ask()` and `select()`.
+      -- Required for `snacks` provider.
+      ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
+      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+    },
+    config = function()
+      ---@type opencode.Opts
+      vim.g.opencode_opts = {
+        -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
+      }
+
+      -- Required for `opts.events.reload`.
+      vim.o.autoread = true
+
+      -- Keymaps.
+      vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
+      vim.keymap.set("n",          "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
+      -- to interrupt opencode cause esc does not work inside neovim
+      vim.keymap.set("i",          "<C-c>", function() return require("opencode").interrupt() end,               { desc = "Interrupt opencode", expr = true })
+
+
+    end,
+  }
+end
+-- }}}
+
 -- {{{ mcphub : plugin to have access to MCP APIs
 -- WARNING : mcphub is used by avante
 -- see https://github.com/ravitemer/mcphub.nvim
