@@ -248,6 +248,7 @@ local function setup_lsp_servers()
       -- NOTE : the setup lsp_ensure_capabilities is to support COQ snippets
       vim.lsp.config('ts_ls',{
         cmd = {'typescript-language-server', '--stdio'},
+        root_markers = {'jsconfig.json', 'tsconfig.json', 'package.json', '.git'},
         init_options = {
           preferences = {
             disableSuggestions = true,
@@ -258,6 +259,7 @@ local function setup_lsp_servers()
         -- configured below
         settings = {
           javascript = {
+            -- Activer le type checking pour JavaScript
             inlayHints = {
               includeInlayEnumMemberValueHints = true,
               includeInlayFunctionLikeReturnTypeHints = true,
@@ -269,6 +271,10 @@ local function setup_lsp_servers()
             },
           },
           typescript = {
+            -- Activer le type checking pour JavaScript
+            implicitProjectConfig = {
+              checkJs = true,
+            },
             inlayHints = {
               includeInlayEnumMemberValueHints = true,
               includeInlayFunctionLikeReturnTypeHints = true,
