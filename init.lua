@@ -2653,6 +2653,25 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 })
 -- }}}
 
+-- {{{ Reveal rare Unicode Line/Paragraph Separators (U+2028 / U+2029)
+-- Using conceal to display them as visible symbols (⏎ for line separator, ¶ for paragraph separator)
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = {"*"},
+    callback = function()
+        -- Enable concealment for the buffer
+        vim.wo.conceallevel = 2
+
+        vim.cmd([[
+            " Unicode Line Separator (U+2028)
+            syntax match UniLineSep /\%u2028/ conceal cchar=⏎
+
+            " Unicode Paragraph Separator (U+2029)
+            syntax match UniParaSep /\%u2029/ conceal cchar=¶
+        ]])
+    end
+})
+-- }}}
+
 -- {{{ changing vim default behaviour on registers
 -- make register 1-9 contain also yank history
 -- not only deleted history
