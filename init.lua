@@ -2387,8 +2387,10 @@ require("lazy").setup({
   plug_gx(),
   -- plug_chatGPT(),
   plug_render_markdown(),
-  plug_avante(),
-  plug_mcphub(),
+  -- plug_avante(),
+  plug_opencode(),
+  -- used by avante
+  -- plug_mcphub(),
   plug_luasnip(),
   -- plug_coq(),
   -- plug_coq_3p(),
