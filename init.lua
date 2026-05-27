@@ -77,6 +77,7 @@ local function plug_copilot()
   copilot_model = "Claude Sonnet 4.5",
   config = function()
     require("copilot").setup({
+      auth_provider_url = "https://orange.ghe.com/",
       suggestion = {
         auto_trigger = true,
         keymap = {
