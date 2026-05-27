@@ -2011,20 +2011,15 @@ end
 -- }}}
 
 ---{{{ obsidian.nvim: plugin for obsidian in neovim
+---OLD : https://github.com/epwalsh/obsidian.nvim
+---NEW : https://github.com/obsidian-nvim/obsidian.nvim
 local function plug_obsidian()
   return {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*",  -- recommended, use latest release instead of latest commit
     lazy = true,
-    -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
-    completion = {
-      -- Set to false to disable completion.
-      nvim_cmp = true,
-      -- Trigger completion at 2 chars.
-      min_chars = 2,
-    },
     cmd = {
-       "ObsidianSearch","ObsidianToday",
+       "Obsidian",
     },
     ft = "markdown",
     dependencies = {
@@ -2033,22 +2028,30 @@ local function plug_obsidian()
     },
     config = function()
       require("obsidian").setup({
-        preferred_link_style = "markdown",
+        -- disable legacy commands like ObsidianToday, ObsidianSearch, etc. in favor of the new picker
+        legacy_commands = false,
+        ui = { enable = false },
 
         -- Optional, customize how markdown links are formatted.
-        markdown_link_func = function(opts)
-          return require("obsidian.util").markdown_link(opts)
-        end,
+        link = {
+          style = "markdown",
+        },
 
         -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
         completion = {
           -- Set to false to disable completion.
           nvim_cmp = true,
+          blink = false,
           -- Trigger completion at 2 chars.
           min_chars = 2,
+          -- Enable creating new notes from completion
+          create_new = true,
+          match_case = true,
         },
 
-        disable_frontmatter = true,
+        frontmatter = {
+          enabled = false,
+        },
         picker = {
           -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
           name = "telescope.nvim",
