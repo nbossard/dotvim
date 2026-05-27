@@ -533,87 +533,65 @@ end
 
 -- {{{ Treesitter : syntax highlighter
 -- see : https://github.com/nvim-treesitter/nvim-treesitter
--- Usage : TSInstallInfo
--- Usage : TSInstall <language>
--- Puis : TSEnable
--- :TSUpdate all
+-- NOUVELLE VERSION compatible Neovim 0.12+
+-- Usage : require('nvim-treesitter').install({ 'language' })
+-- Usage : :TSUpdate pour mettre à jour tous les parsers
 local function plug_treesitter()
   return {
     "nvim-treesitter/nvim-treesitter",
-    version = "*", -- * means lazy should install any OFFICIAL version
+    lazy = false,  -- IMPORTANT : ne pas lazy-load
+    build = ":TSUpdate",  -- Auto-update parsers après installation
     config = function()
-      require'nvim-treesitter.configs'.setup {
-        -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "lua", "go" , "java", "bash", "html", "css", "javascript", "typescript", "jsdoc", "markdown", "json", "jsonc", "yaml"},
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `treesitter` CLI installed locally
-        auto_install = false,
-        -- List of parsers to ignore installing (or "all")
-        ignore_install = {
-          "make" -- NBO : 2024-08-16 not convinced with treesitter coloring of makefiles, less good than standard
-        },
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = true,
-        highlight = {
-          enable = true,
-          -- list of language that will be disabled
-          disable = { "query" },
-        },
-        indent = {
-          enable = false
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<CR>", -- set to `false` to disable one of the mappings
-            scope_incremental = "<CR>",
-            node_incremental = "<TAB>",
-            node_decremental = "<S-TAB>",
-          },
-        },
-        modules ={}
+      -- NOUVELLE API : require('nvim-treesitter') au lieu de require('nvim-treesitter.configs')
+      require('nvim-treesitter').setup {
+        -- install_dir est maintenant la seule option de configuration
+        install_dir = vim.fn.stdpath('data') .. '/site'
       }
 
-      -- treesitter breaks foldmethod=syntax when enabled for a filetype
-      -- but works if setting it to expr
-      vim.cmd("autocmd Filetype go setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype go setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for lua
-      vim.cmd("autocmd Filetype lua setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype lua setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for markdown
-      vim.cmd("autocmd Filetype markdown setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype markdown setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for javascript
-      vim.cmd("autocmd Filetype javascript setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype javascript setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for javascript
-      vim.cmd("autocmd Filetype typescript setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype typescript setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for json
-      vim.cmd("autocmd Filetype json setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype json setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for jsonc
-      vim.cmd("autocmd Filetype jsonc setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype jsonc setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for html
-      vim.cmd("autocmd Filetype html setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype html setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for yaml
-      vim.cmd("autocmd Filetype yaml setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype yaml setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for makefile
-      vim.cmd("autocmd Filetype make setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype make setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for bash
-      vim.cmd("autocmd Filetype bash setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype bash setlocal foldexpr=nvim_treesitter#foldexpr()")
-      -- same for sh
-      vim.cmd("autocmd Filetype sh setlocal foldmethod=expr")
-      vim.cmd("autocmd Filetype sh setlocal foldexpr=nvim_treesitter#foldexpr()")
+      -- Installation des parsers : exécutez manuellement dans Neovim :
+      -- :TSInstall lua go java bash html css javascript typescript jsdoc markdown markdown_inline json jsonc yaml
 
-      vim.cmd("autocmd Filetype json setlocal foldmethod=syntax")
+      -- NOUVEAU : Activation du highlighting par FileType autocmd
+      -- Remplace l'ancien highlight.enable = true
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 
+          'lua', 'go', 'java', 'bash', 'html', 'css',
+          'javascript', 'typescript', 'markdown',
+          'json', 'jsonc', 'yaml', 'sh'
+        },
+        callback = function()
+          vim.treesitter.start()  -- Active treesitter highlighting
+        end,
+      })
 
+      -- NOUVEAU : Configuration du folding avec la nouvelle API
+      -- Remplace les multiples autocmd individuels
+      local fold_filetypes = {
+        'lua', 'go', 'java', 'bash', 'html',
+        'javascript', 'typescript', 'markdown',
+        'jsonc', 'yaml', 'sh', 'make'
+      }
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = fold_filetypes,
+        callback = function()
+          -- NOUVELLE syntaxe pour foldexpr (vim.treesitter.foldexpr au lieu de nvim_treesitter#foldexpr)
+          vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          vim.wo[0][0].foldmethod = 'expr'
+        end,
+      })
+
+      -- Exception pour JSON : garde syntax folding (comme avant)
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'json',
+        callback = function()
+          vim.wo[0][0].foldmethod = 'syntax'
+        end,
+      })
+
+      -- NOTE : incremental_selection n'est plus supporté par défaut
+      -- Les anciens raccourcis <CR>, <TAB>, <S-TAB> ne fonctionneront plus
+      -- Si vous en avez besoin, utilisez nvim-treesitter-textobjects ou créez vos propres keymaps
     end
   }
 end
@@ -624,6 +602,7 @@ end
 local function plug_treesitter_context()
   return {
     'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },  -- Dépendance explicite
     event = "VeryLazy",
     config = function()
       require'treesitter-context'.setup{
