@@ -2417,6 +2417,11 @@ require("lazy").setup({
   plug_color_scheme_gruvbox(),
   plug_color_scheme_dracula(),
   plug_color_solarized_osaka(),
+}, {
+  -- Disable luarocks support - none of our plugins require it
+  rocks = {
+    enabled = false,
+  },
 })
 
 -- vim.diagnostic is Neovim’s built-in diagnostics system.
