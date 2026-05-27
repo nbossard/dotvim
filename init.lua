@@ -1886,23 +1886,16 @@ local function plug_trouble()
     'folke/trouble.nvim',
     -- 2024-06-06 : version 3.1 and 3.2 seem to be buggy
     -- Trouble command is not defined
-    version="v2.9.1",
+    -- version="v2.9.1",
     cmd="Trouble",
-    dependencies= {
-      'nvim-tree/nvim-web-devicons',
-    },
     opts = {
-        mode = "loclist",
-        auto_open = false,
-        auto_close = true,
-        height = 6, --default 10
+      modes = {
+        diagnostics_buffer = {
+          mode = "diagnostics", -- inherit from diagnostics mode
+          filter = { buf = 0 }, -- filter diagnostics to the current buffer
+        },
+      }
     },
-
-    config = function()
-      -- key mapping to jump to next items skipping groups
-      -- local wk = require("which-key")
-      -- wk.register({ t = { ":lua require('trouble').next({skip_groups = true, jump = true});", "Trouble next" } }, { prefix = "g" })
-    end
   }
 end
 -- }}}
