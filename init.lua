@@ -2114,7 +2114,7 @@ local function plug_obsidian()
             }
           },
           {
-            name = "business-server",
+            name = "business-server-dev",
             path = "~/PilotageDistri/business-server-dev",
             overrides = {
               templates = {
