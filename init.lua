@@ -538,6 +538,7 @@ end
 local function plug_treesitter()
   return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main", -- la branche master est archivée, la nouvelle branche est main pour neovim 0.12+
     lazy = false,  -- IMPORTANT : ne pas lazy-load
     build = ":TSUpdate",  -- Auto-update parsers après installation
     config = function()
