@@ -531,11 +531,10 @@ local function plug_vimghost()
 end
 -- }}}
 
--- {{{ Treesitter : syntax highlighter
+-- {{{ nvim-Treesitter : plugin to use tree-sitter for syntax highlighter
 -- see : https://github.com/nvim-treesitter/nvim-treesitter
 -- NOUVELLE VERSION compatible Neovim 0.12+
--- Usage : require('nvim-treesitter').install({ 'language' })
--- Usage : :TSUpdate pour mettre à jour tous les parsers
+-- Usage : :TSUpdate pour mettre à jour tous les parses
 local function plug_treesitter()
   return {
     "nvim-treesitter/nvim-treesitter",
@@ -1522,6 +1521,8 @@ end
 -- }}}
 
 -- {{{ opencode : plugin to use LLM to generate code based on a selection
+-- see https://github.com/nickjvandyke/opencode.nvim
+-- see https://github.com/folke/snacks.nvim
 --
 local function plug_opencode()
   return {
