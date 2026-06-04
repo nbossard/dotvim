@@ -2629,6 +2629,10 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
             syntax match ApiKey /\vsk-([a-zA-Z0-9-_]{22,})/ conceal cchar=🔑
             " Tavily keys
             syntax match ApiKey /\v"tvly[a-zA-Z0-9_-]{32,}"/ conceal cchar=🔑
+            " gitlab access tokens
+            syntax match ApiKey /\v"glpat-([a-zA-Z0-9.]{20,})"/ conceal cchar=🔑
+            " JIRA API tokens
+            syntax match ApiKey /\v"([a-zA-Z0-9+/]{24,})"/ conceal cchar=🔑
         ]])
     end
 })
