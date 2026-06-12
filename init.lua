@@ -838,7 +838,7 @@ end
 -- used to search files and live ripgrep
 local function plug_telescope()
   return {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    'nvim-telescope/telescope.nvim',
     event = "VeryLazy",
     dependencies = {
       'nvim-lua/plenary.nvim', -- All the lua functions I don't want to write twice.
