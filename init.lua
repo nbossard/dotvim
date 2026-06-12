@@ -1010,7 +1010,7 @@ local function plug_nvim_dap()
   return {
     "mfussenegger/nvim-dap",
     config = function ()
-      local js_based_languages = { "typescript", "javascript", "typescriptreact" }
+      local js_based_languages = { "typescript", "javascript", "typescript", "typescriptreact" }
 
       require("dap").adapters["pwa-node"] = {
         type = "server",
