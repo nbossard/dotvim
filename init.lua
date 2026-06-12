@@ -1931,6 +1931,7 @@ local function plug_plantuml_view()
     end
   }
 end
+---}}}
 
 -- {{{ To support Gitleaksignore File syntax
 -- See: https://github.com/nbossard/gitleaksignore-syntax
