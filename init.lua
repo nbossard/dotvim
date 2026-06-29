@@ -2299,7 +2299,9 @@ local function plug_ctrlxa()
         {'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'},
         {'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'},
         {'true', 'false'},
+        {'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'},
       }
+      -- additional toggles are defined in init.lua for projects like obsperso
 
       -- Additional rules for JavaScript
       vim.api.nvim_create_autocmd("FileType", {
