@@ -2018,6 +2018,7 @@ local function plug_obsidian()
         -- Optional, customize how markdown links are formatted.
         link = {
           style = "markdown",
+          format = "relative",
         },
 
         -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
