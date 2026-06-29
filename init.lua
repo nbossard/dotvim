@@ -2076,6 +2076,13 @@ local function plug_obsidian()
             }
           },
           {
+            name = "scam-report",
+            path = "/Users/nbossard/my-security-partner/scam-report",
+            frontmatter = {
+              enabled = false
+            }
+          },
+          {
             name = "business-server",
             path = "~/PilotageDistri/business-server",
             overrides = {
