@@ -2123,11 +2123,12 @@ local function plug_obsidian()
       local wk = require("which-key")
       wk.add({
         { "<leader>o", group = "Obsidian" },
-        { "<leader>os", "<cmd>ObsidianSearch<CR>", desc = "Obsidian Search" },
-        { "<leader>ot", "<cmd>ObsidianToday<CR>", desc = "Obsidian Today" },
-        { "<leader>oo", "<cmd>ObsidianOpen<CR>", desc = "Obsidian Open" },
-        { "<leader>on", "<cmd>ObsidianNew<CR>", desc = "Obsidian New Note" },
-        { "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc = "Obsidian Backlinks" },
+        { "<leader>os", "<cmd>Obsidian search<CR>", desc = "Obsidian Search" },
+        { "<leader>ot", "<cmd>Obsidian today<CR>", desc = "Obsidian Today" },
+        { "<leader>oo", "<cmd>Obsidian open<CR>", desc = "Obsidian Open" },
+        { "<leader>on", "<cmd>Obsidian new<CR>", desc = "Obsidian New Note" },
+        { "<leader>od", "<cmd>Obsidian dailies<CR>", desc = "Obsidian Dailies" },
+        { "<leader>ob", "<cmd>Obsidian backlinks<CR>", desc = "Obsidian Backlinks" },
       })
     end,
   }
