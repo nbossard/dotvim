@@ -825,8 +825,18 @@ return {
           'AvanteSelectedFiles',
           'AvanteInput',
           'NvimTree'
-        }
+        },
+      },
+      -- Modif pour afficher le nom du répertoire courant dans la section b (gauche)
+      sections = {
+        lualine_b = {
+          function()
+            return '📁 ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+          end,
+          'branch',
+        },
       }
+
     })
   end
 }
