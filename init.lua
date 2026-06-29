@@ -488,7 +488,7 @@ local function plug_ale()
         javascript = {'eslint'},
         typescript = {'eslint', 'aichatnicolinter'},
         typescriptreact = {'eslint'},
-        markdown = {'aichatnicolinter'},
+        markdown = {'aichatnicolinter', 'lychee'},
         sh = {'shellcheck'},
         make = {'mbake'},
         lua = {} -- explicitly disable to prevent ALE from starting another instance of lua-language-server
@@ -515,6 +515,7 @@ local function plug_ale()
     end,
   }
 end
+vim.g.ale_markdown_lychee_options = '--offline'
 -- }}}
 
 -- {{{ vim ghost : to use vim to edit firefox fields
