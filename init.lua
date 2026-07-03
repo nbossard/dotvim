@@ -2779,3 +2779,17 @@ if project_config then
     dofile(project_config)
 end
 -- }}}
+
+-- {{{ Custom highlight for function parameters
+-- Makes parameters visually distinct in function bodies
+vim.api.nvim_create_autocmd({"ColorScheme", "VimEnter"}, {
+  callback = function()
+    vim.api.nvim_set_hl(0, '@lsp.type.parameter', {
+      -- yellow
+      fg = '#E5C07B',
+      underline = true
+    })
+    vim.api.nvim_set_hl(0, '@parameter', { link = '@lsp.type.parameter' })
+  end,
+})
+-- }}}
