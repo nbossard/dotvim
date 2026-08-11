@@ -259,7 +259,7 @@ local function setup_lsp_servers()
         -- configured below
         settings = {
           javascript = {
-            -- Activer le type checking pour JavaScript
+            -- Activer les inlay hints
             inlayHints = {
               includeInlayEnumMemberValueHints = true,
               includeInlayFunctionLikeReturnTypeHints = true,
@@ -275,6 +275,7 @@ local function setup_lsp_servers()
             implicitProjectConfig = {
               checkJs = true,
             },
+            -- Activer les inlay hints (nom des params, types, etc. en ghost text)
             inlayHints = {
               includeInlayEnumMemberValueHints = true,
               includeInlayFunctionLikeReturnTypeHints = true,
@@ -284,6 +285,10 @@ local function setup_lsp_servers()
               includeInlayPropertyDeclarationTypeHints = true,
               includeInlayVariableTypeHints = true,
             },
+            -- activer les codelens.
+            -- càd une ligne au dessus pour afficher le nombre de références
+            referencesCodeLens = { enabled = true },
+            implementationsCodeLens = { enabled = true },
           },
         },
 
