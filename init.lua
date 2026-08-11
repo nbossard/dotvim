@@ -2029,6 +2029,16 @@ local function plug_obsidian()
         legacy_commands = false,
         ui = { enable = false },
 
+        -- CACHE : Améliore les performances (v3.16.6)
+        cache = {
+          enabled = true,
+        },
+
+        search = {
+          sort_by = "modified",    -- Trier par date de modification
+          sort_reversed = true,    -- Plus récent en premier
+        },
+
         -- Optional, customize how markdown links are formatted.
         link = {
           style = "markdown",
@@ -2036,20 +2046,24 @@ local function plug_obsidian()
         },
 
         -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
-        completion = {
-          -- Set to false to disable completion.
-          nvim_cmp = true,
-          blink = false,
-          -- Trigger completion at 2 chars.
-          min_chars = 2,
-          -- Enable creating new notes from completion
-          create_new = true,
-          match_case = true,
-        },
+        -- 2026-06-12 : completion is now LSP-based
 
         frontmatter = {
           enabled = false,
         },
+
+        -- CHECKBOXES : Configuration des cases à cocher
+        checkbox = {
+          enabled = true,
+          create_new = true,       -- Créer checkbox sur ligne vide avec smart_action
+          order = { " ", "/", "x" }, -- Espace → En cours → Fait
+        },
+
+        -- OPEN : Options d'ouverture
+        open = {
+          schemes = { "http", "https", "mailto", "obsidian" },
+        },
+
         picker = {
           -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
           name = "telescope.nvim",
@@ -2087,7 +2101,7 @@ local function plug_obsidian()
                 -- Optional, default tags to add to each new daily note created.
                 default_tags = {},
                 -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-                template = "daily.md"
+                template = "Daily note.md"
               }
             }
           },
