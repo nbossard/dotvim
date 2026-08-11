@@ -2490,7 +2490,28 @@ require("lazy").setup({
 -- it’s the API Neovim uses to receive, store, display, and manage errors, warnings, and hints from tools like LSP servers, linters, and formatters.
 -- configure vim diagnostics to use virtual_lines only for current line
 -- debug with :lua print(vim.inspect(vim.diagnostic.config()))
-vim.diagnostic.config({ underline = true, virtual_text = true, virtual_lines = { current_line =true } })
+vim.diagnostic.config({
+  -- display error messages in virtual text (on the right of the line)
+  -- disabled cause redundant with underline
+  virtual_text = false,
+  -- display error on virtual line below
+  underline = true,
+  virtual_lines = { current_line =true },
+  float = {
+    border = "rounded",
+    source = true,  -- Affiche la source (ex: "ts_ls")
+  },
+
+})
+-- Ouvre automatiquement le float (cf diagnostic.config ci dessus)
+-- quand le curseur reste sur une ligne
+-- Réduire le délai pour CursorHold (défaut 4000ms)
+vim.opt.updatetime = 500
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
 
 -- cucumber filetype default settings
 vim.api.nvim_create_autocmd("FileType", {
