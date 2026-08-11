@@ -2021,8 +2021,7 @@ local function plug_obsidian()
     },
     ft = "markdown",
     dependencies = {
-      -- Required.
-      "nvim-lua/plenary.nvim", -- All the lua functions I don't want to write twice.
+      -- plenary.nvim no more Required.
     },
     config = function()
       require("obsidian").setup({
