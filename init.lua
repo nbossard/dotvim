@@ -222,7 +222,7 @@ local function setup_lsp_servers()
   })
 
   -- warning : debug level is very verbose
-  -- vim.lsp.set_log_level("WARN") syntax changed in Neovim 0.11+ 
+  -- vim.lsp.set_log_level("WARN") syntax changed in Neovim 0.11+
   vim.lsp.log.set_level("WARN")
 
       -- For HTML
@@ -2069,6 +2069,7 @@ local function plug_obsidian()
             insert_tag = "<C-e>",
           },
         },
+
         workspaces = {
           {
             name = "personal",
