@@ -2806,6 +2806,22 @@ if project_config then
 end
 -- }}}
 
+-- {{{ Custom highlight for Copilot suggestions
+-- Rose clair pour les suggestions Copilot (ghost text)
+-- motivation : pour différencier suggestion des commentaires
+vim.api.nvim_create_autocmd({"ColorScheme", "VimEnter"}, {
+  callback = function()
+    vim.api.nvim_set_hl(0, 'CopilotSuggestion', {
+      fg = '#FFB6C1',  -- LightPink (rose clair)
+      italic = true,
+    })
+    vim.api.nvim_set_hl(0, 'CopilotAnnotation', {
+      fg = '#FF69B4',  -- HotPink (rose plus vif pour l'annotation)
+    })
+  end,
+})
+-- }}}
+
 -- {{{ Custom highlight for function parameters
 -- Makes parameters visually distinct in function bodies
 vim.api.nvim_create_autocmd({"ColorScheme", "VimEnter"}, {
