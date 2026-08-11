@@ -1195,7 +1195,7 @@ local function plug_neotest()
   dependencies = {
     "nvim-neotest/nvim-nio", -- A library for asynchronous IO in Neovim
     "nvim-lua/plenary.nvim", -- All the lua functions I don't want to write twice.
-    "antoinemadec/FixCursorHold.nvim",
+    -- "antoinemadec/FixCursorHold.nvim", -- no longer needed with neovim 0.12+
     "nvim-treesitter/nvim-treesitter",
     'adrigzr/neotest-mocha'
   },
