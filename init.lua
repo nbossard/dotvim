@@ -2555,6 +2555,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+
+    -- also refresh codelens on lsp attach
+    vim.lsp.codelens.enable(true, { bufnr = ev.buf })
   end,
 })
 -- }}}
